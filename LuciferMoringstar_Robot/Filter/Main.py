@@ -279,7 +279,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 InlineKeyboardButton('My Boss', url='t.me/helloheartbeat'),
                 InlineKeyboardButton('Source Code', url="https://github.com/AnjanModak/LuciferMoringstar_Robot")
                 ],[
-                InlineKeyboardButton('💫Deploy Video💫', url=f'{TUTORIAL}')
+                
                 ]]
             await query.message.edit(text=f"{HELP}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
@@ -310,7 +310,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton('💫 DEPLOY VIDEO 💫', url=f'{TUTORIAL}')
+                        
                     ]
                     ]
                 
