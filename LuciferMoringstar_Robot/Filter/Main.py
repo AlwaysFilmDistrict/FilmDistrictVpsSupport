@@ -287,7 +287,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             buttons = [
                 [
                     InlineKeyboardButton('My Boss', url='t.me/helloheartbeat'),
-                    InlineKeyboardButton('Source Code', url="https://github.com/AnjanModak/LuciferMoringstar_Robot}')
+                    InlineKeyboardButton('Source Code', url="https://github.com/AnjanModak/LuciferMoringstar_Robot")
                 ]
                 ]
             await query.message.edit(text=f"{ABOUT}".format(TUTORIAL), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
