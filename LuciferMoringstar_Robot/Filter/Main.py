@@ -53,7 +53,7 @@ async def filter(client, message):
     if 2 < len(message.text) < 100:    
         btn = []
         search = message.text
-        mo_tech_yt = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n**🎭 Genre:** {random.choice(GENRES)}\n**📤 Uploaded by {message.chat.title}\n**🙋 𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗕𝘆 {message.from_user.mention}\n\n**➡️ 𝗣𝗥𝗘𝗦𝗦 𝗧𝗛𝗘 𝗗𝗢𝗪𝗡 𝗕𝗨𝗧𝗧𝗢𝗡 𝗧𝗢 𝗔𝗖𝗖𝗘𝗦𝗦 𝗙𝗜𝗟𝗘𝗦**"
+        mo_tech_yt = f"**🗂️ 𝗧𝗶𝘁𝗹𝗲:** {search}\n**⭐ 𝗥𝗮𝘁𝗶𝗻𝗴:** {random.choice(RATING)}\n**🎭 𝗚𝗲𝗻𝗿𝗲:** {random.choice(GENRES)}\n**📤 𝗨𝗽𝗹𝗼𝗮𝗱𝗲𝗱 𝗕𝘆 {message.chat.title}\n**🙋 𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗕𝘆 {message.from_user.mention}\n\n**➡️ 𝗣𝗥𝗘𝗦𝗦 𝗧𝗛𝗘 𝗗𝗢𝗪𝗡 𝗕𝗨𝗧𝗧𝗢𝗡 𝗧𝗢 𝗔𝗖𝗖𝗘𝗦𝗦 𝗙𝗜𝗟𝗘𝗦**"
         files = await get_filter_results(query=search)
         if files:
             for file in files:
@@ -115,7 +115,7 @@ async def group(client, message):
     if 2 < len(message.text) < 50:    
         btn = []
         search = message.text
-        mo_tech_yt = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n**🎭 Genre:** {random.choice(GENRES)}\n**📤 Uploaded by {message.chat.title}\n**🙋 𝗥𝗘𝗤𝗨𝗘𝗦𝗧𝗘𝗗 𝗕𝗬 {message.from_user.mention}\n\n**➡️ 𝗣𝗥𝗘𝗦𝗦 𝗧𝗛𝗘 𝗗𝗢𝗪𝗡 𝗕𝗨𝗧𝗧𝗢𝗡 𝗧𝗢 𝗔𝗖𝗖𝗘𝗦𝗦 𝗙𝗜𝗟𝗘𝗦**"
+        mo_tech_yt = f"**🗂️ 𝗧𝗶𝘁𝗹𝗲:** {search}\n**⭐ 𝗥𝗮𝘁𝗶𝗻𝗴:** {random.choice(RATING)}\n**🎭 𝗚𝗲𝗻𝗿𝗲:** {random.choice(GENRES)}\n**📤 𝗨𝗽𝗹𝗼𝗮𝗱𝗲𝗱 𝗕𝘆 {message.chat.title}\n**🙋 𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗕𝘆 {message.from_user.mention}\n\n**➡️ 𝗣𝗥𝗘𝗦𝗦 𝗧𝗛𝗘 𝗗𝗢𝗪𝗡 𝗕𝗨𝗧𝗧𝗢𝗡 𝗧𝗢 𝗔𝗖𝗖𝗘𝗦𝗦 𝗙𝗜𝗟𝗘𝗦**"
         nyva=BOT.get("username")
         if not nyva:
             botusername=await client.get_me()
