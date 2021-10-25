@@ -130,10 +130,8 @@ async def group(client, message):
                     [InlineKeyboardButton(text=f"{filename}", url=f"https://telegram.dog/{nyva}?start=pr0fess0r_99_-_-_-_{file_id}")]
                 )
         else: #added by @paulwalker_tg
-            msg = await update.reply(f"<b>This Movie, {query}! Couldn't Find The Movie You're Looking for😔😔Check Your Spelling In Google and try again</b>", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Srech Googel 🔎", callback_data="instruction")]]))
-        await asyncio.sleep(10)
-        return await msg.delete()
-
+            await message.reply(quote=True,text="<b>Sorry, No Movie/Series Related to the Given Word Was Found 🥺</b>\n\n<b>Please Go to Google and Confirm the Correct Spelling 🙏</b>\n\n<b>Click Here To 👉 <a href='https://www.google.com'>🔍 Search 🔎</a> </b>\n\n<b>✍Or Your Spelling Is Correct Report To Admins For Add Requested File:-♠️ ADMINS</b>")
+            return
 
         if not btn:
             return
