@@ -132,9 +132,7 @@ async def group(client, message):
         else: #added by @paulwalker_tg
             await message.reply(quote=True,text="<b>Sorry, No Movie/Series Related to the Given Word Was Found 🥺</b>\n\n<b>Please Go to Google and Confirm the Correct Spelling 🙏</b>\n\n<b>Click Here To 👉 <a href='https://www.google.com'>🔍 Search 🔎</a> </b>\n\n<b>✍Or Your Spelling Is Correct Report To Admins For Add Requested File:-♠️ ADMINS</b>")
             await asyncio.sleep(10)
-            return await msg.delete()
-
-         if len(results) == 0: # double check
+            return await msg.delete()       
             return
 
         if not btn:
