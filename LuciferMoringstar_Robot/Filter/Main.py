@@ -53,7 +53,7 @@ async def filter(client, message):
     if 2 < len(message.text) < 100:    
         btn = []
         search = message.text
-        mo_tech_yt = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n**🎭 Genre:** {random.choice(GENRES)}\n**📤 Uploaded by {message.chat.title}\n**🙋 𝘙𝘦𝘲𝘶𝘦𝘴𝘵𝘦𝘥 𝘉𝘺 {message.from_user.mention}\n\n**Get Support ✔️ HeartBeat**"
+        mo_tech_yt = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n**🎭 Genre:** {random.choice(GENRES)}\n**📤 Uploaded By {message.chat.title}\n**🙋 Requested By {message.from_user.mention}\n\n**Get Support ✔️ HeartBeat**"
         files = await get_filter_results(query=search)
         if files:
             for file in files:
@@ -115,7 +115,7 @@ async def group(client, message):
     if 2 < len(message.text) < 50:    
         btn = []
         search = message.text
-        mo_tech_yt = f"**🗂️ 𝐓𝐢𝐭𝐥𝐞:** {search}\n**⭐ 𝐑𝐚𝐭𝐢𝐧𝐠:** {random.choice(RATING)}\n**🎭 𝐆𝐞𝐧𝐫𝐞:** {random.choice(GENRES)}\n**📤 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐁𝐲 {message.chat.title}\n**🙋 𝐑𝐞𝐪𝐮𝐞𝐬𝐭𝐞𝐝 𝐁𝐲 {message.from_user.mention}\n\n**➡️ 𝐏𝐑𝐄𝐒𝐒 𝐃𝐎𝐖𝐍 𝐁𝐔𝐓𝐓𝐎𝐍 𝐓𝐎 𝐀𝐂𝐂𝐄𝐒𝐒 𝐅𝐈𝐋𝐄𝐒**"
+        mo_tech_yt = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n**🎭 Genre:** {random.choice(GENRES)}\n**📤 Uploaded By {message.chat.title}\n**🙋 Requested By {message.from_user.mention}\n\n**Get Support ✔️ HeartBeat**"
         nyva=BOT.get("username")
         if not nyva:
             botusername=await client.get_me()
