@@ -115,7 +115,9 @@ async def group(client, message):
     if 2 < len(message.text) < 50:    
         btn = []
         search = message.text
-        mo_tech_yt = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n**🎭 Genre:** {random.choice(GENRES)}\n**📤 Uploaded By: {message.chat.title}\n**🙋 Requested By: {message.from_user.mention}\n**\n**Get Support ✔️ HeartBeat\n**"
+        group = message.chat.title
+        name = message.from_user.mention
+    #    mo_tech_yt = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n**🎭 Genre:** {random.choice(GENRES)}\n**📤 Uploaded By: {**🙋 Requested By: {message.from_user.mention}\n**\n**Get Support ✔️ HeartBeat\n**"
         nyva=BOT.get("username")
         if not nyva:
             botusername=await client.get_me()
@@ -158,7 +160,8 @@ async def group(client, message):
 
         data = BUTTONS[keyword]
         buttons = data['buttons'][0].copy()
-
+        totals = data['total']
+       
         buttons.append(
             [InlineKeyboardButton(text="NEXT ⏩",callback_data=f"next_0_{keyword}")]
         )    
@@ -169,6 +172,14 @@ async def group(client, message):
         if API_KEY:
             poster=await get_poster(search)
         if poster:
+            mo_tech_yt = f"""
+🗂️ Title : {search}
+📑 Total Page : 1 to {totals}
+👤 Requested By : {name}
+🎙️ Group : {group}
+📳This poster will be deleted after 10 minutes📳
+➡️ Press The Down Buttons To Access The File"""
+
             await message.reply_photo(photo=poster, caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
         else:
             await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
