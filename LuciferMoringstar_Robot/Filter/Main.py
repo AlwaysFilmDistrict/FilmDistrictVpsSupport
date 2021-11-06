@@ -166,6 +166,8 @@ async def group(client, message):
 📑 Total Page : 1 to 1
 👤 Requested By : {message.from_user.mention}
 🎙️ Group : {message.chat.title}
+🧒 Get Support ✔️ @helloheartbeat
+➡️ Press The Down Buttons To Access The File
 
 📳This poster will be deleted after 10 minutes📳"""
                 LuciferMoringstar=await message.reply_photo(photo=poster, caption=text_photo_1 , reply_markup=InlineKeyboardMarkup(buttons))
@@ -180,7 +182,8 @@ async def group(client, message):
 📑 Total Page: 1 to 1
 👤 Requested By: {message.from_user.mention}
 🎙️ Group: {message.chat.title}
-**Get Support ✔️ HeartBeat**
+🧒 Get Support ✔️ @helloheartbeat
+➡️ Press The Down Buttons To Access The File
 
 📳This poster will be deleted after 10 minutes📳""", reply_markup=InlineKeyboardMarkup(buttons))
                 await asyncio.sleep(600) # in seconds
@@ -214,6 +217,8 @@ async def group(client, message):
 📑 Total Page : 1 to {totalss}
 🖋 StoryLine: <code>{imdb.get('plot')}</code>
 🎙️ Group : {message.chat.title}
+🧒 Get Support ✔️ @helloheartbeat
+➡️ Press The Down Buttons To Access The File
 
 📳This poster will be deleted after 10 minutes📳"""
  
@@ -229,8 +234,8 @@ async def group(client, message):
 📑 Total Page: 1 to {totalss}
 👤 Requested By: {message.from_user.mention}
 🎙️ Group: {message.chat.title}
-
-**Get Support ✔️ HeartBeat**
+🧒 Get Support ✔️ @helloheartbeat
+➡️ Press The Down Buttons To Access The File
 
 📳This poster will be deleted after 10 minutes📳""", reply_markup=InlineKeyboardMarkup(buttons))
             await asyncio.sleep(600) # in seconds
