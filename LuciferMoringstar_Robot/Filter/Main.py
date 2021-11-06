@@ -180,18 +180,19 @@ async def group(client, message):
             if poster:
                 text_photo_1 = f"""
 ↪️ **Requested:** {search}
+👤 **Requested By:** {message.from_user.mention}
+
 🗂️ **Title:** {search}
 🎭 **Genres:** {imdb.get('genres')}
 📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
 🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
 🖋 **StoryLine:** <code>{imdb.get('plot')} </code>"
-📑 **Total Page:** 1 to 1
-👤 **Requested By:** {message.from_user.mention}
+📑 **Total Page:** 1
 🎙️ **Group:** {message.chat.title}
-🧒 **Get Support ✔️ @helloheartbeat**
-➡️ **Press The Down Buttons To Access The File**
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
 
-**📳This poster will be deleted after 10 minutes📳**"""
+📌 **Press The Down Buttons To Access The File**
+📌 **This Post Will Be Deleted After 10 Minutes**"""
                 LuciferMoringstar=await message.reply_photo(photo=poster, caption=text_photo_1 , reply_markup=InlineKeyboardMarkup(buttons))
                 await asyncio.sleep(600) # in seconds
                 await LuciferMoringstar.delete()
@@ -201,7 +202,7 @@ async def group(client, message):
                 LuciferMoringstar=await message.reply_text(f"""
 ↪️ **Requested:** {search}
 🗂️ **Title:** {search}
-📑 **Total Page:** 1 to {totalss}
+📑 **Total Page:** 1
 👤 **Requested By:** {message.from_user.mention}
 🎙️ **Group:** {message.chat.title}
 🧒 **Get Support ✔️ @helloheartbeat**
@@ -234,19 +235,19 @@ async def group(client, message):
         if poster:
             text_photo_2 = f"""
 ↪️ **Requested:** {search}
+👤 **Requested By:** {message.from_user.mention}
+
 🗂️ **Title:** {search}
 🎭 **Genres:** {imdb.get('genres')}
 📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
 🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
 🖋 **StoryLine:** <code>{imdb.get('plot')} </code>"
 📑 **Total Page:** 1 to {totalss}
-👤 **Requested By:** {message.from_user.mention}
 🎙️ **Group:** {message.chat.title}
-🧒 **Get Support ✔️ @helloheartbeat**
-➡️ **Press The Down Buttons To Access The File**
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
 
-**📳This poster will be deleted after 10 minutes📳**"""
-
+📌 **Press The Down Buttons To Access The File**
+📌 **This Post Will Be Deleted After 10 Minutes**"""
             LuciferMoringstar=await message.reply_photo(photo=poster, caption=text_photo_2, reply_markup=InlineKeyboardMarkup(buttons))
             await asyncio.sleep(600) # in seconds
             await LuciferMoringstar.delete()
