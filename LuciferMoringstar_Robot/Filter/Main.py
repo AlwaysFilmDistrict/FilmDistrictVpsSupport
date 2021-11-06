@@ -156,7 +156,9 @@ async def group(client, message):
                 imdb=await get_muhammed(search)
                 poster=await get_poster(search)
             if poster:
-                text_photo_1 = f"""🗂️ Title: {search}
+                text_photo_1 = f"""
+👤 Requested: {search}
+🗂️ Title: {search}
 🎭 Genres: {imdb.get('genres')}
 📆 Year: <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
 🌟 Rating: <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
@@ -172,7 +174,9 @@ async def group(client, message):
                 await client.delete_messages(message.chat.id,message.message_id)
                 return
             else:
-                LuciferMoringstar=await message.reply_text(f"""🗂️ Title: {search}
+                LuciferMoringstar=await message.reply_text(f"""
+👤 Requested: {search}
+🗂️ Title: {search}
 📑 Total Page: 1 to 1
 👤 Requested By: {message.from_user.mention}
 🎙️ Group: {message.chat.title}
@@ -200,7 +204,9 @@ async def group(client, message):
             imdb=await get_muhammed(search)
             poster=await get_poster(search)
         if poster:
-            text_photo_2 = f"""🗂️ Title: {search}
+            text_photo_2 = f"""
+👤 Requested: {search}
+🗂️ Title: {search}
 🎭 Genres: {imdb.get('genres')}
 👤 Requested By : {message.from_user.mention}
 📆 Year: <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
@@ -218,10 +224,12 @@ async def group(client, message):
             return
         else:
             LuciferMoringstar=await message.reply_text(f"""
+👤 Requested: {search}
 🗂️ Title: {search}
 📑 Total Page: 1 to {totalss}
 👤 Requested By: {message.from_user.mention}
 🎙️ Group: {message.chat.title}
+
 **Get Support ✔️ HeartBeat**
 
 📳This poster will be deleted after 10 minutes📳""", reply_markup=InlineKeyboardMarkup(buttons))
