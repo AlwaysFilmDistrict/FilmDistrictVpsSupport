@@ -201,14 +201,15 @@ async def group(client, message):
             else:
                 LuciferMoringstar=await message.reply_text(f"""
 ↪️ **Requested:** {search}
+👤 **Requested By:** {message.from_user.mention}
+
 🗂️ **Title:** {search}
 📑 **Total Page:** 1
-👤 **Requested By:** {message.from_user.mention}
 🎙️ **Group:** {message.chat.title}
-🧒 **Get Support ✔️ @helloheartbeat**
-➡️ **Press The Down Buttons To Access The File**
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
 
-**📳This poster will be deleted after 10 minutes📳**""", reply_markup=InlineKeyboardMarkup(buttons))
+📌 **Press The Down Buttons To Access The File**
+📌 **This Post Will Be Deleted After 10 Minutes**""", reply_markup=InlineKeyboardMarkup(buttons))
                 await asyncio.sleep(600) # in seconds
                 await LuciferMoringstar.delete()
                 await client.delete_messages(message.chat.id,message.message_id)
@@ -256,14 +257,15 @@ async def group(client, message):
         else:
             LuciferMoringstar=await message.reply_text(f"""
 ↪️ **Requested:** {search}
-🗂️ **Title:** {search}
-📑 **Total Page:** 1 to {totalss}
 👤 **Requested By:** {message.from_user.mention}
-🎙️ **Group:** {message.chat.title}
-🧒 **Get Support ✔️ @helloheartbeat**
-➡️ **Press The Down Buttons To Access The File**
 
-**📳This poster will be deleted after 10 minutes📳**""", reply_markup=InlineKeyboardMarkup(buttons))
+🗂️ **Title:** {search}
+📑 **Total Page:**  1 to {totalss}
+🎙️ **Group:** {message.chat.title}
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
+
+📌 **Press The Down Buttons To Access The File**
+📌 **This Post Will Be Deleted After 10 Minutes**""", reply_markup=InlineKeyboardMarkup(buttons))
             await asyncio.sleep(600) # in seconds
             await LuciferMoringstar.delete()
             await client.delete_messages(message.chat.id,message.message_id)
