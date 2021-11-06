@@ -138,7 +138,7 @@ async def group(client, message):
             BOT["username"]=nyva
         files = await get_filter_results(query=search)
         if files:
-        btn.append(
+            btn.append(
                 [InlineKeyboardButton(text=JOIN_TEXT, url=JOIN_LINK)]
             )
             for file in files:
