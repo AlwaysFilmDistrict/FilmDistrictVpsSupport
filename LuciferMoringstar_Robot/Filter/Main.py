@@ -12,7 +12,7 @@ import random
 BUTTONS = {}
 BOT = {}
 
-JOIN_TEXT = "Join My Update Channel"
+JOIN_TEXT = "⭕ Join My Updates Channel ⭕"
 JOIN_LINK = "https://t.me/joinchat/EUUS8b0iEnVjZTU9" 
 
 
@@ -109,6 +109,9 @@ async def filter(client, message):
         )    
         buttons.append(
             [InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
+        )
+        buttons.append(
+            [InlineKeyboardButton(text="♻️ Help ♻️", callback_data="helpalert")]
         )
         poster=None
         if API_KEY:
@@ -218,7 +221,7 @@ async def group(client, message):
             [InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
         )
         buttons.append(
-            [InlineKeyboardButton(text=JOIN_TEXT, url=JOIN_LINK)]
+            [InlineKeyboardButton(text="♻️ Help ♻️", callback_data="helpalert")]
         )
         
         poster=None
@@ -371,6 +374,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 
                 ]]
             await query.message.edit(text=f"{HELP}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+
+        elif query.data == "helpalert":
+            await query.answer("Check if your spelling is correct first and then try adding the year and quality of the movie 😉. If you still didn'get your movie add the language 😁. If there is no result it just is'nt available 😌.", show_alert=True)
 
         elif query.data == "about":
             buttons = [
