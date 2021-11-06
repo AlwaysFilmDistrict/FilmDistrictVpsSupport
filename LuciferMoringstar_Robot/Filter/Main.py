@@ -167,7 +167,7 @@ async def group(client, message):
 🎙️ Group : {message.chat.title}"""
                 await message.reply_photo(photo=poster, caption=text_photo_1 , reply_markup=InlineKeyboardMarkup(buttons))
             else:
-                await message.reply_text("""🗂️ Title: {search}
+                await message.reply_text(f"""🗂️ Title: {search}
 📑 Total Page: 1 to 1
 👤 Requested By: {message.from_user.mention}
 🎙️ Group: {message.chat.title}
