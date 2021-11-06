@@ -119,7 +119,7 @@ async def group(client, message):
         search = message.text
         group = message.chat.title
         name = message.from_user.mention
-    #    mo_tech_yt = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n**🎭 Genre:** {random.choice(GENRES)}\n**📤 Uploaded By: {**🙋 Requested By: {message.from_user.mention}\n**\n**Get Support ✔️ HeartBeat\n**"
+        mo_tech = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n**🎭 Genre:** {random.choice(GENRES)}\n**📤 Uploaded By: {**🙋 Requested By: {message.from_user.mention}\n**\n**Get Support ✔️ HeartBeat\n**"
         nyva=BOT.get("username")
         if not nyva:
             botusername=await client.get_me()
@@ -155,9 +155,9 @@ async def group(client, message):
             if API_KEY:
                 poster=await get_poster(search)
             if poster:
-                await message.reply_photo(photo=poster, caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_photo(photo=poster, caption=mo_tech, reply_markup=InlineKeyboardMarkup(buttons))
             else:
-                await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_text(mo_tech, reply_markup=InlineKeyboardMarkup(buttons))
             return
 
         data = BUTTONS[keyword]
@@ -185,7 +185,7 @@ async def group(client, message):
 
             await message.reply_photo(photo=poster, caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
         else:
-            await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_text(mo_tech, reply_markup=InlineKeyboardMarkup(buttons))
 
     
 def get_size(size):
