@@ -176,13 +176,17 @@ async def group(client, message):
             poster=await get_poster(search)
         if poster:
             mo_tech_yt = f"""
+🎞️ Title: <a href={imdb['url']}>{imdb.get('title')}
+🎭 Genres: {imdb.get('genres')}
+📆 Year: <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
+🌟 Rating: <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
+🖋 StoryLine: <code>{imdb.get('plot')} </code>"
 🗂️ Title : {search}
 📑 Total Page : 1 to {totals}
 👤 Requested By : {name}
 🎙️ Group : {group}
 📳This poster will be deleted after 10 minutes📳
 ➡️ Press The Down Buttons To Access The File"""
-
             await message.reply_photo(photo=poster, caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
         else:
             await message.reply_text(mo_tech, reply_markup=InlineKeyboardMarkup(buttons))
