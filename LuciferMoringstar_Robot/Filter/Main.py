@@ -185,7 +185,7 @@ async def group(client, message):
 🎭 **Genres:** {imdb.get('genres')}
 📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
 🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
-🖋 **StoryLine:** <code>{imdb.get('plot')} </code>"
+🖋 **StoryLine:** <code>{imdb.get('plot')}</code>
 📑 **Total Page:** 1
 🎙️ **Group:** {message.chat.title}
 🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
@@ -239,7 +239,7 @@ async def group(client, message):
 🎭 **Genres:** {imdb.get('genres')}
 📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
 🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
-🖋 **StoryLine:** <code>{imdb.get('plot')} </code>"
+🖋 **StoryLine:** <code>{imdb.get('plot')} </code>
 📑 **Total Page:** 1 to {totalss}
 🎙️ **Group:** {message.chat.title}
 🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
