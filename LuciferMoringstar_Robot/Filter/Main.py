@@ -181,7 +181,6 @@ async def group(client, message):
                 text_photo_1 = f"""
 ↪️ **Requested:** {search}
 👤 **Requested By:** {message.from_user.mention}
-
 🗂️ **Title:** {search}
 🎭 **Genres:** {imdb.get('genres')}
 📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
@@ -202,7 +201,6 @@ async def group(client, message):
                 LuciferMoringstar=await message.reply_text(f"""
 ↪️ **Requested:** {search}
 👤 **Requested By:** {message.from_user.mention}
-
 🗂️ **Title:** {search}
 📑 **Total Page:** 1
 🎙️ **Group:** {message.chat.title}
@@ -237,7 +235,6 @@ async def group(client, message):
             text_photo_2 = f"""
 ↪️ **Requested:** {search}
 👤 **Requested By:** {message.from_user.mention}
-
 🗂️ **Title:** {search}
 🎭 **Genres:** {imdb.get('genres')}
 📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
@@ -258,7 +255,6 @@ async def group(client, message):
             LuciferMoringstar=await message.reply_text(f"""
 ↪️ **Requested:** {search}
 👤 **Requested By:** {message.from_user.mention}
-
 🗂️ **Title:** {search}
 📑 **Total Page:**  1 to {totalss}
 🎙️ **Group:** {message.chat.title}
