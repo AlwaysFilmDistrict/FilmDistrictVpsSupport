@@ -62,6 +62,9 @@ async def filter(client, message):
         mo_tech_yt = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n**🎭 Genre:** {random.choice(GENRES)}\n**📤 Uploaded By: {message.chat.title}\n**🙋 Requested By: {message.from_user.mention}\n**\n**Get Support ✔️ HeartBeat\n**"
         files = await get_filter_results(query=search)
         if files:
+            btn.append(
+                    [InlineKeyboardButton(text=JOIN_TEXT, url=JOIN_LINK)]
+                    )
             for file in files:
                 file_id = file.file_id
                 filename = f"{file.file_name}"
@@ -132,6 +135,9 @@ async def group(client, message):
             BOT["username"]=nyva
         files = await get_filter_results(query=search)
         if files:
+        btn.append(
+                [InlineKeyboardButton(text=JOIN_TEXT, url=JOIN_LINK)]
+            )
             for file in files:
                 file_id = file.file_id
                 filename = f"{file.file_name}"
