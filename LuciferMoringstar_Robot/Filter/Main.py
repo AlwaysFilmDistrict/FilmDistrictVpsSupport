@@ -14,7 +14,10 @@ BOT = {}
 
 JOIN_TEXT = "⭕ Join My Updates Channel ⭕"
 JOIN_LINK = "https://t.me/joinchat/EUUS8b0iEnVjZTU9" 
-
+ALERT_HELP_TEXT = """If You Have Any Complaints Or Doubts
+About The Group Or It's Members Please
+Send "@admin [Your Complaint]" And We
+Will Look Into It 😊"""
 
 @Client.on_message(filters.text & filters.private & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.text & filters.private & filters.incoming)
 async def filter(client, message):
@@ -376,7 +379,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(text=f"{HELP}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data == "helpalert":
-            await query.answer("Check if your spelling is correct first and then try adding the year and quality of the movie 😉. If you still didn'get your movie add the language 😁. If there is no result it just is'nt available 😌.", show_alert=True)
+            await query.answer(ALERT_HELP_TEXT, show_alert=True)
 
         elif query.data == "about":
             buttons = [
