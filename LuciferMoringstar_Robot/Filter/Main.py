@@ -165,15 +165,13 @@ async def group(client, message):
 📑 Total Page : 1 to 1
 👤 Requested By : {message.from_user.mention}
 🎙️ Group : {message.chat.title}"""
-                mo_tech_text = f"""
-🗂️ Title: {search}
+                await message.reply_photo(photo=poster, caption=text_photo_1 , reply_markup=InlineKeyboardMarkup(buttons))
+            else:
+                await message.reply_text("""🗂️ Title: {search}
 📑 Total Page: 1 to 1
 👤 Requested By: {message.from_user.mention}
 🎙️ Group: {message.chat.title}
-**Get Support ✔️ HeartBeat**"""
-                await message.reply_photo(photo=poster, caption=text_photo_1 , reply_markup=InlineKeyboardMarkup(buttons))
-            else:
-                await message.reply_text(mo_tech_text, reply_markup=InlineKeyboardMarkup(buttons))
+**Get Support ✔️ HeartBeat**""", reply_markup=InlineKeyboardMarkup(buttons))
             return
 
         data = BUTTONS[keyword]
@@ -201,15 +199,15 @@ async def group(client, message):
 📑 Total Page : 1 to {totalss}
 🖋 StoryLine: <code>{imdb.get('plot')}</code>
 🎙️ Group : {message.chat.title}"""
-            mo_tech_text_1 = f"""
+ 
+            await message.reply_photo(photo=poster, caption=text_photo_2, reply_markup=InlineKeyboardMarkup(buttons))
+        else:
+            await message.reply_text(f"""
 🗂️ Title: {search}
 📑 Total Page: 1 to {totalss}
 👤 Requested By: {message.from_user.mention}
 🎙️ Group: {message.chat.title}
-**Get Support ✔️ HeartBeat**"""
-            await message.reply_photo(photo=poster, caption=text_photo_2, reply_markup=InlineKeyboardMarkup(buttons))
-        else:
-            await message.reply_text(mo_tech_text_1, reply_markup=InlineKeyboardMarkup(buttons))
+**Get Support ✔️ HeartBeat**""", reply_markup=InlineKeyboardMarkup(buttons))
 
     
 def get_size(size):
