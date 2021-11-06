@@ -168,7 +168,7 @@ async def group(client, message):
                 [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
             )
             buttons.append(
-                [InlineKeyboardButton(text=JOIN_TEXT, url=JOIN_LINK)]
+                [InlineKeyboardButton(text="♻️ Help ♻️", callback_data="helpalert")]
             )
             poster=None
             if API_KEY:
