@@ -168,10 +168,10 @@ async def group(client, message):
 
 📳This poster will be deleted after 10 minutes📳"""
                 LuciferMoringstar=await message.reply_photo(photo=poster, caption=text_photo_1 , reply_markup=InlineKeyboardMarkup(buttons))
-            await asyncio.sleep(600) # in seconds
-            await LuciferMoringstar.delete()
-            await client.delete_messages(message.chat.id,message.message_id)
-            return
+                await asyncio.sleep(600) # in seconds
+                await LuciferMoringstar.delete()
+                await client.delete_messages(message.chat.id,message.message_id)
+                return
             else:
                 LuciferMoringstar=await message.reply_text(f"""🗂️ Title: {search}
 📑 Total Page: 1 to 1
@@ -180,10 +180,10 @@ async def group(client, message):
 **Get Support ✔️ HeartBeat**
 
 📳This poster will be deleted after 10 minutes📳""", reply_markup=InlineKeyboardMarkup(buttons))
-            await asyncio.sleep(600) # in seconds
-            await LuciferMoringstar.delete()
-            await client.delete_messages(message.chat.id,message.message_id)
-            return
+                await asyncio.sleep(600) # in seconds
+                await LuciferMoringstar.delete()
+                await client.delete_messages(message.chat.id,message.message_id)
+                return
 
         data = BUTTONS[keyword]
         buttons = data['buttons'][0].copy()
