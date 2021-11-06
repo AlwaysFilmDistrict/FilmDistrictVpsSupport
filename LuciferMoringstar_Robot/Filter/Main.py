@@ -170,9 +170,10 @@ async def group(client, message):
         buttons.append(
             [InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
         )
-        imdb = await get_muhammed(search)
+        
         poster=None
         if API_KEY:
+            imdb=await get_muhammed(search)
             poster=await get_poster(search)
         if poster:
             mo_tech_yt = f"""
