@@ -12,6 +12,10 @@ import random
 BUTTONS = {}
 BOT = {}
 
+JOIN_TEXT = "Join My Update Channel"
+JOIN_LINK = "https://t.me/joinchat/EUUS8b0iEnVjZTU9" 
+
+
 @Client.on_message(filters.text & filters.private & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.text & filters.private & filters.incoming)
 async def filter(client, message):
     if message.text.startswith("/"):
@@ -60,9 +64,13 @@ async def filter(client, message):
         if files:
             for file in files:
                 file_id = file.file_id
-                filename = f"[{get_size(file.file_size)}] {file.file_name}"
+                filename = f"{file.file_name}"
+                filesize = f"[{get_size(file.file_size)}]"
                 btn.append(
                     [InlineKeyboardButton(text=f"{filename}",callback_data=f"pr0fess0r_99#{file_id}")]
+                    )
+                btn.append(
+                    [InlineKeyboardButton(text=f"{filesize}",callback_data=f"pr0fess0r_99#{file_id}")]
                     )
         else:
             await client.send_sticker(chat_id=message.from_user.id, sticker='CAADBQADMwIAAtbcmFelnLaGAZhgBwI')
@@ -129,9 +137,13 @@ async def group(client, message):
         if files:
             for file in files:
                 file_id = file.file_id
-                filename = f"[{get_size(file.file_size)}] {file.file_name}"
+                filename = f"{file.file_name}"
+                filesize = f"[{get_size(file.file_size)}]"
                 btn.append(
                     [InlineKeyboardButton(text=f"{filename}", url=f"https://telegram.dog/{nyva}?start=pr0fess0r_99_-_-_-_{file_id}")]
+                )
+                btn.append(
+                    [InlineKeyboardButton(text=f"{filesize}", url=f"https://telegram.dog/{nyva}?start=pr0fess0r_99_-_-_-_{file_id}")]
                 )
         else:       
             return
@@ -151,25 +163,28 @@ async def group(client, message):
             buttons.append(
                 [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
             )
+            buttons.append(
+                [InlineKeyboardButton(text=JOIN_TEXT, url=JOIN_LINK)]
+            )
             poster=None
             if API_KEY:
                 imdb=await get_muhammed(search)
                 poster=await get_poster(search)
             if poster:
                 text_photo_1 = f"""
-👤 Requested: {search}
-🗂️ Title: {search}
-🎭 Genres: {imdb.get('genres')}
-📆 Year: <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
-🌟 Rating: <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
-🖋 StoryLine: <code>{imdb.get('plot')} </code>"
-📑 Total Page : 1 to 1
-👤 Requested By : {message.from_user.mention}
-🎙️ Group : {message.chat.title}
-🧒 Get Support ✔️ @helloheartbeat
-➡️ Press The Down Buttons To Access The File
+↪️ **Requested:** {search}
+🗂️ **Title:** {search}
+🎭 **Genres:** {imdb.get('genres')}
+📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
+🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
+🖋 **StoryLine:** <code>{imdb.get('plot')} </code>"
+📑 **Total Page:** 1 to 1
+👤 **Requested By:** {message.from_user.mention}
+🎙️ **Group:** {message.chat.title}
+🧒 **Get Support ✔️ @helloheartbeat**
+➡️ **Press The Down Buttons To Access The File**
 
-📳This poster will be deleted after 10 minutes📳"""
+**📳This poster will be deleted after 10 minutes📳**"""
                 LuciferMoringstar=await message.reply_photo(photo=poster, caption=text_photo_1 , reply_markup=InlineKeyboardMarkup(buttons))
                 await asyncio.sleep(600) # in seconds
                 await LuciferMoringstar.delete()
@@ -177,15 +192,15 @@ async def group(client, message):
                 return
             else:
                 LuciferMoringstar=await message.reply_text(f"""
-👤 Requested: {search}
-🗂️ Title: {search}
-📑 Total Page: 1 to 1
-👤 Requested By: {message.from_user.mention}
-🎙️ Group: {message.chat.title}
-🧒 Get Support ✔️ @helloheartbeat
-➡️ Press The Down Buttons To Access The File
+↪️ **Requested:** {search}
+🗂️ **Title:** {search}
+📑 **Total Page:** 1 to {totalss}
+👤 **Requested By:** {message.from_user.mention}
+🎙️ **Group:** {message.chat.title}
+🧒 **Get Support ✔️ @helloheartbeat**
+➡️ **Press The Down Buttons To Access The File**
 
-📳This poster will be deleted after 10 minutes📳""", reply_markup=InlineKeyboardMarkup(buttons))
+**📳This poster will be deleted after 10 minutes📳**""", reply_markup=InlineKeyboardMarkup(buttons))
                 await asyncio.sleep(600) # in seconds
                 await LuciferMoringstar.delete()
                 await client.delete_messages(message.chat.id,message.message_id)
@@ -201,6 +216,9 @@ async def group(client, message):
         buttons.append(
             [InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
         )
+        buttons.append(
+            [InlineKeyboardButton(text=JOIN_TEXT, url=JOIN_LINK)]
+        )
         
         poster=None
         if API_KEY:
@@ -208,20 +226,20 @@ async def group(client, message):
             poster=await get_poster(search)
         if poster:
             text_photo_2 = f"""
-👤 Requested: {search}
-🗂️ Title: {search}
-🎭 Genres: {imdb.get('genres')}
-👤 Requested By : {message.from_user.mention}
-📆 Year: <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
-🌟 Rating: <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
-📑 Total Page : 1 to {totalss}
-🖋 StoryLine: <code>{imdb.get('plot')}</code>
-🎙️ Group : {message.chat.title}
-🧒 Get Support ✔️ @helloheartbeat
-➡️ Press The Down Buttons To Access The File
+↪️ **Requested:** {search}
+🗂️ **Title:** {search}
+🎭 **Genres:** {imdb.get('genres')}
+📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
+🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
+🖋 **StoryLine:** <code>{imdb.get('plot')} </code>"
+📑 **Total Page:** 1 to {totalss}
+👤 **Requested By:** {message.from_user.mention}
+🎙️ **Group:** {message.chat.title}
+🧒 **Get Support ✔️ @helloheartbeat**
+➡️ **Press The Down Buttons To Access The File**
 
-📳This poster will be deleted after 10 minutes📳"""
- 
+**📳This poster will be deleted after 10 minutes📳**"""
+
             LuciferMoringstar=await message.reply_photo(photo=poster, caption=text_photo_2, reply_markup=InlineKeyboardMarkup(buttons))
             await asyncio.sleep(600) # in seconds
             await LuciferMoringstar.delete()
@@ -229,15 +247,15 @@ async def group(client, message):
             return
         else:
             LuciferMoringstar=await message.reply_text(f"""
-👤 Requested: {search}
-🗂️ Title: {search}
-📑 Total Page: 1 to {totalss}
-👤 Requested By: {message.from_user.mention}
-🎙️ Group: {message.chat.title}
-🧒 Get Support ✔️ @helloheartbeat
-➡️ Press The Down Buttons To Access The File
+↪️ **Requested:** {search}
+🗂️ **Title:** {search}
+📑 **Total Page:** 1 to {totalss}
+👤 **Requested By:** {message.from_user.mention}
+🎙️ **Group:** {message.chat.title}
+🧒 **Get Support ✔️ @helloheartbeat**
+➡️ **Press The Down Buttons To Access The File**
 
-📳This poster will be deleted after 10 minutes📳""", reply_markup=InlineKeyboardMarkup(buttons))
+**📳This poster will be deleted after 10 minutes📳**""", reply_markup=InlineKeyboardMarkup(buttons))
             await asyncio.sleep(600) # in seconds
             await LuciferMoringstar.delete()
             await client.delete_messages(message.chat.id,message.message_id)
