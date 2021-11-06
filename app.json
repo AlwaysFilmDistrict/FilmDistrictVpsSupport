@@ -57,7 +57,7 @@
             "value": "False",
             "required": false
         },
-        "OMDB_API": {
+        "OMDB_API_KEY": {
             "description": "Your OMBD API KEY, Fill if you want to generate a imdb poster of movie in autofilter.",
             "value": "",
             "required": false
