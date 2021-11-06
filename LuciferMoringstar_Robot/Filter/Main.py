@@ -2,7 +2,7 @@
 from Config import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS, TUTORIAL
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters
-import re
+import re, asyncio
 from pyrogram.errors import UserNotParticipant
 from LuciferMoringstar_Robot import get_filter_results, get_file_details, is_subscribed, get_poster
 from LuciferMoringstar_Robot import RATING, GENRES, HELP, ABOUT
@@ -164,14 +164,25 @@ async def group(client, message):
 🖋 StoryLine: <code>{imdb.get('plot')} </code>"
 📑 Total Page : 1 to 1
 👤 Requested By : {message.from_user.mention}
-🎙️ Group : {message.chat.title}"""
-                await message.reply_photo(photo=poster, caption=text_photo_1 , reply_markup=InlineKeyboardMarkup(buttons))
+🎙️ Group : {message.chat.title}
+
+📳This poster will be deleted after 10 minutes📳"""
+                LuciferMoringstar=await message.reply_photo(photo=poster, caption=text_photo_1 , reply_markup=InlineKeyboardMarkup(buttons))
+            await asyncio.sleep(600) # in seconds
+            await LuciferMoringstar.delete()
+            await client.delete_messages(message.chat.id,message.message_id)
+            return
             else:
-                await message.reply_text(f"""🗂️ Title: {search}
+                LuciferMoringstar=await message.reply_text(f"""🗂️ Title: {search}
 📑 Total Page: 1 to 1
 👤 Requested By: {message.from_user.mention}
 🎙️ Group: {message.chat.title}
-**Get Support ✔️ HeartBeat**""", reply_markup=InlineKeyboardMarkup(buttons))
+**Get Support ✔️ HeartBeat**
+
+📳This poster will be deleted after 10 minutes📳""", reply_markup=InlineKeyboardMarkup(buttons))
+            await asyncio.sleep(600) # in seconds
+            await LuciferMoringstar.delete()
+            await client.delete_messages(message.chat.id,message.message_id)
             return
 
         data = BUTTONS[keyword]
@@ -198,17 +209,28 @@ async def group(client, message):
 🌟 Rating: <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
 📑 Total Page : 1 to {totalss}
 🖋 StoryLine: <code>{imdb.get('plot')}</code>
-🎙️ Group : {message.chat.title}"""
+🎙️ Group : {message.chat.title}
+
+📳This poster will be deleted after 10 minutes📳"""
  
-            await message.reply_photo(photo=poster, caption=text_photo_2, reply_markup=InlineKeyboardMarkup(buttons))
+            LuciferMoringstar=await message.reply_photo(photo=poster, caption=text_photo_2, reply_markup=InlineKeyboardMarkup(buttons))
+            await asyncio.sleep(600) # in seconds
+            await LuciferMoringstar.delete()
+            await client.delete_messages(message.chat.id,message.message_id)
+            return
         else:
-            await message.reply_text(f"""
+            LuciferMoringstar=await message.reply_text(f"""
 🗂️ Title: {search}
 📑 Total Page: 1 to {totalss}
 👤 Requested By: {message.from_user.mention}
 🎙️ Group: {message.chat.title}
-**Get Support ✔️ HeartBeat**""", reply_markup=InlineKeyboardMarkup(buttons))
+**Get Support ✔️ HeartBeat**
 
+📳This poster will be deleted after 10 minutes📳""", reply_markup=InlineKeyboardMarkup(buttons))
+            await asyncio.sleep(600) # in seconds
+            await LuciferMoringstar.delete()
+            await client.delete_messages(message.chat.id,message.message_id)
+            return
     
 def get_size(size):
     """Get size in readable format"""
