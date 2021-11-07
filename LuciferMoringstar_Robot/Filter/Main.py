@@ -18,6 +18,7 @@ ALERT_HELP_TEXT = """If You Have Any Complaints Or Doubts
 About The Group Or It's Members Please
 Send "@admin [Your Complaint]" And We
 Will Look Into It 😊"""
+PHOTOSS = "https://telegra.ph/file/f7f9135ab3b3b4ed32f82.jpg"
 
 @Client.on_message(filters.text & filters.private & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.text & filters.private & filters.incoming)
 async def filter(client, message):
@@ -198,7 +199,9 @@ async def group(client, message):
                 await client.delete_messages(message.chat.id,message.message_id)
                 return
             else:
-                LuciferMoringstar=await message.reply_text(f"""
+                LuciferMoringstar=await message.reply_photo(
+                    photo=PHOTOSS,
+                    caption=f"""
 ↪️ **Requested:** {search}
 👤 **Requested By:** {message.from_user.mention}
 🗂️ **Title:** {search}
@@ -254,7 +257,9 @@ async def group(client, message):
             await client.delete_messages(message.chat.id,message.message_id)
             return
         else:
-            LuciferMoringstar=await message.reply_text(f"""
+            LuciferMoringstar=await message.reply_photo(
+                photo=PHOTOSS,
+                caption=f"""
 ↪️ **Requested:** {search}
 👤 **Requested By:** {message.from_user.mention}
 🗂️ **Title:** {search}
