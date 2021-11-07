@@ -181,7 +181,7 @@ async def group(client, message):
                 text_photo_1 = f"""
 ↪️ **Requested:** {search}
 👤 **Requested By:** {message.from_user.mention}
-🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}
+🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>
 🎭 **Genres:** {imdb.get('genres')}
 📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
 🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
@@ -233,9 +233,9 @@ async def group(client, message):
             poster=await get_poster(search)
         if poster:
             text_photo_2 = f"""
-↪️ **Requested:** <a href={imdb['url']}>{imdb.get('title')}
+↪️ **Requested:** {search}
 👤 **Requested By:** {message.from_user.mention}
-🗂️ **Title:** {search}
+🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>
 🎭 **Genres:** {imdb.get('genres')}
 📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
 🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
