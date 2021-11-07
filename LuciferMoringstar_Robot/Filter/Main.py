@@ -203,6 +203,8 @@ async def group(client, message):
 👤 **Requested By:** {message.from_user.mention}
 🗂️ **Title:** {search}
 📑 **Total Page:** 1
+🌟 **Rating** {random.choice(RATING)}
+🎭 **Genre:** {random.choice(GENRES)}
 🎙️ **Group:** {message.chat.title}
 🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
 
@@ -257,6 +259,8 @@ async def group(client, message):
 👤 **Requested By:** {message.from_user.mention}
 🗂️ **Title:** {search}
 📑 **Total Page:**  1 to {totalss}
+🌟 **Rating** {random.choice(RATING)}
+🎭 **Genre:** {random.choice(GENRES)}
 🎙️ **Group:** {message.chat.title}
 🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
 
