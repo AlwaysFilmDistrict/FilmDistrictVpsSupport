@@ -237,6 +237,7 @@ async def group(client, message):
             imdb=await get_muhammed(search)
             poster=await get_poster(search)
         if imdb and imdb.get('poster'):
+        if poster:
             text_photo_2 = f"""
 ↪️ **Requested:** {search}
 👤 **Requested By:** {message.from_user.mention}
@@ -256,7 +257,7 @@ async def group(client, message):
             await LuciferMoringstar.delete()
             await client.delete_messages(message.chat.id,message.message_id)
             return
-        elif imdb:
+        else:
             LuciferMoringstar=await message.reply_photo(
                 photo=PHOTOSS,
                 caption=f"""
@@ -463,4 +464,4 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "pages":
             await query.answer()
     else:
-        await query.answer("Nice Try!! This Is Not For You 😏",show_alert=True)
+        await query.answer("Ask For Your Own Movie Or Series 🤭",show_alert=True)
