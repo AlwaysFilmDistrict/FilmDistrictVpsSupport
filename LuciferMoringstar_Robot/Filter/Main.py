@@ -236,7 +236,7 @@ async def group(client, message):
         if API_KEY:
             imdb=await get_muhammed(search)
             poster=await get_poster(search)
-        if poster:
+        if imdb and imdb.get('poster'):
             text_photo_2 = f"""
 ↪️ **Requested:** {search}
 👤 **Requested By:** {message.from_user.mention}
@@ -251,12 +251,12 @@ async def group(client, message):
 
 📌 **Press The Down Buttons To Access The File**
 📌 **This Post Will Be Deleted After 10 Minutes**"""
-            LuciferMoringstar=await message.reply_photo(photo=poster, caption=text_photo_2, reply_markup=InlineKeyboardMarkup(buttons))
+            LuciferMoringstar=await message.reply_photo(photo=imdb.get('poster'), caption=text_photo_2, reply_markup=InlineKeyboardMarkup(buttons))
             await asyncio.sleep(600) # in seconds
             await LuciferMoringstar.delete()
             await client.delete_messages(message.chat.id,message.message_id)
             return
-        else:
+        elif imdb:
             LuciferMoringstar=await message.reply_photo(
                 photo=PHOTOSS,
                 caption=f"""
