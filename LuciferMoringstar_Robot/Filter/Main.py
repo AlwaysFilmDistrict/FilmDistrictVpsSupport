@@ -320,7 +320,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 buttons.append(
                     [InlineKeyboardButton(f"📃 Pages {int(index)+2}/{data['total']}", callback_data="pages")]
                 )
-
+                buttons.append(
+                    [InlineKeyboardButton(text="♻️ Help ♻️", callback_data="helpalert")]
+                )
+ 
                 await query.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
                 )
@@ -333,6 +336,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 )
                 buttons.append(
                     [InlineKeyboardButton(f"📃 Pages {int(index)+2}/{data['total']}", callback_data="pages")]
+                )
+                buttons.append(
+                    [InlineKeyboardButton(text="♻️ Help ♻️", callback_data="helpalert")]
                 )
 
                 await query.edit_message_reply_markup( 
@@ -358,6 +364,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 buttons.append(
                     [InlineKeyboardButton(f"📃 Pages {int(index)}/{data['total']}", callback_data="pages")]
                 )
+                buttons.append(
+                    [InlineKeyboardButton(text="♻️ Help ♻️", callback_data="helpalert")]
+                )
 
                 await query.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
@@ -371,6 +380,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 )
                 buttons.append(
                     [InlineKeyboardButton(f"📃 Pages {int(index)}/{data['total']}", callback_data="pages")]
+                )
+                buttons.append(
+                    [InlineKeyboardButton(text="♻️ Help ♻️", callback_data="helpalert")]
                 )
 
                 await query.edit_message_reply_markup( 
