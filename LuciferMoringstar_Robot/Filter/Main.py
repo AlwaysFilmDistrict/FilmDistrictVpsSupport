@@ -204,7 +204,7 @@ async def group(client, message):
                     caption=f"""
 ↪️ **Requested:** {search}
 👤 **Requested By:** {message.from_user.mention}
-📑 **Total Page:**
+📑 **Total Page:** 1
 🎙️ **Group:** {message.chat.title}
 🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
 
