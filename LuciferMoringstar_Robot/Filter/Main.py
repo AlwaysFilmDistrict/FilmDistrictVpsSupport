@@ -237,7 +237,6 @@ async def group(client, message):
             imdb=await get_muhammed(search)
             poster=await get_poster(search)
         if imdb and imdb.get('poster'):
-        if poster:
             text_photo_2 = f"""
 ↪️ **Requested:** {search}
 👤 **Requested By:** {message.from_user.mention}
