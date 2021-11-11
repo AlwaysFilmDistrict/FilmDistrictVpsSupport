@@ -15,7 +15,7 @@ GOOD_BYE_TEXT = """Bye {} , Have a Nice Day"""
 
 @Client.on_message(filters.new_chat_members)
 async def auto_welcome(bot, msg):
-    await msg.reply_text(text=hi.format(msg.from_user.mention, msg.chat.title)
+    await msg.reply_text(text="hi".format(msg.from_user.mention, msg.chat.title)
         
 
 
