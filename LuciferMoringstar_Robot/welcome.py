@@ -25,7 +25,7 @@ GOOD_BYE_TEXT = """Bye {} , Have a Nice Day"""
 
 
 @Client.on_message(filters.new_chat_members)
-async def auto_welcome(bot, msg: Message):
+async def welcome(bot, msg: Message):
     Delete=await msg.reply_text(text=WELCOME_TEXT.format(msg.from_user.mention, msg.chat.title)   
     await asyncio.sleep(600) # in seconds
     await Delete.delete()
