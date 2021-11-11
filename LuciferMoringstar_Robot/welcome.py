@@ -31,7 +31,7 @@ async def auto_welcome(bot: Client, msg: Message):
     await Auto_Delete.delete()
 
 @Client.on_message(filters.left_chat_member)
-async def auto_welcome(bot: Client, msg: Message):
+async def auto_goodbye(bot: Client, msg: Message):
     Auto_Delete=await msg.reply_text(text=GOOD_BYE_TEXT.format(msg.from_user.mention)   
     await asyncio.sleep(10) # in seconds
     await Auto_Delete.delete()
