@@ -12,8 +12,8 @@ If You Don't Get The Movie/Series It Is Sure That You Have Written Incorrect Spe
 GOOD_BYE_TEXT = """Bye {} , Have a Nice Day"""
 
 
-@Client.on_message(filters.new_chat_members)
-async def auto_welcome(bot: Client, msg: Message):
+@Bot.on_message(filters.new_chat_members)
+async def auto_welcome(bot: bot, msg: Message):
     Auto_Delete=await msg.reply_text(text=WELCOME_TEXT.format(
         msg.from_user.mention,
         msg.chat.title
