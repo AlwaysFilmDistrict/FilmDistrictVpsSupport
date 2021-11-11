@@ -2,8 +2,6 @@ import asyncio, os
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-GOOD_BYE_TEXT = """Bye {} , Have a Nice Day"""
-
 @Client.on_message(filters.new_chat_members)
 async def auto_welcome(bot, message):
     username = message.from_user.mention
@@ -17,6 +15,11 @@ If You Don't Get The Movie/Series It Is Sure That You Have Written Incorrect Spe
     await asyncio.sleep(60) # in seconds
     await Auto_Delete.delete()
 
-        
+@Client.on_message(filters.left_chat_member)
+async def goodbye(bot,message):
+ chatid= message.chat.id
+ Auto_Delete=await bot.send_message(text=f"Bye ,  {message.from_user.mention} , Have a Nice Day",chat_id=chatid) 
+ await asyncio.sleep(10) # in seconds
+ await Auto_Delete.delete()
 
 
