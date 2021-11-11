@@ -4,12 +4,37 @@ from pyrogram.types import Message, User
 
 
 
+#@Client.on_message(filters.new_chat_members)
+#async def welcome(bot,message):
+# chatid= message.chat.id
+# await bot.send_message(text=
+
+WELCOME_TEXT = """👋 Hello {} Welcome To {}
+My Name Is FILM DISTRICT BOT, I Can Provide Movies/Series In This Group.
+Just Type The Actual Name Of The Movie/Series.
+You Will Get The Movie/Series If You Write Correct Spelling.
+If You Don't Get The Movie/Series It Is Sure That You Have Written Incorrect Spelling Or Your Requested Movie/Series Does Not Exit In My Database. 😐"""
+
+
+#@Client.on_message(filters.left_chat_member)
+#async def goodbye(bot,message):
+# chatid= message.chat.id
+# await bot.send_message(text=f
+
+GOOD_BYE_TEXT = """Bye {} , Have a Nice Day"""
+
+
 @Client.on_message(filters.new_chat_members)
-async def welcome(bot,message):
- chatid= message.chat.id
- await bot.send_message(text=f"👋 Hello {message.from_user.mention} My Name Is FILM DISTRICT BOT, I Can Provide Movies/Series In This Group. Just Type The Actual Name Of The Movie/Series. You Will Get The Movie/Series If You Write Correct Spelling. If You Don't Get The Movie/Series It Is Sure That You Have Written Incorrect Spelling Or Your Requested Movie/Series Does Not Exit In My Database. 😐",chat_id=chatid)
- 
+async def auto_welcome(bot: Client, msg: Message):
+    Auto_Delete=await msg.reply_text(text=WELCOME_TEXT.format(msg.from_user.mention, msg.chat.title)   
+    await asyncio.sleep(600) # in seconds
+    await Auto_Delete.delete()
+
 @Client.on_message(filters.left_chat_member)
-async def goodbye(bot,message):
- chatid= message.chat.id
- await bot.send_message(text=f"Bye ,  {message.from_user.mention} , Have a Nice Day",chat_id=chatid)
+async def auto_welcome(bot: Client, msg: Message):
+    Auto_Delete=await msg.reply_text(text=GOOD_BYE_TEXT.format(msg.from_user.mention)   
+    await asyncio.sleep(10) # in seconds
+    await Auto_Delete.delete()
+    
+
+
