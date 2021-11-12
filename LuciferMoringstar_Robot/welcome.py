@@ -5,7 +5,7 @@ from pyrogram.types import Message
 @Client.on_message(filters.new_chat_members)
 async def auto_welcome(bot, message):
     username = message.from_user.mention
-    groupname = message.chat.name
+    groupname = message.chat.title
     Auto_Delete=await message.reply_text(
         text = f"""👋 Hello {username} Welcome To {groupname}
 My Name Is FILM DISTRICT BOT, I Can Provide Movies/Series In This Group.
