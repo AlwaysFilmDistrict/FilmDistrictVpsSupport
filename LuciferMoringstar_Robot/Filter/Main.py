@@ -87,14 +87,38 @@ async def filter(client, message):
                     [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
                 )
 
+
             poster=None
             if API_KEY:
                 poster=await get_poster(search)
+
             if poster:
-                await message.reply_photo(photo=poster, caption=f"<b>Here is What I Found In My Database For Your Query {search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+                text_photo_1 = f"""
+↪️ **Requested:** {search}
+👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})
+🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>
+🎭 **Genres:** {imdb.get('genres')}
+📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
+🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
+🖋 **StoryLine:** <code>{imdb.get('plot')}</code>
+📑 **Total Page:** 1
+🎙️ **Group:** {message.chat.title}
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
+
+📌 **Press The Down Buttons To Access The File**
+📌 **This Post Will Be Deleted After 10 Minutes**"""
+                await message.reply_photo(photo=poster, caption=text_photo_1, reply_markup=InlineKeyboardMarkup(buttons))
 
             else:
-                await message.reply_text(f"<b>Here is What I Found In My Database For Your Query {search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+                text_3=f"""
+↪️ **Requested:** {search}
+👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})
+📑 **Total Page:** 1
+🎙️ **Group:** {message.chat.title}
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
+📌 **Press The Down Buttons To Access The File**
+📌 **This Post Will Be Deleted After 10 Minutes**"""
+                await message.reply_photo(photo=BOT_PHOTO, caption=text_3, reply_markup=InlineKeyboardMarkup(buttons))
             return
 
         data = BUTTONS[keyword]
@@ -114,11 +138,34 @@ async def filter(client, message):
 
         poster=None
         if API_KEY:
+            text_photo_1 = f"""
+↪️ **Requested:** {search}
+👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})
+🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>
+🎭 **Genres:** {imdb.get('genres')}
+📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
+🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
+🖋 **StoryLine:** <code>{imdb.get('plot')}</code>
+📑 **Total Page:** 1
+🎙️ **Group:** {message.chat.title}
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
+
+📌 **Press The Down Buttons To Access The File**
+📌 **This Post Will Be Deleted After 10 Minutes**"""
             poster=await get_poster(search)
         if poster:
-            await message.reply_photo(photo=poster, caption=f"<b>Here is What I Found In My Database For Your Query {search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_photo(photo=poster, caption=text_photo_1, reply_markup=InlineKeyboardMarkup(buttons))
         else:
-            await message.reply_text(f"<b>Here is What I Found In My Database For Your Query {search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+            text_6=f"""
+↪️ **Requested:** {search}
+👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})
+📑 **Total Page:** 1
+🎙️ **Group:** {message.chat.title}
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
+
+📌 **Press The Down Buttons To Access The File**
+📌 **This Post Will Be Deleted After 10 Minutes**"""
+            await message.reply_photo(photo=BOT_PHOTO, caption=text_6, reply_markup=InlineKeyboardMarkup(buttons))
 
 
 
@@ -159,7 +206,7 @@ async def group(client, message):
                 )
                 LuciferMoringstar=await client.send_message(
                 chat_id = message.chat.id,
-                text=SPELLING_MODE_TEXT.format(message.from_user.first_name, search),
+                text=SPELLING_MODE_TEXT.format(message.from_user.mention, search),
                 reply_markup=reply_markup,
                 parse_mode="html",
                 reply_to_message_id=message.message_id
@@ -224,6 +271,7 @@ async def group(client, message):
 📑 **Total Page:** 1
 🎙️ **Group:** {message.chat.title}
 🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
+
 📌 **Press The Down Buttons To Access The File**
 📌 **This Post Will Be Deleted After 10 Minutes**"""
                 await message.reply_photo(photo=BOT_PHOTO, caption=text_2, reply_markup=InlineKeyboardMarkup(buttons))
