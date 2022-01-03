@@ -145,11 +145,13 @@ async def group(client, message):
                 text_replay = message.text
                 text_google = text_replay.replace(" ", '+')           
                 reply_markup = InlineKeyboardMarkup([[
-                   InlineKeyboardButton("🎗️ Google 🎗️", url=f"https://www.google.com/search?q={text_google}")
-                   ],[
-                   InlineKeyboardButton("🔍IMDB", url=f"https://www.imdb.com/find?q={text_google}"),
-                   InlineKeyboardButton("Wikipedia🔎", url=f"https://en.m.wikipedia.org/w/index.php?search={text_google}")
-                   ]]
+                  InlineKeyboardButton("♻️ HELP ♻️", callback_data="google_alert")
+                  ],[
+                  InlineKeyboardButton("🔍IMDB", url=f"https://www.imdb.com/find?q={text_google}"),
+                  InlineKeyboardButton("GOOGLE🔎", url=f"https://www.google.com/search?q={text_google}")
+                  ],[
+                  InlineKeyboardButton("🗑️ CLOSE 🗑️", callback_data="close")
+                  ]]
                 )
                 LuciferMoringstar=await client.send_message(
                 chat_id = message.chat.id,
