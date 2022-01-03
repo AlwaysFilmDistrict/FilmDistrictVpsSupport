@@ -84,7 +84,7 @@ async def filter(client, message):
             )
             if BUTTON_CALLBACK_OR_URL == "false":
                 buttons.append(
-                    [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
+                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
                 )
 
             poster=None
@@ -108,7 +108,7 @@ async def filter(client, message):
         )
         if BUTTON_CALLBACK_OR_URL == "false":
             buttons.append(
-                [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
+                [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
             )
 
 
@@ -138,7 +138,7 @@ async def group(client, message):
                 file_id = file.file_id
                 filename = f"[{get_size(file.file_size)}] {file.file_name}"
                 btn.append(
-                    [InlineKeyboardButton(text=f"{filename}", url=f"https://telegram.dog/{nyva}?start=subinps_-_-_-_{file_id}")]
+                    [InlineKeyboardButton(text=f"{filename}", callback_data=f"pr0fess0r_99#{file_id}")]
                 )
         else:
             return
@@ -160,7 +160,7 @@ async def group(client, message):
 
             if BUTTON_CALLBACK_OR_URL == "false":
                 buttons.append(
-                    [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
+                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
                 )
            
             poster=None
@@ -184,7 +184,7 @@ async def group(client, message):
 
         if BUTTON_CALLBACK_OR_URL == "false":
             buttons.append(
-                [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
+               [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
             )
 
         poster=None
@@ -241,7 +241,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 )
                 if BUTTON_CALLBACK_OR_URL == "false":
                     buttons.append(
-                        [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
+                        [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
                     )
 
                 await query.edit_message_reply_markup( 
@@ -259,7 +259,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 )
                 if BUTTON_CALLBACK_OR_URL == "false":
                     buttons.append(
-                        [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
+                        [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
                     )
 
                 await query.edit_message_reply_markup( 
@@ -287,7 +287,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 )
                 if BUTTON_CALLBACK_OR_URL == "false":
                     buttons.append(
-                        [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
+                        [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
                     )
 
                 await query.edit_message_reply_markup( 
@@ -305,7 +305,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 )
                 if BUTTON_CALLBACK_OR_URL == "false":
                     buttons.append(
-                        [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
+                        [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
                     )
 
                 await query.edit_message_reply_markup( 
