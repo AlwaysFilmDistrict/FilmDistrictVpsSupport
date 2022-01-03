@@ -4,7 +4,7 @@ from os import environ
 
 id_pattern = re.compile(r'^.\d+$')
 
-BOT_USERNAME = environ.get('BOT_USERNAME')
+BOT_USERNAME = environ.get('BOT_USERNAME', 'FilmDistrict_Bot')
 
 
 
