@@ -489,6 +489,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(60) 
             await LuciferMoringstar.delete()
 
+        elif query.data == "close":
+            await query.message.delete()
+
+        elif query.data == "google_alert":
+            await query.answer("""✅ DO\n👉 Type Only In English \n\n❌ DON'T\n👉 Avoid Symbols (/.,:;"'-)\n👉 Avoid Requesting Same Movie/Series Repeatedly \n👉 Avoid Requesting Unreleased Movie/Series""", show_alert=True)
+
+
 
         elif query.data == "helpalert":
             await query.answer(ALERT_HELP_TEXT, show_alert=True)
