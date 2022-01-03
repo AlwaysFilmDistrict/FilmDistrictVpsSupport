@@ -106,10 +106,11 @@ async def filter(client, message):
         buttons.append(
             [InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
         )
-        buttons.append(
-            [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
-        )
 
+        if BUTTON_CALLBACK_OR_URL == "false":
+            buttons.append(
+                [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+            )
 
         poster=None
         if API_KEY:
@@ -186,7 +187,12 @@ async def group(client, message):
                  InlineKeyboardButton(text="🗑️",callback_data="close"),
                  InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
             )
-           
+          
+            if BUTTON_CALLBACK_OR_URL == "false":
+                 buttons.append(
+                     [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+                 )
+
             poster=None
             if API_KEY:
                 imdb=await get_muhammed(search)
@@ -236,9 +242,10 @@ async def group(client, message):
              InlineKeyboardButton(text="🗑️",callback_data="close"),
              InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
         )
-        buttons.append(
-            [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
-        )
+        if BUTTON_CALLBACK_OR_URL == "false":
+            buttons.append(
+                [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+            )
 
         poster=None
         if API_KEY:
@@ -318,6 +325,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                      InlineKeyboardButton(text="🗑️",callback_data="close"),
                      InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
                 )
+                if BUTTON_CALLBACK_OR_URL == "false":
+                    buttons.append(
+                        [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+                    )
 
                 await query.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
@@ -335,6 +346,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                      InlineKeyboardButton(text="🗑️",callback_data="close"),
                      InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
                 )
+                if BUTTON_CALLBACK_OR_URL == "false":
+                    buttons.append(
+                        [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+                    )
 
                 await query.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
@@ -361,6 +376,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                      InlineKeyboardButton(text="🗑️",callback_data="close"),
                      InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
                 )
+                if BUTTON_CALLBACK_OR_URL == "false":
+                    buttons.append(
+                        [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+                    )
 
                 await query.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
@@ -378,7 +397,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                      InlineKeyboardButton(text="🗑️",callback_data="close"),
                      InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
                 )
-
+                if BUTTON_CALLBACK_OR_URL == "false":
+                    buttons.append(
+                        [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+                    )
                 await query.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
                 )
