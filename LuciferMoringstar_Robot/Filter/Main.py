@@ -59,7 +59,7 @@ async def filter(client, message):
         if files:
             for file in files:
                 file_id = file.file_id
-                filename = f"[{get_size(file.file_size)}] {file.file_name}"
+                filename = f"➠ {get_size(file.file_size)} ➠ {file.file_name}"
                 btn.append(
                     [InlineKeyboardButton(text=f"{filename}",callback_data=f"subinps#{file_id}")]
                     )
@@ -82,7 +82,7 @@ async def filter(client, message):
             buttons.append(
                 [InlineKeyboardButton(text="🗓️ 1/1",callback_data="pages"),
                  InlineKeyboardButton(text="🗑️",callback_data="close"),
-                 InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
+                 InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
             )
             if BUTTON_CALLBACK_OR_URL == "false":
                 buttons.append(
@@ -133,7 +133,7 @@ async def filter(client, message):
         buttons.append(
             [InlineKeyboardButton(text=f"🗓️ 1/{data['total']}",callback_data="pages"),
              InlineKeyboardButton(text="🗑️",callback_data="close"),
-             InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
+             InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
         )    
 
         if BUTTON_CALLBACK_OR_URL == "false":
@@ -279,7 +279,7 @@ async def group(client, message):
             buttons.append(
                 [InlineKeyboardButton(text="🗓️ 1/1",callback_data="pages"),
                  InlineKeyboardButton(text="🗑️",callback_data="close"),
-                 InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
+                 InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
             )
           
             if BUTTON_CALLBACK_OR_URL == "false":
@@ -338,7 +338,7 @@ async def group(client, message):
         buttons.append(
             [InlineKeyboardButton(text=f"🗓️ 1/{data['total']}",callback_data="pages"),
              InlineKeyboardButton(text="🗑️",callback_data="close"),
-             InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
+             InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
         )
         if BUTTON_CALLBACK_OR_URL == "false":
             buttons.append(
@@ -429,7 +429,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 buttons.append(                    
                     [InlineKeyboardButton(f"🗓️ {int(index)+2}/{data['total']}", callback_data="pages"),
                      InlineKeyboardButton(text="🗑️",callback_data="close"),
-                     InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
+                     InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
                 )
                 if BUTTON_CALLBACK_OR_URL == "false":
                     buttons.append(
@@ -450,7 +450,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 buttons.append(                   
                     [InlineKeyboardButton(f"🗓️ {int(index)+2}/{data['total']}", callback_data="pages"),
                      InlineKeyboardButton(text="🗑️",callback_data="close"),
-                     InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
+                     InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
                 )
                 if BUTTON_CALLBACK_OR_URL == "false":
                     buttons.append(
@@ -480,7 +480,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 buttons.append(                    
                     [InlineKeyboardButton(f"🗓️ {int(index)}/{data['total']}", callback_data="pages"),
                      InlineKeyboardButton(text="🗑️",callback_data="close"),
-                     InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
+                     InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
                 )
                 if BUTTON_CALLBACK_OR_URL == "false":
                     buttons.append(
@@ -501,7 +501,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 buttons.append(                    
                     [InlineKeyboardButton(f"🗓️ {int(index)}/{data['total']}", callback_data="pages"),  
                      InlineKeyboardButton(text="🗑️",callback_data="close"),
-                     InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
+                     InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
                 )
                 if BUTTON_CALLBACK_OR_URL == "false":
                     buttons.append(
