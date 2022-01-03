@@ -289,8 +289,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     buttons.append(
                         [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
                     )
-:
-                    buttons.append([InlineKeyboardButton(text="Close ❌",callback_data="close")])
 
                 await query.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
