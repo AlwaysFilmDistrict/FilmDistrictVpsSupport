@@ -20,8 +20,6 @@ SEPLLING_MODE_ON_OR_OFF = environ.get('SEPLLING_MODE_ON_OR_OFF', 'on').lower()
 BUTTON_CALLBACK_OR_URL = environ.get('BUTTON_CALLBACK_OR_URL', 'false').lower()
 BOT_PHOTO = environ.get('BOT_PHOTO')
 
-
-
 P_TTI_SHOW_OFF = is_enabled((environ.get('BUTTON_CALLBACK_OR_URL', "False")), False)
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
 INDEX_REQ_CHANNEL = int(environ.get('INDEX_REQ_CHANNEL', LOG_CHANNEL))
