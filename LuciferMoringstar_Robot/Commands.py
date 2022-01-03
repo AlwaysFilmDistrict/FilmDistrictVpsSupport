@@ -110,7 +110,6 @@ async def start(bot, message):
             photo=BOT_PHOTO,
             caption=START_MSG,
             parse_mode="Markdown",
-            disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [[
                 InlineKeyboardButton("🔍 Search Here", switch_inline_query_current_chat=''),
