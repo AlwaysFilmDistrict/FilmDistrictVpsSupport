@@ -11,6 +11,7 @@ from LuciferMoringstar_Robot.Filter.Pr0fess0r_99 import get_muhammed
 BUTTONS = {}
 BOT = {}
 
+
 @Client.on_message(filters.text & filters.private & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.text & filters.private & filters.incoming)
 async def filter(client, message):
     if message.text.startswith("/"):
