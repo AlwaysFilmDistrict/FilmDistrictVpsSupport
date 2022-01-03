@@ -64,23 +64,33 @@ class Poster(Document):
     class Meta:
         collection_name = COLLECTION_NAME_2
 
-async def save_poster(imdb_id, title, year, url):
+async def save_file(media):
+    """Save file in database"""
+
+    # TODO: Find better way to get same file_id for same media to avoid duplicates
+    file_id, file_ref = unpack_new_file_id(media.file_id)
+
     try:
-        data = Poster(
-            imdb_id=imdb_id,
-            title=title,
-            year=int(year),
-            poster=url
+        file = Media(
+            file_id=file_id,
+            file_ref=file_ref,
+            file_name=media.file_name,
+            file_size=media.file_size,
+            file_type=media.file_type,
+            mime_type=media.mime_type,
+            caption=media.caption.html if media.caption else None,
         )
     except ValidationError:
-        logger.exception('Error occurred while saving poster in database')
+        logger.exception('Error occurred while saving file in database')
     else:
         try:
-            await data.commit()
-        except DuplicateKeyError:
-            logger.warning("already saved in database")
+            await file.commit()
+        except DuplicateKeyError:      
+            logger.warning(media.file_name + " is already saved in database")
+            return False, 0
         else:
-            logger.info("Poster is saved in database")
+            logger.info(media.file_name + " is saved in database")
+            return True, 1
 
 async def save_file(media):
     """Save file in database"""
