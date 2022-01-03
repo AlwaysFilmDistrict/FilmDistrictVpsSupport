@@ -136,11 +136,31 @@ async def group(client, message):
         if files:
             for file in files:
                 file_id = file.file_id
-                filename = f"[{get_size(file.file_size)}] {file.file_name}"
+                filename = f"{get_size(file.file_size)} {file.file_name}"
                 btn.append(
                     [InlineKeyboardButton(text=f"{filename}", callback_data=f"pr0fess0r_99#{file_id}")]
                 )
         else:
+            if SEPLLING_MODE_ON_OR_OFF == "on":
+                text_replay = message.text
+                text_google = text_replay.replace(" ", '+')           
+                reply_markup = InlineKeyboardMarkup([[
+                   InlineKeyboardButton("🎗️ Google 🎗️", url=f"https://www.google.com/search?q={text_google}")
+                   ],[
+                   InlineKeyboardButton("🔍IMDB", url=f"https://www.imdb.com/find?q={text_google}"),
+                   InlineKeyboardButton("Wikipedia🔎", url=f"https://en.m.wikipedia.org/w/index.php?search={text_google}")
+                   ]]
+                )
+                LuciferMoringstar=await client.send_message(
+                chat_id = message.chat.id,
+                text=SPELLING_MODE_TEXT.format(message.from_user.first_name, search),
+                reply_markup=reply_markup,
+                parse_mode="html",
+                reply_to_message_id=message.message_id
+                )
+                await asyncio.sleep(60) 
+                await LuciferMoringstar.delete()
+                await client.delete_messages(message.chat.id,message.message_id)              
             return
         if not btn:
             return
