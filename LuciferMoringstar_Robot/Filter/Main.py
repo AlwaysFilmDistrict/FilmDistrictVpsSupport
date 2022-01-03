@@ -80,7 +80,9 @@ async def filter(client, message):
         else:
             buttons = btn
             buttons.append(
-                [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
+                [InlineKeyboardButton(text="🗓️ 1/1",callback_data="pages"),
+                 InlineKeyboardButton(text="🗑️",callback_data="close"),
+                 InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
             )
             if BUTTON_CALLBACK_OR_URL == "false":
                 buttons.append(
@@ -125,11 +127,14 @@ async def filter(client, message):
         buttons = data['buttons'][0].copy()
 
         buttons.append(
-            [InlineKeyboardButton(text="NEXT ⏩",callback_data=f"next_0_{keyword}")]
+            [InlineKeyboardButton(text="Next Page ➡️",callback_data=f"next_0_{keyword}")]
         )    
+
         buttons.append(
-            [InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
-        )
+            [InlineKeyboardButton(text=f"🗓️ 1/{data['total']}",callback_data="pages"),
+             InlineKeyboardButton(text="🗑️",callback_data="close"),
+             InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
+        )    
 
         if BUTTON_CALLBACK_OR_URL == "false":
             buttons.append(
