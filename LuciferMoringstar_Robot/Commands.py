@@ -112,7 +112,7 @@ async def start(bot, message):
     else:
         id = message.from_user.id
         first_name = message.from_user.first_name
-        if update.from_user.id not in OWNER_ID:
+        if message.from_user.id not in OWNER_ID:
             await message.reply_photo(
                 photo=BOT_PHOTO,
                 caption=f"""🙋‍♂️ Hi <a href=tg://user?id={id}>{first_name}</a>,\n\n🤖 I'm Film District Bot 2.0\n\n👨‍💻 My Boss : HeartBeat\n\n💯 Here You Can Download Any Movies Or Web Series\n\nDo You Want To Join Group ⁉️\n\nClick Down Below Button 👇""",
