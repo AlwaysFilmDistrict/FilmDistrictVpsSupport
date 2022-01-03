@@ -383,8 +383,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 return
         elif query.data == "help":
             buttons = [[
-                InlineKeyboardButton('My Boss', url='t.me/helloheartbeat'),
-                InlineKeyboardButton('Source Code', url="https://github.com/AnjanModak/LuciferMoringstar_Robot")
+                InlineKeyboardButton('👑 My Creator', url='t.me/helloheartbeat'),
+                InlineKeyboardButton('📦 Source Code', url="https://www.google.com")
                 ],[
                 
                 ]]
@@ -397,7 +397,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             buttons = [
                 [
                     InlineKeyboardButton('👑 My Creator', url='t.me/helloheartbeat'),
-                    InlineKeyboardButton('📦 Source Code', url="https://www.google.com")
+                    InlineKeyboardButton('🔗 Film District 2.0', url="https://www.google.com")
                 ]
                 ]
             await query.message.edit(text=f"{ABOUT}".format(TUTORIAL), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
