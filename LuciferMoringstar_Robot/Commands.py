@@ -112,15 +112,6 @@ async def start(bot, message):
     else:
         id = message.from_user.id
         first_name = message.from_user.first_name
-            button = [[
-
-        button = [[
-            InlineKeyboardButton("🔍 Search Here", switch_inline_query_current_chat=''),
-            InlineKeyboardButton("🔗 Film District 2.0", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
-            ],[
-            InlineKeyboardButton("ℹ️ Help", callback_data="help"),
-            InlineKeyboardButton("🙂 About", callback_data="about")
-            ]]
         if update.from_user.id not in OWNER_ID:
             await message.reply_photo(
                 photo=BOT_PHOTO,
