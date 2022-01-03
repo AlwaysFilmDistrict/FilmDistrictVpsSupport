@@ -118,11 +118,11 @@ async def start(bot, message):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [[
-                InlineKeyboardButton("Search Here", switch_inline_query_current_chat=''),
-                InlineKeyboardButton("Join Group", url="https://telegram.me/joinchat/8mwoQFL0drRhOTY1")
+                InlineKeyboardButton("🔍 Search Here", switch_inline_query_current_chat=''),
+                InlineKeyboardButton("🔗 Film District 2.0", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
                 ],[
-                InlineKeyboardButton("Help", callback_data="help"),
-                InlineKeyboardButton("About", callback_data="about")
+                InlineKeyboardButton("ℹ️ Help", callback_data="help"),
+                InlineKeyboardButton("🙂 About", callback_data="about")
                 ]]
             )
         )
