@@ -32,7 +32,7 @@ HELP = """
 ABOUT = """
 🤖 Name : Film District Bot
     
-👑 Creator : [Anjan](t.me/helloheartbeat)
+👑 Creator : [HeartBeat](t.me/helloheartbeat)
 
 📃 Language : Python3
 
