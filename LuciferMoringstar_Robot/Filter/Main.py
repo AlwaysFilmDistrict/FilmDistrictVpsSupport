@@ -212,7 +212,7 @@ async def group(client, message):
                 )
                 LuciferMoringstar=await client.send_message(
                 chat_id = message.chat.id,
-                text=SPELLING_TEXT.format(message.from_user.first_name, search),
+                text=SPELLING_MODE_TEXT.format(message.from_user.first_name, search),
                 reply_markup=reply_markup,
                 parse_mode="html",
                 reply_to_message_id=message.message_id
