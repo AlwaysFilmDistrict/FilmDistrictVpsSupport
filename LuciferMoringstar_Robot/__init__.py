@@ -5,7 +5,7 @@ from .Utils import (
    get_poster,
    Media
 )
-from info import BOT_USERNAME
+from Config import BOT_USERNAME
 
 
 HELP = """
