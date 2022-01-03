@@ -92,7 +92,7 @@ async def filter(client, message):
                  InlineKeyboardButton(text="🗑️",callback_data="close"),
                  InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
             )
-            if BUTTON == "false":
+            if BUTTON_CALLBACK_OR_URL == "false":
                 buttons.append(
                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
                 )
@@ -140,7 +140,7 @@ async def filter(client, message):
              InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
         )    
        
-        if BUTTON == "false":  
+        if BUTTON_CALLBACK_OR_URL == "false":  
             buttons.append(
                 [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
             )   
