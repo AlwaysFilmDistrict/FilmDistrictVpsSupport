@@ -1,6 +1,7 @@
 # (c) PR0FESS0R-99
-from Config import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS, TUTORIAL, BOT_USERNAME, SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BUTTON_CALLBACK_OR_URL       
+from Config import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS, TUTORIAL, BOT_USERNAME, SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BUTTON_CALLBACK_OR_URL, P_TTI_SHOW_OFF               
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from pyrogram import Client, filters
 import re, asyncio, random
 from pyrogram.errors import UserNotParticipant
@@ -500,8 +501,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(text=f"{ABOUT}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
 
-        elif query.data.startswith("pr0fess0r_99"):
+        elif query.data.startswith("pr0fess0r_99"):          
             ident, file_id = query.data.split("#")
+                       
             filedetails = await get_file_details(file_id)
             for files in filedetails:
                 title = files.file_name
@@ -515,13 +517,27 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         f_caption=f_caption
                 if f_caption is None:
                     f_caption = f"{files.file_name}"
-                
-                await query.answer()
-                await client.send_cached_media(
-                    chat_id=query.from_user.id,
-                    file_id=file_id,
-                    caption=f_caption
-                    )
+
+                try:
+                    if AUTH_CHANNEL and not await is_subscribed(client, query):
+                        await query.answer(url=f"https://t.me/{BOT_USERNAME}?start=subinps_-_-_-_{file_id}")
+                        return
+                    elif P_TTI_SHOW_OFF:
+                        await query.answer(url=f"https://t.me/{BOT_USERNAME}?start=subinps_-_-_-_{file_id}")
+                        return
+                    else:
+                        await client.send_cached_media(
+                            chat_id=query.from_user.id,
+                            file_id=file_id,
+                            caption=f_caption
+                        )
+                        await query.answer('Check PM, I have sent files in pm',show_alert = True)
+                except UserIsBlocked:
+                    await query.answer('Unblock the bot mahn !',show_alert = True)
+                except PeerIdInvalid:
+                    await query.answer(url=f"https://t.me/{BOT_USERNAME}?start=pr0fess0r_99_-_-_-_{file_id}")
+                except Exception as e:
+                    await query.answer(url=f"https://t.me/{BOT_USERNAME}?start=pr0fess0r_99_-_-_-_{file_id}")
 
         elif query.data.startswith("checksub"):
             if AUTH_CHANNEL and not await is_subscribed(client, query):
