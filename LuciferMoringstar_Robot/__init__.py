@@ -13,30 +13,30 @@ from .Channel import (
 HELP = """
 <u>Basic Commads</u>
 
-/start : check if am alive or dead
+/start : Check If Am Alive Or Dead
 /about : About Me
 
 <u>Bot Owner Only</u>
 
-  /broadcast Replay Any Message or Media
-  /stats user Status
-  /ban_user  click ban_user more info
-  /unban_user click unban_user more info
+  /broadcast Replay Any Message Or Media
+  /stats User Status
+  /ban_user  Click ban_user More Info
+  /unban_user Click unban_user More Info
   /banned_users Banned User Details
   /total How Many Files Added In Database
   /logger  Get Logs
   /delete Delete File From Database
-
+  /dyno Check Bot Dyno
 """
 
 ABOUT = """
-➥ Name : Film District Bot
+🤖 Name : <a href="t.me/{}">{}</a>
     
-➥ Creator : [Anjan](t.me/helloheartbeat)
+👑 Creator : <a href="t.me/{}">{}</a>
 
-➥ Language : Python3
+📃 Language : Python3
 
-➥ Library : Pyrogram Asyncio 1.13.0
+🛠 Library : Pyrogram Asyncio 1.13.0
 
-➥ Source Code : [Click Me](https://github.com/AnjanModak/LuciferMoringstar_Robot)
+📦 Source Code : 🤐
 """
