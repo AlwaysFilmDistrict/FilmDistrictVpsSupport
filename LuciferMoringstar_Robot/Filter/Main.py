@@ -86,38 +86,92 @@ async def filter(client, message):
             }
         else:
             buttons = btn
+
             buttons.append(
-                [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
+                [InlineKeyboardButton(text="🗓️ 1/1",callback_data="pages"),
+                 InlineKeyboardButton(text="🗑️",callback_data="close"),
+                 InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
             )
+            if BUTTON == "false":
+                buttons.append(
+                   [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+                )
+
             poster=None
             if API_KEY:
+                imdb=await get_muhammed(search)
                 poster=await get_poster(search)
             if poster:
-                await message.reply_photo(photo=poster, caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+                mo_tech_yt_1=f"""
+↪️ **Requested:** {search}
+👤 **Requested By:** {message.from_user.mention}
+🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>
+🎭 **Genres:** {imdb.get('genres')}
+📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
+🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
+🖋 **StoryLine:** <code>{imdb.get('plot')}</code>
+📑 **Total Page:** 1
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
+"""
+                await message.reply_photo(photo=poster, caption=mo_tech_yt_1, reply_markup=InlineKeyboardMarkup(buttons))
 
             else:
+                mo_tech_yt=f"""
+↪️ **Requested:** {search}
+👤 **Requested By:** {message.from_user.mention}
+📑 **Total Page:** 1
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
+"""
                 await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
             return
 
         data = BUTTONS[keyword]
         buttons = data['buttons'][0].copy()
 
+
+
         buttons.append(
-            [InlineKeyboardButton(text="NEXT ⏩",callback_data=f"next_0_{keyword}")]
+            [InlineKeyboardButton(text="Next Page ➡️",callback_data=f"next_0_{keyword}")]
         )    
+
         buttons.append(
-            [InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
-        )
-        buttons.append(
-            [InlineKeyboardButton(text="♻️ Help ♻️", callback_data="helpalert")]
-        )
+            [InlineKeyboardButton(text=f"🗓️ 1/{data['total']}",callback_data="pages"),
+             InlineKeyboardButton(text="🗑️",callback_data="close"),
+             InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
+        )    
+       
+        if BUTTON == "false":  
+            buttons.append(
+                [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+            )   
         poster=None
         if API_KEY:
+            imdb=await get_muhammed(search)
             poster=await get_poster(search)
         if poster:
-            await message.reply_photo(photo=poster, caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+            mo_tech_yt_1=f"""
+↪️ **Requested:** {search}
+👤 **Requested By:** {message.from_user.mention}
+🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>
+🎭 **Genres:** {imdb.get('genres')}
+📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
+🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
+🖋 **StoryLine:** <code>{imdb.get('plot')}</code>
+📑 **Total Page:** 1
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
+"""
+            await message.reply_photo(photo=poster, caption=mo_tech_yt_1, reply_markup=InlineKeyboardMarkup(buttons))
         else:
+            mo_tech_yt=f"""
+↪️ **Requested:** {search}
+👤 **Requested By:** {message.from_user.mention}
+📑 **Total Page:** 1
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
+"""
             await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+
+
+
 
 @Client.on_message(filters.text & filters.group & filters.incoming & filters.chat(AUTH_GROUPS) if AUTH_GROUPS else filters.text & filters.group & filters.incoming)
 async def group(client, message):
@@ -178,8 +232,6 @@ async def group(client, message):
             }
         else:
             buttons = btn
-
-
             buttons.append(
                 [InlineKeyboardButton(text="🗓️ 1/1",callback_data="pages"),
                  InlineKeyboardButton(text="🗑️",callback_data="close"),
@@ -272,7 +324,6 @@ async def group(client, message):
             LuciferMoringstar=await message.reply_photo(photo=poster, caption=text_photo_2, reply_markup=InlineKeyboardMarkup(buttons))
             await asyncio.sleep(600) # in seconds
             await LuciferMoringstar.delete()
-            await client.delete_messages(message.chat.id,message.message_id)
             return
         else:
             LuciferMoringstar=await message.reply_photo(
@@ -288,7 +339,6 @@ async def group(client, message):
 📌 **This Post Will Be Deleted After 10 Minutes**""", reply_markup=InlineKeyboardMarkup(buttons))
             await asyncio.sleep(600) # in seconds
             await LuciferMoringstar.delete()
-            await client.delete_messages(message.chat.id,message.message_id)
             return
     
 def get_size(size):
@@ -426,6 +476,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 InlineKeyboardButton('📦 Source Code', url="https://www.google.com")              
                 ]]
             await query.message.edit(text=f"{HELP}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+
+        elif query.data == "rulesbot":
+            buttons = [[
+                InlineKeyboardButton('বাংলা', url='https://telegra.ph/FAQ-BEN-FILMDISTRICT-12-03'),
+                InlineKeyboardButton('हिंदी', url="https://telegra.ph/FAQ-HIN-FILMDISTRICT-12-03")              
+                ],[
+                InlineKeyboardButton('English', url="https://telegra.ph/FAQ-ENG-FILMDISTRICT-12-03")              
+                ]]
+            LuciferMoringstar=await query.message.reply_text(text="Select Your Preferred Language", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            await asyncio.sleep(60) 
+            await LuciferMoringstar.delete()
+
 
         elif query.data == "helpalert":
             await query.answer(ALERT_HELP_TEXT, show_alert=True)
