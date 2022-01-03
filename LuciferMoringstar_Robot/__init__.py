@@ -5,6 +5,7 @@ from .Utils import (
    get_poster,
    Media
 )
+from info import BOT_USERNAME
 
 
 HELP = """
@@ -26,8 +27,8 @@ HELP = """
   /dyno Check Bot Dyno
 """
 
-ABOUT = """
-🤖 Name : Film District Bot
+ABOUT = f"""
+🤖 Name : [Film District Bot](t.me/{BOT_USERNAME})
     
 👑 Creator : [HeartBeat](t.me/helloheartbeat)
 
