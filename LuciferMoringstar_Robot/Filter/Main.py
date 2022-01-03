@@ -106,10 +106,9 @@ async def filter(client, message):
         buttons.append(
             [InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
         )
-        if P_TTI_SHOW_OFF:
-            buttons.append(
-                [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
-            )
+        buttons.append(
+            [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+        )
 
 
         poster=None
@@ -237,7 +236,9 @@ async def group(client, message):
              InlineKeyboardButton(text="🗑️",callback_data="close"),
              InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
         )
-        
+        buttons.append(
+            [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+        )
 
         poster=None
         if API_KEY:
