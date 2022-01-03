@@ -265,7 +265,6 @@ async def group(client, message):
                 LuciferMoringstar=await message.reply_photo(photo=poster, caption=text_photo_1 , reply_markup=InlineKeyboardMarkup(buttons))
                 await asyncio.sleep(600) # in seconds
                 await LuciferMoringstar.delete()
-                await client.delete_messages(message.chat.id,message.message_id)
                 return
             else:
                 LuciferMoringstar=await message.reply_photo(
@@ -278,10 +277,11 @@ async def group(client, message):
 🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
 
 📌 **Press The Down Buttons To Access The File**
-📌 **This Post Will Be Deleted After 10 Minutes**""", reply_markup=InlineKeyboardMarkup(buttons))
+📌 **This Post Will Be Deleted After 10 Minutes**""",
+                    reply_markup=InlineKeyboardMarkup(buttons)
+                )
                 await asyncio.sleep(600) # in seconds
                 await LuciferMoringstar.delete()
-                await client.delete_messages(message.chat.id,message.message_id)
                 return
 
         data = BUTTONS[keyword]
