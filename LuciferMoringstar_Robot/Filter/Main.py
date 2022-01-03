@@ -243,6 +243,64 @@ async def group(client, message):
                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
                 )
 
+            poster=None
+            if API_KEY:
+                imdb=await get_muhammed(search)
+                poster=await get_poster(search)
+            if poster:
+                text_photo_1 = f"""
+↪️ **Requested:** {search}
+👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})
+🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>
+🎭 **Genres:** {imdb.get('genres')}
+📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
+🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
+🖋 **StoryLine:** <code>{imdb.get('plot')}</code>
+📑 **Total Page:** 1
+🎙️ **Group:** {message.chat.title}
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
+📌 **Press The Down Buttons To Access The File**
+📌 **This Post Will Be Deleted After 10 Minutes**"""
+                LuciferMoringstar=await message.reply_photo(photo=poster, caption=text_photo_1 , reply_markup=InlineKeyboardMarkup(buttons))
+                await asyncio.sleep(600) # in seconds
+                await LuciferMoringstar.delete()
+                await client.delete_messages(message.chat.id,message.message_id)
+                return
+            else:
+                LuciferMoringstar=await message.reply_photo(
+                    photo=PHOTOSS,
+                    caption=f"""
+↪️ **Requested:** {search}
+👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})
+📑 **Total Page:** 1
+🎙️ **Group:** {message.chat.title}
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
+📌 **Press The Down Buttons To Access The File**
+📌 **This Post Will Be Deleted After 10 Minutes**""", reply_markup=InlineKeyboardMarkup(buttons))
+                await asyncio.sleep(600) # in seconds
+                await LuciferMoringstar.delete()
+                await client.delete_messages(message.chat.id,message.message_id)
+                return
+
+        data = BUTTONS[keyword]
+        buttons = data['buttons'][0].copy()
+        totalss = data['total']
+
+        buttons.append(
+            [InlineKeyboardButton(text="Next Page ➡️",callback_data=f"next_0_{keyword}")]
+        )    
+
+        buttons.append(
+            [InlineKeyboardButton(text=f"🗓️ 1/{data['total']}",callback_data="pages"),
+             InlineKeyboardButton(text="🗑️",callback_data="close"),
+             InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
+        )    
+                     
+        if BUTTON_CALLBACK_OR_URL == "false":
+            buttons.append(
+                [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+            )
+
         poster=None
         if API_KEY:
             imdb=await get_muhammed(search)
@@ -280,63 +338,6 @@ async def group(client, message):
             await asyncio.sleep(600) # in seconds
             await LuciferMoringstar.delete()
             await client.delete_messages(message.chat.id,message.message_id)
-            return
-
-        data = BUTTONS[keyword]
-        buttons = data['buttons'][0].copy()
-        totalss = data['total']
-         
-        buttons.append(
-            [InlineKeyboardButton(text="Next Page ➡️",callback_data=f"next_0_{keyword}")]
-        )    
-
-        buttons.append(
-            [InlineKeyboardButton(text=f"🗓️ 1/{data['total']}",callback_data="pages"),
-             InlineKeyboardButton(text="🗑️",callback_data="close"),
-             InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
-        )    
-       
-        if BUTTON_CALLBACK_OR_URL == "false":  
-            buttons.append(
-                [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
-            )
-        
-        poster=None
-        if API_KEY:
-            imdb=await get_muhammed(search)
-            poster=await get_poster(search)
-        if poster:
-            text_photo_2 = f"""
-↪️ **Requested:** {search}
-👤 **Requested By:** {message.from_user.mention}
-🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>
-🎭 **Genres:** {imdb.get('genres')}
-📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
-🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
-🖋 **StoryLine:** <code>{imdb.get('plot')} </code>
-📑 **Total Page:** 1 to {totalss}
-🎙️ **Group:** {message.chat.title}
-🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
-
-📌 **Press The Down Buttons To Access The File**
-📌 **This Post Will Be Deleted After 10 Minutes**"""
-            LuciferMoringstar=await message.reply_photo(photo=poster, caption=text_photo_2, reply_markup=InlineKeyboardMarkup(buttons))
-            await asyncio.sleep(600) # in seconds
-            await LuciferMoringstar.delete()
-            return
-        else:
-            text_file=f"""
-↪️ **Requested:** {search}
-👤 **Requested By:** {message.from_user.mention}
-📑 **Total Page:**  1 to {totalss}
-🎙️ **Group:** {message.chat.title}
-🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
-
-📌 **Press The Down Buttons To Access The File**
-📌 **This Post Will Be Deleted After 10 Minutes**"""
-            LuciferMoringstar=await message.reply_photo(photo=PHOTOSS, caption=text_file, reply_markup=InlineKeyboardMarkup(buttons))
-            await asyncio.sleep(600) # in seconds
-            await LuciferMoringstar.delete()
             return
     
 def get_size(size):
