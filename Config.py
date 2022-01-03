@@ -6,8 +6,8 @@ id_pattern = re.compile(r'^.\d+$')
 
 BOT_USERNAME = environ.get('BOT_USERNAME', 'FilmDistrict_Bot')
 SPELLING_MODE_TEXT = environ.get('SPELLING_MODE_TEXT', 'FilmDistrict_Bot')
-SEPLLING_MODE_ON_OR_OFF = environ.get('SEPLLING_MODE_ON_OR_OFF', 'false').lower()
-
+SEPLLING_MODE_ON_OR_OFF = environ.get('SEPLLING_MODE_ON_OR_OFF', 'on').lower()
+BUTTON_CALLBACK_OR_URL = environ.get('BUTTON_CALLBACK_OR_URL', 'false').lower()
 
 
 # Bot information
