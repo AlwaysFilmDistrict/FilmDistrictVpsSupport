@@ -3,7 +3,7 @@ import logging
 from pyrogram import Client, filters
 from pyrogram import StopPropagation
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from Config import START_MSG, CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, TUTORIAL, BROADCAST_CHANNEL, DB_URL, SESSION, ADMIN_ID, BOT_USERNAME, BOT_PHOTO
+from Config import CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, TUTORIAL, BROADCAST_CHANNEL, DB_URL, SESSION, ADMIN_ID, BOT_USERNAME, BOT_PHOTO
 from LuciferMoringstar_Robot.Utils import Media, get_file_details 
 from LuciferMoringstar_Robot.Broadcast import broadcast
 from LuciferMoringstar_Robot import ABOUT
@@ -109,7 +109,18 @@ async def start(bot, message):
         mention = message.from_user.mention
         await message.reply_photo(
             photo=BOT_PHOTO,
-            caption=START_MSG.format(mention),
+            caption=f"""
+🙋‍♂️ Hi {mention},
+
+🤖 I'm Film District Bot 2.0
+
+👨‍💻 My Boss : HeartBeat
+
+💯 Here You Can Download Any Movies Or Web Series
+
+Do You Want To Join Group ⁉️
+
+Click Down Below Button 👇""",
             parse_mode="Markdown",
             reply_markup=InlineKeyboardMarkup(
                 [[
