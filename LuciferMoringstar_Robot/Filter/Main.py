@@ -197,7 +197,7 @@ async def group(client, message):
                     [InlineKeyboardButton(text=f"➠ {filesize} ➠ {filename}", callback_data=f"pr0fess0r_99#{file_id}")]
                 )
         else:
-            if SEPLLING_MODE_ON_OR_OFF == "on"
+            if SEPLLING_MODE_ON_OR_OFF == "on":
                 text_replay = message.text
                 text_google = text_replay.replace(" ", '+')           
                 reply_markup = InlineKeyboardMarkup([[
