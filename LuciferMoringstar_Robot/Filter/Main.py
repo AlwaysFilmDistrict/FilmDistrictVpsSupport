@@ -82,6 +82,11 @@ async def filter(client, message):
             buttons.append(
                 [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
             )
+            if BUTTON_CALLBACK_OR_URL == "false":
+                buttons.append(
+                    [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
+                )
+
             poster=None
             if API_KEY:
                 poster=await get_poster(search)
@@ -101,6 +106,11 @@ async def filter(client, message):
         buttons.append(
             [InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
         )
+        if BUTTON_CALLBACK_OR_URL == "false":
+            buttons.append(
+                [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
+            )
+
 
         poster=None
         if API_KEY:
@@ -275,7 +285,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 buttons.append(
                     [InlineKeyboardButton(f"📃 Pages {int(index)}/{data['total']}", callback_data="pages")]
                 )
-                if if BUTTON_CALLBACK_OR_URL == "false":
+                if BUTTON_CALLBACK_OR_URL == "false":
                     buttons.append(
                         [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
                     )
