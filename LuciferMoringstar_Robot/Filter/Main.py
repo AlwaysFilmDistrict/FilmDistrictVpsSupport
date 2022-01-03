@@ -112,8 +112,7 @@ async def filter(client, message):
 🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
 🖋 **StoryLine:** <code>{imdb.get('plot')}</code>
 📑 **Total Page:** 1
-🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
-"""
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)"""
                 await message.reply_photo(photo=poster, caption=mo_tech_yt_1, reply_markup=InlineKeyboardMarkup(buttons))
 
             else:
@@ -121,8 +120,7 @@ async def filter(client, message):
 ↪️ **Requested:** {search}
 👤 **Requested By:** {message.from_user.mention}
 📑 **Total Page:** 1
-🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
-"""
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)"""
                 await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
             return
 
@@ -167,8 +165,7 @@ async def filter(client, message):
 ↪️ **Requested:** {search}
 👤 **Requested By:** {message.from_user.mention}
 📑 **Total Page:** 1
-🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
-"""
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)"""
             await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
 
 
@@ -280,7 +277,7 @@ async def group(client, message):
                 await asyncio.sleep(600) # in seconds
                 await LuciferMoringstar.delete()
                 await client.delete_messages(message.chat.id,message.message_id)
-                return
+            return
 
         data = BUTTONS[keyword]
         buttons = data['buttons'][0].copy()
