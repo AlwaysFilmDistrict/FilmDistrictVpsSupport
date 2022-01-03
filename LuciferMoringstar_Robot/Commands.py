@@ -115,7 +115,7 @@ async def start(bot, message):
         if message.from_user.id not in OWNER_ID:
             await message.reply_photo(
                 photo=BOT_PHOTO,
-                caption=f"""🙋‍♂️ Hi <a href="tg://user?id={id}">{first_name}</a>,\n\n🤖 I'm Film District Bot 2.0\n\n👨‍💻 My Boss : HeartBeat\n\n💯 Here You Can Download Any Movies Or Web Series\n\nDo You Want To Join Group ⁉️\n\nClick Down Below Button 👇""",
+                caption=f"""🙋‍♂️ Hi [{first_name}](tg://user?id={id}),\n\n🤖 I'm Film District Bot 2.0\n\n👨‍💻 My Boss : HeartBeat\n\n💯 Here You Can Download Any Movies Or Web Series\n\nDo You Want To Join Group ⁉️\n\nClick Down Below Button 👇""",
                 parse_mode="Markdown",
                 reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton("🔗 Film District 2.0", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
@@ -129,7 +129,7 @@ async def start(bot, message):
             return
         await message.reply_photo(
             photo=BOT_PHOTO,
-            caption=f"""🙋‍♂️ Hi <a href="tg://user?id={id}">{first_name}</a>,\n\n🤖 I'm Film District Bot 2.0\n\n👨‍💻 My Boss : HeartBeat\n\n💯 Here You Can Download Any Movies Or Web Series\n\nDo You Want To Join Group ⁉️\n\nClick Down Below Button 👇""",
+            caption=f"""🙋‍♂️ Hi [{first_name}](tg://user?id={id}) ,\n\n🤖 I'm Film District Bot 2.0\n\n👨‍💻 My Boss : HeartBeat\n\n💯 Here You Can Download Any Movies Or Web Series\n\nDo You Want To Join Group ⁉️\n\nClick Down Below Button 👇""",
             parse_mode="Markdown",
             reply_markup=InlineKeyboardMarkup([[
                 InlineKeyboardButton("🔍 Search Here", switch_inline_query_current_chat=''),
