@@ -18,7 +18,7 @@ BOT_USERNAME = environ.get('BOT_USERNAME', 'FilmDistrict_Bot')
 SPELLING_MODE_TEXT = environ.get('SPELLING_MODE_TEXT', 'FilmDistrict_Bot')
 SEPLLING_MODE_ON_OR_OFF = environ.get('SEPLLING_MODE_ON_OR_OFF', 'on').lower()
 BUTTON_CALLBACK_OR_URL = environ.get('BUTTON_CALLBACK_OR_URL', 'false').lower()
-
+BOT_PHOTO = environ.get('BOT_PHOTO')
 P_TTI_SHOW_OFF = is_enabled((environ.get('BUTTON_CALLBACK_OR_URL', "False")), False)
 
 
