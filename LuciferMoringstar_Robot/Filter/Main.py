@@ -120,6 +120,10 @@ async def filter(client, message):
         else:
             await message.reply_text(f"<b>Here is What I Found In My Database For Your Query {search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
 
+
+
+
+
 @Client.on_message(filters.text & filters.group & filters.incoming & filters.chat(AUTH_GROUPS) if AUTH_GROUPS else filters.text & filters.group & filters.incoming)
 async def group(client, message):
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
@@ -184,11 +188,39 @@ async def group(client, message):
            
             poster=None
             if API_KEY:
+                imdb=await get_muhammed(search)
                 poster=await get_poster(search)
             if poster:
-                await message.reply_photo(photo=poster, caption=f"<b>Here is What I Found In My Database For Your Query {search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+                text_photo_1 = f"""
+↪️ **Requested:** {search}
+👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})
+🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>
+🎭 **Genres:** {imdb.get('genres')}
+📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
+🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
+🖋 **StoryLine:** <code>{imdb.get('plot')}</code>
+📑 **Total Page:** 1
+🎙️ **Group:** {message.chat.title}
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
+
+📌 **Press The Down Buttons To Access The File**
+📌 **This Post Will Be Deleted After 10 Minutes**"""
+                LuciferMoringstar=await message.reply_photo(photo=poster, caption=text_photo_1 , reply_markup=InlineKeyboardMarkup(buttons))
+                await asyncio.sleep(600) # in seconds
+                await LuciferMoringstar.delete()
+                await client.delete_messages(message.chat.id,message.message_id)
+                return              
             else:
-                await message.reply_text(f"<b>Here is What I Found In My Database For Your Query {search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+                text_2=f"""
+↪️ **Requested:** {search}
+👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})
+📑 **Total Page:** 1
+🎙️ **Group:** {message.chat.title}
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
+📌 **Press The Down Buttons To Access The File**
+📌 **This Post Will Be Deleted After 10 Minutes**"""
+
+                await message.reply_text(text_2, reply_markup=InlineKeyboardMarkup(buttons))
             return
 
         data = BUTTONS[keyword]
@@ -207,11 +239,34 @@ async def group(client, message):
 
         poster=None
         if API_KEY:
+            imdb=await get_muhammed(search)
             poster=await get_poster(search)
         if poster:
-            await message.reply_photo(photo=poster, caption=f"<b>Here is What I Found In My Database For Your Query {search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+            text_photo_1 = f"""
+↪️ **Requested:** {search}
+👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})
+🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>
+🎭 **Genres:** {imdb.get('genres')}
+📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
+🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
+🖋 **StoryLine:** <code>{imdb.get('plot')}</code>
+📑 **Total Page:** 1
+🎙️ **Group:** {message.chat.title}
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
+
+📌 **Press The Down Buttons To Access The File**
+📌 **This Post Will Be Deleted After 10 Minutes**"""
+            await message.reply_photo(photo=poster, caption=text_photo_1, reply_markup=InlineKeyboardMarkup(buttons))
         else:
-            await message.reply_text(f"<b>Here is What I Found In My Database For Your Query {search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons)) 
+            text_2=f"""
+↪️ **Requested:** {search}
+👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})
+📑 **Total Page:** 1
+🎙️ **Group:** {message.chat.title}
+🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
+📌 **Press The Down Buttons To Access The File**
+📌 **This Post Will Be Deleted After 10 Minutes**"""
+            await message.reply_text(text_2, reply_markup=InlineKeyboardMarkup(buttons)) 
     
 def get_size(size):
     """Get size in readable format"""
