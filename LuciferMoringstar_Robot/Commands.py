@@ -16,6 +16,10 @@ LOG_CHANNEL = BROADCAST_CHANNEL
 
 db = Database(DB_URL, SESSION)
 
+
+OWNER_ID = set(int(x) for x in os.environ.get("ADMINS", "").split())
+
+
 @Client.on_message(filters.command("start"))
 async def start(bot, message):
     chat_id = message.from_user.id
@@ -108,23 +112,35 @@ async def start(bot, message):
     else:
         id = message.from_user.id
         first_name = message.from_user.first_name
+            button = [[
+
+        button = [[
+            InlineKeyboardButton("🔍 Search Here", switch_inline_query_current_chat=''),
+            InlineKeyboardButton("🔗 Film District 2.0", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
+            ],[
+            InlineKeyboardButton("ℹ️ Help", callback_data="help"),
+            InlineKeyboardButton("🙂 About", callback_data="about")
+            ]]
+        if update.from_user.id not in OWNER_ID:
+            await message.reply_photo(
+                photo=BOT_PHOTO,
+                caption=f"""🙋‍♂️ Hi <a href=tg://user?id={id}>{first_name}</a>,\n\n🤖 I'm Film District Bot 2.0\n\n👨‍💻 My Boss : HeartBeat\n\n💯 Here You Can Download Any Movies Or Web Series\n\nDo You Want To Join Group ⁉️\n\nClick Down Below Button 👇""",
+                parse_mode="Markdown",
+                reply_markup=InlineKeyboardMarkup([[
+                    InlineKeyboardButton("🔗 Film District 2.0", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
+                    ],[
+                    InlineKeyboardButton("ℹ️ Help", callback_data="help"),
+                    InlineKeyboardButton("🙂 About", callback_data="about")
+                    ]]
+                )
+            )
+            StopPropagation
+            return
         await message.reply_photo(
             photo=BOT_PHOTO,
-            caption=f"""
-🙋‍♂️ Hi <a href=tg://user?id={id}>{first_name}</a>,
-
-🤖 I'm Film District Bot 2.0
-
-👨‍💻 My Boss : HeartBeat
-
-💯 Here You Can Download Any Movies Or Web Series
-
-Do You Want To Join Group ⁉️
-
-Click Down Below Button 👇""",
+            caption=f"""🙋‍♂️ Hi <a href=tg://user?id={id}>{first_name}</a>,\n\n🤖 I'm Film District Bot 2.0\n\n👨‍💻 My Boss : HeartBeat\n\n💯 Here You Can Download Any Movies Or Web Series\n\nDo You Want To Join Group ⁉️\n\nClick Down Below Button 👇""",
             parse_mode="Markdown",
-            reply_markup=InlineKeyboardMarkup(
-                [[
+            reply_markup=InlineKeyboardMarkup([[
                 InlineKeyboardButton("🔍 Search Here", switch_inline_query_current_chat=''),
                 InlineKeyboardButton("🔗 Film District 2.0", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
                 ],[
@@ -134,6 +150,7 @@ Click Down Below Button 👇""",
             )
         )
         StopPropagation
+
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
