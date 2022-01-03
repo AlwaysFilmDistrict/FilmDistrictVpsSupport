@@ -11,14 +11,6 @@ from LuciferMoringstar_Robot.Filter.Pr0fess0r_99 import get_muhammed
 BUTTONS = {}
 BOT = {}
 
-JOIN_TEXT = "⭕ Join My Updates Channel ⭕"
-JOIN_LINK = "https://t.me/joinchat/EUUS8b0iEnVjZTU9" 
-ALERT_HELP_TEXT = """If You Have Any Complaints Or Doubts
-About The Group Or It's Members Please
-Send "@admin [Your Complaint]" And We
-Will Look Into It 😊"""
-PHOTOSS = "https://telegra.ph/file/f7f9135ab3b3b4ed32f82.jpg"
-
 @Client.on_message(filters.text & filters.private & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.text & filters.private & filters.incoming)
 async def filter(client, message):
     if message.text.startswith("/"):
@@ -42,7 +34,7 @@ async def filter(client, message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("📢 Join Updates Channel 📢", url=invite_link.invite_link)
+                            InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
                         ]
                     ]
                 ),
@@ -66,10 +58,9 @@ async def filter(client, message):
         if files:
             for file in files:
                 file_id = file.file_id
-                filename = f"{file.file_name}"
-                filesize = f"{get_size(file.file_size)}"
+                filename = f"[{get_size(file.file_size)}] {file.file_name}"
                 btn.append(
-                    [InlineKeyboardButton(text=f"{filesize} {filename}",callback_data=f"pr0fess0r_99#{file_id}")]
+                    [InlineKeyboardButton(text=f"{filename}",callback_data=f"subinps#{file_id}")]
                     )
         else:
             await client.send_sticker(chat_id=message.from_user.id, sticker='CAADBQADMwIAAtbcmFelnLaGAZhgBwI')
@@ -87,89 +78,39 @@ async def filter(client, message):
             }
         else:
             buttons = btn
-
             buttons.append(
-                [InlineKeyboardButton(text="🗓️ 1/1",callback_data="pages"),
-                 InlineKeyboardButton(text="🗑️",callback_data="close"),
-                 InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
+                [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
             )
-            if BUTTON_CALLBACK_OR_URL == "false":
-                buttons.append(
-                   [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
-                )
-
+            if BUTTON:
+                buttons.append([InlineKeyboardButton(text="Close ❌",callback_data="close")])
             poster=None
             if API_KEY:
-                imdb=await get_muhammed(search)
                 poster=await get_poster(search)
             if poster:
-                mo_tech_yt_1=f"""
-↪️ **Requested:** {search}
-👤 **Requested By:** {message.from_user.mention}
-🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>
-🎭 **Genres:** {imdb.get('genres')}
-📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
-🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
-🖋 **StoryLine:** <code>{imdb.get('plot')}</code>
-📑 **Total Page:** 1
-🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)"""
-                await message.reply_photo(photo=poster, caption=mo_tech_yt_1, reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_photo(photo=poster, caption=f"<b>Here is What I Found In My Database For Your Query {search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
 
             else:
-                mo_tech_yt=f"""
-↪️ **Requested:** {search}
-👤 **Requested By:** {message.from_user.mention}
-📑 **Total Page:** 1
-🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)"""
-                await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_text(f"<b>Here is What I Found In My Database For Your Query {search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
             return
 
         data = BUTTONS[keyword]
         buttons = data['buttons'][0].copy()
 
-
-
         buttons.append(
-            [InlineKeyboardButton(text="Next Page ➡️",callback_data=f"next_0_{keyword}")]
+            [InlineKeyboardButton(text="NEXT ⏩",callback_data=f"next_0_{keyword}")]
         )    
-
         buttons.append(
-            [InlineKeyboardButton(text=f"🗓️ 1/{data['total']}",callback_data="pages"),
-             InlineKeyboardButton(text="🗑️",callback_data="close"),
-             InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
-        )    
-       
-        if BUTTON_CALLBACK_OR_URL == "false":  
-            buttons.append(
-                [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
-            )   
+            [InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
+        )
+        if BUTTON:
+            buttons.append([InlineKeyboardButton(text="Close ❌",callback_data="close")])
         poster=None
         if API_KEY:
-            imdb=await get_muhammed(search)
             poster=await get_poster(search)
         if poster:
-            mo_tech_yt_1=f"""
-↪️ **Requested:** {search}
-👤 **Requested By:** {message.from_user.mention}
-🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>
-🎭 **Genres:** {imdb.get('genres')}
-📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
-🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
-🖋 **StoryLine:** <code>{imdb.get('plot')}</code>
-📑 **Total Page:** 1
-🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
-"""
-            await message.reply_photo(photo=poster, caption=mo_tech_yt_1, reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_photo(photo=poster, caption=f"<b>Here is What I Found In My Database For Your Query {search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
         else:
-            mo_tech_yt=f"""
-↪️ **Requested:** {search}
-👤 **Requested By:** {message.from_user.mention}
-📑 **Total Page:** 1
-🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)"""
-            await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
-
-
-
+            await message.reply_text(f"<b>Here is What I Found In My Database For Your Query {search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
 
 @Client.on_message(filters.text & filters.group & filters.incoming & filters.chat(AUTH_GROUPS) if AUTH_GROUPS else filters.text & filters.group & filters.incoming)
 async def group(client, message):
@@ -178,8 +119,6 @@ async def group(client, message):
     if 2 < len(message.text) < 50:    
         btn = []
         search = message.text
-        group = message.chat.title
-        name = message.from_user.mention
         nyva=BOT.get("username")
         if not nyva:
             botusername=await client.get_me()
@@ -189,35 +128,12 @@ async def group(client, message):
         if files:
             for file in files:
                 file_id = file.file_id
-                filename = f"{file.file_name}"
-                filesize = f"[{get_size(file.file_size)}]"
+                filename = f"[{get_size(file.file_size)}] {file.file_name}"
                 btn.append(
-                    [InlineKeyboardButton(text=f"➠ {filesize} ➠ {filename}", callback_data=f"pr0fess0r_99#{file_id}")]
+                    [InlineKeyboardButton(text=f"{filename}", url=f"https://telegram.dog/{nyva}?start=subinps_-_-_-_{file_id}")]
                 )
         else:
-            if SEPLLING_MODE_ON_OR_OFF == "on":
-                text_replay = message.text
-                text_google = text_replay.replace(" ", '+')           
-                reply_markup = InlineKeyboardMarkup([[
-                  InlineKeyboardButton("♻️ HELP ♻️", callback_data="google_alert")
-                  ],[
-                  InlineKeyboardButton("🔍IMDB", url=f"https://www.imdb.com/find?q={text_google}"),
-                  InlineKeyboardButton("GOOGLE🔎", url=f"https://www.google.com/search?q={text_google}")
-                  ],[
-                  InlineKeyboardButton("🗑️ CLOSE 🗑️", callback_data="close")
-                  ]]
-                )
-                LuciferMoringstar=await client.send_message(
-                chat_id = message.chat.id,
-                text=SPELLING_MODE_TEXT.format(message.from_user.first_name, search),
-                reply_markup=reply_markup,
-                parse_mode="html",
-                reply_to_message_id=message.message_id
-                )
-                await asyncio.sleep(60) 
-                await LuciferMoringstar.delete()               
             return
-
         if not btn:
             return
 
@@ -231,111 +147,36 @@ async def group(client, message):
         else:
             buttons = btn
             buttons.append(
-                [InlineKeyboardButton(text="🗓️ 1/1",callback_data="pages"),
-                 InlineKeyboardButton(text="🗑️",callback_data="close"),
-                 InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
+                [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
             )
-            if BUTTON_CALLBACK_OR_URL == "false":
-                buttons.append(
-                   [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
-                )
 
+
+            
             poster=None
-            if API_KEY:
-                imdb=await get_muhammed(search)
+            if API_KEY
                 poster=await get_poster(search)
             if poster:
-                text_photo_1 = f"""
-↪️ **Requested:** {search}
-👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})
-🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>
-🎭 **Genres:** {imdb.get('genres')}
-📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
-🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
-🖋 **StoryLine:** <code>{imdb.get('plot')}</code>
-📑 **Total Page:** 1
-🎙️ **Group:** {message.chat.title}
-🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
-📌 **Press The Down Buttons To Access The File**
-📌 **This Post Will Be Deleted After 10 Minutes**"""
-                LuciferMoringstar=await message.reply_photo(photo=poster, caption=text_photo_1 , reply_markup=InlineKeyboardMarkup(buttons))
-                await asyncio.sleep(600) # in seconds
-                await LuciferMoringstar.delete()
-                await client.delete_messages(message.chat.id,message.message_id)
-                return
+                await message.reply_photo(photo=poster, caption=f"<b>Here is What I Found In My Database For Your Query {search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
             else:
-                LuciferMoringstar=await message.reply_photo(
-                    photo=PHOTOSS,
-                    caption=f"""
-↪️ **Requested:** {search}
-👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})
-📑 **Total Page:** 1
-🎙️ **Group:** {message.chat.title}
-🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
-📌 **Press The Down Buttons To Access The File**
-📌 **This Post Will Be Deleted After 10 Minutes**""", reply_markup=InlineKeyboardMarkup(buttons))
-                await asyncio.sleep(600) # in seconds
-                await LuciferMoringstar.delete()
-                await client.delete_messages(message.chat.id,message.message_id)
+                await message.reply_text(f"<b>Here is What I Found In My Database For Your Query {search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
             return
 
         data = BUTTONS[keyword]
         buttons = data['buttons'][0].copy()
-        totalss = data['total']
 
         buttons.append(
-            [InlineKeyboardButton(text="Next Page ➡️",callback_data=f"next_0_{keyword}")]
+            [InlineKeyboardButton(text="NEXT ⏩",callback_data=f"next_0_{keyword}")]
         )    
-
         buttons.append(
-            [InlineKeyboardButton(text=f"🗓️ 1/{data['total']}",callback_data="pages"),
-             InlineKeyboardButton(text="🗑️",callback_data="close"),
-             InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
-        )    
-                     
-        if BUTTON_CALLBACK_OR_URL == "false":
-            buttons.append(
-                [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
-            )
-
+            [InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
+        )
         poster=None
         if API_KEY:
-            imdb=await get_muhammed(search)
             poster=await get_poster(search)
         if poster:
-            text_photo_2 = f"""
-↪️ **Requested:** {search}
-👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})
-🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>
-🎭 **Genres:** {imdb.get('genres')}
-📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
-🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
-🖋 **StoryLine:** <code>{imdb.get('plot')} </code>
-📑 **Total Page:** 1 to {totalss}
-🎙️ **Group:** {message.chat.title}
-🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
-📌 **Press The Down Buttons To Access The File**
-📌 **This Post Will Be Deleted After 10 Minutes**"""
-            LuciferMoringstar=await message.reply_photo(photo=poster, caption=text_photo_2, reply_markup=InlineKeyboardMarkup(buttons))
-            await asyncio.sleep(600) # in seconds
-            await LuciferMoringstar.delete()
-            await client.delete_messages(message.chat.id,message.message_id)
-            return
+            await message.reply_photo(photo=poster, caption=f"<b>Here is What I Found In My Database For Your Query {search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
         else:
-            LuciferMoringstar=await message.reply_photo(
-                photo=PHOTOSS,
-                caption=f"""
-↪️ **Requested:** {search}
-👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})
-📑 **Total Page:**  1 to {totalss}
-🎙️ **Group:** {message.chat.title}
-🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
-📌 **Press The Down Buttons To Access The File**
-📌 **This Post Will Be Deleted After 10 Minutes**""", reply_markup=InlineKeyboardMarkup(buttons))
-            await asyncio.sleep(600) # in seconds
-            await LuciferMoringstar.delete()
-            await client.delete_messages(message.chat.id,message.message_id)
-            return
+            await message.reply_text(f"<b>Here is What I Found In My Database For Your Query {search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons)) 
     
 def get_size(size):
     """Get size in readable format"""
