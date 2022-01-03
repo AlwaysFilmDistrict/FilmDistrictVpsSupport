@@ -4,6 +4,12 @@ from os import environ
 
 id_pattern = re.compile(r'^.\d+$')
 
+BOT_USERNAME = environ.get('BOT_USERNAME')
+
+
+
+
+
 # Bot information
 SESSION = environ.get('SESSION', 'LuciferMoringstar_Robot')
 API_ID = int(environ['API_ID'])
