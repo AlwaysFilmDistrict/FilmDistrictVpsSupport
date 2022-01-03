@@ -215,19 +215,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 buttons = data['buttons'][int(index)+1].copy()
 
                 buttons.append(
-                    [InlineKeyboardButton("🔙 Back Page", callback_data=f"back_{int(index)+1}_{keyword}")]
+                    [InlineKeyboardButton("⏪ BACK", callback_data=f"back_{int(index)+1}_{keyword}")]
                 )
+                buttons.append(
+                    [InlineKeyboardButton(f"📃 Pages {int(index)+2}/{data['total']}", callback_data="pages")]
+                )
+                if BUTTON:
+                    buttons.append([InlineKeyboardButton(text="Close ❌",callback_data="close")])
 
-                buttons.append(                    
-                    [InlineKeyboardButton(f"🗓️ {int(index)+2}/{data['total']}", callback_data="pages"),
-                     InlineKeyboardButton(text="🗑️",callback_data="close"),
-                     InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
-                )
-                if BUTTON_CALLBACK_OR_URL == "false":              
-                    buttons.append(
-                        [InlineKeyboardButton(text="🤖Check Bot PM🤖", url=f"t.me/{BOT_USERNAME}")]
-                    )                                                 
- 
                 await query.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
                 )
@@ -236,18 +231,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 buttons = data['buttons'][int(index)+1].copy()
 
                 buttons.append(
-                    [InlineKeyboardButton("🔙 Back Page", callback_data=f"back_{int(index)+1}_{keyword}"),
-                     InlineKeyboardButton("Next Page ➡️", callback_data=f"next_{int(index)+1}_{keyword}")]
+                    [InlineKeyboardButton("⏪ BACK", callback_data=f"back_{int(index)+1}_{keyword}"),InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{int(index)+1}_{keyword}")]
                 )
-                buttons.append(                   
-                    [InlineKeyboardButton(f"🗓️ {int(index)+2}/{data['total']}", callback_data="pages"),
-                     InlineKeyboardButton(text="🗑️",callback_data="close"),
-                     InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
+                buttons.append(
+                    [InlineKeyboardButton(f"📃 Pages {int(index)+2}/{data['total']}", callback_data="pages")]
                 )
-                if BUTTON_CALLBACK_OR_URL == "false":
-                     buttons.append(
-                         [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
-                     )
+                if BUTTON:
+                    buttons.append([InlineKeyboardButton(text="Close ❌",callback_data="close")])
 
                 await query.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
@@ -266,20 +256,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
             if int(index) == 1:
                 buttons = data['buttons'][int(index)-1].copy()
 
-
                 buttons.append(
-                    [InlineKeyboardButton("Next Page ➡️", callback_data=f"next_{int(index)-1}_{keyword}")]
+                    [InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{int(index)-1}_{keyword}")]
                 )
-                buttons.append(                    
-                    [InlineKeyboardButton(f"🗓️ {int(index)}/{data['total']}", callback_data="pages"),
-                     InlineKeyboardButton(text="🗑️",callback_data="close"),
-                     InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
-                ) 
-                if BUTTON_CALLBACK_OR_URL == "false":           
-                    buttons.append(
-                        [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
-                    )
-                
+                buttons.append(
+                    [InlineKeyboardButton(f"📃 Pages {int(index)}/{data['total']}", callback_data="pages")]
+                )
+                if BUTTON:
+                    buttons.append([InlineKeyboardButton(text="Close ❌",callback_data="close")])
+
                 await query.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
                 )
@@ -287,24 +272,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
             else:
                 buttons = data['buttons'][int(index)-1].copy()
 
-
                 buttons.append(
-                    [InlineKeyboardButton("🔙 Back Page", callback_data=f"back_{int(index)-1}_{keyword}"),
-                     InlineKeyboardButton("Next Page ➡️", callback_data=f"next_{int(index)-1}_{keyword}")]
+                    [InlineKeyboardButton("⏪ BACK", callback_data=f"back_{int(index)-1}_{keyword}"),InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{int(index)-1}_{keyword}")]
                 )
-                buttons.append(                    
-                    [InlineKeyboardButton(f"🗓️ {int(index)}/{data['total']}", callback_data="pages"),  
-                     InlineKeyboardButton(text="🗑️",callback_data="close"),
-                     InlineKeyboardButton(text="⚠️ Rules",callback_data="rulesbot")]
+                buttons.append(
+                    [InlineKeyboardButton(f"📃 Pages {int(index)}/{data['total']}", callback_data="pages")]
                 )
-                if BUTTON_CALLBACK_OR_URL == "false":
-                    buttons.append(
-                        [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
-                    )
+                if BUTTON:
+                    buttons.append([InlineKeyboardButton(text="Close ❌",callback_data="close")])
+
                 await query.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
                 )
                 return
+
         elif query.data == "help":
             buttons = [[
                 InlineKeyboardButton('👑 My Creator', url='t.me/helloheartbeat'),
