@@ -202,10 +202,15 @@ async def group(client, message):
             [InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
         )
 
-        if P_TTI_SHOW_OFF:
+        if BUTTON_CALLBACK_OR_URL == "false":
             buttons.append(
                [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
             )
+        else:
+            buttons.append(
+               [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+            )
+        
 
         poster=None
         if API_KEY:
