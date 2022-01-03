@@ -1,5 +1,5 @@
 # (c) PR0FESS0R-99
-from Config import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS, TUTORIAL, BOT_USERNAME, SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BUTTON_CALLBACK_OR_URL, P_TTI_SHOW_OFF               
+from Config import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS, TUTORIAL, BOT_USERNAME, SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BUTTON_CALLBACK_OR_URL, P_TTI_SHOW_OFF, BOT_PHOTO            
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from pyrogram import Client, filters
@@ -221,8 +221,7 @@ async def group(client, message):
 🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
 📌 **Press The Down Buttons To Access The File**
 📌 **This Post Will Be Deleted After 10 Minutes**"""
-
-                await message.reply_text(text_2, reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_photo(photo=BOT_PHOTO, caption=text_2, reply_markup=InlineKeyboardMarkup(buttons))
             return
 
         data = BUTTONS[keyword]
@@ -269,7 +268,7 @@ async def group(client, message):
 🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
 📌 **Press The Down Buttons To Access The File**
 📌 **This Post Will Be Deleted After 10 Minutes**"""
-            await message.reply_text(text_2, reply_markup=InlineKeyboardMarkup(buttons)) 
+            await message.reply_photo(photo=BOT_PHOTO, caption=text_2, reply_markup=InlineKeyboardMarkup(buttons)) 
     
 def get_size(size):
     """Get size in readable format"""
