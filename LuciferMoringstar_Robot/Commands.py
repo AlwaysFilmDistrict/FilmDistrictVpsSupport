@@ -3,7 +3,7 @@ import logging
 from pyrogram import Client, filters
 from pyrogram import StopPropagation
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from Config import START_MSG, CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, TUTORIAL, BROADCAST_CHANNEL, DB_URL, SESSION, ADMIN_ID    
+from Config import START_MSG, CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, TUTORIAL, BROADCAST_CHANNEL, DB_URL, SESSION, ADMIN_ID, BOT_USERNAME, BOT_PHOTO
 from LuciferMoringstar_Robot.Utils import Media, get_file_details 
 from LuciferMoringstar_Robot.Broadcast import broadcast
 from LuciferMoringstar_Robot import ABOUT
@@ -20,8 +20,6 @@ db = Database(DB_URL, SESSION)
 async def start(bot, message):
     chat_id = message.from_user.id
     if not await db.is_user_exist(chat_id):
-        data = await bot.get_me()
-        BOT_USERNAME = data.username
         await db.add_user(chat_id)
         await bot.send_message(
             LOG_CHANNEL,
@@ -82,11 +80,7 @@ async def start(bot, message):
                         f_caption=f_caption
                 if f_caption is None:
                     f_caption = f"{files.file_name}"
-                buttons = [
-                    [
-                        
-                    ],
-                    [
+                buttons = [[
                         InlineKeyboardButton('🔍 Search again 🔎', switch_inline_query_current_chat='')
                     ]
                     ]
@@ -112,8 +106,9 @@ async def start(bot, message):
             )
         )
     else:
-        await message.reply_text(
-            START_MSG,
+        await message.reply_photo(
+            photo=BOT_PHOTO,
+            caption=START_MSG,
             parse_mode="Markdown",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
