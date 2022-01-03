@@ -106,11 +106,12 @@ async def start(bot, message):
             )
         )
     else:
-        mention = message.from_user.mention
+        id = message.from_user.id
+        first_name = message.from_user.first_name
         await message.reply_photo(
             photo=BOT_PHOTO,
             caption=f"""
-🙋‍♂️ Hi {mention},
+🙋‍♂️ Hi <a href=tg://user?id={id}>{first_name}</a>,
 
 🤖 I'm Film District Bot 2.0
 
