@@ -18,7 +18,7 @@ HELP = """
 
 <u>Bot Owner Only</u>
 
-  /broadcast Replay Any Message Or Media
+  /broadcast Reply Any Message Or Media
   /stats User Status
   /ban_user  Click ban_user More Info
   /unban_user Click unban_user More Info
