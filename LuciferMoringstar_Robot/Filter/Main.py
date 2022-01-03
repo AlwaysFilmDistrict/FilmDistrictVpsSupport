@@ -327,9 +327,7 @@ async def group(client, message):
             await LuciferMoringstar.delete()
             return
         else:
-            LuciferMoringstar=await message.reply_photo(
-                photo=PHOTOSS,
-                caption=f"""
+            text_file=f"""
 ↪️ **Requested:** {search}
 👤 **Requested By:** {message.from_user.mention}
 📑 **Total Page:**  1 to {totalss}
@@ -337,7 +335,8 @@ async def group(client, message):
 🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
 
 📌 **Press The Down Buttons To Access The File**
-📌 **This Post Will Be Deleted After 10 Minutes**""", reply_markup=InlineKeyboardMarkup(buttons))
+📌 **This Post Will Be Deleted After 10 Minutes**"""
+            LuciferMoringstar=await message.reply_photo(photo=PHOTOSS, caption=text_file, reply_markup=InlineKeyboardMarkup(buttons))
             await asyncio.sleep(600) # in seconds
             await LuciferMoringstar.delete()
             return
