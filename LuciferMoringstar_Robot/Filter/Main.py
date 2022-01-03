@@ -188,6 +188,48 @@ async def group(client, message):
             botusername=await client.get_me()
             nyva=botusername.username
             BOT["username"]=nyva
+
+        for i in "series".split() :
+         if i in search.lower() :
+            LuciferMoringstar=await client.send_message(
+            text="""Don't Type "Series" ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\nExample : Titanic Or Money Heist""",
+            chat_id=message.chat.id,
+            reply_to_message_id=message.message_id,
+            parse_mode="html")
+            await asyncio.sleep(60) # in seconds
+            await LuciferMoringstar.delete()
+            return
+        for i in "dubbed".split() :
+         if i in search.lower() :
+            LuciferMoringstar=await client.send_message(
+            text="""Don't Type "Dubbed" ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\nExample : Titanic Or Money Heist""",
+            chat_id=message.chat.id,
+            reply_to_message_id=message.message_id,
+            parse_mode="html")
+            await asyncio.sleep(60) # in seconds
+            await LuciferMoringstar.delete()
+            return
+        for i in "available".split() :
+         if i in search.lower() :
+            LuciferMoringstar=await client.send_message(
+            text="""Don't Type "Available" ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\nExample : Titanic""",
+            chat_id=message.chat.id,
+            reply_to_message_id=message.message_id,
+            parse_mode="html")
+            await asyncio.sleep(60) # in seconds
+            await LuciferMoringstar.delete()
+            return
+        for i in "movie".split() :
+         if i in search.lower() :
+            LuciferMoringstar=await client.send_message(
+            text="""Don't Type "Movie" ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\nExample : Titanic""",
+            chat_id=message.chat.id,
+            reply_to_message_id=message.message_id,
+            parse_mode="html")
+            await asyncio.sleep(60) # in seconds
+            await LuciferMoringstar.delete()
+            return
+
         files = await get_filter_results(query=search)
         if files:
             for file in files:
@@ -279,7 +321,10 @@ async def group(client, message):
 
 📌 **Press The Down Buttons To Access The File**
 📌 **This Post Will Be Deleted After 10 Minutes**"""
-                await message.reply_photo(photo=BOT_PHOTO, caption=text_2, reply_markup=InlineKeyboardMarkup(buttons))
+                LuciferMoringstar=await message.reply_photo(photo=BOT_PHOTO, caption=text_2, reply_markup=InlineKeyboardMarkup(buttons))
+                await asyncio.sleep(600) # in seconds
+                await LuciferMoringstar.delete()
+                await client.delete_messages(message.chat.id,message.message_id)
             return
 
         data = BUTTONS[keyword]
@@ -319,7 +364,10 @@ async def group(client, message):
 
 📌 **Press The Down Buttons To Access The File**
 📌 **This Post Will Be Deleted After 10 Minutes**"""
-            await message.reply_photo(photo=poster, caption=text_photo_1, reply_markup=InlineKeyboardMarkup(buttons))
+            LuciferMoringstar=await message.reply_photo(photo=poster, caption=text_photo_1, reply_markup=InlineKeyboardMarkup(buttons))
+            await asyncio.sleep(600) # in seconds
+            await LuciferMoringstar.delete()
+            await client.delete_messages(message.chat.id,message.message_id)
         else:
             text_2=f"""
 ↪️ **Requested:** {search}
@@ -330,7 +378,11 @@ async def group(client, message):
 
 📌 **Press The Down Buttons To Access The File**
 📌 **This Post Will Be Deleted After 10 Minutes**"""
-            await message.reply_photo(photo=BOT_PHOTO, caption=text_2, reply_markup=InlineKeyboardMarkup(buttons)) 
+            LuciferMoringstar=await message.reply_photo(photo=BOT_PHOTO, caption=text_2, reply_markup=InlineKeyboardMarkup(buttons))
+            await asyncio.sleep(600) # in seconds
+            await LuciferMoringstar.delete()
+            await client.delete_messages(message.chat.id,message.message_id)
+
     
 def get_size(size):
     """Get size in readable format"""
