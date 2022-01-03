@@ -38,5 +38,5 @@ ABOUT = """
 
 🛠 Library : Pyrogram Asyncio 1.13.0
 
-📦 Source Code : 🤐
+📦 Source Code : [Click Me](https://www.google.com)
 """
