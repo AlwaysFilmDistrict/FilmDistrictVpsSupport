@@ -5,9 +5,9 @@ from pyrogram import Client, filters
 import re, asyncio
 from pyrogram.errors import UserNotParticipant
 from LuciferMoringstar_Robot import get_filter_results, get_file_details, is_subscribed, get_poster
-from LuciferMoringstar_Robot import RATING, GENRES, HELP, ABOUT
+from LuciferMoringstar_Robot import HELP, ABOUT
 from LuciferMoringstar_Robot.Filter.Pr0fess0r_99 import get_muhammed
-
+BOT_USERNAME="FilmDistrict_Bot"
 import random
 BUTTONS = {}
 BOT = {}
@@ -63,7 +63,6 @@ async def filter(client, message):
     if 2 < len(message.text) < 100:    
         btn = []
         search = message.text
-        mo_tech_yt = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n**🎭 Genre:** {random.choice(GENRES)}\n**📤 Uploaded By: {message.chat.title}\n**🙋 Requested By: {message.from_user.mention}\n**\n**Get Support ✔️ HeartBeat\n**"
         files = await get_filter_results(query=search)
         if files:
             btn.append(
@@ -134,7 +133,6 @@ async def group(client, message):
         search = message.text
         group = message.chat.title
         name = message.from_user.mention
-        mo_tech = f"**🗂️ Title:** {search}\n**Get Support ✔️ HeartBeat\n**"
         nyva=BOT.get("username")
         if not nyva:
             botusername=await client.get_me()
@@ -150,7 +148,7 @@ async def group(client, message):
                 filename = f"{file.file_name}"
                 filesize = f"[{get_size(file.file_size)}]"
                 btn.append(
-                    [InlineKeyboardButton(text=f"{filesize} {filename}", url=f"https://telegram.dog/{nyva}?start=pr0fess0r_99_-_-_-_{file_id}")]
+                    [InlineKeyboardButton(text=f"{filesize} {filename}", url=f"https://telegram.dog/{BOT_USERNAME}?start=pr0fess0r_99_-_-_-_{file_id}")]
                 )
 
         else:       
