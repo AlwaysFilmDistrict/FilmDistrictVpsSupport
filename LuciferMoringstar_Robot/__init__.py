@@ -30,13 +30,13 @@ HELP = """
 """
 
 ABOUT = """
-🤖 Name : <a href="t.me/{}">{}</a>
+➥ 🤖 Name : Film District Bot
     
-👑 Creator : <a href="t.me/{}">{}</a>
+➥ 👑 Creator : [Anjan](t.me/helloheartbeat)
 
-📃 Language : Python3
+➥ 📃 Language : Python3
 
-🛠 Library : Pyrogram Asyncio 1.13.0
+➥ 🛠 Library : Pyrogram Asyncio 1.13.0
 
 📦 Source Code : [Click Me](https://www.google.com)
 """
