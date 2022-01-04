@@ -217,7 +217,7 @@ async def group(client, message):
         for i in "available".split() :
          if i in search.lower() :
             LuciferMoringstar=await client.send_message(
-            text="""Don't Type "Available" ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\nExample : Titanic""",
+            text="""Don't Type "Available" ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\nExample : Titanic Or Money Heist""",
             chat_id=message.chat.id,
             reply_to_message_id=message.message_id,
             parse_mode="html")
@@ -250,8 +250,8 @@ async def group(client, message):
                 reply_markup = InlineKeyboardMarkup([[
                   InlineKeyboardButton("♻️ HELP ♻️", callback_data="google_alert")
                   ],[
-                  InlineKeyboardButton("🔍GOOGLE", url=f"https://www.google.com/search?q={text_google}"),
-                  InlineKeyboardButton("IMDB🔎", url=f"https://www.imdb.com/find?q={text_google}")
+                  InlineKeyboardButton("🔍 GOOGLE", url=f"https://www.google.com/search?q={text_google}"),
+                  InlineKeyboardButton("IMDB 🔎", url=f"https://www.imdb.com/find?q={text_google}")
                   ],[
                   InlineKeyboardButton("🗑️ CLOSE 🗑️", callback_data="close")
                   ]]
