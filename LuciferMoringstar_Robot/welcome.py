@@ -12,7 +12,7 @@ My Name Is FILM DISTRICT BOT, I Can Provide Movies/Series In This Group.
 Just Type The Actual Name Of The Movie/Series.
 You Will Get The Movie/Series If You Write Correct Spelling.
 If You Don't Get The Movie/Series It Is Sure That You Have Written Incorrect Spelling Or Your Requested Movie/Series Does Not Exit In My Database. 😐""")
-    await asyncio.sleep(600) # in seconds
+    await asyncio.sleep(60) # in seconds
     await Auto_Delete.delete()
 
 @Client.on_message(filters.left_chat_member)
