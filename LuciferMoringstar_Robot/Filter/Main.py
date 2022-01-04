@@ -3,7 +3,7 @@ from Config import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from pyrogram import Client, filters
-import re, asyncio, random
+import re, asyncio, random, os
 from pyrogram.errors import UserNotParticipant
 from LuciferMoringstar_Robot import get_filter_results, get_file_details, is_subscribed, get_poster
 from LuciferMoringstar_Robot import HELP, ABOUT
