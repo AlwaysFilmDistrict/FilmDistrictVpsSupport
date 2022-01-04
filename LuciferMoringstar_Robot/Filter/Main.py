@@ -11,10 +11,9 @@ from LuciferMoringstar_Robot.Filter.Pr0fess0r_99 import get_muhammed
 
 BUTTONS = {}
 BOT = {}
-
 OWNER_ID = set(int(x) for x in os.environ.get("ADMINS", "").split())
 
-@Client.on_message(filters.text & filters.private & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.text & filters.private & filters.incoming)
+@Client.on_message(filters.text & filters.private & filters.incoming)
 async def filter(client, message):
     if message.from_user.id not in OWNER_ID:
         await client.send_sticker(chat_id=message.from_user.id, sticker='CAACAgUAAxkBAAEBoPBh0wHhhDxOtO6oGj4Gy5jpKWF-NwACFAQAAh0k-FXoemcDdMDyJx4E')
