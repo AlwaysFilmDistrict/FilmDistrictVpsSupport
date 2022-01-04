@@ -8,12 +8,16 @@ from pyrogram.errors import UserNotParticipant
 from LuciferMoringstar_Robot import get_filter_results, get_file_details, is_subscribed, get_poster
 from LuciferMoringstar_Robot import HELP, ABOUT
 from LuciferMoringstar_Robot.Filter.Pr0fess0r_99 import get_muhammed
+from LuciferMoringstar_Robot.Commands import OWNER_ID
 BUTTONS = {}
 BOT = {}
 
 
 @Client.on_message(filters.text & filters.private & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.text & filters.private & filters.incoming)
 async def filter(client, message):
+if message.from_user.id not in OWNER_ID:
+    await client.send_sticker(chat_id=message.from_user.id, sticker='CAACAgUAAxkBAAEBoPBh0wHhhDxOtO6oGj4Gy5jpKWF-NwACFAQAAh0k-FXoemcDdMDyJx4E')
+    return
     if message.text.startswith("/"):
         return
     if AUTH_CHANNEL:
