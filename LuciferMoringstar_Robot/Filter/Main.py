@@ -108,7 +108,6 @@ async def filter(client, message):
 🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
 🖋 **StoryLine:** <code>{imdb.get('plot')}</code>
 📑 **Total Page:** 1
-🎙️ **Group:** {message.chat.title}
 🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
 
 📌 **Press The Down Buttons To Access The File**
@@ -120,7 +119,6 @@ async def filter(client, message):
 ↪️ **Requested:** {search}
 👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})
 📑 **Total Page:** 1
-🎙️ **Group:** {message.chat.title}
 🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
 
 📌 **Press The Down Buttons To Access The File**
@@ -264,8 +262,7 @@ async def group(client, message):
                 reply_to_message_id=message.message_id
                 )
                 await asyncio.sleep(60) 
-                await LuciferMoringstar.delete()
-                await client.delete_messages(message.chat.id,message.message_id)              
+                await LuciferMoringstar.delete()              
             return
         if not btn:
             return
