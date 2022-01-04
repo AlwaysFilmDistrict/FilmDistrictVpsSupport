@@ -21,7 +21,7 @@ import requests
 from Database.dyno import humanbytes
 from Config import HEROKU_API_KEY
 
-@Client.on_message(filters.command('dyno'))
+@Client.on_message(filters.command('dyno') & filters.user(ADMINS))
 async def bot_status(client,message):
 
     if HEROKU_API_KEY:
