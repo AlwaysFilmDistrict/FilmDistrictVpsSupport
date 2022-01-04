@@ -12,7 +12,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from Database.dyno import humanbytes
 from Config import HEROKU_API_KEY
 
-@Client.on_message((filters.private | filters.group) & filters.command('dyno'))
+@Client.on_message(filters.command('dyno'))
 async def bot_status(client,message):
 
     if HEROKU_API_KEY:
