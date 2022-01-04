@@ -9,7 +9,7 @@ from Config import BOT_USERNAME
 
 
 HELP = """
-<u>Basic Commads</u>
+<u>Basic Commands</u>
 
 /start : Check If Am Alive Or Dead
 /about : About Me
@@ -28,7 +28,7 @@ HELP = """
 """
 
 ABOUT = f"""
-🤖 Name : [Film District Bot](t.me/{BOT_USERNAME})
+🤖 Name : [Film District Bot 2.0](t.me/{BOT_USERNAME})
     
 👑 Creator : [HeartBeat](t.me/helloheartbeat)
 
