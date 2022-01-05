@@ -108,6 +108,7 @@ async def filter(client, message):
 🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
 🖋 **StoryLine:** <code>{imdb.get('plot')}</code>
 📑 **Total Page:** 1
+📥 **Updated By:** @{BOT_USERNAME}
 🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
 
 📌 **Press The Down Buttons To Access The File**
@@ -119,6 +120,7 @@ async def filter(client, message):
 ↪️ **Requested:** {search}
 👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})
 📑 **Total Page:** 1
+📥 **Updated By:** @{BOT_USERNAME}
 🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
 
 📌 **Press The Down Buttons To Access The File**
@@ -128,6 +130,7 @@ async def filter(client, message):
 
         data = BUTTONS[keyword]
         buttons = data['buttons'][0].copy()
+        totalss = data['total']
 
         buttons.append(
             [InlineKeyboardButton(text="Next Page ➡️",callback_data=f"next_0_{keyword}")]
@@ -154,8 +157,8 @@ async def filter(client, message):
 📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
 🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
 🖋 **StoryLine:** <code>{imdb.get('plot')}</code>
-📑 **Total Page:** 1
-🎙️ **Group:** {message.chat.title}
+📑 **Total Page:** {totalss}
+📥 **Updated By:** @{BOT_USERNAME}
 🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
 
 📌 **Press The Down Buttons To Access The File**
@@ -167,8 +170,8 @@ async def filter(client, message):
             text_6=f"""
 ↪️ **Requested:** {search}
 👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})
-📑 **Total Page:** 1
-🎙️ **Group:** {message.chat.title}
+📑 **Total Page:** {totalss}
+📥 **Updated By:** @{BOT_USERNAME}
 🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
 
 📌 **Press The Down Buttons To Access The File**
