@@ -577,10 +577,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
                 try:
                     if AUTH_CHANNEL and not await is_subscribed(client, query):
-                        await query.answer(url=f"https://t.me/{BOT_USERNAME}?start=subinps_-_-_-_{file_id}")
+                        await query.answer(url=f"https://t.me/{BOT_USERNAME}?start=pr0fess0r_99_-_-_-_{file_id}")
                         return
                     elif P_TTI_SHOW_OFF:
-                        await query.answer(url=f"https://t.me/{BOT_USERNAME}?start=subinps_-_-_-_{file_id}")
+                        await query.answer(url=f"https://t.me/{BOT_USERNAME}?start=pr0fess0r_99_-_-_-_{file_id}")
                         return
                     else:
                         await client.send_cached_media(
