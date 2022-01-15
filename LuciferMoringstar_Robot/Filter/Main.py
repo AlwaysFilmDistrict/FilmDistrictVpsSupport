@@ -6,7 +6,7 @@ from pyrogram import Client, filters
 import re, asyncio, random, os
 from pyrogram.errors import UserNotParticipant
 from LuciferMoringstar_Robot import get_filter_results, get_file_details, is_subscribed, get_poster
-from LuciferMoringstar_Robot import HELP, ABOUT
+from LuciferMoringstar_Robot import HELP, ABOUT, HELP_USER
 from LuciferMoringstar_Robot.Filter.Pr0fess0r_99 import get_muhammed
 
 BUTTONS = {}
@@ -545,6 +545,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "google_alert":
             await query.answer("""✅ DO\n👉 Type Only In English \n\n❌ DON'T\n👉 Avoid Symbols (/.,:;"'-)\n👉 Avoid Requesting Same Movie/Series Repeatedly \n👉 Avoid Requesting Unreleased Movie/Series""", show_alert=True)
 
+        elif query.data == "help_user":
+            buttons = [[
+                InlineKeyboardButton('👑 My Creator', url='t.me/helloheartbeat'),
+                InlineKeyboardButton('📦 Source Code', url="https://www.google.com")              
+                ]]
+            await query.message.edit(text=f"{HELP_USER}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
 
         elif query.data == "helpalert":
