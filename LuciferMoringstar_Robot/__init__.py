@@ -7,6 +7,12 @@ from .Utils import (
 )
 from Config import BOT_USERNAME
 
+HELP_USER="""
+<u>Basic Commands</u>
+
+/start : Check If Am Alive Or Dead
+/about : About Me"""
+
 
 HELP = """
 <u>Basic Commands</u>
