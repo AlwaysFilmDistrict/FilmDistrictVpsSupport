@@ -587,7 +587,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 else:
                     buttons=[[
                       InlineKeyboardButton("🆘👤 Owner", url="http://t.me/helloheartbeat"),
-                      InlineKeyboardButton("🆘🤖 Bot", url="http://t.me/TalkToHeartBeatBot")
+                      InlineKeyboardButton("🆘🤖 Contact", url="http://t.me/TalkToHeartBeatBot")
                       ]]
                     await client.send_cached_media(
                         chat_id=query.from_user.id,
