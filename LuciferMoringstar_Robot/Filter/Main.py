@@ -585,14 +585,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     await query.answer(url=f"https://t.me/{BOT_USERNAME}?start=pr0fess0r_99_-_-_-_{file_id}")
                     return
                 else:
-                 #   buttons=[[
-                 #     InlineKeyboardButton("
-                #      InlineKeyboardButton("
+                    buttons=[[
+                      InlineKeyboardButton("🆘👤 Owner", url="http://t.me/helloheartbeat"),
+                      InlineKeyboardButton("🆘🤖 Bot", url="http://t.me/TalkToHeartBeatBot")
+                      ]]
                     await client.send_cached_media(
                         chat_id=query.from_user.id,
                         file_id=file_id,
-                        caption=f_caption
-                     #   reply_markup=InlineKeyboardMarkup(buttons)
+                        caption=f_caption,
+                        reply_markup=InlineKeyboardMarkup(buttons)
                         )
                     await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥',show_alert = True)
             except UserIsBlocked:
