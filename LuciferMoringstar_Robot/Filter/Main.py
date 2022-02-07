@@ -88,10 +88,9 @@ async def filter(client, message):
                  InlineKeyboardButton(text="🗑️",callback_data="close"),
                  InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
             )
-            if BUTTON_CALLBACK_OR_URL == "false":
-                buttons.append(
-                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
-                )
+            buttons.append(
+                [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+            )
 
 
             poster=None
@@ -142,10 +141,9 @@ async def filter(client, message):
              InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
         )    
 
-        if BUTTON_CALLBACK_OR_URL == "false":
-            buttons.append(
-                [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
-            )
+        buttons.append(
+            [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+        )
 
         poster=None
         if API_KEY:
@@ -287,10 +285,9 @@ async def group(client, message):
                  InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
             )
           
-            if BUTTON_CALLBACK_OR_URL == "false":
-                 buttons.append(
-                     [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
-                 )
+            buttons.append(
+                 [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+            )
 
             poster=None
             if API_KEY:
@@ -345,10 +342,10 @@ async def group(client, message):
              InlineKeyboardButton(text="🗑️",callback_data="close"),
              InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
         )
-        if BUTTON_CALLBACK_OR_URL == "false":
-            buttons.append(
-                [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
-            )
+        
+        buttons.append(
+            [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+        )
 
         poster=None
         if API_KEY:
@@ -436,10 +433,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                      InlineKeyboardButton(text="🗑️",callback_data="close"),
                      InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
                 )
-                if BUTTON_CALLBACK_OR_URL == "false":
-                    buttons.append(
-                        [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
-                    )
+                
+                buttons.append(
+                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+                )
 
                 await query.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
@@ -457,10 +454,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                      InlineKeyboardButton(text="🗑️",callback_data="close"),
                      InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
                 )
-                if BUTTON_CALLBACK_OR_URL == "false":
-                    buttons.append(
-                        [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
-                    )
+
+                buttons.append(
+                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+                )
 
                 await query.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
@@ -487,10 +484,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                      InlineKeyboardButton(text="🗑️",callback_data="close"),
                      InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
                 )
-                if BUTTON_CALLBACK_OR_URL == "false":
-                    buttons.append(
-                        [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
-                    )
+
+                buttons.append(
+                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+                )
 
                 await query.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
@@ -508,10 +505,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                      InlineKeyboardButton(text="🗑️",callback_data="close"),
                      InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
                 )
-                if BUTTON_CALLBACK_OR_URL == "false":
-                    buttons.append(
-                        [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
-                    )
+
+                buttons.append(
+                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+                )
                 await query.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
                 )
@@ -564,43 +561,47 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(text=f"{ABOUT}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
 
-        elif query.data.startswith("pr0fess0r_99"):          
-            ident, file_id = query.data.split("#")
-                       
-            filedetails = await get_file_details(file_id)
-            for files in filedetails:
-                title = files.file_name
-                size=files.file_size
-                f_caption=files.caption
-                if CUSTOM_FILE_CAPTION:
-                    try:
-                        f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=f_caption)
-                    except Exception as e:
-                        print(e)
-                        f_caption=f_caption
-                if f_caption is None:
-                    f_caption = f"{files.file_name}"
+        elif query.data.startswith("pr0fess0r_99"):
 
+            ident, file_id = query.data.split("#")
+            files_ = await get_file_details(file_id)
+            if not files_:
+                return await query.answer('No such file exist.')
+            files = files_[0]
+            title = files.file_name
+            size=get_size(files.file_size)
+            f_caption=files.caption
+            if CUSTOM_FILE_CAPTION:
                 try:
-                    if AUTH_CHANNEL and not await is_subscribed(client, query):
-                        await query.answer(url=f"https://t.me/{BOT_USERNAME}?start=pr0fess0r_99_-_-_-_{file_id}")
-                        return
-                    elif P_TTI_SHOW_OFF:
-                        await query.answer(url=f"https://t.me/{BOT_USERNAME}?start=pr0fess0r_99_-_-_-_{file_id}")
-                        return
-                    else:
-                        await client.send_cached_media(
-                            chat_id=query.from_user.id,
-                            file_id=file_id,
-                            caption=f_caption
-                        )
-                        await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥',show_alert = True)
-                except UserIsBlocked:
-                    await query.answer('Unblock the bot mahn !',show_alert = True)
-                except PeerIdInvalid:
-                    await query.answer(url=f"https://t.me/{BOT_USERNAME}?start=pr0fess0r_99_-_-_-_{file_id}")
+                    f_caption=CUSTOM_FILE_CAPTION.format(mention=query.from_user.mention, file_name=title, file_size=size, file_caption=f_caption)
                 except Exception as e:
+                        print(e)
+                f_caption=f_caption
+            if f_caption is None:
+                f_caption = f"{files.file_name}"
+            
+            try:
+                if AUTH_CHANNEL and not await is_subscribed(client, query):
                     await query.answer(url=f"https://t.me/{BOT_USERNAME}?start=pr0fess0r_99_-_-_-_{file_id}")
+                    return
+                else:
+                 #   buttons=[[
+                 #     InlineKeyboardButton("
+                #      InlineKeyboardButton("
+                    await client.send_cached_media(
+                        chat_id=query.from_user.id,
+                        file_id=file_id,
+                        caption=f_caption
+                     #   reply_markup=InlineKeyboardMarkup(buttons)
+                        )
+                    await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥',show_alert = True)
+            except UserIsBlocked:
+                await query.answer('Unblock the bot mahn !',show_alert = True)
+            except PeerIdInvalid:
+                await query.answer(url=f"https://t.me/{BOT_USERNAME}?start=pr0fess0r_99_-_-_-_{file_id}")
+            except Exception as e:
+                await query.answer(url=f"https://t.me/{BOT_USERNAME}?start=pr0fess0r_99_-_-_-_{file_id}")
+      
 
         elif query.data.startswith("checksub"):
             if AUTH_CHANNEL and not await is_subscribed(client, query):
