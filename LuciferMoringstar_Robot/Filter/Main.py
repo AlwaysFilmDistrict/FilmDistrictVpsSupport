@@ -1,5 +1,6 @@
 # (c) PR0FESS0R-99
-from Config import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS, TUTORIAL, BOT_USERNAME, SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BUTTON_CALLBACK_OR_URL, P_TTI_SHOW_OFF, BOT_PHOTO            
+from Config import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS, TUTORIAL, BOT_USERNAME, SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BUTTON_CALLBACK_OR_URL, P_TTI_SHOW_OFF, BOT_PHOTO, ADMINS
+         
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from pyrogram import Client, filters
@@ -11,11 +12,10 @@ from LuciferMoringstar_Robot.Filter.Pr0fess0r_99 import get_muhammed
 
 BUTTONS = {}
 BOT = {}
-OWNER_ID = set(int(x) for x in os.environ.get("ADMINS", "").split())
 
-@Client.on_message(filters.text & filters.private & filters.incoming)
-async def filter(client, message):
-    if message.from_user.id not in OWNER_ID:
+
+async def pm_filters(client, message):
+    if message.from_user.id not in ADMINS:
         await client.send_sticker(chat_id=message.from_user.id, sticker='CAACAgUAAxkBAAEBoPBh0wHhhDxOtO6oGj4Gy5jpKWF-NwACFAQAAh0k-FXoemcDdMDyJx4E')
         return
     if message.text.startswith("/"):
@@ -180,8 +180,8 @@ async def filter(client, message):
 
 
 
-@Client.on_message(filters.text & filters.group & filters.incoming & filters.chat(AUTH_GROUPS) if AUTH_GROUPS else filters.text & filters.group & filters.incoming)
-async def group(client, message):
+#@Client.on_message(filters.text & filters.group & filters.incoming & filters.chat(AUTH_GROUPS) if AUTH_GROUPS else filters.text & filters.group & filters.incoming)
+async def group_filters(client, message):
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
         return
     if 2 < len(message.text) < 50:    
