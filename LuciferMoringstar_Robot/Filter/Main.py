@@ -14,7 +14,7 @@ BUTTONS = {}
 BOT = {}
 
 
-async def pm_filters(client, message):
+async def pm_autofilter(client, message):
     if message.from_user.id not in ADMINS:
         await client.send_sticker(chat_id=message.from_user.id, sticker='CAACAgUAAxkBAAEBoPBh0wHhhDxOtO6oGj4Gy5jpKWF-NwACFAQAAh0k-FXoemcDdMDyJx4E')
         return
