@@ -1,5 +1,5 @@
 from pyrogram import Client as LuciferMoringstar_Robot, filters as Worker
-from LuciferMoringstar_Robot.Filter.main import group_filters, pm_autofilter
+from LuciferMoringstar_Robot.Filter.Main import group_filters, pm_autofilter
 from Config import AUTH_GROUPS, AUTH_USERS
 from Database import Database
 
