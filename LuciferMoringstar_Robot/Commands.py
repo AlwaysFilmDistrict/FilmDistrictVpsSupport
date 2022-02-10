@@ -140,8 +140,7 @@ async def start(bot, message):
                                 InlineKeyboardButton("🔄 Try Again", callback_data=f"checksub#{file_id}")
                             ]
                         ]
-                    ),
-                    parse_mode="markdown"
+                    )
                 )
                 return
             except Exception:
