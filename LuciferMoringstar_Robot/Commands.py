@@ -136,7 +136,7 @@ async def start(bot, message):
             except UserNotParticipant:
                 ident, file_id = message.text.split("_-_-_-_")
                 await bot.send_photo(
-                    photo="",
+                    photo="https://telegra.ph/file/306aa2d9d0676008d4ac2.jpg",
                     chat_id=message.from_user.id,
                     caption=f"""👋 Hello {message.from_user.mention},\nYou Have Not Subscribed To [My Channel](invite_link.invite_link). To View The File, Click On [📣 FILM DISTRICT UPDATES 📣](invite_link.invite_link) Button & Join. Then Click On The 🔄 Refresh 🔄 Button To Receive The File ✅""",
                     reply_markup=InlineKeyboardMarkup(
