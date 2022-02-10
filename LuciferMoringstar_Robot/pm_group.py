@@ -10,7 +10,7 @@ async def groupfilters(client, message):
     await group_filters(client, message)
 
 
-@LuciferMoringstar_Robot.on_message(Worker.text & Worker.private & Worker.incoming & Worker.user(AUTH_USERS) if AUTH_USERS else Worker.text & Worker.private & Worker.incoming)
+@LuciferMoringstar_Robot.on_message(Worker.text & Worker.private & Worker.incoming)
 async def pm_filters(client, message):
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id)
