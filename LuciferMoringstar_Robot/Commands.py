@@ -11,13 +11,7 @@ from LuciferMoringstar_Robot.Channel import handle_user_status
 from Database import Database
 from pyrogram.errors import UserNotParticipant
 logger = logging.getLogger(__name__)
-import os
-import math
-import json
-import time
-import shutil
-import heroku3
-import requests
+import os, math, json, time, shutil, heroku3, requests
 from Database.dyno import humanbytes
 from Config import HEROKU_API_KEY
 
