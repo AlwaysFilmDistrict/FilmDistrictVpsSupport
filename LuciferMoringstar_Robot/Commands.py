@@ -100,8 +100,6 @@ LOG_CHANNEL = BROADCAST_CHANNEL
 db = Database(DB_URL, SESSION)
 
 
-OWNER_ID = set(int(x) for x in os.environ.get("ADMINS", "").split())
-
 
 @Client.on_message(filters.command("start"))
 async def start(bot, message):
@@ -172,7 +170,7 @@ async def start(bot, message):
     else:
         id = message.from_user.id
         first_name = message.from_user.first_name
-        if message.from_user.id not in OWNER_ID:
+        if message.from_user.id not in ADMINS:
             await message.reply_photo(
                 photo=BOT_PHOTO,
                 caption=f"""🙋‍♂️ Hi [{first_name}](tg://user?id={id}),\n\n🤖 I'm [Film District Bot 2.0](t.me/{BOT_USERNAME})\n\n👨‍💻 My Creator : [HeartBeat](t.me/helloheartbeat)\n\n💯 Here You Can Download Any Movies Or Web Series\n\nDo You Want To Join Group ⁉️\n\nClick Down Below Button 👇""",
