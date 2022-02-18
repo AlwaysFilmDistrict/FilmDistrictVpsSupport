@@ -2,7 +2,7 @@ from pyrogram import Client, filters
 import os
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 from LuciferMoringstar_Robot.func.imdb_information import get_poster
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 
 
 
