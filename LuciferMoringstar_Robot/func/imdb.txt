@@ -40,4 +40,15 @@ Example :-
 
 
 
+Bold Message
+
+
+Method 1
+
+ <b>Hello</b>
+
+Method 2
+
+ **Hello Bro**
+
 
