@@ -3,6 +3,7 @@ import os
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 
+from LuciferMoringstar_Robot.func.imdb_information import get_poster
 
 @Client.on_message(filters.command(["imdb", 'search']))
 async def imdb_search(client, message):
