@@ -1,5 +1,5 @@
 # (c) PR0FESS0R-99
-from Config import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS, TUTORIAL, BOT_USERNAME, SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BUTTON_CALLBACK_OR_URL, P_TTI_SHOW_OFF, BOT_PHOTO, ADMINS
+from Config import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS, TUTORIAL, BOT_USERNAME, SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BUTTON_CALLBACK_OR_URL, BOT_PHOTO, ADMINS, IMDBOT_CAPTION
          
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
@@ -9,6 +9,8 @@ from pyrogram.errors import UserNotParticipant
 from LuciferMoringstar_Robot import get_filter_results, get_file_details, is_subscribed, get_poster
 from LuciferMoringstar_Robot import HELP, ABOUT, HELP_USER
 from LuciferMoringstar_Robot.Filter.Pr0fess0r_99 import get_muhammed
+from LuciferMoringstar_Robot.func.imdb_information import get_poster
+
 
 BUTTONS = {}
 BOT = {}
@@ -633,5 +635,85 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data == "pages":
             await query.answer()
+
+        elif query.data.startswith("imdb"):
+            i, movie = query.data.split('#')
+            imdb = await get_poster(query=movie, id=True)
+            btn = [
+                    [
+                        InlineKeyboardButton(
+                            text=f"{imdb.get('title')} - {imdb.get('year')}",
+                            url=imdb['url'],
+                        )
+                    ]
+                ]
+            if imdb.get('poster'):
+                await query.message.reply_photo(
+                    photo=imdb['poster'],
+                    caption=IMDBOT_CAPTION.format(
+                      query = imdb['title'],
+                      title = imdb['title'],
+                      votes = imdb['votes'],
+                      aka = imdb["aka"],
+                      seasons = imdb["seasons"],
+                      box_office = imdb['box_office'],
+                      localized_title = imdb['localized_title'],
+                      kind = imdb['kind'],
+                      imdb_id = imdb["imdb_id"],
+                      cast = imdb["cast"],
+                      runtime = imdb["runtime"],
+                      countries = imdb["countries"],
+                      certificates = imdb["certificates"],
+                      languages = imdb["languages"],
+                      director = imdb["director"],
+                      writer = imdb["writer"],
+                      producer = imdb["producer"],
+                      composer = imdb["composer"],
+                      cinematographer = imdb["cinematographer"],
+                      music_team = imdb["music_team"],
+                      distributors = imdb["distributors"],
+                      release_date = imdb['release_date'],
+                      year = imdb['year'],
+                      genres = imdb['genres'],
+                      poster = imdb['poster'],
+                      plot = imdb['plot'],
+                      rating = imdb['rating'],
+                      url = imdb['url']
+                    ),
+                    reply_markup=InlineKeyboardMarkup(btn))
+                await query.message.delete()
+            else:
+                await query.message.edit(
+                    text=IMDBOT_CAPTION.format(
+                      query = imdb['title'],
+                      title = imdb['title'],
+                      votes = imdb['votes'],
+                      aka = imdb["aka"],
+                      seasons = imdb["seasons"],
+                      box_office = imdb['box_office'],
+                      localized_title = imdb['localized_title'],
+                      kind = imdb['kind'],
+                      imdb_id = imdb["imdb_id"],
+                      cast = imdb["cast"],
+                      runtime = imdb["runtime"],
+                      countries = imdb["countries"],
+                      certificates = imdb["certificates"],
+                      languages = imdb["languages"],
+                      director = imdb["director"],
+                      writer = imdb["writer"],
+                      producer = imdb["producer"],
+                      composer = imdb["composer"],
+                      cinematographer = imdb["cinematographer"],
+                      music_team = imdb["music_team"],
+                      distributors = imdb["distributors"],
+                      release_date = imdb['release_date'],
+                      year = imdb['year'],
+                      genres = imdb['genres'],
+                      poster = imdb['poster'],
+                      plot = imdb['plot'],
+                      rating = imdb['rating'],
+                      url = imdb['url']
+                    ),
+                    reply_markup=InlineKeyboardMarkup(btn))           
     else:
         await query.answer("Ask For Your Own Movie Or Series 🤭",show_alert=True)
