@@ -236,7 +236,7 @@ async def group_filters(client, message):
             await LuciferMoringstar.delete()
             return
 
-        files = await get_filter_results(query=search)
+        files, total_results = await get_filter_results(query=search)
         if files:
             for file in files:
                 file_id = file.file_id
@@ -298,12 +298,13 @@ async def group_filters(client, message):
                 text_photo_1 = f"""
 ↪️ **Requested:** {search}
 👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})
-🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>
+🎬 **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>
 🎭 **Genres:** {imdb.get('genres')}
 📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
 🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
 🖋 **StoryLine:** <code>{imdb.get('plot')}</code>
 📑 **Total Page:** 1
+📁 **Total Files:** {total_results}
 🎙️ **Group:** {message.chat.title}
 🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)
 
