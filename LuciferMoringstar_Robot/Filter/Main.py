@@ -258,11 +258,10 @@ async def group_filters(client, message):
                   ]]
                 )
                 LuciferMoringstar=await client.send_message(
-                chat_id = message.chat.id,
-                text=SPELLING_MODE_TEXT.format(message.from_user.mention, search),
-                reply_markup=reply_markup,
-                parse_mode="html",
-                reply_to_message_id=message.message_id
+                    chat_id = message.chat.id,
+                    text=SPELLING_MODE_TEXT.format(message.from_user.mention, search),
+                    reply_markup=reply_markup,
+                    reply_to_message_id=message.message_id
                 )
                 await asyncio.sleep(60) 
                 await LuciferMoringstar.delete()              
