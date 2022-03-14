@@ -97,6 +97,7 @@ async def pm_autofilter(client, message):
 
             poster=None
             if API_KEY:
+                imdb=await get_muhammed(search)
                 poster=await get_poster(search)
 
             if poster:
@@ -149,6 +150,9 @@ async def pm_autofilter(client, message):
 
         poster=None
         if API_KEY:
+            imdb=await get_muhammed(search)
+            poster=await get_poster(search)
+        if poster:
             text_photo_1 = f"""
 ↪️ **Requested:** {search}
 👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})
@@ -163,8 +167,6 @@ async def pm_autofilter(client, message):
 
 📌 **Press The Down Buttons To Access The File**
 📌 **This Post Will Be Deleted After 10 Minutes**"""
-            poster=await get_poster(search)
-        if poster:
             await message.reply_photo(photo=poster, caption=text_photo_1, reply_markup=InlineKeyboardMarkup(buttons))
         else:
             text_6=f"""
