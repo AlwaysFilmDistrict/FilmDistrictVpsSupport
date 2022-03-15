@@ -28,7 +28,7 @@ IMDBOT_CAPTION = environ.get('IMDBOT_CAPTION', 'hi')
 
 
 
-
+IMDB_POSTER_ON_OFF = is_enabled((environ.get('IMDB_POSTER_ON_OFF', "False")), False)
 
 
 
