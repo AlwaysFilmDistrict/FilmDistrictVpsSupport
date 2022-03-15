@@ -10,6 +10,7 @@ from LuciferMoringstar_Robot import HELP, ABOUT, HELP_USER
 from LuciferMoringstar_Robot.Filter.Pr0fess0r_99 import get_muhammed
 BUTTONS = {}
 
+from LuciferMoringstar_Robot.func.imdb_information import get_poster
 
 async def pm_autofilter(client, message):
     if message.text.startswith("/"):
@@ -87,7 +88,7 @@ async def pm_autofilter(client, message):
             )
 
             if IMDB_POSTER_ON_OFF:
-                imdb=await get_muhammed(search)
+                imdb=await get_poster(search)
                 text = f"↪️ **Requested:** {search}\n"
                 text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
                 text += f"🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>\n"
@@ -163,7 +164,7 @@ async def pm_autofilter(client, message):
         )
        
         if IMDB_POSTER_ON_OFF:
-            imdb=await get_muhammed(search)
+            imdb=await get_poster(search)
             text = f"↪️ **Requested:** {search}\n"
             text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
             text += f"🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>\n"
@@ -326,7 +327,7 @@ async def group_filters(client, message):
             )
 
             if IMDB_POSTER_ON_OFF:
-                imdb=await get_muhammed(search)
+                imdb=await get_poster(search)
                 text = f"↪️ **Requested:** {search}\n"
                 text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
                 text += f"🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>\n"
@@ -402,7 +403,7 @@ async def group_filters(client, message):
         )
 
         if IMDB_POSTER_ON_OFF:
-            imdb=await get_muhammed(search)
+            imdb=await get_poster(search)
             text = f"↪️ **Requested:** {search}\n"
             text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
             text += f"🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>\n"
