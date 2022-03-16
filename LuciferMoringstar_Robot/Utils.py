@@ -1,6 +1,5 @@
-import re
-import base64
-import logging
+import re, base64, logging, os, requests, json
+
 from struct import pack
 from pyrogram.errors import UserNotParticipant
 from pyrogram.file_id import FileId
@@ -8,15 +7,8 @@ from pymongo.errors import DuplicateKeyError
 from umongo import Instance, Document, fields
 from motor.motor_asyncio import AsyncIOMotorClient
 from marshmallow.exceptions import ValidationError
-import os
-import PTN
-import requests
-import json
 
 from Config import DATABASE_URI, DATABASE_NAME, COLLECTION_NAME, USE_CAPTION_FILTER, AUTH_CHANNEL, API_KEY
-DATABASE_URI_2=os.environ.get('DATABASE_URI_2', DATABASE_URI)
-DATABASE_NAME_2=os.environ.get('DATABASE_NAME_2', DATABASE_NAME)
-COLLECTION_NAME_2="Posters"
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
@@ -24,9 +16,6 @@ client = AsyncIOMotorClient(DATABASE_URI)
 db = client[DATABASE_NAME]
 instance = Instance.from_db(db)
 
-IClient = AsyncIOMotorClient(DATABASE_URI_2)
-imdbdb=client[DATABASE_NAME_2]
-imdb=Instance.from_db(imdbdb)
 
 class temp(object):
     BANNED_USERS = []
@@ -52,15 +41,6 @@ class Media(Document):
     class Meta:
         collection_name = COLLECTION_NAME
 
-@imdb.register
-class Poster(Document):
-    imdb_id = fields.StrField(attribute='_id')
-    title = fields.StrField()
-    poster = fields.StrField()
-    year= fields.IntField(allow_none=True)
-
-    class Meta:
-        collection_name = COLLECTION_NAME_2
 
 async def save_file(media):
     """Save file in database"""
@@ -170,56 +150,6 @@ async def is_subscribed(bot, query):
             return True
 
     return False
-
-async def get_poster(movie):
-    extract = PTN.parse(movie)
-    try:
-        title=extract["title"]
-    except KeyError:
-        title=movie
-    try:
-        year=extract["year"]
-        year=int(year)
-    except KeyError:
-        year=None
-    if year:
-        filter = {'$and': [{'title': str(title).lower().strip()}, {'year': int(year)}]}
-    else:
-        filter = {'title': str(title).lower().strip()}
-    cursor = Poster.find(filter)
-    is_in_db = await cursor.to_list(length=1)
-    poster=None
-    if is_in_db:
-        for nyav in is_in_db:
-            poster=nyav.poster
-    else:
-        if year:
-            url=f'https://www.omdbapi.com/?s={title}&y={year}&apikey={API_KEY}'
-        else:
-            url=f'https://www.omdbapi.com/?s={title}&apikey={API_KEY}'
-        try:
-            n = requests.get(url)
-            a = json.loads(n.text)
-            if a["Response"] == 'True':
-                y = a.get("Search")[0]
-                v=y.get("Title").lower().strip()
-                poster = y.get("Poster")
-                year=y.get("Year")[:4]
-                id=y.get("imdbID")
-                await get_all(a.get("Search"))
-        except Exception as e:
-            logger.exception(e)
-            pass
-    return poster
-
-
-async def get_all(list):
-    for y in list:
-        v=y.get("Title").lower().strip()
-        poster = y.get("Poster")
-        year=y.get("Year")[:4]
-        id=y.get("imdbID")
-        await save_poster(id, v, year, poster)
 
 
 def encode_file_id(s: bytes) -> str:
