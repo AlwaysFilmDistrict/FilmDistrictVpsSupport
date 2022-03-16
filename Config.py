@@ -1,10 +1,6 @@
-import re
-import os
+import re, os
 from os import environ
-
 id_pattern = re.compile(r'^.\d+$')
-
-
 def is_enabled(value, default):
     if value.lower() in ["true", "yes", "1", "enable", "y"]:
         return True
@@ -45,7 +41,7 @@ USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', False))
 
 BROADCAST_CHANNEL = int(os.environ.get("BROADCAST_CHANNEL", ""))
 ADMIN_ID = set(int(x) for x in os.environ.get("ADMIN_ID").split())
-DB_URL = os.environ.get("DATABASE_1")
+
 BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST", True))
 
 # Admins, Channels & Users
@@ -56,24 +52,20 @@ AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 auth_channel = environ.get('FORCES_SUB')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else auth_channel
 AUTH_GROUPS = [int(admin) for admin in environ.get("AUTH_GROUPS", "").split()]
-TUTORIAL = "https://youtu.be/-xDQbsF-wek"
+
+
 # MongoDB information
 DATABASE_URI = environ['DATABASE_2']
 DATABASE_NAME = environ['BOT_NAME']
+DB_URL = os.environ.get("DATABASE_1")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
+
+
+
 
 START_MSG = environ.get('START_MSG')
 
-FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", "")
-OMDB_API_KEY = environ.get("OMDB_API_KEY", "http://www.omdbapi.com/?i=tt3896198&apikey=4f08a979")
-if FILE_CAPTION.strip() == "":
-    CUSTOM_FILE_CAPTION=None
-else:
-    CUSTOM_FILE_CAPTION=FILE_CAPTION
-if OMDB_API_KEY.strip() == "":
-    API_KEY=None
-else:
-    API_KEY=OMDB_API_KEY
+CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", None)
 
 
 
