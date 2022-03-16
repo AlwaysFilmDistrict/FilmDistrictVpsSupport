@@ -390,14 +390,14 @@ async def group_filters(client, message):
                 text += "🌟 **Rating:** {rating} / 10\n"
                 text += "🖋 **StoryLine:** <code>{plot}</code>\n"
                 text += "📑 **Total Page:** 1\n"
-                text += "📥 **Updated By:** @{BOT_USERNAME}\n"
+                text += "📥 **Group:** {BOT_USERNAME}\n"
                 text += "🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
                 text += "📌 **Press The Down Buttons To Access The File**\n"
                 text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
                 cap = text.format(
                     first_name = message.from_user.first_name,
                     user_id = f"tg://user?id={message.from_user.id}",
-                    BOT_USERNAME = BOT_USERNAME,
+                    BOT_USERNAME = message.chat.title,
                     query = search,
                     title = imdb['title'],
                     votes = imdb['votes'],
@@ -432,7 +432,7 @@ async def group_filters(client, message):
                 cap = f"↪️ **Requested:** {search}\n"
                 cap += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
                 cap += "📑 **Total Page:** 1\n"
-                cap += f"📥 **Updated By:** @{BOT_USERNAME}\n"
+                cap += f"📥 **Group:** {message.chat.title}\n"
                 cap += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
                 cap += f"📌 **Press The Down Buttons To Access The File**\n"
                 cap += f"📌 **This Post Will Be Deleted After 10 Minutes**"
@@ -493,14 +493,14 @@ async def group_filters(client, message):
             text += "🌟 **Rating:** {rating} / 10\n"
             text += "🖋 **StoryLine:** <code>{plot}</code>\n"
             text += "📑 **Total Page:** {total_page}\n"
-            text += "📥 **Updated By:** @{BOT_USERNAME}\n"
+            text += "📥 **Group:** {BOT_USERNAME}\n"
             text += "🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
             text += "📌 **Press The Down Buttons To Access The File**\n"
             text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
             cap = text.format(
                 first_name = message.from_user.first_name,
                 user_id = f"tg://user?id={message.from_user.id}",
-                BOT_USERNAME = BOT_USERNAME,
+                BOT_USERNAME = message.chat.title,
                 total_page = totalss,
                 query = search,
                 title = imdb['title'],
@@ -536,7 +536,7 @@ async def group_filters(client, message):
             cap = f"↪️ **Requested:** {search}\n"
             cap += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
             cap += f"📑 **Total Page:** {totalss}\n"
-            cap += f"📥 **Updated By:** @{BOT_USERNAME}\n"
+            cap += f"📥 **Group:** {message.chat.title}\n"
             cap += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
             cap += f"📌 **Press The Down Buttons To Access The File**\n"
             cap += f"📌 **This Post Will Be Deleted After 10 Minutes**"
