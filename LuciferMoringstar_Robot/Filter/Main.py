@@ -165,13 +165,13 @@ async def pm_autofilter(client, message):
                     await client.delete_messages(message.chat.id,message.message_id)
                 except Exception as e:
                     logger.exception(e)
-                    LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap reply_markup=InlineKeyboardMarkup(buttons))
+                    LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap, reply_markup=InlineKeyboardMarkup(buttons))
                     await asyncio.sleep(600) # in seconds
                     await LuciferMoringstar_Delete.delete()
                     await client.delete_messages(message.chat.id,message.message_id)
                 return
             else:
-                LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap reply_markup=InlineKeyboardMarkup(buttons))
+                LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap, reply_markup=InlineKeyboardMarkup(buttons))
                 await asyncio.sleep(600) # in seconds
                 await LuciferMoringstar_Delete.delete()
                 await client.delete_messages(message.chat.id,message.message_id)
@@ -268,12 +268,12 @@ async def pm_autofilter(client, message):
                 await client.delete_messages(message.chat.id,message.message_id)
             except Exception as e:
                 logger.exception(e)
-                LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap reply_markup=InlineKeyboardMarkup(buttons))
+                LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap, reply_markup=InlineKeyboardMarkup(buttons))
                 await asyncio.sleep(600) # in seconds
                 await LuciferMoringstar_Delete.delete()
                 await client.delete_messages(message.chat.id,message.message_id)
         else:
-            LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap reply_markup=InlineKeyboardMarkup(buttons))
+            LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap, reply_markup=InlineKeyboardMarkup(buttons))
             await asyncio.sleep(600) # in seconds
             await LuciferMoringstar_Delete.delete()
             await client.delete_messages(message.chat.id,message.message_id)
