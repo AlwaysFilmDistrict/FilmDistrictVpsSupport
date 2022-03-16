@@ -69,7 +69,7 @@ CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", None)
 
 
 
-
+# Other
 
 LONG_IMDB_DESCRIPTION = is_enabled(environ.get("LONG_IMDB_DESCRIPTION", "False"), False)
 MAX_LIST_ELM = environ.get("MAX_LIST_ELM", None)
