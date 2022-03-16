@@ -2,7 +2,6 @@ from .Utils import (
    get_filter_results,
    get_file_details,
    is_subscribed,
-   get_poster,
    Media
 )
 from Config import BOT_USERNAME
