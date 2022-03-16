@@ -7,7 +7,6 @@ from Database import Database
 
 db = Database(DB_URL, SESSION)
 
-
 async def handle_user_status(bot, cmd):
     chat_id = cmd.from_user.id
     if not await db.is_user_exist(chat_id):
