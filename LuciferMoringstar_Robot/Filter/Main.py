@@ -1,16 +1,21 @@
 # (c) PR0FESS0R-99
-from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, BOT_USERNAME, SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BUTTON_CALLBACK_OR_URL, BOT_PHOTO, ADMINS, IMDBOT_CAPTION, IMDB_POSTER_ON_OFF         
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
-from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
-from pyrogram import Client, filters
 import re, asyncio, random, os
-from pyrogram.errors import UserNotParticipant
+from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
+
 from LuciferMoringstar_Robot import get_filter_results, get_file_details, is_subscribed
+
+from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, BOT_USERNAME, SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BUTTON_CALLBACK_OR_URL, BOT_PHOTO, ADMINS, IMDBOT_CAPTION, IMDB_POSTER_ON_OFF         
+from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
+
+from pyrogram.errors import UserNotParticipant
 from LuciferMoringstar_Robot import HELP, ABOUT, HELP_USER
 
 BUTTONS = {}
 
-from LuciferMoringstar_Robot.func.imdb_information import get_poster, get_muhammed
+from LuciferMoringstar_Robot.func.imdb_information import get_poster
+
 
 async def pm_autofilter(client, message):
     if message.text.startswith("/"):
@@ -87,61 +92,88 @@ async def pm_autofilter(client, message):
                 [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
             )
 
-            if IMDB_POSTER_ON_OFF:
-                imdb=await get_muhammed(search)
-                text = f"↪️ **Requested:** {search}\n"
-                text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
-                text += f"🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>\n"
-                text += f"🎭 **Genres:** {imdb.get('genres')}\n"
-                text += f"📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>\n"
-                text += f"🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10\n"
-                text += f"🖋 **StoryLine:** <code>{imdb.get('plot')}</code>\n"
+
+            imdb = await get_poster(search, file=(files[0]).file_name) if IMDB_POSTER_ON_OFF else None
+            if imdb:
+                text = "↪️ **Requested:** {query}\n"
+                text += "👤 **Requested By:** [{first_name}]({user_id})\n"
+                text += "🗂️ **Title:** [{title}]({url})\n"
+                text += "🎭 **Genres:** {genres}\n"
+                text += "📆 **Year:** {year}\n"
+                text += "🌟 **Rating:** {rating} / 10\n"
+                text += "🖋 **StoryLine:** <code>{plot}</code>\n"
                 text += "📑 **Total Page:** 1\n"
-                text += f"📥 **Updated By:** @{BOT_USERNAME}\n"
-                text += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
-                text += f"📌 **Press The Down Buttons To Access The File**\n"
-                text += f"📌 **This Post Will Be Deleted After 10 Minutes**"      
-                if imdb and imdb.get('poster'):
-                    Dl=await message.reply_photo(photo=imdb.get('poster'), caption=text, reply_markup=InlineKeyboardMarkup(buttons))
+                text += "📥 **Updated By:** @{BOT_USERNAME}\n"
+                text += "🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
+                text += "📌 **Press The Down Buttons To Access The File**\n"
+                text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
+                cap = text.format(
+                    first_name = message.from_user.first_name,
+                    user_id = f"tg://user?id={message.from_user.id}",
+                    BOT_USERNAME = BOT_USERNAME,
+                    query = search,
+                    title = imdb['title'],
+                    votes = imdb['votes'],
+                    aka = imdb["aka"],
+                    seasons = imdb["seasons"],
+                    box_office = imdb['box_office'],
+                    localized_title = imdb['localized_title'],
+                    kind = imdb['kind'],
+                    imdb_id = imdb["imdb_id"],
+                    cast = imdb["cast"],
+                    runtime = imdb["runtime"],
+                    countries = imdb["countries"],
+                    certificates = imdb["certificates"],
+                    languages = imdb["languages"],
+                    director = imdb["director"],
+                    writer = imdb["writer"],
+                    producer = imdb["producer"],
+                    composer = imdb["composer"],
+                    cinematographer = imdb["cinematographer"],
+                    music_team = imdb["music_team"],
+                    distributors = imdb["distributors"],
+                    release_date = imdb['release_date'],
+                    year = imdb['year'],
+                    genres = imdb['genres'],
+                    poster = imdb['poster'],
+                    plot = imdb['plot'],
+                    rating = imdb['rating'],
+                    url = imdb['url'],
+                    **locals()
+                )
+            else:
+                cap = f"↪️ **Requested:** {search}\n"
+                cap += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
+                cap += "📑 **Total Page:** 1\n"
+                cap += f"📥 **Updated By:** @{BOT_USERNAME}\n"
+                cap += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
+                cap += f"📌 **Press The Down Buttons To Access The File**\n"
+                cap += f"📌 **This Post Will Be Deleted After 10 Minutes**"
+
+            if imdb and imdb.get('poster'):
+                try:
+                    LuciferMoringstar_Delete=await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(buttons))
                     await asyncio.sleep(600) # in seconds
-                    await Dl.delete()
+                    await LuciferMoringstar_Delete.delete()
                     await client.delete_messages(message.chat.id,message.message_id)
-                elif imdb:
-                    text = f"↪️ **Requested:** {search}\n"
-                    text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
-                    text += "📑 **Total Page:** 1\n"
-                    text += f"📥 **Updated By:** @{BOT_USERNAME}\n"
-                    text += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
-                    text += f"📌 **Press The Down Buttons To Access The File**\n"
-                    text += f"📌 **This Post Will Be Deleted After 10 Minutes**"
-                    Dl=await message.reply_photo(photo=BOT_PHOTO, caption=text, reply_markup=InlineKeyboardMarkup(buttons))
+                except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
+                    pic = imdb.get('poster')
+                    poster = pic.replace('.jpg', "._V1_UX360.jpg")
+                    LuciferMoringstar_Delete=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(buttons))
                     await asyncio.sleep(600) # in seconds
-                    await Dl.delete()
+                    await LuciferMoringstar_Delete.delete()
                     await client.delete_messages(message.chat.id,message.message_id)
-                else:
-                    text = f"↪️ **Requested:** {search}\n"
-                    text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
-                    text += "📑 **Total Page:** 1\n"
-                    text += f"📥 **Updated By:** @{BOT_USERNAME}\n"
-                    text += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
-                    text += f"📌 **Press The Down Buttons To Access The File**\n"
-                    text += f"📌 **This Post Will Be Deleted After 10 Minutes**"
-                    Dl=await message.reply_photo(photo=BOT_PHOTO, caption=text, reply_markup=InlineKeyboardMarkup(buttons))
+                except Exception as e:
+                    logger.exception(e)
+                    LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap reply_markup=InlineKeyboardMarkup(buttons))
                     await asyncio.sleep(600) # in seconds
-                    await Dl.delete()
+                    await LuciferMoringstar_Delete.delete()
                     await client.delete_messages(message.chat.id,message.message_id)
                 return
             else:
-                text = f"↪️ **Requested:** {search}\n"
-                text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
-                text += "📑 **Total Page:** 1\n"
-                text += f"📥 **Updated By:** @{BOT_USERNAME}\n"
-                text += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
-                text += f"📌 **Press The Down Buttons To Access The File**\n"
-                text += f"📌 **This Post Will Be Deleted After 10 Minutes**"
-                Dl=await message.reply_photo(photo=BOT_PHOTO, caption=text, reply_markup=InlineKeyboardMarkup(buttons))
+                LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap reply_markup=InlineKeyboardMarkup(buttons))
                 await asyncio.sleep(600) # in seconds
-                await Dl.delete()
+                await LuciferMoringstar_Delete.delete()
                 await client.delete_messages(message.chat.id,message.message_id)
             return
 
@@ -163,66 +195,88 @@ async def pm_autofilter(client, message):
             [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
         )
        
-        if IMDB_POSTER_ON_OFF:
-            imdb=await get_muhammed(search)
-            text = f"↪️ **Requested:** {search}\n"
-            text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
-            text += f"🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>\n"
-            text += f"🎭 **Genres:** {imdb.get('genres')}\n"
-            text += f"📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>\n"
-            text += f"🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10\n"
-            text += f"🖋 **StoryLine:** <code>{imdb.get('plot')}</code>\n"
-            text += f"📑 **Total Page:** {totalss}\n"
-            text += f"📥 **Updated By:** @{BOT_USERNAME}\n"
-            text += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
-            text += f"📌 **Press The Down Buttons To Access The File**\n"
-            text += f"📌 **This Post Will Be Deleted After 10 Minutes**"      
-            if imdb and imdb.get('poster'):
-                Dl=await message.reply_photo(photo=imdb.get('poster'), caption=text, reply_markup=InlineKeyboardMarkup(buttons))
+       
+        imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
+        if imdb:
+            text = "↪️ **Requested:** {query}\n"
+            text += "👤 **Requested By:** [{first_name}]({user_id})\n"
+            text += "🗂️ **Title:** [{title}]({url})\n"
+            text += "🎭 **Genres:** {genres}\n"
+            text += "📆 **Year:** {year}\n"
+            text += "🌟 **Rating:** {rating} / 10\n"
+            text += "🖋 **StoryLine:** <code>{plot}</code>\n"
+            text += "📑 **Total Page:** {total_page}\n"
+            text += "📥 **Updated By:** @{BOT_USERNAME}\n"
+            text += "🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
+            text += "📌 **Press The Down Buttons To Access The File**\n"
+            text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
+            cap = text.format(
+                first_name = message.from_user.first_name,
+                user_id = f"tg://user?id={message.from_user.id}",
+                BOT_USERNAME = BOT_USERNAME,
+                total_page = "1",
+                query = search,
+                title = imdb['title'],
+                votes = imdb['votes'],
+                aka = imdb["aka"],
+                seasons = imdb["seasons"],
+                box_office = imdb['box_office'],
+                localized_title = imdb['localized_title'],
+                kind = imdb['kind'],
+                imdb_id = imdb["imdb_id"],
+                cast = imdb["cast"],
+                runtime = imdb["runtime"],
+                countries = imdb["countries"],
+                certificates = imdb["certificates"],
+                languages = imdb["languages"],
+                director = imdb["director"],
+                writer = imdb["writer"],
+                producer = imdb["producer"],
+                composer = imdb["composer"],
+                cinematographer = imdb["cinematographer"],
+                music_team = imdb["music_team"],
+                distributors = imdb["distributors"],
+                release_date = imdb['release_date'],
+                year = imdb['year'],
+                genres = imdb['genres'],
+                poster = imdb['poster'],
+                plot = imdb['plot'],
+                rating = imdb['rating'],
+                url = imdb['url'],
+                **locals()
+            )
+        else:
+            cap = f"↪️ **Requested:** {search}\n"
+            cap += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
+            cap += "📑 **Total Page:** 1\n"
+            cap += f"📥 **Updated By:** @{BOT_USERNAME}\n"
+            cap += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
+            cap += f"📌 **Press The Down Buttons To Access The File**\n"
+            cap += f"📌 **This Post Will Be Deleted After 10 Minutes**"
+        if imdb and imdb.get('poster'):
+            try:
+                LuciferMoringstar_Delete=await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(buttons))
                 await asyncio.sleep(600) # in seconds
-                await Dl.delete()
+                await LuciferMoringstar_Delete.delete()
                 await client.delete_messages(message.chat.id,message.message_id)
-            elif imdb:
-                text = f"↪️ **Requested:** {search}\n"
-                text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
-                text += f"📑 **Total Page:** {totalss}\n"
-                text += f"📥 **Updated By:** @{BOT_USERNAME}\n"
-                text += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
-                text += f"📌 **Press The Down Buttons To Access The File**\n"
-                text += f"📌 **This Post Will Be Deleted After 10 Minutes**"
-                Dl=await message.reply_photo(photo=BOT_PHOTO, caption=text, reply_markup=InlineKeyboardMarkup(buttons))
+            except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
+                pic = imdb.get('poster')
+                poster = pic.replace('.jpg', "._V1_UX360.jpg")
+                LuciferMoringstar_Delete=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(buttons))
                 await asyncio.sleep(600) # in seconds
-                await Dl.delete()
+                await LuciferMoringstar_Delete.delete()
                 await client.delete_messages(message.chat.id,message.message_id)
-
-            else:
-                text = f"↪️ **Requested:** {search}\n"
-                text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
-                text += f"📑 **Total Page:** {totalss}\n"
-                text += f"📥 **Updated By:** @{BOT_USERNAME}\n"
-                text += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
-                text += f"📌 **Press The Down Buttons To Access The File**\n"
-                text += f"📌 **This Post Will Be Deleted After 10 Minutes**"
-                await message.reply_photo(photo=BOT_PHOTO, caption=text, reply_markup=InlineKeyboardMarkup(buttons))
-                Dl=await asyncio.sleep(600) # in seconds
-                await Dl.delete()
+            except Exception as e:
+                logger.exception(e)
+                LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap reply_markup=InlineKeyboardMarkup(buttons))
+                await asyncio.sleep(600) # in seconds
+                await LuciferMoringstar_Delete.delete()
                 await client.delete_messages(message.chat.id,message.message_id)
         else:
-            text = f"↪️ **Requested:** {search}\n"
-            text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
-            text += f"📑 **Total Page:** {totalss}\n"
-            text += f"📥 **Updated By:** @{BOT_USERNAME}\n"
-            text += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
-            text += f"📌 **Press The Down Buttons To Access The File**\n"
-            text += f"📌 **This Post Will Be Deleted After 10 Minutes**"
-            LuciferMoringstar=await message.reply_photo(photo=BOT_PHOTO, caption=text, reply_markup=InlineKeyboardMarkup(buttons))
+            LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap reply_markup=InlineKeyboardMarkup(buttons))
             await asyncio.sleep(600) # in seconds
-            await LuciferMoringstar.delete()
+            await LuciferMoringstar_Delete.delete()
             await client.delete_messages(message.chat.id,message.message_id)
-
-
-
-
 
 async def group_filters(client, message):
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
@@ -326,63 +380,90 @@ async def group_filters(client, message):
                  [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
             )
 
-            if IMDB_POSTER_ON_OFF:
-                imdb=await get_muhammed(search)
-                text = f"↪️ **Requested:** {search}\n"
-                text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
-                text += f"🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>\n"
-                text += f"🎭 **Genres:** {imdb.get('genres')}\n"
-                text += f"📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>\n"
-                text += f"🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10\n"
-                text += f"🖋 **StoryLine:** <code>{imdb.get('plot')}</code>\n"
+            imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
+            if imdb:
+                text = "↪️ **Requested:** {query}\n"
+                text += "👤 **Requested By:** [{first_name}]({user_id})\n"
+                text += "🗂️ **Title:** [{title}]({url})\n"
+                text += "🎭 **Genres:** {genres}\n"
+                text += "📆 **Year:** {year}\n"
+                text += "🌟 **Rating:** {rating} / 10\n"
+                text += "🖋 **StoryLine:** <code>{plot}</code>\n"
                 text += "📑 **Total Page:** 1\n"
-                text += f"📥 **Group:** {message.chat.title}\n"
-                text += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
-                text += f"📌 **Press The Down Buttons To Access The File**\n"
-                text += f"📌 **This Post Will Be Deleted After 10 Minutes**"      
-                if imdb and imdb.get('poster'):
-                    Dl=await message.reply_photo(photo=imdb.get('poster'), caption=text, reply_markup=InlineKeyboardMarkup(buttons))
+                text += "📥 **Updated By:** @{BOT_USERNAME}\n"
+                text += "🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
+                text += "📌 **Press The Down Buttons To Access The File**\n"
+                text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
+                cap = text.format(
+                    first_name = message.from_user.first_name,
+                    user_id = f"tg://user?id={message.from_user.id}",
+                    BOT_USERNAME = BOT_USERNAME,
+                    query = search,
+                    title = imdb['title'],
+                    votes = imdb['votes'],
+                    aka = imdb["aka"],
+                    seasons = imdb["seasons"],
+                    box_office = imdb['box_office'],
+                    localized_title = imdb['localized_title'],
+                    kind = imdb['kind'],
+                    imdb_id = imdb["imdb_id"],
+                    cast = imdb["cast"],
+                    runtime = imdb["runtime"],
+                    countries = imdb["countries"],
+                    certificates = imdb["certificates"],
+                    languages = imdb["languages"],
+                    director = imdb["director"],
+                    writer = imdb["writer"],
+                    producer = imdb["producer"],
+                    composer = imdb["composer"],
+                    cinematographer = imdb["cinematographer"],
+                    music_team = imdb["music_team"],
+                    distributors = imdb["distributors"],
+                    release_date = imdb['release_date'],
+                    year = imdb['year'],
+                    genres = imdb['genres'],
+                    poster = imdb['poster'],
+                    plot = imdb['plot'],
+                    rating = imdb['rating'],
+                    url = imdb['url'],
+                    **locals()
+                )
+            else:
+                cap = f"↪️ **Requested:** {search}\n"
+                cap += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
+                cap += "📑 **Total Page:** 1\n"
+                cap += f"📥 **Updated By:** @{BOT_USERNAME}\n"
+                cap += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
+                cap += f"📌 **Press The Down Buttons To Access The File**\n"
+                cap += f"📌 **This Post Will Be Deleted After 10 Minutes**"
+
+            if imdb and imdb.get('poster'):
+                try:
+                    LuciferMoringstar_Delete=await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(buttons))
                     await asyncio.sleep(600) # in seconds
-                    await Dl.delete()
+                    await LuciferMoringstar_Delete.delete()
                     await client.delete_messages(message.chat.id,message.message_id)
-                elif imdb:
-                    text = f"↪️ **Requested:** {search}\n"
-                    text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
-                    text += "📑 **Total Page:** 1\n"
-                    text += f"📥 **Group:** {message.chat.title}\n"
-                    text += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
-                    text += f"📌 **Press The Down Buttons To Access The File**\n"
-                    text += f"📌 **This Post Will Be Deleted After 10 Minutes**"
-                    Dl=await message.reply_photo(photo=BOT_PHOTO, caption=text, reply_markup=InlineKeyboardMarkup(buttons))
+                except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
+                    pic = imdb.get('poster')
+                    poster = pic.replace('.jpg', "._V1_UX360.jpg")
+                    LuciferMoringstar_Delete=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(buttons))
                     await asyncio.sleep(600) # in seconds
-                    await Dl.delete()
+                    await LuciferMoringstar_Delete.delete()
                     await client.delete_messages(message.chat.id,message.message_id)
-                else:
-                    text = f"↪️ **Requested:** {search}\n"
-                    text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
-                    text += "📑 **Total Page:** 1\n"
-                    text += f"📥 **Group:** {message.chat.title}\n"
-                    text += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
-                    text += f"📌 **Press The Down Buttons To Access The File**\n"
-                    text += f"📌 **This Post Will Be Deleted After 10 Minutes**"
-                    Dl=await message.reply_photo(photo=BOT_PHOTO, caption=text, reply_markup=InlineKeyboardMarkup(buttons))
+                except Exception as e:
+                    logger.exception(e)
+                    LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap reply_markup=InlineKeyboardMarkup(buttons))
                     await asyncio.sleep(600) # in seconds
-                    await Dl.delete()
+                    await LuciferMoringstar_Delete.delete()
                     await client.delete_messages(message.chat.id,message.message_id)
                 return
             else:
-                text = f"↪️ **Requested:** {search}\n"
-                text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
-                text += "📑 **Total Page:** 1\n"
-                text += f"📥 **Group:** {message.chat.title}\n"
-                text += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
-                text += f"📌 **Press The Down Buttons To Access The File**\n"
-                text += f"📌 **This Post Will Be Deleted After 10 Minutes**"
-                Dl=await message.reply_photo(photo=BOT_PHOTO, caption=text, reply_markup=InlineKeyboardMarkup(buttons))
+                LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap reply_markup=InlineKeyboardMarkup(buttons))
                 await asyncio.sleep(600) # in seconds
-                await Dl.delete()
+                await LuciferMoringstar_Delete.delete()
                 await client.delete_messages(message.chat.id,message.message_id)
             return
+
 
         data = BUTTONS[keyword]
         buttons = data['buttons'][0].copy()
@@ -401,63 +482,91 @@ async def group_filters(client, message):
         buttons.append(
             [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
         )
-
-        if IMDB_POSTER_ON_OFF:
-            imdb=await get_muhammed(search)
-            text = f"↪️ **Requested:** {search}\n"
-            text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
-            text += f"🗂️ **Title:** <a href={imdb['url']}>{imdb.get('title')}</a>\n"
-            text += f"🎭 **Genres:** {imdb.get('genres')}\n"
-            text += f"📆 **Year:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>\n"
-            text += f"🌟 **Rating:** <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10\n"
-            text += f"🖋 **StoryLine:** <code>{imdb.get('plot')}</code>\n"
-            text += f"📑 **Total Page:** {totalss}\n"
-            text += f"📥 **Group:** {message.chat.title}\n"
-            text += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
-            text += f"📌 **Press The Down Buttons To Access The File**\n"
-            text += f"📌 **This Post Will Be Deleted After 10 Minutes**"      
-            if imdb and imdb.get('poster'):
-                Dl=await message.reply_photo(photo=imdb.get('poster'), caption=text, reply_markup=InlineKeyboardMarkup(buttons))
-                await asyncio.sleep(600) # in seconds
-                await Dl.delete()
-                await client.delete_messages(message.chat.id,message.message_id)
-            elif imdb:
-                text = f"↪️ **Requested:** {search}\n"
-                text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
-                text += f"📑 **Total Page:** {totalss}\n"
-                text += f"📥 **Group:** {message.chat.title}\n"
-                text += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
-                text += f"📌 **Press The Down Buttons To Access The File**\n"
-                text += f"📌 **This Post Will Be Deleted After 10 Minutes**"
-                Dl=await message.reply_photo(photo=BOT_PHOTO, caption=text, reply_markup=InlineKeyboardMarkup(buttons))
-                await asyncio.sleep(600) # in seconds
-                await Dl.delete()
-                await client.delete_messages(message.chat.id,message.message_id)
-            else:
-                text = f"↪️ **Requested:** {search}\n"
-                text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
-                text += f"📑 **Total Page:** {totalss}\n"
-                text += f"📥 **Group:** {message.chat.title}\n"
-                text += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
-                text += f"📌 **Press The Down Buttons To Access The File**\n"
-                text += f"📌 **This Post Will Be Deleted After 10 Minutes**"
-                await message.reply_photo(photo=BOT_PHOTO, caption=text, reply_markup=InlineKeyboardMarkup(buttons))
-                Dl=await asyncio.sleep(600) # in seconds
-                await Dl.delete()
-                await client.delete_messages(message.chat.id,message.message_id)
-
+        
+        imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
+        if imdb:
+            text = "↪️ **Requested:** {query}\n"
+            text += "👤 **Requested By:** [{first_name}]({user_id})\n"
+            text += "🗂️ **Title:** [{title}]({url})\n"
+            text += "🎭 **Genres:** {genres}\n"
+            text += "📆 **Year:** {year}\n"
+            text += "🌟 **Rating:** {rating} / 10\n"
+            text += "🖋 **StoryLine:** <code>{plot}</code>\n"
+            text += "📑 **Total Page:** {total_page}\n"
+            text += "📥 **Updated By:** @{BOT_USERNAME}\n"
+            text += "🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
+            text += "📌 **Press The Down Buttons To Access The File**\n"
+            text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
+            cap = text.format(
+                first_name = message.from_user.first_name,
+                user_id = f"tg://user?id={message.from_user.id}",
+                BOT_USERNAME = BOT_USERNAME,
+                total_page = totalss,
+                query = search,
+                title = imdb['title'],
+                votes = imdb['votes'],
+                aka = imdb["aka"],
+                seasons = imdb["seasons"],
+                box_office = imdb['box_office'],
+                localized_title = imdb['localized_title'],
+                kind = imdb['kind'],
+                imdb_id = imdb["imdb_id"],
+                cast = imdb["cast"],
+                runtime = imdb["runtime"],
+                countries = imdb["countries"],
+                certificates = imdb["certificates"],
+                languages = imdb["languages"],
+                director = imdb["director"],
+                writer = imdb["writer"],
+                producer = imdb["producer"],
+                composer = imdb["composer"],
+                cinematographer = imdb["cinematographer"],
+                music_team = imdb["music_team"],
+                distributors = imdb["distributors"],
+                release_date = imdb['release_date'],
+                year = imdb['year'],
+                genres = imdb['genres'],
+                poster = imdb['poster'],
+                plot = imdb['plot'],
+                rating = imdb['rating'],
+                url = imdb['url'],
+                **locals()
+            )
         else:
-            text = f"↪️ **Requested:** {search}\n"
-            text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
-            text += f"📑 **Total Page:** {totalss}\n"
-            text += f"📥 **Group:** {message.chat.title}\n"
-            text += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
-            text += f"📌 **Press The Down Buttons To Access The File**\n"
-            text += f"📌 **This Post Will Be Deleted After 10 Minutes**"
-            LuciferMoringstar=await message.reply_photo(photo=BOT_PHOTO, caption=text, reply_markup=InlineKeyboardMarkup(buttons))
+            cap = f"↪️ **Requested:** {search}\n"
+            cap += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
+            cap += f"📑 **Total Page:** {totalss}\n"
+            cap += f"📥 **Updated By:** @{BOT_USERNAME}\n"
+            cap += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
+            cap += f"📌 **Press The Down Buttons To Access The File**\n"
+            cap += f"📌 **This Post Will Be Deleted After 10 Minutes**"
+        if imdb and imdb.get('poster'):
+            try:
+                LuciferMoringstar_Delete=await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(buttons))
+                await asyncio.sleep(600) # in seconds
+                await LuciferMoringstar_Delete.delete()
+                await client.delete_messages(message.chat.id,message.message_id)
+            except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
+                pic = imdb.get('poster')
+                poster = pic.replace('.jpg', "._V1_UX360.jpg")
+                LuciferMoringstar_Delete=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(buttons))
+                await asyncio.sleep(600) # in seconds
+                await LuciferMoringstar_Delete.delete()
+                await client.delete_messages(message.chat.id,message.message_id)
+            except Exception as e:
+                logger.exception(e)
+                LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap reply_markup=InlineKeyboardMarkup(buttons))
+                await asyncio.sleep(600) # in seconds
+                await LuciferMoringstar_Delete.delete()
+                await client.delete_messages(message.chat.id,message.message_id)
+        else:
+            LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap reply_markup=InlineKeyboardMarkup(buttons))
             await asyncio.sleep(600) # in seconds
-            await LuciferMoringstar.delete()
+            await LuciferMoringstar_Delete.delete()
             await client.delete_messages(message.chat.id,message.message_id)
+
+
+
  
     
 def get_size(size):
