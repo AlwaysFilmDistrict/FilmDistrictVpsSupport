@@ -1,6 +1,6 @@
  * - Requments - *
 
-
+{total_page} = Total Page
 {mention} = user name 
 {query} = Query 
 {bot_username} = Bot Username
