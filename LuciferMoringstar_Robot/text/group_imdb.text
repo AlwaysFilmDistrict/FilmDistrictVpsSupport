@@ -1,0 +1,57 @@
+ * - Requments - *
+
+
+{mention} = user name 
+{query} = Query 
+{bot_username} = Bot Username
+{title} = Movie Name
+{votes} = votes
+{aka} = Aka
+{box_office} = box_office
+{localized_title} = localized_title   
+{kind} = kind
+{imdb_id} = Imdb Id
+{cast} = cast
+{runtime} = runtime
+{countries} = countries
+{certificates} = certificates
+{languages} = languages
+{director} = director
+{writer} = writer
+{producer} = producer
+{composer} = composer
+{cinematographer} = cinematographer
+{music_team} = Music team
+{distributors} = Distributors
+{release_date} = Release data
+{year} = year
+{genres} = genres           
+{plot} = Storyline 
+{rating} = Rating
+{url} = Movie Url
+
+
+How To Use
+
+Example :-
+
+
+🎬 **Title** : [{title}]({url})
+📅 **Year** : {year}
+🌟 **Rating** : {rating}
+🎤 **Language** : {languages}
+
+
+
+Bold Message
+
+
+Method 1
+
+ <b>Hello</b>
+
+Method 2
+
+ **Hello Bro**
+
+
