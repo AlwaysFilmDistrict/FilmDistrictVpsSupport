@@ -328,6 +328,9 @@ async def group_filters(client, message):
 
         files = await get_filter_results(query=search)
         if files:
+            buttons.append(
+                [InlineKeyboardButton(text="ミ★ FILM DISTRICT ★彡", callback_data="k")]
+            )
             for file in files:
                 file_id = file.file_id
                 filename = f"➠ {get_size(file.file_size)} ➠ {file.file_name}"
