@@ -742,7 +742,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "about":
             buttons = [[
                     InlineKeyboardButton('👑 My Creator', url='t.me/helloheartbeat'),
-                    InlineKeyboardButton('🔗 Film District 2.0', url="https://www.google.com")
+                    InlineKeyboardButton('🔗 Film District 2.0', url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
                 ]]                
             await query.message.edit(text=f"{ABOUT}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
