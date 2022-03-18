@@ -391,7 +391,7 @@ async def group_filters(client, message):
                 text += "📆 **Year:** {year}\n"
                 text += "🌟 **Rating:** {rating} / 10\n"
                 text += "🖋 **StoryLine:** <code>{plot}</code>\n"
-                text += "📑 **Total Page:** 1\n"
+                text += "📑 **Total Page:** {total_page}\n"
                 text += "📥 **Group:** {chat_name}\n"
                 text += "🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
                 text += "📌 **Press The Down Buttons To Access The File**\n"
@@ -400,6 +400,7 @@ async def group_filters(client, message):
                 cap = IMDB_CAPTION.format(
                     mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
                     chat_name = message.chat.title,
+                    total_page = "1",
                     query = search,
                     title = imdb['title'],
                     votes = imdb['votes'],
