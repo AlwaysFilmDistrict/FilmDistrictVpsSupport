@@ -328,7 +328,7 @@ async def group_filters(client, message):
 
         files = await get_filter_results(query=search)
         if files:
-            buttons.append(
+            btn.append(
                 [InlineKeyboardButton(text="ミ★ FILM DISTRICT ★彡", callback_data="k")]
             )
             for file in files:
@@ -371,8 +371,7 @@ async def group_filters(client, message):
             }
         else:
             buttons = btn
-            
-
+           
             buttons.append(
                 [InlineKeyboardButton(text="🗓️ 1/1",callback_data="pages"),
                  InlineKeyboardButton(text="🗑️",callback_data="close"),
