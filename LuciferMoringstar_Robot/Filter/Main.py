@@ -398,7 +398,7 @@ async def group_filters(client, message):
                 text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
                 IMDB_CAPTION = os.environ.get('IMDB_POSTER_CAPTION', text)
                 cap = IMDB_CAPTION.format(
-                    mention = [{message.from_user.first_name}](tg://user?id={message.from_user.id})",
+                    mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
                     chat_name = message.chat.title,
                     query = search,
                     title = imdb['title'],
@@ -501,7 +501,7 @@ async def group_filters(client, message):
             Text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
             IMDB_CAPTION = os.environ.get('IMDB_POSTER_CAPTION', Text)
             cap = IMDB_CAPTION.format(
-                mention = [{message.from_user.first_name}](tg://user?id={message.from_user.id})",
+                mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
                 chat_name = message.chat.title,
                 total_page = totalss,
                 query = search,
