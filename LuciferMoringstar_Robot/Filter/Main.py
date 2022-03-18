@@ -325,6 +325,16 @@ async def group_filters(client, message):
             await asyncio.sleep(60) # in seconds
             await LuciferMoringstar.delete()
             return
+        for i in "film".split() :
+         if i in search.lower() :
+            LuciferMoringstar=await client.send_message(
+            text="""Don't Type "Film" ❌ - Language\n\nOnly Type The Name Of The Film/Series\n\nExample : Titanic""",
+            chat_id=message.chat.id,
+            reply_to_message_id=message.message_id,
+            parse_mode="html")
+            await asyncio.sleep(60) # in seconds
+            await LuciferMoringstar.delete()
+            return
 
         files = await get_filter_results(query=search)
         if files:
