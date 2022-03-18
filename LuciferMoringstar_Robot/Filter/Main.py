@@ -393,7 +393,7 @@ async def group_filters(client, message):
                 text += "🌟 **Rating:** {rating} / 10\n"
                 text += "🖋 **StoryLine:** <code>{plot}</code>\n"
                 text += "📑 **Total Page:** 1\n"
-                text += "📥 **Group:** {BOT_USERNAME}\n"
+                text += "📥 **Group:** {chat_name}\n"
                 text += "🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
                 text += "📌 **Press The Down Buttons To Access The File**\n"
                 text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
@@ -401,7 +401,7 @@ async def group_filters(client, message):
                 cap = IMDB_CAPTION.format(
                     first_name = message.from_user.first_name,
                     user_id = f"tg://user?id={message.from_user.id}",
-                    BOT_USERNAME = message.chat.title,
+                    chat_name = message.chat.title,
                     query = search,
                     title = imdb['title'],
                     votes = imdb['votes'],
@@ -489,23 +489,23 @@ async def group_filters(client, message):
         
         imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
         if imdb:
-            text = "↪️ **Requested:** {query}\n"
-            text += "👤 **Requested By:** [{first_name}]({user_id})\n"
-            text += "🗂️ **Title:** [{title}]({url})\n"
-            text += "🎭 **Genres:** {genres}\n"
-            text += "📆 **Year:** {year}\n"
-            text += "🌟 **Rating:** {rating} / 10\n"
-            text += "🖋 **StoryLine:** <code>{plot}</code>\n"
-            text += "📑 **Total Page:** {total_page}\n"
-            text += "📥 **Group:** {BOT_USERNAME}\n"
-            text += "🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
-            text += "📌 **Press The Down Buttons To Access The File**\n"
-            text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
-            IMDB_CAPTION = os.environ.get('IMDB_POSTER_CAPTION', text)
+            Text = "↪️ **Requested:** {query}\n"
+            Text += "👤 **Requested By:** [{first_name}]({user_id})\n"
+            Text += "🗂️ **Title:** [{title}]({url})\n"
+            Text += "🎭 **Genres:** {genres}\n"
+            Text += "📆 **Year:** {year}\n"
+            Text += "🌟 **Rating:** {rating} / 10\n"
+            Text += "🖋 **StoryLine:** <code>{plot}</code>\n"
+            Text += "📑 **Total Page:** {total_page}\n"
+            Text += "📥 **Group:** {chat_name}\n"
+            Text += "🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
+            Text += "📌 **Press The Down Buttons To Access The File**\n"
+            Text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
+            IMDB_CAPTION = os.environ.get('IMDB_POSTER_CAPTION', Text)
             cap = IMDB_CAPTION.format(
                 first_name = message.from_user.first_name,
                 user_id = f"tg://user?id={message.from_user.id}",
-                BOT_USERNAME = message.chat.title,
+                chat_name = message.chat.title,
                 total_page = totalss,
                 query = search,
                 title = imdb['title'],
