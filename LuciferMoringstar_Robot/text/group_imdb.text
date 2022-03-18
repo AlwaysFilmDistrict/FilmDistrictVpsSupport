@@ -1,5 +1,6 @@
  * - Requments - *
 
+chat_name = group name
 {total_page} = Total Page
 {mention} = user name 
 {query} = Query 
