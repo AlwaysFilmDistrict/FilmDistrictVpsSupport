@@ -1,7 +1,6 @@
 from pyrogram import Client as LuciferMoringstar_Robot, filters as Worker
 from LuciferMoringstar_Robot.Filter.Main import group_filters, pm_autofilter
 from Config import AUTH_GROUPS, AUTH_USERS, DB_URL, SESSION, ADMINS
-from Database import Database
 
 @LuciferMoringstar_Robot.on_message(Worker.text & Worker.group & Worker.incoming & Worker.chat(AUTH_GROUPS) if AUTH_GROUPS else Worker.text & Worker.group & Worker.incoming)
 async def groupfilters(client, message):
