@@ -1,5 +1,9 @@
+import logging
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 import os, re, imdb
-from pyrogram.errors import UserNotParticipant
+from pyrogram.errors import InputUserDeactivated, UserIsBlocked, PeerIdInvalid, UserNotParticipant
+from database.users_chats_db import db 
 from Config import AUTH_CHANNEL, MAX_LIST_ELM, LONG_IMDB_DESCRIPTION
 
 # Force Sub
@@ -15,6 +19,30 @@ async def is_subscribed(bot, query):
             return True
 
     return False
+
+# Broadcast
+
+async def broadcast_messages(user_id, message):
+    try:
+        await message.copy(chat_id=user_id)
+        return True, "Succes"
+    except FloodWait as e:
+        await asyncio.sleep(e.x)
+        return await broadcast_messages(user_id, message)
+    except InputUserDeactivated:
+        await db.delete_user(int(user_id))
+        logging.info(f"{user_id}-Removed from Database, since deleted account.")
+        return False, "Deleted"
+    except UserIsBlocked:
+        logging.info(f"{user_id} -Blocked the bot.")
+        return False, "Blocked"
+    except PeerIdInvalid:
+        await db.delete_user(int(user_id))
+        logging.info(f"{user_id} - PeerIdInvalid")
+        return False, "Error"
+    except Exception as e:
+        return False, "Error"
+
 
 
 # Dyno
