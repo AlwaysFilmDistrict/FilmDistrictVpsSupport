@@ -123,7 +123,7 @@ async def group_filters(client, message):
             imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
             if imdb:
                 text = "↪️ **Requested:** {query}\n"
-                text += "👤 **Requested By:** [{first_name}]({user_id})\n"
+                text += "👤 **Requested By:** {mention}"
                 text += "🗂️ **Title:** [{title}]({url})\n"
                 text += "🎭 **Genres:** {genres}\n"
                 text += "📆 **Year:** {year}\n"
@@ -229,7 +229,7 @@ async def group_filters(client, message):
         imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
         if imdb:
             Text = "↪️ **Requested:** {query}\n"
-            Text += "👤 **Requested By:** [{first_name}]({user_id})\n"
+            Text += "👤 **Requested By:** {mention}\n"
             Text += "🗂️ **Title:** [{title}]({url})\n"
             Text += "🎭 **Genres:** {genres}\n"
             Text += "📆 **Year:** {year}\n"
