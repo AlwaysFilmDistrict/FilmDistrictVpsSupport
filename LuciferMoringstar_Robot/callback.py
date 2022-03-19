@@ -39,7 +39,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 )
                 
                 buttons.append(
-                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
                 )
 
                 await query.edit_message_reply_markup( 
@@ -60,7 +60,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 )
 
                 buttons.append(
-                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
                 )
 
                 await query.edit_message_reply_markup( 
@@ -90,7 +90,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 )
 
                 buttons.append(
-                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
                 )
 
                 await query.edit_message_reply_markup( 
@@ -111,7 +111,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 )
 
                 buttons.append(
-                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
                 )
                 await query.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
