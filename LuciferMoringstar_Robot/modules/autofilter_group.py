@@ -117,7 +117,7 @@ async def group_filters(client, message):
             )
           
             buttons.append(
-                 [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+                 [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
             )
 
             imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
@@ -221,7 +221,7 @@ async def group_filters(client, message):
         )
         
         buttons.append(
-            [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{BOT_USERNAME}")]
+            [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
         )
         
         imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
