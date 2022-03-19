@@ -1,7 +1,8 @@
 # https://github.com/odysseusmax/animated-lamp/blob/master/bot/database/database.py
 import motor.motor_asyncio
-from Config import DATABASE_NAME, DB_URL
+from Config import DB_URL
 
+DATABASE_NAME = "LuciferMoringstar_Robot" # Dont Change 
 
 class Database:
     
