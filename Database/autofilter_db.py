@@ -96,7 +96,7 @@ async def get_search_results(query, file_type=None, max_results=10, offset=0):
     # Get list of files
     files = await cursor.to_list(length=max_results)
 
-    return files, next_offset
+    return files, total_results, next_offset
 
 
 async def get_filter_results(query):
