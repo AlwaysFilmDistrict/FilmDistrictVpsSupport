@@ -2,17 +2,14 @@ import logging
 import logging.config
 
 # Get logging configurations
-
 logging.config.fileConfig('logging.conf')
 logging.getLogger().setLevel(logging.INFO)
 logging.getLogger("pyrogram").setLevel(logging.ERROR)
 logging.getLogger("imdbpy").setLevel(logging.ERROR)
 
-
 from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
-import pyromod.listen
-from Database.autofilter_db import Media
+from Database.ia_filterdb import Media
 from Database.users_chats_db import db
 from Database._utils import temp
 from Config import API_ID, API_HASH, BOT_TOKEN
