@@ -3,8 +3,8 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, LOG_CHANNEL, BOT_PHOTO
 from Database.autofilter_db import get_file_details 
-from LuciferMoringstar_Robot import ABOUT
 from Database.users_chats_db import db
+from Database._utils import get_size, temp
 
 from pyrogram.errors import UserNotParticipant
 logger = logging.getLogger(__name__)
@@ -79,7 +79,7 @@ async def start(bot, message):
         if message.from_user.id not in ADMINS:
             await message.reply_photo(
                 photo=BOT_PHOTO,
-                caption=f"""🙋‍♂️ Hi [{first_name}](tg://user?id={id}),\n\n🤖 I'm [Film District Bot 2.0](t.me/{BOT_USERNAME})\n\n👨‍💻 My Creator : [HeartBeat](t.me/helloheartbeat)\n\n💯 Here You Can Download Any Movies Or Web Series\n\nDo You Want To Join Group ⁉️\n\nClick Down Below Button 👇""",
+                caption=f"""🙋‍♂️ Hi [{first_name}](tg://user?id={id}),\n\n🤖 I'm [Film District Bot 2.0](t.me/{temp.U_NAME})\n\n👨‍💻 My Creator : [HeartBeat](t.me/helloheartbeat)\n\n💯 Here You Can Download Any Movies Or Web Series\n\nDo You Want To Join Group ⁉️\n\nClick Down Below Button 👇""",
                 parse_mode="Markdown",
                 reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton("🔗 Film District 2.0", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
@@ -92,7 +92,7 @@ async def start(bot, message):
             return
         await message.reply_photo(
             photo=BOT_PHOTO,
-            caption=f"""🙋‍♂️ Hi [{first_name}](tg://user?id={id}) ,\n\n🤖 I'm [Film District Bot 2.0](t.me/{BOT_USERNAME})\n\n👨‍💻 My Creator : [HeartBeat](t.me/helloheartbeat)\n\n💯 Here You Can Download Any Movies Or Web Series\n\nDo You Want To Join Group ⁉️\n\nClick Down Below Button 👇""",
+            caption=f"""🙋‍♂️ Hi [{first_name}](tg://user?id={id}) ,\n\n🤖 I'm [Film District Bot 2.0](t.me/{temp.U_NAME})\n\n👨‍💻 My Creator : [HeartBeat](t.me/helloheartbeat)\n\n💯 Here You Can Download Any Movies Or Web Series\n\nDo You Want To Join Group ⁉️\n\nClick Down Below Button 👇""",
             parse_mode="Markdown",
             reply_markup=InlineKeyboardMarkup([[
                 InlineKeyboardButton("🔍 Search Here", switch_inline_query_current_chat=''),
@@ -103,16 +103,5 @@ async def start(bot, message):
                 ]]
             )
         )
-
-
-@Client.on_message(filters.command('about'))
-async def bot_info(bot, message):
-    buttons = [
-        [
-            InlineKeyboardButton('🔗 Join', url='https://telegram.me/joinchat/BOMKAM_4u0ozNWU1'),
-            InlineKeyboardButton('❤️ Subscribe', url='https://telegram.me/joinchat/EUUS8b0iEnVjZTU9')
-        ]
-        ]
-    await message.reply(text=f"{ABOUT}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
 
