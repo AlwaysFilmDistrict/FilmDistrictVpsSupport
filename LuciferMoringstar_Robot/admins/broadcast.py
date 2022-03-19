@@ -45,14 +45,14 @@ STATUS_TXT = """
 ★ 𝚄𝚂𝙴𝙳 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code> 𝙼𝚒𝙱
 ★ 𝙵𝚁𝙴𝙴 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code> 𝙼𝚒𝙱"""
 
-@Client.on_message(filters.command('stats') & filters.incoming)
+@Client.on_message(filters.command(['stats', 'status']) & filters.incoming)
 async def get_ststs(bot, message):
-    rju = await message.reply('Fetching stats..')
+    LuciferMoringstar_Robot = await message.reply('Fetching stats..')
     total_users = await db.total_users_count()    
     files = await Media.count_documents()
     size = await db.get_db_size()
     free = 536870912 - size
     size = get_size(size)
     free = get_size(free)
-    await rju.edit(STATUS_TXT.format(files, total_users, size, free))
+    await LuciferMoringstar_Robot.edit(STATUS_TXT.format(files, total_users, size, free))
 
