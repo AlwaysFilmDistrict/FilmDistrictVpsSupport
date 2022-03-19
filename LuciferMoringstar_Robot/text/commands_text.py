@@ -1,4 +1,4 @@
-ABOUT_TEXT = f"""
+ABOUT_TEXT = """
 🤖 Name : [Film District Bot 2.0](t.me/{username})
 👑 Creator : [HeartBeat](t.me/helloheartbeat)
 📃 Language : Python3
