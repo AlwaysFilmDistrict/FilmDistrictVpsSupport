@@ -5,7 +5,7 @@ from Database.autofilter_db import get_file_details
 from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, BUTTON_CALLBACK_OR_URL, BOT_PHOTO, IMDBOT_CAPTION         
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from Database._utils import get_poster, is_subscribed, get_size, temp
-
+from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
@@ -123,7 +123,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 InlineKeyboardButton('👑 My Creator', url='t.me/helloheartbeat'),
                 InlineKeyboardButton('📦 Source Code', url="https://www.google.com")              
                 ]]
-            await query.message.edit(text=f"{HELP}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            await query.message.edit(text=HELP_TEXT_DEV, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data == "rulesbot":
             buttons = [[
@@ -151,7 +151,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 InlineKeyboardButton('👑 My Creator', url='t.me/helloheartbeat'),
                 InlineKeyboardButton('📦 Source Code', url="https://www.google.com")              
                 ]]
-            await query.message.edit(text=f"{HELP_USER}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            await query.message.edit(text=HELP_TEXT_USER, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
 
         elif query.data == "helpalert":
@@ -159,10 +159,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data == "about":
             buttons = [[
-                    InlineKeyboardButton('👑 My Creator', url='t.me/helloheartbeat'),
-                    InlineKeyboardButton('🔗 Film District 2.0', url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
-                ]]                
-            await query.message.edit(text=f"{ABOUT}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+             InlineKeyboardButton('👑 My Creator', url='t.me/helloheartbeat'),
+             InlineKeyboardButton('🔗 Film District 2.0', url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
+             ]]                
+            await query.message.edit(ABOUT_TEXT.format(username=temp.U_NAME, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
 
         elif query.data.startswith("pr0fess0r_99"):
