@@ -130,15 +130,17 @@ async def group_filters(client, message):
                 text += "🌟 **Rating:** {rating} / 10\n"
                 text += "🖋 **StoryLine:** <code>{plot}</code>\n"
                 text += "📑 **Total Page:** {total_page}\n"
+                text += "📁 **Total Files:** {total_files}\n"
                 text += "📥 **Group:** {chat_name}\n"
                 text += "🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
                 text += "📌 **Press The Down Buttons To Access The File**\n"
                 text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
-                IMDB_CAPTION = os.environ.get('IMDB_POSTER_CAPTION', text)
+                IMDB_CAPTION = os.environ.get('IMDBPOSTER_CAPTION', text)
                 cap = IMDB_CAPTION.format(
                     mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
                     chat_name = message.chat.title,
                     total_page = "1",
+                    total_files = total_results,
                     query = search,
                     title = imdb['title'],
                     votes = imdb['votes'],
@@ -234,15 +236,17 @@ async def group_filters(client, message):
             Text += "🌟 **Rating:** {rating} / 10\n"
             Text += "🖋 **StoryLine:** <code>{plot}</code>\n"
             Text += "📑 **Total Page:** {total_page}\n"
+            Text += "📁 **Total Files:** {total_files}\n"
             Text += "📥 **Group:** {chat_name}\n"
             Text += "🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
             Text += "📌 **Press The Down Buttons To Access The File**\n"
             Text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
-            IMDB_CAPTION = os.environ.get('IMDB_POSTER_CAPTION', Text)
+            IMDB_CAPTION = os.environ.get('IMDBPOSTER_CAPTION', Text)
             cap = IMDB_CAPTION.format(
                 mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
                 chat_name = message.chat.title,
                 total_page = totalss,
+                total_files = total_results,
                 query = search,
                 title = imdb['title'],
                 votes = imdb['votes'],
