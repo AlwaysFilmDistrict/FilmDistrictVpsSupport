@@ -5,7 +5,7 @@ from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, LOG_CHANNEL, BOT_PHOTO, AD
 from Database.autofilter_db import get_file_details 
 from Database.users_chats_db import db
 from Database._utils import get_size, temp
-
+from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT
 from pyrogram.errors import UserNotParticipant
 logger = logging.getLogger(__name__)
 
@@ -103,5 +103,17 @@ async def start(bot, message):
                 ]]
             )
         )
+
+
+@Client.on_message(filters.command('about'))
+async def bot_info(bot, message):
+    buttons = [
+        [
+            InlineKeyboardButton('🔗 Join', url='https://telegram.me/joinchat/BOMKAM_4u0ozNWU1'),
+            InlineKeyboardButton('❤️ Subscribe', url='https://telegram.me/joinchat/EUUS8b0iEnVjZTU9')
+        ]
+        ]
+    await message.reply(text=f"{ABOUT_TEXT}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+
 
 
