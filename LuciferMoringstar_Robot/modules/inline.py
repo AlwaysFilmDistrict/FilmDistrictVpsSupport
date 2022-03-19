@@ -1,9 +1,10 @@
 import logging
 from pyrogram import Client, emoji, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InlineQueryResultCachedDocument
-
-from LuciferMoringstar_Robot.Utils import get_search_results, is_subscribed
+from Database._utils import _utils, get_size
 from Config import CACHE_TIME, AUTH_USERS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
+
+from LuciferMoringstar_Robot.Utils import get_search_results
 
 logger = logging.getLogger(__name__)
 cache_time = 0 if AUTH_USERS or AUTH_CHANNEL else CACHE_TIME
@@ -96,14 +97,3 @@ def get_reply_markup(query):
         ]]
     return InlineKeyboardMarkup(buttons)
 
-
-def get_size(size):
-    """Get size in readable format"""
-
-    units = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB"]
-    size = float(size)
-    i = 0
-    while size >= 1024.0 and i < len(units):
-        i += 1
-        size /= 1024.0
-    return "%.2f %s" % (size, units[i])
