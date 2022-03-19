@@ -1,10 +1,9 @@
 import logging
 from pyrogram import Client, emoji, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InlineQueryResultCachedDocument
-from Database._utils import _utils, get_size
+from Database._utils import is_subscribed, get_size
+from Database.autofilter_db import get_search_results
 from Config import CACHE_TIME, AUTH_USERS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
-
-from LuciferMoringstar_Robot.Utils import get_search_results
 
 logger = logging.getLogger(__name__)
 cache_time = 0 if AUTH_USERS or AUTH_CHANNEL else CACHE_TIME
