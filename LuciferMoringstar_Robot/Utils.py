@@ -17,6 +17,8 @@ db = client[DATABASE_NAME]
 instance = Instance.from_db(db)
 
 
+
+
 class temp(object):
     BANNED_USERS = []
     BANNED_CHATS = []
