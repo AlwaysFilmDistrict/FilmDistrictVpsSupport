@@ -137,18 +137,6 @@ async def channel_info(bot, message):
 
 
 
-@Client.on_message(filters.private & filters.command("stats"))
-async def sts(c, m):
-    if m.from_user.id not in ADMIN_ID:
-        await m.delete()
-        return
-    await m.reply_text(
-        text=f"**Total Users in Database 📂:** `{await db.total_users_count()}`\n\n**Total Users with Notification Enabled 🔔 :** `{await db.total_notif_users_count()}`",
-        parse_mode="Markdown",
-        quote=True
-    )
-
-
 @Client.on_message(filters.command('total') & filters.user(ADMINS))
 async def total(bot, message):
     """Show total files in database"""
