@@ -1,10 +1,10 @@
-import os
-import logging
+import os, logging
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, BOT_USERNAME, BOT_PHOTO
+from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, LOG_CHANNEL, BOT_PHOTO
 from Database.autofilter_db import get_file_details 
 from LuciferMoringstar_Robot import ABOUT
+from Database.users_chats_db import db
 
 from pyrogram.errors import UserNotParticipant
 logger = logging.getLogger(__name__)
@@ -13,6 +13,10 @@ logger = logging.getLogger(__name__)
 
 @Client.on_message(filters.command("start"))
 async def start(bot, message):
+    if not await db.is_user_exist(message.from_user.id):
+        await db.add_user(message.from_user.id, message.from_user.first_name)
+        await bot.send_message(chat_id=LOG_CHANNEL, text="• `{}`\n• **{}**".format(message.from_user.id, message.from_user.mention))
+
   
     usr_cmdall1 = message.text
     if usr_cmdall1.startswith("/start pr0fess0r_99"):
