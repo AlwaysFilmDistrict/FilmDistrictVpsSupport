@@ -123,7 +123,7 @@ async def group_filters(client, message):
             imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
             if imdb:
                 text = "↪️ **Requested:** {query}\n"
-                text += "👤 **Requested By:** {mention}"
+                text += "👤 **Requested By:** {mention}\n"
                 text += "🗂️ **Title:** [{title}]({url})\n"
                 text += "🎭 **Genres:** {genres}\n"
                 text += "📆 **Year:** {year}\n"
@@ -135,7 +135,7 @@ async def group_filters(client, message):
                 text += "🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
                 text += "📌 **Press The Down Buttons To Access The File**\n"
                 text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
-                IMDB_CAPTION = os.environ.get('IMDBPOSTER_CAPTION', text)
+                IMDB_CAPTION = os.environ.get('IMDB_POSTER_CAPTION', text)
                 cap = IMDB_CAPTION.format(
                     mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
                     chat_name = message.chat.title,
@@ -241,7 +241,7 @@ async def group_filters(client, message):
             Text += "🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
             Text += "📌 **Press The Down Buttons To Access The File**\n"
             Text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
-            IMDB_CAPTION = os.environ.get('IMDBPOSTER_CAPTION', Text)
+            IMDB_CAPTION = os.environ.get('IMDB_POSTER_CAPTION', Text)
             cap = IMDB_CAPTION.format(
                 mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
                 chat_name = message.chat.title,
