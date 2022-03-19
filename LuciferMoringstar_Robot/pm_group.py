@@ -1,6 +1,7 @@
 from pyrogram import Client as LuciferMoringstar_Robot, filters as Worker
 from LuciferMoringstar_Robot.modules.autofilter_group import group_filters
-from Config import AUTH_GROUPS, AUTH_USERS, ADMINS
+from Config import AUTH_GROUPS, AUTH_USERS, ADMINS, LOG_CHANNEL
+from Database.users_chats_db import db
 
 @LuciferMoringstar_Robot.on_message(Worker.text & Worker.group & Worker.incoming & Worker.chat(AUTH_GROUPS) if AUTH_GROUPS else Worker.text & Worker.group & Worker.incoming)
 async def groupfilters(client, message):
@@ -9,6 +10,14 @@ async def groupfilters(client, message):
 
 @LuciferMoringstar_Robot.on_message(Worker.text & Worker.private & Worker.incoming)
 async def pm_filters(client, message):
+    if not await db.is_user_exist(message.from_user.id):
+        await db.add_user(message.from_user.id, message.from_user.first_name)
+        await bot.send_message(chat_id=LOG_CHANNEL, text="• `{}`\n• **{}**".format(message.from_user.id, message.from_user.mention))
+
     if message.from_user.id not in ADMINS:
         await client.send_sticker(chat_id=message.from_user.id, sticker='CAACAgUAAxkBAAEBoPBh0wHhhDxOtO6oGj4Gy5jpKWF-NwACFAQAAh0k-FXoemcDdMDyJx4E')
         return
+    await pm_autofilter(client, message)
+
+
+
