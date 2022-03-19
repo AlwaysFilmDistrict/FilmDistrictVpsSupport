@@ -2,7 +2,7 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 import os, re, imdb
-from pyrogram.errors import InputUserDeactivated, UserIsBlocked, PeerIdInvalid, UserNotParticipant
+from pyrogram.errors import InputUserDeactivated, UserIsBlocked, PeerIdInvalid, FloodWait, UserNotParticipant
 from Database.users_chats_db import db 
 from Config import AUTH_CHANNEL, MAX_LIST_ELM, LONG_IMDB_DESCRIPTION
 
