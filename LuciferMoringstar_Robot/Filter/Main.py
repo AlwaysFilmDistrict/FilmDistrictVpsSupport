@@ -4,7 +4,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 
-from LuciferMoringstar_Robot import get_filter_results, get_file_details, is_subscribed
+from Database.autofilter_db import get_filter_results, get_file_details
 
 from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, BOT_USERNAME, SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BUTTON_CALLBACK_OR_URL, BOT_PHOTO, ADMINS, IMDBOT_CAPTION, IMDB_POSTER_ON_OFF         
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
@@ -14,7 +14,7 @@ from LuciferMoringstar_Robot import HELP, ABOUT, HELP_USER
 
 BUTTONS = {}
 
-from LuciferMoringstar_Robot.func.imdb_information import get_poster
+from Database._utils import get_poster, is_subscribed
 
 
 async def pm_autofilter(client, message):
