@@ -2,6 +2,7 @@ import logging
 from pyrogram import Client, filters
 logger = logging.getLogger(__name__)
 from Config import ADMINS
+from Database.autofilter_db import Media
 
 @Client.on_message(filters.command('total') & filters.user(ADMINS))
 async def total(bot, message):
