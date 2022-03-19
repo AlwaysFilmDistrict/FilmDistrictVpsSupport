@@ -17,7 +17,7 @@ If You Don't Get The Movie/Series It Is Sure That You Have Written Incorrect Spe
 
 @Client.on_message(filters.left_chat_member)
 async def goodbye(bot,message):
- chatid= message.chat.id
- Auto_Delete=await bot.send_message(text=f"Bye ,  {message.from_user.mention} , Have a Nice Day",chat_id=chatid) 
- await asyncio.sleep(10) # in seconds
- await Auto_Delete.delete()
+    chatid= message.chat.id
+    Auto_Delete=await bot.send_message(text=f"Bye ,  {message.from_user.mention} , Have a Nice Day",chat_id=chatid) 
+    await asyncio.sleep(10) # in seconds
+    await Auto_Delete.delete()
