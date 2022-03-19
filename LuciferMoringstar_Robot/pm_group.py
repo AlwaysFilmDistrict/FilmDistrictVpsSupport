@@ -1,5 +1,6 @@
 from pyrogram import Client as LuciferMoringstar_Robot, filters as Worker
 from LuciferMoringstar_Robot.modules.autofilter_group import group_filters
+from LuciferMoringstar_Robot.modules.autofilter_bot_pm import pm_autofilter
 from Config import AUTH_GROUPS, AUTH_USERS, ADMINS, LOG_CHANNEL
 from Database.users_chats_db import db
 
