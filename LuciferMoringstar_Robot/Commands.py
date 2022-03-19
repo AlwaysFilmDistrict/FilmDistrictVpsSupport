@@ -1,7 +1,7 @@
 import os, logging
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, LOG_CHANNEL, BOT_PHOTO
+from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, LOG_CHANNEL, BOT_PHOTO, ADMINS
 from Database.autofilter_db import get_file_details 
 from Database.users_chats_db import db
 from Database._utils import get_size, temp
