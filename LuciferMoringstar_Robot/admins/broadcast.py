@@ -44,7 +44,7 @@ STATUS_TXT = """
 ★ 𝚄𝚂𝙴𝙳 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code> 𝙼𝚒𝙱
 ★ 𝙵𝚁𝙴𝙴 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code> 𝙼𝚒𝙱"""
 
-@Client.on_message(filters.command(['stats', 'status']) & filters.incoming)
+@Client.on_message(filters.command(['stats', 'status']) & filters.incoming  & filters.user(ADMINS))
 async def get_ststs(bot, message):
     LuciferMoringstar_Robot = await message.reply('Fetching stats..')
     total_users = await db.total_users_count()    
