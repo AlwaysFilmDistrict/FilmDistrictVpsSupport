@@ -2,7 +2,7 @@ import os
 import logging
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from Config import CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, ADMIN_ID, BOT_USERNAME, BOT_PHOTO
+from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, BOT_USERNAME, BOT_PHOTO
 from Database.autofilter_db import get_file_details 
 from LuciferMoringstar_Robot import ABOUT
 
