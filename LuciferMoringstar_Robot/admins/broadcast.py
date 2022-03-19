@@ -17,7 +17,6 @@ async def verupikkals(bot, message):
     blocked = 0
     deleted = 0
     failed =0
-
     success = 0
     async for user in users:
         pti, sh = await broadcast_messages(int(user['id']), b_msg)
