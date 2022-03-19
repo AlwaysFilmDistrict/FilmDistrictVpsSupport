@@ -174,7 +174,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             files = files_[0]
             title = files.file_name
             size=get_size(files.file_size)
-            f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=f_caption)
+            f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=files.caption)
             try:
                 if AUTH_CHANNEL and not await is_subscribed(client, query):
                     await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
@@ -208,7 +208,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             for files in filedetails:
                 title = files.file_name
                 size=files.file_size
-                f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=f_caption)               
+                f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=files.caption)               
                 await query.answer()
                 await client.send_cached_media(
                     chat_id=query.from_user.id,
