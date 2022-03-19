@@ -4,8 +4,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQ
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Database.autofilter_db import get_search_results, get_file_details
 from Database._utils import get_size, get_poster, split_list, temp
-from Config import SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BOT_PHOTO         
-
+from Config import SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BOT_PHOTO, IMDB_POSTER_ON_OFF        
 
 
 async def group_filters(client, message):
@@ -64,6 +63,7 @@ async def group_filters(client, message):
                 parse_mode="html")
             await asyncio.sleep(60) # in seconds
             await LuciferMoringstar.delete()
+
             return
 
         files, offset, total_results = await get_search_results(search.lower(), offset=0)
