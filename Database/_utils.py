@@ -39,6 +39,7 @@ class temp(object):
     CANCEL = False # Index Stol
     U_NAME = None # Bot Username
     B_NAME = None # Bot Name 
+    BUTTONS = {}
 
 # Get Size
 def get_size(size):
