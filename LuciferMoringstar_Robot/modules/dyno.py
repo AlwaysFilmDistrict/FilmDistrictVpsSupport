@@ -5,7 +5,7 @@ from Config import HEROKU_API_KEY
 
 
 
-@Client.on_message(filters.command('dyno') & filters.user(ADMINS))
+@Client.on_message(filters.command('dyno'))
 async def bot_status(client,message):
 
     if HEROKU_API_KEY:
