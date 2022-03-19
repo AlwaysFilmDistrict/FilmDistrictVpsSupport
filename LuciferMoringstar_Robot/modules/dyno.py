@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 import os, math, json, time, shutil, heroku3, requests
-from Config import HEROKU_API_KEY
+from Config import HEROKU_API_KEY, ADMINS
 from Database._utils import humanbytes
 
 
