@@ -56,7 +56,7 @@ AUTH_GROUPS = [int(admin) for admin in environ.get("AUTH_GROUPS", "").split()]
 
 # MongoDB information
 DATABASE_URI = environ['DATABASE_2']
-DATABASE_NAME = environ['BOT_NAME']
+DATABASE_NAME = "FilmDistrict_Bot" # Dont Change this one 
 DB_URL = os.environ.get("DATABASE_1")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
