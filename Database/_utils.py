@@ -1,4 +1,4 @@
-import os, os, imdb
+import os, re, imdb
 from pyrogram.errors import UserNotParticipant
 from Config import AUTH_CHANNEL, MAX_LIST_ELM, LONG_IMDB_DESCRIPTION
 
