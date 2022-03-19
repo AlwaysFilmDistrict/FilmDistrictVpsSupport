@@ -7,15 +7,15 @@ logging.getLogger().setLevel(logging.ERROR)
 
 from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
-from LuciferMoringstar_Robot import Media
-from Config import SESSION, API_ID, API_HASH, BOT_TOKEN
+from Database.autofilter_db import Media
+from Config import API_ID, API_HASH, BOT_TOKEN
 import pyromod.listen
 
 class Bot(Client):
 
     def __init__(self):
         super().__init__(
-            session_name=SESSION,
+            "LuciferMoringstar_Robot",
             api_id=API_ID,
             api_hash=API_HASH,
             bot_token=BOT_TOKEN,
