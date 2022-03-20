@@ -95,14 +95,14 @@ async def pm_autofilter(client, message):
                 text += "🌟 **Rating:** {rating} / 10\n"
                 text += "🖋 **StoryLine:** <code>{plot}</code>\n"
                 text += "📑 **Total Page:** 1\n"
-                text += "📥 **Updated By:** @{chat_name}\n"
+                text += "📥 **Updated By:** {chat_name}\n"
                 text += "🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
                 text += "📌 **Press The Down Buttons To Access The File**\n"
                 text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
                 cap = text.format(
                     first_name = message.from_user.first_name,
                     user_id = f"tg://user?id={message.from_user.id}",
-                    chat_name = temp.U_NAME,
+                    chat_name = f"@{temp.U_NAME}",
                     query = search,
                     total_files = total_results,
                     title = imdb['title'],
@@ -199,14 +199,14 @@ async def pm_autofilter(client, message):
             text += "🌟 **Rating:** {rating} / 10\n"
             text += "🖋 **StoryLine:** <code>{plot}</code>\n"
             text += "📑 **Total Page:** {total_page}\n"
-            text += "📥 **Updated By:** @{chat_name}\n"
+            text += "📥 **Updated By:** {chat_name}\n"
             text += "🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
             text += "📌 **Press The Down Buttons To Access The File**\n"
             text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
             cap = text.format(
                 first_name = message.from_user.first_name,
                 user_id = f"tg://user?id={message.from_user.id}",
-                chat_name = temp.U_NAME,
+                chat_name = f"@{temp.U_NAME}",
                 total_page = "1",
                 query = search,
                 total_files = total_results,
