@@ -90,7 +90,7 @@ def split_list(l, n):
 # Imdb Info
 imdb = imdb.IMDb()
 
-async def get_poster(query, bulk=False, id=False, file=None):
+async def get_poster(query, bulk=False, id=False):
     if not id:
         # https://t.me/GetTGLink/4183
         query = (query.strip()).lower()
@@ -99,10 +99,6 @@ async def get_poster(query, bulk=False, id=False, file=None):
         if year:
             year = list_to_str(year[:1])
             title = (query.replace(year, "")).strip()
-        elif file is not None:
-            year = re.findall(r'[1-2]\d{3}', file, re.IGNORECASE)
-            if year:
-                year = list_to_str(year[:1]) 
         else:
             year = None
         movieid = imdb.search_movie(title.lower(), results=10)
