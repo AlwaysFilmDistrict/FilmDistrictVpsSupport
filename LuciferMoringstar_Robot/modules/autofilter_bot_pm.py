@@ -85,7 +85,7 @@ async def pm_autofilter(client, message):
             )
 
 
-            imdb = await get_poster(search, file=(files[0]).file_name) if IMDB_POSTER_ON_OFF else None
+            imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
             if imdb:
                 text = "↪️ **Requested:** {query}\n"
                 text += "👤 **Requested By:** [{first_name}]({user_id})\n"
