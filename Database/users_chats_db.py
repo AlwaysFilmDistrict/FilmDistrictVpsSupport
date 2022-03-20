@@ -2,7 +2,7 @@
 import motor.motor_asyncio
 from Config import DB_URL
 
-DATABASE_NAME = "LuciferMoringstar_Robot" # Dont Change 
+DATABASE_NAME = "LuciferMoringstar_Robot1" # Dont Change 
 
 class Database:
     
