@@ -4,7 +4,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQ
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Database.autofilter_db import get_search_results, get_file_details
 from Database._utils import get_size, get_poster, split_list, temp
-from Config import AUTH_CHANNEL, IMDB_POSTER_ON_OFF         
+from Config import AUTH_CHANNEL, IMDB_POSTER_ON_OFF, BOT_PHOTO      
 from pyrogram.errors import UserNotParticipant
 
 
