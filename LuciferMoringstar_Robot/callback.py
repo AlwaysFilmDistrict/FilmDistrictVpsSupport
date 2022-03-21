@@ -43,7 +43,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 for file in files:
                     file_id = file.file_id
                     btn.append(
-                        InlineKeyboardButton(text=f"➠ {get_size(file.file_size)} ➠ {file.file_name}", callback_data=f'pr0fess0r_99#{file_id}')]
+                        [InlineKeyboardButton(text=f"➠ {get_size(file.file_size)} ➠ {file.file_name}", callback_data=f'pr0fess0r_99#{file_id}')]
                     )
             if 0 < offset <= 10:
                 off_set = 0
