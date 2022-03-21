@@ -45,6 +45,8 @@ async def pm_autofilter(client, message):
         btn = []
         search = message.text
         files, offset, total_results = await get_search_results(search.lower(), offset=0)
+        if not files:
+            await message.reply_sticker(sticker="CAACAgUAAxkBAAECH_5iOFOvG-rllWPhUsIgTvSe-OS7gwACFAQAAh0k-FXoemcDdMDyJx4E")
         if files:
             btn.append(
                 [InlineKeyboardButton(text="ミ★ FILM DISTRICT ★彡", callback_data="k")]
