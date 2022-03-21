@@ -10,9 +10,12 @@ from Config import SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BOT_PHOTO, IMDB_
 async def group_filters(client, message):
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
         return
-    if 2 < len(message.text) < 50:    
+    if 2 < len(message.text) < 100:    
         btn = []
         search = message.text
+
+
+
 
         for i in "series".split() :
          if i in search.lower() :
@@ -63,21 +66,12 @@ async def group_filters(client, message):
                 parse_mode="html")
             await asyncio.sleep(60) # in seconds
             await LuciferMoringstar.delete()
-
             return
 
+
+
         files, offset, total_results = await get_search_results(search.lower(), offset=0)
-        if files:
-            btn.append(
-                [InlineKeyboardButton(text="ミ★ FILM DISTRICT ★彡", callback_data="k")]
-            )
-            for file in files:
-                file_id = file.file_id
-                filename = f"➠ {get_size(file.file_size)} ➠ {file.file_name}"
-                btn.append(
-                    [InlineKeyboardButton(text=f"{filename}", callback_data=f"pr0fess0r_99#{file_id}")]
-                )
-        else:
+        if not files:
             if SEPLLING_MODE_ON_OR_OFF == "on":
                 text_replay = message.text
                 text_google = text_replay.replace(" ", '+')           
@@ -96,27 +90,41 @@ async def group_filters(client, message):
                 )
                 await asyncio.sleep(60) 
                 await LuciferMoringstar.delete()              
-            return
+        if files:
+            btn.append(
+                [InlineKeyboardButton(text="ミ★ FILM DISTRICT ★彡", callback_data="k")]
+            )
+            for file in files:
+                file_id = file.file_id
+                btn.append(
+                    [InlineKeyboardButton(text=f"➠ {get_size(file.file_size)} ➠ {file.file_name}", callback_data=f'pr0fess0r_99#{file_id}')]
+                )
         if not btn:
             return
 
-        if len(btn) > 10: 
-            btns = list(split_list(btn, 10)) 
-            keyword = f"{message.chat.id}-{message.message_id}"
-            temp.BUTTONS[keyword] = {
-                "total" : len(btns),
-                "buttons" : btns
-            }
-        else:
-            buttons = btn
-           
-            buttons.append(
-                [InlineKeyboardButton(text="🗓️ 1/1",callback_data="pages"),
+ 
+        if offset != "":
+            key = f"{message.chat.id}-{message.message_id}"
+            temp.BUTTONS[key] = search
+            req = message.from_user.id or 0
+            btn.append(
+                [InlineKeyboardButton(text="Next Page ➡️", callback_data=f"next_{req}_{key}_{offset}")]
+            )    
+            btn.append(
+                [InlineKeyboardButton(text=f"🗓️ 1",callback_data="pages"),
                  InlineKeyboardButton(text="🗑️",callback_data="close"),
                  InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
             )
-          
-            buttons.append(
+            btn.append(
+                 [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
+            )
+        else:
+            btn.append(
+                [InlineKeyboardButton(text="🗓️ 1",callback_data="pages"),
+                 InlineKeyboardButton(text="🗑️",callback_data="close"),
+                 InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
+            )        
+            btn.append(
                  [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
             )
 
@@ -182,26 +190,26 @@ async def group_filters(client, message):
 
             if imdb and imdb.get('poster'):
                 try:
-                    LuciferMoringstar_Delete=await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(buttons))
+                    LuciferMoringstar_Delete=await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
                     await asyncio.sleep(600) # in seconds
                     await LuciferMoringstar_Delete.delete()
                     await client.delete_messages(message.chat.id,message.message_id)
                 except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
                     pic = imdb.get('poster')
                     poster = pic.replace('.jpg', "._V1_UX360.jpg")
-                    LuciferMoringstar_Delete=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(buttons))
+                    LuciferMoringstar_Delete=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
                     await asyncio.sleep(600) # in seconds
                     await LuciferMoringstar_Delete.delete()
                     await client.delete_messages(message.chat.id,message.message_id)
                 except Exception as e:
                     logger.exception(e)
-                    LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap, reply_markup=InlineKeyboardMarkup(buttons))
+                    LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
                     await asyncio.sleep(600) # in seconds
                     await LuciferMoringstar_Delete.delete()
                     await client.delete_messages(message.chat.id,message.message_id)
                 return
             else:
-                LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap, reply_markup=InlineKeyboardMarkup(buttons))
+                LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
                 await asyncio.sleep(600) # in seconds
                 await LuciferMoringstar_Delete.delete()
                 await client.delete_messages(message.chat.id,message.message_id)
@@ -212,15 +220,7 @@ async def group_filters(client, message):
         buttons = data['buttons'][0].copy()
         totalss = data['total']
 
-        buttons.append(
-            [InlineKeyboardButton(text="Next Page ➡️",callback_data=f"next_0_{keyword}")]
-        )    
 
-        buttons.append(
-            [InlineKeyboardButton(text=f"🗓️ 1/{data['total']}",callback_data="pages"),
-             InlineKeyboardButton(text="🗑️",callback_data="close"),
-             InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
-        )
         
         buttons.append(
             [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
