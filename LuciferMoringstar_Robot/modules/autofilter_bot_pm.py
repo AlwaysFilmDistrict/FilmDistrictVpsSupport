@@ -103,7 +103,6 @@ async def pm_autofilter(client, message):
                 total_page = f"{round(int(total_results)/10)}",
                 total_files = total_results,
                 query = search,
-                total_files = total_results,
                 title = imdb['title'],
                 votes = imdb['votes'],
                 aka = imdb["aka"],
