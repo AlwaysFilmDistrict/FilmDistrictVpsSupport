@@ -98,10 +98,10 @@ async def pm_autofilter(client, message):
             text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
             IMDB_CAPTION = os.environ.get('IMDB_POSTER_CAPTION', text)
             cap = IMDB_CAPTION.format(
-                first_name = message.from_user.first_name,
-                user_id = f"tg://user?id={message.from_user.id}",
+                mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
                 chat_name = f"@{temp.U_NAME}",
-                total_page = "1",
+                total_page = f"{round(int(total_results)/10)}",
+                total_files = total_results,
                 query = search,
                 total_files = total_results,
                 title = imdb['title'],
