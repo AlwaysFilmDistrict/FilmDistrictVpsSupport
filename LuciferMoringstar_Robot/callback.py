@@ -1,7 +1,7 @@
 import asyncio, imdb
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
-from Database.autofilter_db import get_file_details
+from Database.autofilter_db import get_file_details, get_search_results
 from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, BUTTON_CALLBACK_OR_URL, BOT_PHOTO, IMDBOT_CAPTION         
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from Database._utils import get_poster, is_subscribed, get_size, temp
@@ -18,105 +18,81 @@ async def cb_handler(client: Client, query: CallbackQuery):
     if (clicked == typed):
 
         if query.data.startswith("next"):
-            ident, index, keyword = query.data.split("_")
+            ident, req, key, offset = query.data.split("_")
+            if int(req) not in [query.from_user.id, 0]:
+                return await query.answer("Ask For Your Own Movie Or Series 🤭", show_alert=True)
             try:
-                data = temp.BUTTONS[keyword]
-            except KeyError:
+                offset = int(offset)
+            except:
+                offset = 0
+            search = temp.BUTTONS.get(key)
+            if not search:
                 await query.answer("You are using this for one of my old message, please send the request again.",show_alert=True)
                 return
+            btn=[]
 
-            if int(index) == int(data["total"]) - 2:
-                buttons = data['buttons'][int(index)+1].copy()
-
-                buttons.append(
-                    [InlineKeyboardButton("🔙 Back Page", callback_data=f"back_{int(index)+1}_{keyword}")]
-                )
-
-                buttons.append(                    
-                    [InlineKeyboardButton(f"🗓️ {int(index)+2}/{data['total']}", callback_data="pages"),
-                     InlineKeyboardButton(text="🗑️",callback_data="close"),
-                     InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
-                )
-                
-                buttons.append(
-                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
-                )
-
-                await query.edit_message_reply_markup( 
-                    reply_markup=InlineKeyboardMarkup(buttons)
-                )
-                return
-            else:
-                buttons = data['buttons'][int(index)+1].copy()
-
-                buttons.append(
-                    [InlineKeyboardButton("🔙 Back Page", callback_data=f"back_{int(index)+1}_{keyword}"),
-                     InlineKeyboardButton("Next Page ➡️", callback_data=f"next_{int(index)+1}_{keyword}")]
-                )
-                buttons.append(                   
-                    [InlineKeyboardButton(f"🗓️ {int(index)+2}/{data['total']}", callback_data="pages"),
-                     InlineKeyboardButton(text="🗑️",callback_data="close"),
-                     InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
-                )
-
-                buttons.append(
-                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
-                )
-
-                await query.edit_message_reply_markup( 
-                    reply_markup=InlineKeyboardMarkup(buttons)
-                )
-                return
-
-
-        elif query.data.startswith("back"):
-            ident, index, keyword = query.data.split("_")
+            files, n_offset, total = await get_search_results(search, offset=offset)
             try:
-                data = temp.BUTTONS[keyword]
-            except KeyError:
-                await query.answer("You are using this for one of my old message, please send the request again.",show_alert=True)
-                return
-
-            if int(index) == 1:
-                buttons = data['buttons'][int(index)-1].copy()
-
-                buttons.append(
-                    [InlineKeyboardButton("Next Page ➡️", callback_data=f"next_{int(index)-1}_{keyword}")]
-                )
-                buttons.append(                    
-                    [InlineKeyboardButton(f"🗓️ {int(index)}/{data['total']}", callback_data="pages"),
-                     InlineKeyboardButton(text="🗑️",callback_data="close"),
-                     InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
-                )
-
-                buttons.append(
-                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
-                )
-
-                await query.edit_message_reply_markup( 
-                    reply_markup=InlineKeyboardMarkup(buttons)
-                )
-                return   
+                n_offset = int(n_offset)
+            except:
+                n_offset = 0
+            if files:
+                for file in files:
+                    file_id = file.file_id
+                    btn.append(
+                        [InlineKeyboardButton(text=f"💭 {get_size(file.file_size)}", callback_data=f'luciferrobot#{file_id}'), InlineKeyboardButton(text=f"📁{file.file_name}", callback_data=f'luciferrobot#{file_id}')]
+                    )
+            if 0 < offset <= 10:
+                off_set = 0
+            elif offset == 0:
+                off_set = None
             else:
-                buttons = data['buttons'][int(index)-1].copy()
-
-                buttons.append(
-                    [InlineKeyboardButton("🔙 Back Page", callback_data=f"back_{int(index)-1}_{keyword}"),
-                     InlineKeyboardButton("Next Page ➡️", callback_data=f"next_{int(index)-1}_{keyword}")]
+                off_set = offset - 10
+            if n_offset == 0:
+                btn.append(
+                    [InlineKeyboardButton("🔙 Back Page", callback_data=f"next_{req}_{key}_{off_set}")]
                 )
-                buttons.append(                    
-                    [InlineKeyboardButton(f"🗓️ {int(index)}/{data['total']}", callback_data="pages"),  
+                btn.append(                    
+                    [InlineKeyboardButton(f"🗓️ {round(int(offset)/10)+1}", callback_data="pages"),
                      InlineKeyboardButton(text="🗑️",callback_data="close"),
                      InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
                 )
-
-                buttons.append(
+                btn.append(
                     [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
                 )
-                await query.edit_message_reply_markup( 
-                    reply_markup=InlineKeyboardMarkup(buttons)
+            elif off_set is None:
+                btn.append(
+                    [InlineKeyboardButton("Next Page ➡️", callback_data=f"next_{req}_{key}_{n_offset}")]
                 )
-                return
+                btn.append(                    
+                    [InlineKeyboardButton(f"🗓️ {round(int(offset)/10)+1}", callback_data="pages"),
+                     InlineKeyboardButton(text="🗑️",callback_data="close"),
+                     InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
+                )
+                btn.append(
+                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
+                )
+            else:
+                btn.append(
+                    [InlineKeyboardButton("🔙 Back Page", callback_data=f"next_{req}_{key}_{off_set}"),             
+                     InlineKeyboardButton("Next Page ➡️", callback_data=f"next_{req}_{key}_{n_offset}")]           
+                )
+                btn.append(                    
+                    [InlineKeyboardButton(f"🗓️ {round(int(offset)/10)+1}", callback_data="pages"),
+                     InlineKeyboardButton(text="🗑️",callback_data="close"),
+                     InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
+                )
+                btn.append(
+                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
+                )
+            try:
+                await query.edit_message_reply_markup(
+                    reply_markup=InlineKeyboardMarkup(btn)
+                )
+            except MessageNotModified:
+                pass
+            await query.answer()
+
 
         elif query.data == "help":
             buttons = [[
