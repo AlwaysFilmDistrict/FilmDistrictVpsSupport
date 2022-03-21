@@ -37,6 +37,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             except:
                 n_offset = 0
             if files:
+                btn.append(
+                    [InlineKeyboardButton(text="ミ★ FILM DISTRICT ★彡", callback_data="k")]
+                )
                 for file in files:
                     file_id = file.file_id
                     btn.append(
