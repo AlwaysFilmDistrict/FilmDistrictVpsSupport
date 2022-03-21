@@ -181,7 +181,7 @@ async def group_filters(client, message):
         else:
             cap = f"↪️ **Requested:** {search}\n"
             cap += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
-            cap += f"📑 **Total Page:** {totalss}\n"
+            cap += f"📑 **Total Page:** {round(int(total_results)/10)}\n"
             cap += f"📥 **Group:** {message.chat.title}\n"
             cap += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
             cap += f"📌 **Press The Down Buttons To Access The File**\n"
