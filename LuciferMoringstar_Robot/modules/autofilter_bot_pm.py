@@ -96,7 +96,7 @@ async def pm_autofilter(client, message):
             text += "🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
             text += "📌 **Press The Down Buttons To Access The File**\n"
             text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
-            IMDB_CAPTION = os.environ.get('IMDB_POSTER_CAPTION', Text)
+            IMDB_CAPTION = os.environ.get('IMDB_POSTER_CAPTION', text)
             cap = IMDB_CAPTION.format(
                 first_name = message.from_user.first_name,
                 user_id = f"tg://user?id={message.from_user.id}",
