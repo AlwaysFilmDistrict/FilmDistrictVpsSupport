@@ -5,6 +5,9 @@ from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidD
 from Database.autofilter_db import get_search_results, get_file_details
 from Database._utils import get_size, get_poster, split_list, temp
 from Config import SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BOT_PHOTO, IMDB_POSTER_ON_OFF        
+import logging
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.ERROR)
 
 
 async def group_filters(client, message):
