@@ -47,28 +47,6 @@ async def pm_autofilter(client, message):
                 parse_mode="markdown"
             )
             return
-        except Exception:
-            await client.send_message(
-                chat_id=message.from_user.id,
-                text="Something went Wrong.",
-                parse_mode="markdown",
-                disable_web_page_preview=True
-            )
-            return
-
-
-
-
-import re, asyncio, random, os
-from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
-from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
-from Database.autofilter_db import get_search_results, get_file_details
-from Database._utils import get_size, get_poster, split_list, temp
-from Config import SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BOT_PHOTO, IMDB_POSTER_ON_OFF        
-
-
-async def group_filters(client, message):
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
         return
     if 2 < len(message.text) < 100:    
