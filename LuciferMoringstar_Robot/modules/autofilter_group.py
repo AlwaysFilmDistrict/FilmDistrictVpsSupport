@@ -13,10 +13,6 @@ async def group_filters(client, message):
     if 2 < len(message.text) < 100:    
         btn = []
         search = message.text
-
-
-
-
         for i in "series".split() :
          if i in search.lower() :
             LuciferMoringstar=await client.send_message(
@@ -147,7 +143,7 @@ async def group_filters(client, message):
             cap = IMDB_CAPTION.format(
                 mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
                 chat_name = message.chat.title,
-                total_page = totalss,
+                total_page = f"{round(int(total_results)/10)}",
                 total_files = total_results,
                 query = search,
                 title = imdb['title'],
