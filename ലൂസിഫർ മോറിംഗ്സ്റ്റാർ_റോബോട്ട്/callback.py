@@ -206,7 +206,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
              InlineKeyboardButton(text=f"{imdb.get('title')} - {imdb.get('year')}", url=imdb['url'])
              ]]          
      
-            message = quer_y.message.reply_to_message or quer_y.message
+            message = query.message.reply_to_message or query.message
             if imdb:
                  caption = IMDBOT_CAPTION.format(
                     query = imdb['title'],
