@@ -1,5 +1,6 @@
 import asyncio, imdb
 from pyrogram import Client, filters
+from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from Database.autofilter_db import get_file_details, get_search_results
 from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, BUTTON_CALLBACK_OR_URL, BOT_PHOTO, IMDBOT_CAPTION         
@@ -94,7 +95,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 )
             except MessageNotModified:
                 pass
-            await query.answer()
+            
 
 
         elif query.data == "help":
@@ -204,75 +205,56 @@ async def cb_handler(client: Client, query: CallbackQuery):
             btn = [[
              InlineKeyboardButton(text=f"{imdb.get('title')} - {imdb.get('year')}", url=imdb['url'])
              ]]          
-                                    
+     
+            message = quer_y.message.reply_to_message or quer_y.message
+            if imdb:
+                 caption = IMDBOT_CAPTION.format(
+                    query = imdb['title'],
+                    title = imdb['title'],
+                    votes = imdb['votes'],
+                    aka = imdb["aka"],
+                    seasons = imdb["seasons"],
+                    box_office = imdb['box_office'],
+                    localized_title = imdb['localized_title'],
+                    kind = imdb['kind'],
+                    imdb_id = imdb["imdb_id"],
+                    cast = imdb["cast"],
+                    runtime = imdb["runtime"],
+                    countries = imdb["countries"],
+                    certificates = imdb["certificates"],
+                    languages = imdb["languages"],
+                    director = imdb["director"],
+                    writer = imdb["writer"],
+                    producer = imdb["producer"],
+                    composer = imdb["composer"],
+                    cinematographer = imdb["cinematographer"],
+                    music_team = imdb["music_team"],
+                    distributors = imdb["distributors"],
+                    release_date = imdb['release_date'],
+                    year = imdb['year'],
+                    genres = imdb['genres'],
+                    poster = imdb['poster'],
+                    plot = imdb['plot'],
+                    rating = imdb['rating'],
+                    url = imdb['url']
+                )               
+            else:
+                caption = "No Results"  
+          
             if imdb.get('poster'):
-                await query.message.reply_photo(
-                    photo=imdb['poster'],
-                    caption=IMDBOT_CAPTION.format(
-                      query = imdb['title'],
-                      title = imdb['title'],
-                      votes = imdb['votes'],
-                      aka = imdb["aka"],
-                      seasons = imdb["seasons"],
-                      box_office = imdb['box_office'],
-                      localized_title = imdb['localized_title'],
-                      kind = imdb['kind'],
-                      imdb_id = imdb["imdb_id"],
-                      cast = imdb["cast"],
-                      runtime = imdb["runtime"],
-                      countries = imdb["countries"],
-                      certificates = imdb["certificates"],
-                      languages = imdb["languages"],
-                      director = imdb["director"],
-                      writer = imdb["writer"],
-                      producer = imdb["producer"],
-                      composer = imdb["composer"],
-                      cinematographer = imdb["cinematographer"],
-                      music_team = imdb["music_team"],
-                      distributors = imdb["distributors"],
-                      release_date = imdb['release_date'],
-                      year = imdb['year'],
-                      genres = imdb['genres'],
-                      poster = imdb['poster'],
-                      plot = imdb['plot'],
-                      rating = imdb['rating'],
-                      url = imdb['url']
-                    ),
-                    reply_markup=InlineKeyboardMarkup(btn))
+                try:
+                    await query.message.reply_photo(photo=imdb['poster'], caption=caption, reply_markup=InlineKeyboardMarkup(btn))
+                except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
+                    pic = imdb.get('poster')
+                    poster = pic.replace('.jpg', "._V1_UX360.jpg")
+                    await query.message.reply_photo(photo=poster, caption=caption, reply_markup=InlineKeyboardMarkup(btn))
+                except Exception as e:
+                    logger.exception(e)
+                    await query.message.reply(caption, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=False)
                 await query.message.delete()
             else:
-                await query.message.edit(
-                    text=IMDBOT_CAPTION.format(
-                      query = imdb['title'],
-                      title = imdb['title'],
-                      votes = imdb['votes'],
-                      aka = imdb["aka"],
-                      seasons = imdb["seasons"],
-                      box_office = imdb['box_office'],
-                      localized_title = imdb['localized_title'],
-                      kind = imdb['kind'],
-                      imdb_id = imdb["imdb_id"],
-                      cast = imdb["cast"],
-                      runtime = imdb["runtime"],
-                      countries = imdb["countries"],
-                      certificates = imdb["certificates"],
-                      languages = imdb["languages"],
-                      director = imdb["director"],
-                      writer = imdb["writer"],
-                      producer = imdb["producer"],
-                      composer = imdb["composer"],
-                      cinematographer = imdb["cinematographer"],
-                      music_team = imdb["music_team"],
-                      distributors = imdb["distributors"],
-                      release_date = imdb['release_date'],
-                      year = imdb['year'],
-                      genres = imdb['genres'],
-                      poster = imdb['poster'],
-                      plot = imdb['plot'],
-                      rating = imdb['rating'],
-                      url = imdb['url']
-                    ),
-                    reply_markup=InlineKeyboardMarkup(btn))           
+                await query.message.edit(caption, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=False)
+                   
     else:
         await query.answer("Ask For Your Own Movie Or Series 🤭",show_alert=True)
 
