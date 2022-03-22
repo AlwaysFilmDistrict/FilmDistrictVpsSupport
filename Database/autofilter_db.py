@@ -125,7 +125,6 @@ async def get_file_details(query):
     filedetails = await cursor.to_list(length=1)
     return filedetails
 
-
 def encode_file_id(s: bytes) -> str:
     r = b""
     n = 0
@@ -161,4 +160,3 @@ def unpack_new_file_id(new_file_id):
     )
     file_ref = encode_file_ref(decoded.file_reference)
     return file_id, file_ref
-
