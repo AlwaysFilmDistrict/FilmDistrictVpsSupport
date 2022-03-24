@@ -8,13 +8,15 @@ from Database._utils import get_size, temp
 from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT
 from pyrogram.errors import UserNotParticipant
 logger = logging.getLogger(__name__)
+from Database.broadcast import database
 
 
+db = database()
 
 @Client.on_message(filters.command("start"))
 async def start(bot, message):
     if not await db.is_user_exist(message.from_user.id):
-        await db.add_user(message.from_user.id, message.from_user.first_name)
+        await db.add_user(message.from_user.id)
         await bot.send_message(chat_id=LOG_CHANNEL, text="• `{}`\n• **{}**".format(message.from_user.id, message.from_user.mention))
 
   
