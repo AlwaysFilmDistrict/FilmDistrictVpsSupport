@@ -7,6 +7,11 @@ from pyrogram import filters, Client
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
 from Database.broadcast import db, send_msg
 
+
+
+class config(object):
+    broadcast_ids = {}
+
 @Client.on_message(filters.private & filters.command("broadcast") & filters.reply & filters.user(ADMINS))
 async def broadcast_(client, message):
     
