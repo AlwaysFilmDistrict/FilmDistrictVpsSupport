@@ -1,7 +1,7 @@
 import datetime, traceback, asyncio
 import motor.motor_asyncio # pylint: disable=import-error
 from pyrogram.errors import InputUserDeactivated, FloodWait, UserIsBlocked, PeerIdInvalid
-from config import DB_URL
+from Config import DB_URL
 
 DATABASE_NAME = "LuciferMoringstar_Robot" # Dont Change 
 
