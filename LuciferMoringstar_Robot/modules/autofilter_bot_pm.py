@@ -87,7 +87,7 @@ async def pm_autofilter(client, message):
         imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
         if imdb:
             text = "↪️ **Requested:** {query}\n"
-            text += "👤 **Requested By:** [{first_name}]({user_id})\n"
+            text += "👤 **Requested By:** {mention}\n"
             text += "🗂️ **Title:** [{title}]({url})\n"
             text += "🎭 **Genres:** {genres}\n"
             text += "📆 **Year:** {year}\n"
