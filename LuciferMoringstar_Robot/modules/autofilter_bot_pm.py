@@ -98,7 +98,7 @@ async def pm_autofilter(client, message):
             text += "🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
             text += "📌 **Press The Down Buttons To Access The File**\n"
             text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
-            IMDB_CAPTION = os.environ.get('IMDB_POSTER_CAPTION', text)
+            IMDB_CAPTION = os.environ.get('WITH_POSTER_CAPTION', text)
             cap = IMDB_CAPTION.format(
                 mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
                 chat_name = f"@{temp.U_NAME}",
@@ -135,13 +135,49 @@ async def pm_autofilter(client, message):
                 **locals()
             )
         else:
-            cap = f"↪️ **Requested:** {search}\n"
-            cap += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
-            cap += "📑 **Total Page:** {round(int(total_results)/10)}\n"
-            cap += f"📥 **Updated By:** @{temp.U_NAME}\n"
-            cap += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
-            cap += f"📌 **Press The Down Buttons To Access The File**\n"
-            cap += f"📌 **This Post Will Be Deleted After 10 Minutes**"
+            text = f"↪️ **Requested:** {search}\n"
+            text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
+            text += "📑 **Total Page:** {round(int(total_results)/10)}\n"
+            text += f"📥 **Updated By:** @{temp.U_NAME}\n"
+            text += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
+            text += f"📌 **Press The Down Buttons To Access The File**\n"
+            text += f"📌 **This Post Will Be Deleted After 10 Minutes**"
+            IMDB_CAPTIONS = os.environ.get('WITHOUT_POSTER_CAPTION', text)
+            cap=IMDB_CAPTIONS.format(
+                mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
+                chat_name = f"@{temp.U_NAME}",
+                total_page = f"{round(int(total_results)/10)}",
+                total_files = total_results,
+                query = search,
+                title = imdb['title'],
+                votes = imdb['votes'],
+                aka = imdb["aka"],
+                seasons = imdb["seasons"],
+                box_office = imdb['box_office'],
+                localized_title = imdb['localized_title'],
+                kind = imdb['kind'],
+                imdb_id = imdb["imdb_id"],
+                cast = imdb["cast"],
+                runtime = imdb["runtime"],
+                countries = imdb["countries"],
+                certificates = imdb["certificates"],
+                languages = imdb["languages"],
+                director = imdb["director"],
+                writer = imdb["writer"],
+                producer = imdb["producer"],
+                composer = imdb["composer"],
+                cinematographer = imdb["cinematographer"],
+                music_team = imdb["music_team"],
+                distributors = imdb["distributors"],
+                release_date = imdb['release_date'],
+                year = imdb['year'],
+                genres = imdb['genres'],
+                poster = imdb['poster'],
+                plot = imdb['plot'],
+                rating = imdb['rating'],
+                url = imdb['url'],
+                **locals()
+            )         
         if imdb and imdb.get('poster'):
             try:
                 LuciferMoringstar_Delete=await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
