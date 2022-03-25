@@ -21,17 +21,35 @@ class database:
     async def add_user(self, id):
         user = self.new_user(id)
         await self.dcol.insert_one(user)
+
     async def is_user_exist(self, id):
         user = await self.dcol.find_one({'id':int(id)})
-        return True if user else False
+        return bool(user)
+
     async def total_users_count(self):
         count = await self.dcol.count_documents({})
         return count
+
     async def get_all_users(self):
-        all_users = self.dcol.find({})
-        return all_users
+        return self.dcol.find({})
+
     async def delete_user(self, user_id):
         await self.dcol.delete_many({'id': int(user_id)})
+
+    async def add_notification(self, id, notification):
+        await self.dcol.update_one({"id": id}, {"$set": {"notification": notification}})
+    
+    async def get_notification(self, id):
+        user = await self.dcol.find_one({"id": int(id)})
+        return user.get("notification", True)
+
+    async def get_all_notif_user(self):
+        notif_users = self.dcol.find({"notification": True})
+        return notif_users
+
+    async def total_notif_users_count(self):
+        count = await self.dcol.count_documents({"notification": True})
+        return count
 
 db = database()
 
