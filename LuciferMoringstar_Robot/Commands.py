@@ -17,7 +17,7 @@ db = database()
 async def start(bot, message):
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id)
-        await bot.send_message(chat_id=LOG_CHANNEL, text="• `{}`\n• **{}**".format(message.from_user.id, message.from_user.mention))
+        await bot.send_message(chat_id=LOG_CHANNEL, text="""**#NEWUSER:**\n\n**New User {} Started @FilmDistrict_Bot !! #id{}**""".format(message.from_user.mention, message.from_user.id))
 
   
     usr_cmdall1 = message.text
