@@ -7,6 +7,7 @@ from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, BUTTON_CALLBACK_OR_URL, BO
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from Database._utils import get_poster, is_subscribed, get_size, temp
 from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER
+from LuciferMoringstar_Robot.text.auto_filter_text import FIRST_BUTTON
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
@@ -136,6 +137,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data == "helpalert":
             await query.answer(ALERT_HELP_TEXT, show_alert=True)
+
+        elif query.data == "first_af_alert":
+            await query.answer(FIRST_BUTTON, show_alert=True)
 
         elif query.data == "about":
             buttons = [[
