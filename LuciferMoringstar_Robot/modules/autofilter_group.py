@@ -91,7 +91,7 @@ async def group_filters(client, message):
                 await LuciferMoringstar.delete()              
         if files:
             btn.append(
-                [InlineKeyboardButton(text="ミ★ FILM DISTRICT ★彡", callback_data="k")]
+                [InlineKeyboardButton(text="ミ★ FILM DISTRICT ★彡", callback_data="first_af_alert")]
             )
             for file in files:
                 file_id = file.file_id
