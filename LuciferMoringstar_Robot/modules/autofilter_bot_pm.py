@@ -49,7 +49,7 @@ async def pm_autofilter(client, message):
             await message.reply_sticker(sticker="CAACAgUAAxkBAAECH_5iOFOvG-rllWPhUsIgTvSe-OS7gwACFAQAAh0k-FXoemcDdMDyJx4E")
         if files:
             btn.append(
-                [InlineKeyboardButton(text="ミ★ FILM DISTRICT ★彡", callback_data="k")]
+                [InlineKeyboardButton(text="ミ★ FILM DISTRICT ★彡", callback_data="first_af_alert")]
             )
             for file in files:
                 file_id = file.file_id
