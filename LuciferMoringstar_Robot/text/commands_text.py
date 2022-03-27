@@ -18,10 +18,24 @@ HELP_TEXT_DEV = """
   /about : About Me
 
 <u>Bot Owner Only</u>
+
+• **Broadcast Message**
   /broadcast Reply Any Message Or Media
+
+• **All Status**
   /stats User Status
-  /total How Many Files Added In Database
-  /logger  Get Logs
+
+• **File Database**
   /delete Delete File From Database
+  /total How Many Files Added In Database
+
+• **Get Logs**
+  /logger  Get Logs
+
+• **Check Bot Dyno**
   /dyno Check Bot Dyno
+
+• **Ban & Unban User**
+  /ban - Userid / Username
+  /unban - Userid / Username
 """
