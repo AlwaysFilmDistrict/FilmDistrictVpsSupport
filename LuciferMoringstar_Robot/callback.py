@@ -8,7 +8,7 @@ from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerId
 from Database._utils import get_poster, is_subscribed, get_size, temp
 from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER
 from LuciferMoringstar_Robot.text.auto_filter_text import FIRST_BUTTON
-from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text, database_text, logs_text, ban_pm_user_text
+from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text, database_text, logs_text, ban_pm_user_text, dyno_text, alive_text, imdb_text, inline_text, id_texts
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
@@ -265,6 +265,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
               InlineKeyboardButton('Logs', callback_data='logs'),
               InlineKeyboardButton('Ban Pm User', callback_data='ban_pm_user')
               ],[
+              InlineKeyboardButton('Dyno', callback_data='dyno'),
+              InlineKeyboardButton('Alive', callback_data='alive'),
+              InlineKeyboardButton('IMDB', callback_data='imdb_button')
+              ],[
+              InlineKeyboardButton('Inline', callback_data='inline_button'),
+              InlineKeyboardButton('Ids', callback_data='ids')
+              ],[
               InlineKeyboardButton('👑 My Creator', url='t.me/helloheartbeat'),
               InlineKeyboardButton('📦 Source Code', url="https://www.google.com")              
               ]]
@@ -290,6 +297,26 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "ban_pm_user":
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await query.message.edit(ban_pm_user_text, reply_markup=InlineKeyboardMarkup(buttons))
+
+        elif query.data == "dyno":
+            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
+            await query.message.edit(dyno_text, reply_markup=InlineKeyboardMarkup(buttons))
+
+        elif query.data == "alive":
+            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
+            await query.message.edit(alive_text, reply_markup=InlineKeyboardMarkup(buttons))
+
+        elif query.data == "imdb_button":
+            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
+            await query.message.edit(imdb_text, reply_markup=InlineKeyboardMarkup(buttons))
+
+        elif query.data == "inline_button":
+            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
+            await query.message.edit(inline_text, reply_markup=InlineKeyboardMarkup(buttons))
+
+        elif query.data == "ids":
+            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
+            await query.message.edit(id_texts, reply_markup=InlineKeyboardMarkup(buttons))
 
 
 
