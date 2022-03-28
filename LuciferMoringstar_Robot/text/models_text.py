@@ -50,5 +50,52 @@ Module :- Ban & Unban User
 /ban - Userid / Username
 /unban - Userid / Username """
 
+dyno_text = """
+Module :- Check Bot Dyno
+
+- A Module To Fetch Dyno Status
+
+📚 AVAIBLE COMMANDS :-
+
+/dyno Check Bot Dyno"""
+
+### 🗯️ ~~~~ Alive ~~~~ ###
+alive_text = """
+Module :- Alive
+
+- To Find Out If I'm Dead Or Not
+
+📚 AVAIBLE COMMAND :-
+
+★ /alive - Look """
+
+### 🗯️ ~~~~ imdb ~~~~ ###
+imdb_text = """
+Module :- Imdb Info
+
+- A Module To Get The Movie Informations. Use This Module To Get Movie Informations
+
+📚 AVAIBLE COMMAND :-
+
+★ /imdb - Get The Film Information From IMDB Source"""
+
+### 🗯️ ~~~~ inline ~~~~ ###
+inline_text = """
+Models :- Inline (Via)
+
+★ Can Search Movies & Series Via Inline
+★ Search Button Bellow
+"""
+
+### 🗯️ ~~~~ inline ~~~~ ###
+id_texts = """
+Module :- IDs
+
+- A Module To Fetch Telegram User, Group, Channel & Sticker Info
+
+📚 AVAIBLE COMMANDS :-
+
+★ /id - To Get Telegram User ID
+★ /info - To Get User Information"""
 
 
