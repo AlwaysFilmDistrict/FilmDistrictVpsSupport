@@ -1,5 +1,4 @@
 Broadcast_text = """
-📡 Broadcast 
 Module :- Broadcast Message
 
 - A Module For Broadcast Any Message Or Media
@@ -9,7 +8,6 @@ Module :- Broadcast Message
 ★ /broadcast - Reply Any Message Or Media"""
 
 status_text = """
-👥 Status
 Module :- All Status
 
 - A Module For Check All Kind Of Status 
@@ -19,7 +17,6 @@ Module :- All Status
 ★ /stats - User Status"""
 
 database_text = """
-🗃 Database
 Module :- File Database
 
 - A Module To Fetch Database
@@ -30,7 +27,6 @@ Module :- File Database
 ★ /total - How Many Files Added In Database"""
 
 logs_text = """
-⚠️ Logs
 Module :- Get Logs
 
 - A Module To Fetch All Logs
@@ -40,7 +36,6 @@ Module :- Get Logs
 ★ /logger - Get Logs"""
 
 ban_pm_user_text = """
-❌ Ban
 Module :- Ban & Unban User
 
 - A Module To Use Ban & Unban User
@@ -65,7 +60,7 @@ Module :- Alive
 
 - To Find Out If I'm Dead Or Not
 
-📚 AVAILABLE COMMAND :-
+📚 AVAILABLE COMMANDS :-
 
 ★ /alive - Look """
 
@@ -75,7 +70,7 @@ Module :- Imdb Info
 
 - A Module To Get The Movie Informations. Use This Module To Get Movie Informations
 
-📚 AVAILABLE COMMAND :-
+📚 AVAILABLE COMMANDS :-
 
 ★ /imdb - Get The Film Information From IMDB Source"""
 
@@ -96,6 +91,8 @@ Module :- IDs
 📚 AVAILABLE COMMANDS :-
 
 ★ /id - To Get Telegram User ID
-★ /info - To Get User Information"""
-
+★ /info - To Get User Information
+★ /json - To Get All Info
+★ /group_id - To Get TG Group ID
+★ /stickerid - To Get TG Sticker ID"""
 
