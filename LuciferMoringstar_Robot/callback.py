@@ -8,6 +8,7 @@ from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerId
 from Database._utils import get_poster, is_subscribed, get_size, temp
 from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER
 from LuciferMoringstar_Robot.text.auto_filter_text import FIRST_BUTTON
+from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text, database_text, logs_text, ban_pm_user_text
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
@@ -98,13 +99,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 pass
             
 
-
-        elif query.data == "help":
-            buttons = [[
-                InlineKeyboardButton('👑 My Creator', url='t.me/helloheartbeat'),
-                InlineKeyboardButton('📦 Source Code', url="https://www.google.com")              
-                ]]
-            await query.message.edit(text=HELP_TEXT_DEV, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data == "rulesbot":
             buttons = [[
@@ -258,7 +252,52 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.message.delete()
             else:
                 await query.message.edit(caption, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=False)
-                   
+   
+
+
+
+        elif query.data == "help":
+            buttons = [[
+              InlineKeyboardButton('Broadcast', callback_data='broadcast'),
+              InlineKeyboardButton('Status', callback_data='status_button'),
+              InlineKeyboardButton('Database', callback_data='database')
+              ],[
+              InlineKeyboardButton('Logs', callback_data='logs'),
+              InlineKeyboardButton('Ban Pm User', callback_data='ban_pm_user')
+              ],[
+              InlineKeyboardButton('👑 My Creator', url='t.me/helloheartbeat'),
+              InlineKeyboardButton('📦 Source Code', url="https://www.google.com")              
+              ]]
+            await query.message.edit(text=HELP_TEXT_DEV, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+
+
+        elif query.data == "broadcast":
+            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
+            await query.message.edit(Broadcast_text, reply_markup=InlineKeyboardMarkup(buttons))
+
+        elif query.data == "status_button":
+            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
+            await query.message.edit(status_text, reply_markup=InlineKeyboardMarkup(buttons))
+
+        elif query.data == "database":
+            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
+            await query.message.edit(database_text, reply_markup=InlineKeyboardMarkup(buttons))
+
+        elif query.data == "logs":
+            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
+            await query.message.edit(logs_text, reply_markup=InlineKeyboardMarkup(buttons))
+
+        elif query.data == "ban_pm_user":
+            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
+            await query.message.edit(ban_pm_user_text, reply_markup=InlineKeyboardMarkup(buttons))
+
+
+
+
+
+
+
+               
     else:
         await query.answer("Ask For Your Own Movie Or Series 🤭",show_alert=True)
 
