@@ -258,19 +258,19 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data == "help":
             buttons = [[
-              InlineKeyboardButton('Broadcast', callback_data='broadcast'),
-              InlineKeyboardButton('Status', callback_data='status_button'),
-              InlineKeyboardButton('Database', callback_data='database')
+              InlineKeyboardButton('📡 Broadcast', callback_data='broadcast'),
+              InlineKeyboardButton('👥 Status', callback_data='status_button'),
+              InlineKeyboardButton('🗃 Database', callback_data='database')
               ],[
-              InlineKeyboardButton('Logs', callback_data='logs'),
-              InlineKeyboardButton('Ban Pm User', callback_data='ban_pm_user')
+              InlineKeyboardButton('📝 Logs', callback_data='logs'),
+              InlineKeyboardButton('❌ Ban Pm User', callback_data='ban_pm_user')
               ],[
-              InlineKeyboardButton('Dyno', callback_data='dyno'),
-              InlineKeyboardButton('Alive', callback_data='alive'),
-              InlineKeyboardButton('IMDB', callback_data='imdb_button')
+              InlineKeyboardButton('⏳ Dyno', callback_data='dyno'),
+              InlineKeyboardButton('🚨 Alive', callback_data='alive'),
+              InlineKeyboardButton('🔍 IMDB', callback_data='imdb_button')
               ],[
-              InlineKeyboardButton('Inline', callback_data='inline_button'),
-              InlineKeyboardButton('Ids', callback_data='ids')
+              InlineKeyboardButton('🕵️‍♂️ Inline', callback_data='inline_button'),
+              InlineKeyboardButton('🆔 Ids', callback_data='ids')
               ],[
               InlineKeyboardButton('👑 My Creator', url='t.me/helloheartbeat'),
               InlineKeyboardButton('📦 Source Code', url="https://www.google.com")              
