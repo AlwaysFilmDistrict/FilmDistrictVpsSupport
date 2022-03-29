@@ -1,17 +1,21 @@
 START_USER_TEXT = """
 <b><i>Hello 👋 [{first_name}](tg://user?id={id}),
 
-I Am Not Only [Film District Bot](t.me/{bot_username}) To Assist You But Also Employed At Film District Group By ツ [HeartBeat](t.me/helloheartbeat) So You Can't Get My Service By Adding Me To Your Group So Don't Waste Your Time & Data 😉
+I Am Not Only [Film District Bot](t.me/{bot_username}) To Assist You But Also Employed At Film District Group By [HeartBeat](t.me/helloheartbeat) So You Can't Get My Service By Adding Me To Your Group So Don't Waste Your Time & Data 😉
 
-Better You Click Below & Join Film District & Feel The Experience Of Downloading Unlimited Movies/ Series ✅</i></b>"""
+Better You Click Below & Join Film District & Feel The Experience Of Downloading Unlimited Movies/ Series ✅
+
+For More Information Click ℹ️ Help > 😎 About</i></b>"""
 
 
 START_DEV_TEXT = """
 <b><i>Hello 👋 [{first_name}](tg://user?id={id}),
 
-I Am Not Only [Film District Bot](t.me/{bot_username}) To Assist You But Also Employed At Film District Group By ツ [HeartBeat](t.me/helloheartbeat) So You Can't Get My Service By Adding Me To Your Group So Don't Waste Your Time & Data 😉
+I Am Not Only [Film District Bot](t.me/{bot_username}) To Assist You But Also Employed At Film District Group By [HeartBeat](t.me/helloheartbeat) So You Can't Get My Service By Adding Me To Your Group So Don't Waste Your Time & Data 😉
 
-Better You Click Below & Join Film District & Feel The Experience Of Downloading Unlimited Movies/ Series ✅</i></b>"""
+Better You Click Below & Join Film District & Feel The Experience Of Downloading Unlimited Movies/ Series ✅
+
+For More Information Click ℹ️ Help > 😎 About</i></b>"""
 
 
 
@@ -25,7 +29,7 @@ ABOUT_TEXT = """
 ❖ Version : 9.0.1
 ❖ Framework : Pyrogram
 ❖ Database : MongoDB
-⛑ Bot : 🇮🇳"""
+✪ Bot : 🇮🇳"""
 
 
 HELP_TEXT_USER = """
