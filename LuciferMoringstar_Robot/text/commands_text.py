@@ -5,7 +5,7 @@ I Am Not Only [Film District Bot](t.me/{bot_username}) To Assist You But Also Em
 
 Better You Click Below & Join Film District & Feel The Experience Of Downloading Unlimited Movies/ Series ✅
 
-For More Information Click ℹ️ Help > 😎 About</i></b>"""
+For More Information Click ℹ️ > 😎</i></b>"""
 
 
 START_DEV_TEXT = """
@@ -15,7 +15,7 @@ I Am Not Only [Film District Bot](t.me/{bot_username}) To Assist You But Also Em
 
 Better You Click Below & Join Film District & Feel The Experience Of Downloading Unlimited Movies/ Series ✅
 
-For More Information Click ℹ️ Help > 😎 About</i></b>"""
+For More Information Click ℹ️ > 😎</i></b>"""
 
 
 
