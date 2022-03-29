@@ -1,15 +1,17 @@
 START_USER_TEXT = """
-🙋‍♂️ Hi [{first_name}](tg://user?id={id}),
-I Am Not Only [Film District Bot](t.me/{bot_username}) To Assist You 💯 But Also Employed At Film District Group By [HeartBeat](t.me/helloheartbeat) So You Can't Get My Service By Adding Me To Your Group So Don't Waste Your Time & Data 😉
+<b><i>Hello 🙋‍ [{first_name}](tg://user?id={id}),
+I Am Not Only [Film District Bot](t.me/{bot_username}) To Assist You But Also Employed At Film District Group By [HeartBeat](t.me/helloheartbeat) So You Can't Get My Service By Adding Me To Your Group So Don't Waste Your Time & Data 😉
 
-Better You Click Below & Join Film District & Feel The Experience Of Downloading Unlimited Movies/ Series ✅"""
+Better You Click Below & Join Film District & Feel The Experience Of Downloading Unlimited Movies/ Series ✅</i></b>
+"""
 
 
 START_DEV_TEXT = """
-🙋‍♂️ Hi [{first_name}](tg://user?id={id}),
-I Am Not Only [Film District Bot](t.me/{bot_username}) To Assist You 💯 But Also Employed At Film District Group By [HeartBeat](t.me/helloheartbeat) So You Can't Get My Service By Adding Me To Your Group So Don't Waste Your Time & Data 😉
+<b><i>Hello 🙋‍ [{first_name}](tg://user?id={id}),
+I Am Not Only [Film District Bot](t.me/{bot_username}) To Assist You But Also Employed At Film District Group By [HeartBeat](t.me/helloheartbeat) So You Can't Get My Service By Adding Me To Your Group So Don't Waste Your Time & Data 😉
 
-Better You Click Below & Join Film District & Feel The Experience Of Downloading Unlimited Movies/ Series ✅"""
+Better You Click Below & Join Film District & Feel The Experience Of Downloading Unlimited Movies/ Series ✅</i></b>
+"""
 
 
 
@@ -33,6 +35,6 @@ HELP_TEXT_USER = """
 
 
 HELP_TEXT_DEV = """
-Hello {}
-I Can Guide You Through All Of [Film District Bot](http://t.me/FilmDistrict_Bot)'s Cool Features & How To Properly Use Them. Use The Buttons Below To Navigate Through All Of The Modules 😊
+b><i>Hello 🙋‍ {},
+I Can Guide You Through All Of [Film District Bot](http://t.me/FilmDistrict_Bot)'s Cool Features & How To Properly Use Them. Use The Buttons Below To Navigate Through All Of The Modules 😊</i></b>
 """
