@@ -10,3 +10,4 @@ imdbpy
 dnspython 
 heroku3
 aiofiles
+psutil # Status
