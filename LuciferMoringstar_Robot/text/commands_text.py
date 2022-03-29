@@ -29,7 +29,7 @@ Click Down Below Button 👇"""
 
 
 ABOUT_TEXT = """
-꧁𓊈𒆜 FILM DISTRICT BOT 𒆜𓊉꧂
+꧁𓊈 FILM DISTRICT BOT 𓊉꧂
 
 𒆜 Creator : HeartBeat
 ★ Language : Python3
