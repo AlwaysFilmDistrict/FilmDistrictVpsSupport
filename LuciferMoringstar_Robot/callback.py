@@ -2,13 +2,15 @@ import asyncio, imdb
 from pyrogram import Client, filters
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
-from Database.autofilter_db import get_file_details, get_search_results
+from Database.autofilter_db import get_file_details, get_search_results, Media
 from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, BUTTON_CALLBACK_OR_URL, BOT_PHOTO, IMDBOT_CAPTION, ADMINS       
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from Database._utils import get_poster, is_subscribed, get_size, temp
 from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER, START_USER_TEXT, START_DEV_TEXT
 from LuciferMoringstar_Robot.text.auto_filter_text import FIRST_BUTTON
 from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text, database_text, logs_text, ban_pm_user_text, dyno_text, alive_text, imdb_text, inline_text, id_texts, faq_text, Invite_link
+from Database.users_chats_db import db as mt
+from Database.broadcast import db
 
 
 
@@ -302,8 +304,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(Broadcast_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "status_button":
-            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
-            await query.message.edit(status_text, reply_markup=InlineKeyboardMarkup(buttons))
+            total_users = await db.total_users_count()    
+            files = await Media.count_documents()
+            size = await mt.get_db_size()
+            free = 536870912 - size
+            size = get_size(size)
+            free = get_size(free)
+            stats_texts = """
+★ Total Files: <code>{files}</code>
+★ Total Users: <code>{total_users}</code>
+★ Used Storage: <code>{size}</code> MiB
+★ Free Storage: <code>{free}</code> MiB"""
+            await query.answer(stats_texts, show_alert=True)
 
         elif query.data == "database":
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
