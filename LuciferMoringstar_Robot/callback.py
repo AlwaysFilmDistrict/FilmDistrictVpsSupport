@@ -135,12 +135,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "first_af_alert":
             await query.answer(FIRST_BUTTON, show_alert=True)
 
-        elif query.data == "about":
-            buttons = [[
-             InlineKeyboardButton('👑 My Creator', url='t.me/helloheartbeat'),
-             InlineKeyboardButton('🔗 Film District 2.0', url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
-             ]]                
-            await query.message.edit(ABOUT_TEXT.format(username=temp.U_NAME), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+        elif query.data == "about":                
+            await query.aswner(ABOUT_TEXT, show_alert=True)
 
 
         elif query.data.startswith("pr0fess0r_99"):
