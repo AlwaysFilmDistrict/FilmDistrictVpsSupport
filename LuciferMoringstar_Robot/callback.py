@@ -1,9 +1,9 @@
-import asyncio, imdb
+import asyncio, imdb, time, psutil
 from pyrogram import Client, filters
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from Database.autofilter_db import get_file_details, get_search_results, Media
-from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, BUTTON_CALLBACK_OR_URL, BOT_PHOTO, IMDBOT_CAPTION, ADMINS       
+from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, BUTTON_CALLBACK_OR_URL, BOT_PHOTO, IMDBOT_CAPTION, ADMINS, BOT_START_TIME       
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from Database._utils import get_poster, is_subscribed, get_size, temp
 from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER, START_USER_TEXT, START_DEV_TEXT
@@ -309,11 +309,19 @@ async def cb_handler(client: Client, query: CallbackQuery):
             free = 536870912 - size
             size = get_size(size)
             free = get_size(free)
+            time = time.strftime("%Hh %Mm %Ss", time.gmtime(time.time() - BOT_START_TIME))
+
+            cpu = psutil.cpu_percent()
+            ram = psutil.virtual_memory().percent
             stats_texts = f"""
 ★ Total Files: {files}
 ★ Total Users: {total_users}
 ★ Used Storage: {size} MiB
-★ Free Storage: {free} MiB"""
+★ Free Storage: {free} MiB
+★ Cpu {cpu}
+★ Ram {ram}
+★ Last Update {time}
+"""
             await query.answer(stats_texts, show_alert=True)
 
         elif query.data == "database":
