@@ -8,7 +8,7 @@ from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerId
 from Database._utils import get_poster, is_subscribed, get_size, temp
 from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER
 from LuciferMoringstar_Robot.text.auto_filter_text import FIRST_BUTTON
-from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text, database_text, logs_text, ban_pm_user_text, dyno_text, alive_text, imdb_text, inline_text, id_texts
+from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text, database_text, logs_text, ban_pm_user_text, dyno_text, alive_text, imdb_text, inline_text, id_texts, faq_text
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
@@ -321,6 +321,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "ids":
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await query.message.edit(id_texts, reply_markup=InlineKeyboardMarkup(buttons))
+
+        elif query.data == "faq_button":
+            buttons = [[ InlineKeyboardButton("বাংলা", url="https://telegra.ph/FAQ-BEN-FILMDISTRICT-12-03"),
+                         InlineKeyboardButton("हिंदी", url="https://telegra.ph/FAQ-HIN-FILMDISTRICT-12-03") ],
+                       [ InlineKeyboardButton(English", url="https://telegra.ph/FAQ-ENG-FILMDISTRICT-12-03") ],
+                       [ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
+            await query.message.edit(faq_text, reply_markup=InlineKeyboardMarkup(buttons))
 
 
 
