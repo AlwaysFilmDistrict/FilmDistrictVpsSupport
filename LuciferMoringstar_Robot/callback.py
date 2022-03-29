@@ -259,7 +259,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "help":
             buttons = [[
               InlineKeyboardButton('🚨 Alive', callback_data='alive'),
-              InlineKeyboardButton('🔍 IMDB', callback_data='imdb_button'),
+              InlineKeyboardButton('🔍 IMDB', callback_data='key_imdbtext'),
               InlineKeyboardButton('🕵️‍♂️ Inline', callback_data='inline_button')
               ],[
               InlineKeyboardButton('📡 Broadcast', callback_data='broadcast'),
@@ -272,7 +272,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
               InlineKeyboardButton('📝 Logs', callback_data='logs'),
               InlineKeyboardButton('❌ Ban Pm User', callback_data='ban_pm_user')
               ],[
-              InlineKeyboardButton('🔍 IMDB', callback_data='imdb_button'),
+              InlineKeyboardButton('🔍 IMDB', callback_data='key_imdbtext'),
               InlineKeyboardButton('👥 Status', callback_data='status_button')
               ],[
               InlineKeyboardButton('😎 About', callback_data='about'),
@@ -310,7 +310,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await query.message.edit(alive_text, reply_markup=InlineKeyboardMarkup(buttons))
 
-        elif query.data == "imdb_button":
+        elif query.data == "key_imdbtext":
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await query.message.edit(imdb_text, reply_markup=InlineKeyboardMarkup(buttons))
 
