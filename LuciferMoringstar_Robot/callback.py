@@ -258,24 +258,28 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data == "help":
             buttons = [[
+              InlineKeyboardButton('🚨 Alive', callback_data='alive'),
+              InlineKeyboardButton('🔍 IMDB', callback_data='imdb_button'),
+              InlineKeyboardButton('🕵️‍♂️ Inline', callback_data='inline_button')
+              ],[
               InlineKeyboardButton('📡 Broadcast', callback_data='broadcast'),
-              InlineKeyboardButton('👥 Status', callback_data='status_button'),
               InlineKeyboardButton('🗃 Database', callback_data='database')
+              ],[
+              InlineKeyboardButton('⚠️ Faq', callback_data='faq_button'),
+              InlineKeyboardButton('⏳ Dyno', callback_data='dyno'),
+              InlineKeyboardButton('🆔 Ids', callback_data='ids')
               ],[
               InlineKeyboardButton('📝 Logs', callback_data='logs'),
               InlineKeyboardButton('❌ Ban Pm User', callback_data='ban_pm_user')
               ],[
-              InlineKeyboardButton('⏳ Dyno', callback_data='dyno'),
-              InlineKeyboardButton('🚨 Alive', callback_data='alive'),
-              InlineKeyboardButton('🔍 IMDB', callback_data='imdb_button')
+              InlineKeyboardButton('🔍 IMDB', callback_data='imdb_button'),
+              InlineKeyboardButton('👥 Status', callback_data='status_button')
               ],[
-              InlineKeyboardButton('🕵️‍♂️ Inline', callback_data='inline_button'),
-              InlineKeyboardButton('🆔 Ids', callback_data='ids')
-              ],[
-              InlineKeyboardButton('👑 My Creator', url='t.me/helloheartbeat'),
-              InlineKeyboardButton('📦 Source Code', url="https://www.google.com")              
+              InlineKeyboardButton('😎 About', callback_data='about'),
+              InlineKeyboardButton('🏠 Home', callback_data='start'),
+              InlineKeyboardButton('❎️ Close', callback_data='close')
               ]]
-            await query.message.edit(text=HELP_TEXT_DEV, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            await query.message.edit(HELP_TEXT_DEV, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
 
         elif query.data == "broadcast":
