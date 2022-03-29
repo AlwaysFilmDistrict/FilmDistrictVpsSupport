@@ -1,17 +1,13 @@
 START_USER_TEXT = """
 🙋‍♂️ Hi [{first_name}](tg://user?id={id}),
-I'm [Film District Bot](t.me/{bot_username}) To Assist You 💯
-
-I Am Employed At Film District Group By [HeartBeat](t.me/helloheartbeat) So You Can't Get My Service By Adding Me To Your Group So Don't Waste Your Time And Data 😉
+I Am Not Only [Film District Bot](t.me/{bot_username}) To Assist You 💯 But Also Employed At Film District Group By [HeartBeat](t.me/helloheartbeat) So You Can't Get My Service By Adding Me To Your Group So Don't Waste Your Time & Data 😉
 
 Better You Click Below & Join Film District & Feel The Experience Of Downloading Unlimited Movies/ Series ✅"""
 
 
 START_DEV_TEXT = """
 🙋‍♂️ Hi [{first_name}](tg://user?id={id}),
-I'm [Film District Bot](t.me/{bot_username}) To Assist You 💯
-
-I Am Employed At Film District Group By [HeartBeat](t.me/helloheartbeat) So You Can't Get My Service By Adding Me To Your Group So Don't Waste Your Time And Data 😉
+I Am Not Only [Film District Bot](t.me/{bot_username}) To Assist You 💯 But Also Employed At Film District Group By [HeartBeat](t.me/helloheartbeat) So You Can't Get My Service By Adding Me To Your Group So Don't Waste Your Time & Data 😉
 
 Better You Click Below & Join Film District & Feel The Experience Of Downloading Unlimited Movies/ Series ✅"""
 
