@@ -318,8 +318,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
 👤 Total Users: {total_users}
 ⌛ Used Storage: {size} MiB
 ⏳ Free Storage: {free} MiB
-📼 Cpu {cpu} | 💾 Ram {ram}
-⏱ Last Update {time_update}
+📼 Cpu: {cpu} | 💾 Ram: {ram}
+⏱ Last Update: {time_update}
 """
             await query.answer(stats_texts, show_alert=True)
 
