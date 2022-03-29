@@ -18,5 +18,5 @@ HELP_TEXT_USER = """
 
 HELP_TEXT_DEV = """
 Hello {}
-I Can Guide You Through All Of Film District Bot (http://t.me/FilmDistrict_Bot)'s Cool Features & How To Properly Use Them. Use The Buttons Below To Navigate Through All Of The Modules 😊
+I Can Guide You Through All Of [Film District Bot](http://t.me/FilmDistrict_Bot)'s Cool Features & How To Properly Use Them. Use The Buttons Below To Navigate Through All Of The Modules 😊
 """
