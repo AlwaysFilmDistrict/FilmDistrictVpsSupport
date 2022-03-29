@@ -93,6 +93,11 @@ Module :- IDs
 ★ /id - To Get Telegram User ID
 ★ /info - To Get User Information
 ★ /json - To Get All Info
-★ /group_id - To Get TG Group ID
 ★ /stickerid - To Get TG Sticker ID"""
 
+### 🗯️ ~~~~ Faq ~~~~ ###
+faq_text = """
+📌 Read The FAQ Before Contacting Support
+✯ ━━━━━ ✧ ━━━━━ ✯
+👉 Here Are Answers To Frequently Asked Questions About FilmDistrict 
+👉 If You Did Not Find The Answer To Your Question, Please Ask ✔️ HeartBeat"""
