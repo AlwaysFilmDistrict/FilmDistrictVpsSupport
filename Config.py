@@ -47,7 +47,7 @@ AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_chan
 AUTH_GROUPS = [int(admin) for admin in environ.get("AUTH_GROUPS", "").split()]
 
 # User Only
-SUDO_OWNER = int(environ.get("ADMINS")).split()
+SUDO_OWNER = int(environ.get("ADMIN", "919653750"))
 SUDO_USERS = set(int(x) for x in environ.get("SUDO_USERS", "").split())
 SUDO_USERS = list(SUDO_USERS)
 SUDO_USERS.append(SUDO_OWNER)
