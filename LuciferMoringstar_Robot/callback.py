@@ -262,7 +262,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.message.edit(text=START_USER_TEXT.format(first_name=query.from_user.first_name, id=query.from_user.id, bot_username=temp.U_NAME), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
                 return
             buttons = [[
-                InlineKeyboardButton("🔍 Search Here", switch_inline_query_current_chat=''),
                 InlineKeyboardButton("🔗 Film District 2.0", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
                 ],[
                 InlineKeyboardButton("ℹ️ Help", callback_data="help"),
@@ -310,11 +309,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             free = 536870912 - size
             size = get_size(size)
             free = get_size(free)
-            stats_texts = """
-★ Total Files: <code>{files}</code>
-★ Total Users: <code>{total_users}</code>
-★ Used Storage: <code>{size}</code> MiB
-★ Free Storage: <code>{free}</code> MiB"""
+            stats_texts = f"""
+★ Total Files: {files}
+★ Total Users: {total_users}
+★ Used Storage: {size} MiB
+★ Free Storage: {free} MiB"""
             await query.answer(stats_texts, show_alert=True)
 
         elif query.data == "database":
