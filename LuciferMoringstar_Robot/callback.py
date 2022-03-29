@@ -259,7 +259,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "help":
             buttons = [[
               InlineKeyboardButton('🚨 Alive', callback_data='alive'),
-              InlineKeyboardButton('🔍 IMDB', callback_data='key_imdbtext'),
+              InlineKeyboardButton('🔗 Link', callback_data='link_create'),
               InlineKeyboardButton('🕵️‍♂️ Inline', callback_data='inline_button')
               ],[
               InlineKeyboardButton('📡 Broadcast', callback_data='broadcast'),
@@ -269,11 +269,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
               InlineKeyboardButton('⏳ Dyno', callback_data='dyno'),
               InlineKeyboardButton('🆔 Ids', callback_data='ids')
               ],[
-              InlineKeyboardButton('📝 Logs', callback_data='logs'),
-              InlineKeyboardButton('❌ Ban Pm User', callback_data='ban_pm_user')
+              InlineKeyboardButton('❌ Ban Pm User', callback_data='ban_pm_user'),
+              InlineKeyboardButton('👥 Status', callback_data='status_button')
               ],[
               InlineKeyboardButton('🔍 IMDB', callback_data='key_imdbtext'),
-              InlineKeyboardButton('👥 Status', callback_data='status_button')
+              InlineKeyboardButton('📝 Logs', callback_data='logs')
               ],[
               InlineKeyboardButton('😎 About', callback_data='about'),
               InlineKeyboardButton('🏠 Home', callback_data='start'),
