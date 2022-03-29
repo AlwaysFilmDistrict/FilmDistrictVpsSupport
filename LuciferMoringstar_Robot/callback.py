@@ -3,12 +3,15 @@ from pyrogram import Client, filters
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from Database.autofilter_db import get_file_details, get_search_results
-from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, BUTTON_CALLBACK_OR_URL, BOT_PHOTO, IMDBOT_CAPTION         
+from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, BUTTON_CALLBACK_OR_URL, BOT_PHOTO, IMDBOT_CAPTION, ADMINS       
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from Database._utils import get_poster, is_subscribed, get_size, temp
-from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER
+from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER, START_USER_TEXT, START_DEV_TEXT
 from LuciferMoringstar_Robot.text.auto_filter_text import FIRST_BUTTON
 from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text, database_text, logs_text, ban_pm_user_text, dyno_text, alive_text, imdb_text, inline_text, id_texts, faq_text, Invite_link
+
+
+
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
@@ -135,9 +138,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "first_af_alert":
             await query.answer(FIRST_BUTTON, show_alert=True)
 
-        elif query.data == "about":                
-            await query.aswner(ABOUT_TEXT, show_alert=True)
-
 
         elif query.data.startswith("pr0fess0r_99"):
 
@@ -249,8 +249,27 @@ async def cb_handler(client: Client, query: CallbackQuery):
             else:
                 await query.message.edit(caption, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=False)
    
+        elif query.data == "start":                
+            if query.from_user.id not in ADMINS: 
+                buttons = [[
+                 InlineKeyboardButton("🔗 Film District 2.0", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
+                 ],[
+                 InlineKeyboardButton("ℹ️ Help", callback_data="help"),
+                 InlineKeyboardButton("😎 About", callback_data="about") 
+                 ]]
+                await query.message.edit(text=START_USER_TEXT.format(first_name=query.from_user.first_name, id=query.from_user.id, bot_username=temp.U_NAME), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+                return
+            buttons = [[
+                InlineKeyboardButton("🔍 Search Here", switch_inline_query_current_chat=''),
+                InlineKeyboardButton("🔗 Film District 2.0", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
+                ],[
+                InlineKeyboardButton("ℹ️ Help", callback_data="help"),
+                InlineKeyboardButton("🙂 About", callback_data="about")
+                ]]               
+            await query.message.edit(text=START_DEV_TEXT.format(first_name=query.from_user.first_name, id=query.from_user.id, bot_username=temp.U_NAME), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
-
+        elif query.data == "about":                
+            await query.aswner(ABOUT_TEXT, show_alert=True)
 
         elif query.data == "help":
             buttons = [[
