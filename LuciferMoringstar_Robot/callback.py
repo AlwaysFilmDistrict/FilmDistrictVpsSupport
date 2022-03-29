@@ -330,7 +330,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(imdb_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "inline_button":
-            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
+            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help'),
+                         InlineKeyboardButton("Search Here 🔎", switch_inline_query_current_chat='') ]]
             await query.message.edit(inline_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "ids":
