@@ -269,7 +269,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(text=START_DEV_TEXT.format(first_name=query.from_user.first_name, id=query.from_user.id, bot_username=temp.U_NAME), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data == "about":                
-            await query.aswner(ABOUT_TEXT, show_alert=True)
+            await query.answer(ABOUT_TEXT, show_alert=True)
 
         elif query.data == "help":
             buttons = [[
