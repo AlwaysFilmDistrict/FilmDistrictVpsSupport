@@ -8,7 +8,7 @@ from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerId
 from Database._utils import get_poster, is_subscribed, get_size, temp
 from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER
 from LuciferMoringstar_Robot.text.auto_filter_text import FIRST_BUTTON
-from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text, database_text, logs_text, ban_pm_user_text, dyno_text, alive_text, imdb_text, inline_text, id_texts, faq_text
+from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text, database_text, logs_text, ban_pm_user_text, dyno_text, alive_text, imdb_text, inline_text, id_texts, faq_text, Invite_link
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
@@ -329,6 +329,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                        [ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await query.message.edit(faq_text, reply_markup=InlineKeyboardMarkup(buttons))
 
+        elif query.data == "link_create":
+            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
+            await query.message.edit(Invite_link, reply_markup=InlineKeyboardMarkup(buttons))
 
 
 
