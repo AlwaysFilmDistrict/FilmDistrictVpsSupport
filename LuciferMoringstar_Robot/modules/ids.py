@@ -8,7 +8,7 @@ from datetime import datetime
 from pyrogram.errors import UserNotParticipant
 from io import BytesIO
 
-BUTTON = [[ InlineKeyboardButton("✅️ 𝗦𝗨𝗕𝗦𝗖𝗥𝗜𝗕𝗘 ✅️", url="https://t.me/joinchat/8mwoQFL0drRhOTY1") ]]
+BUTTON = [[ InlineKeyboardButton("✅️ 𝗦𝗨𝗕𝗦𝗖𝗥𝗜𝗕𝗘 ✅️", url="https://t.me/+NIZ-lWsOd280YmQ1") ]]
 
 # ---------------+ Group ID + ---------------- #
 
