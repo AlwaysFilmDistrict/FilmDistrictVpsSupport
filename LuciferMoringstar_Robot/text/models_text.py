@@ -100,7 +100,7 @@ faq_text = """
 📌 Read The FAQ Before Contacting Support
 ✯ ━━━━━ ✧ ━━━━━ ✯
 👉 Here Are Answers To Frequently Asked Questions About FilmDistrict 
-👉 If You Did Not Find The Answer To Your Question, Please Ask ✔️ HeartBeat"""
+👉 If You Did Not Find The Answer To Your Question, Please Ask ✔️ [HeartBeat](t.me/helloheartbeat)"""
 
 ### 🗯️ ~~~~ Invite Link ~~~~ ###
 Invite_link = """
@@ -108,6 +108,6 @@ Module :- Invite Link
 
 - You Can Easily Find Group Invitation Link
 
-📚 AVAIBLE COMMAND :-
+📚 AVAILABLE COMMAND :-
 
 ★ /link - To Get Film District Group Link"""
