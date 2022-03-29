@@ -279,7 +279,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
               InlineKeyboardButton('🏠 Home', callback_data='start'),
               InlineKeyboardButton('❎️ Close', callback_data='close')
               ]]
-            await query.message.edit(HELP_TEXT_DEV, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            await query.message.edit(HELP_TEXT_DEV.format(query.from_user.menton), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
 
         elif query.data == "broadcast":
