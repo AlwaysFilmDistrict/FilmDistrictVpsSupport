@@ -5,7 +5,7 @@ I Am Not Only [Film District Bot](t.me/{bot_username}) To Assist You But Also Em
 
 Better You Click Below & Join Film District & Feel The Experience Of Downloading Unlimited Movies/ Series ✅
 
-For More Information Click ℹ️ > 😎</i></b>"""
+For More Information Click ℹ️ Help</i></b>"""
 
 
 START_DEV_TEXT = """
@@ -15,7 +15,7 @@ I Am Not Only [Film District Bot](t.me/{bot_username}) To Assist You But Also Em
 
 Better You Click Below & Join Film District & Feel The Experience Of Downloading Unlimited Movies/ Series ✅
 
-For More Information Click ℹ️ > 😎</i></b>"""
+For More Information Click ℹ️ Help</i></b>"""
 
 
 
@@ -29,7 +29,7 @@ ABOUT_TEXT = """
 ❖ Version : 9.0.1
 ❖ Framework : Pyrogram
 ❖ Database : MongoDB
-✪ Bot : 🇮🇳"""
+𒀭 Bot : 🇮🇳"""
 
 
 HELP_TEXT_USER = """
