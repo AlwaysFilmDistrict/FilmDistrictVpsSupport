@@ -314,13 +314,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
             cpu = psutil.cpu_percent()
             ram = psutil.virtual_memory().percent
             stats_texts = f"""
-★ Total Files: {files}
-★ Total Users: {total_users}
-★ Used Storage: {size} MiB
-★ Free Storage: {free} MiB
-★ Cpu {cpu}
-★ Ram {ram}
-★ Last Update {time_update}
+📁 Total Files: {files}
+👤 Total Users: {total_users}
+⌛ Used Storage: {size} MiB
+⏳ Free Storage: {free} MiB
+📼 Cpu {cpu} | 💾 Ram {ram}
+⏱ Last Update {time_update}
 """
             await query.answer(stats_texts, show_alert=True)
 
