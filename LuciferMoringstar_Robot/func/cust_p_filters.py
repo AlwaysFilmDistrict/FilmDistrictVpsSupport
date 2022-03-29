@@ -1,7 +1,7 @@
 
 from pyrogram import filters
 from config import SUDO_USERS
-from plugins.func.admin_check import admin_check
+from LuciferMoringstar_Robot.func.admin_check import admin_check
 
 USE_AS_BOT = True
 
