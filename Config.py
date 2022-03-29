@@ -1,4 +1,4 @@
-import re, os
+import re, os, time
 from os import environ
 id_pattern = re.compile(r'^.\d+$')
 def is_enabled(value, default):
@@ -71,7 +71,6 @@ START_MSG = environ.get('START_MSG')
 
 LONG_IMDB_DESCRIPTION = is_enabled(environ.get("LONG_IMDB_DESCRIPTION", "False"), False)
 MAX_LIST_ELM = environ.get("MAX_LIST_ELM", None)
-
-
+BOT_START_TIME = time.time() # Time
 
 
