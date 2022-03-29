@@ -1,3 +1,17 @@
+START_USER_TEXT = """
+🙋‍♂️ Hi [{first_name}](tg://user?id={id}),
+
+🤖 I'm [Film District Bot 2.0](t.me/{bot_username})
+
+👨‍💻 My Creator : [HeartBeat](t.me/helloheartbeat)
+
+💯 Here You Can Download Any Movies Or Web Series
+
+Do You Want To Join Group ⁉️
+
+Click Down Below Button 👇"""
+
+
 ABOUT_TEXT = """
 ꧁𓊈𒆜 FILM DISTRICT BOT 𒆜𓊉꧂
 
