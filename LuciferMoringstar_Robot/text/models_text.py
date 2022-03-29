@@ -104,10 +104,10 @@ faq_text = """
 
 ### 🗯️ ~~~~ Invite Link ~~~~ ###
 Invite_link = """
-Module :- Search Link
+Module :- Invite Link
 
 - You Can Easily Find Group Invitation Link
 
 📚 AVAIBLE COMMAND :-
 
-★ /link - Just Type /link In Film District Group"""
+★ /link - To Get Film District Group Link"""
