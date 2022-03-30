@@ -126,13 +126,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "google_alert":
             await query.answer("""✅ DO\n👉 Type Only In English \n\n❌ DON'T\n👉 Avoid Symbols (/.,:;"'-)\n👉 Avoid Requesting Same Movie/Series Repeatedly \n👉 Avoid Requesting Unreleased Movie/Series""", show_alert=True)
 
-        elif query.data == "help_user":
-            buttons = [[
-                InlineKeyboardButton('👑 My Creator', url='t.me/helloheartbeat'),
-                InlineKeyboardButton('📦 Source Code', url="https://www.google.com")              
-                ]]
-            await query.message.edit(text=HELP_TEXT_USER, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
-
 
         elif query.data == "helpalert":
             await query.answer(ALERT_HELP_TEXT, show_alert=True)
@@ -367,10 +360,46 @@ async def cb_handler(client: Client, query: CallbackQuery):
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await query.message.edit(Invite_link, reply_markup=InlineKeyboardMarkup(buttons))
 
+# User
+
+        elif query.data == "help_user":
+            buttons = [[
+              InlineKeyboardButton('🚨 Alive', callback_data='alive_u'),
+              InlineKeyboardButton('🔍 IMDB', callback_data='key_imdbtext_u'),
+              InlineKeyboardButton('🔗 Link', callback_data='link_create_u')
+              ],[
+              InlineKeyboardButton('⚠️ Faq', callback_data='faq_button_u'),
+              InlineKeyboardButton('🆔 Ids', callback_data='ids_u')
+              ],[
+              InlineKeyboardButton('😎 About', callback_data='about'),
+              InlineKeyboardButton('🏠 Home', callback_data='start'),
+              InlineKeyboardButton('❎️ Close', callback_data='close')
+              ]]
+            await query.message.edit(HELP_TEXT_DEV.format(query.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
 
+        elif query.data == "link_create_u":
+            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help_user') ]]                          
+            await query.message.edit(Invite_link, reply_markup=InlineKeyboardMarkup(buttons))
 
+        elif query.data == "alive_u":
+            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help_user') ]]                          
+            await query.message.edit(alive_text, reply_markup=InlineKeyboardMarkup(buttons))
 
+        elif query.data == "key_imdbtext_u":
+            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help_user') ]]                          
+            await query.message.edit(imdb_text, reply_markup=InlineKeyboardMarkup(buttons))
+
+        elif query.data == "ids_u":
+            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help_user') ]]                          
+            await query.message.edit(id_texts, reply_markup=InlineKeyboardMarkup(buttons))
+
+        elif query.data == "faq_button_u":
+            buttons = [[ InlineKeyboardButton("বাংলা", url="https://telegra.ph/FAQ-BEN-FILMDISTRICT-12-03"),
+                         InlineKeyboardButton("हिंदी", url="https://telegra.ph/FAQ-HIN-FILMDISTRICT-12-03") ],
+                       [ InlineKeyboardButton("English", url="https://telegra.ph/FAQ-ENG-FILMDISTRICT-12-03") ],
+                       [ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
+            await query.message.edit(faq_text, reply_markup=InlineKeyboardMarkup(buttons))
 
                
     else:
