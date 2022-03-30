@@ -398,7 +398,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             buttons = [[ InlineKeyboardButton("বাংলা", url="https://telegra.ph/FAQ-BEN-FILMDISTRICT-12-03"),
                          InlineKeyboardButton("हिंदी", url="https://telegra.ph/FAQ-HIN-FILMDISTRICT-12-03") ],
                        [ InlineKeyboardButton("English", url="https://telegra.ph/FAQ-ENG-FILMDISTRICT-12-03") ],
-                       [ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
+                       [ InlineKeyboardButton('🔙 Back', callback_data='help_user') ]]                          
             await query.message.edit(faq_text, reply_markup=InlineKeyboardMarkup(buttons))
 
                
