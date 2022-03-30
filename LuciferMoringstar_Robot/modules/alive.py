@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 
 
-EDIT = "ഞാൻ ചത്തിട്ടില്ല..."
+EDIT = "I'm Not Dead..."
 
 @Client.on_message(filters.command(["alive"]))
 async def check_alive(_, message):
