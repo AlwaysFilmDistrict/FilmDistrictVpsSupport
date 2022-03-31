@@ -12,7 +12,18 @@ from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text
 from Database.users_chats_db import db as mt
 from Database.broadcast import db
 
+import pytz, datetime
+m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
+time = m.hour
 
+if time < 12:
+    Get="Good Morning"
+elif time < 16:
+    Get="Good Afternoon"
+elif time < 20:
+    Get="Good Evening"
+else:
+    Get="Good Night"
 
 
 @Client.on_callback_query()
@@ -252,7 +263,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                  InlineKeyboardButton("ℹ️ Help", callback_data="help_user"),
                  InlineKeyboardButton("😎 About", callback_data="about") 
                  ]]
-                await query.message.edit(text=START_USER_TEXT.format(first_name=query.from_user.first_name, id=query.from_user.id, bot_username=temp.U_NAME), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+                await query.message.edit(text=START_USER_TEXT.format(first_name=query.from_user.first_name, id=query.from_user.id, bot_username=temp.U_NAME, Get=Get), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
                 return
             buttons = [[
                 InlineKeyboardButton("🔗 Film District 2.0", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
@@ -260,7 +271,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 InlineKeyboardButton("ℹ️ Help", callback_data="help"),
                 InlineKeyboardButton("😎 About", callback_data="about")
                 ]]               
-            await query.message.edit(text=START_DEV_TEXT.format(first_name=query.from_user.first_name, id=query.from_user.id, bot_username=temp.U_NAME), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            await query.message.edit(text=START_DEV_TEXT.format(first_name=query.from_user.first_name, id=query.from_user.id, bot_username=temp.U_NAME, Get=Get), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data == "about":                
             await query.answer(ABOUT_TEXT, show_alert=True)
