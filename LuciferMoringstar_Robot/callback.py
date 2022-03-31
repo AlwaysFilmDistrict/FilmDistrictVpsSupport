@@ -258,7 +258,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 InlineKeyboardButton("🔗 Film District 2.0", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
                 ],[
                 InlineKeyboardButton("ℹ️ Help", callback_data="help"),
-                InlineKeyboardButton("🙂 About", callback_data="about")
+                InlineKeyboardButton("😎 About", callback_data="about")
                 ]]               
             await query.message.edit(text=START_DEV_TEXT.format(first_name=query.from_user.first_name, id=query.from_user.id, bot_username=temp.U_NAME), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
