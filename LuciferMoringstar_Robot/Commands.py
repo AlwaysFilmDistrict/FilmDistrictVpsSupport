@@ -9,6 +9,8 @@ from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT
 from pyrogram.errors import UserNotParticipant
 logger = logging.getLogger(__name__)
 from Database.broadcast import database
+from LuciferMoringstar_Robot.text.commands_text import START_USER_TEXT, START_DEV_TEXT
+
 import pytz, datetime
 m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
 time = m.hour
@@ -87,12 +89,15 @@ async def start(bot, message):
         )
 
     else:
-        id = message.from_user.id
-        first_name = message.from_user.first_name
         if message.from_user.id not in ADMINS:
             await message.reply_photo(
                 photo=BOT_PHOTO,
-                caption=f"""🙋‍♂️ Hello {Get} [{first_name}](tg://user?id={id}),\n\n🤖 I'm [Film District Bot 2.0](t.me/{temp.U_NAME})\n\n👨‍💻 My Creator : [HeartBeat](t.me/helloheartbeat)\n\n💯 Here You Can Download Any Movies Or Web Series\n\nDo You Want To Join Group ⁉️\n\nClick Down Below Button 👇""",
+                caption=START_USER_TEXT.format(
+                    first_name = message.from_user.first_name,
+                    id = message.from_user.id,
+                    bot_username = temp.U_NAME,
+                    Get = Get
+                ),
                 parse_mode="Markdown",
                 reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton("🔗 Film District 2.0", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
@@ -105,7 +110,12 @@ async def start(bot, message):
             return
         await message.reply_photo(
             photo=BOT_PHOTO,
-            caption=f"""🙋‍♂️ Hello {Get} [{first_name}](tg://user?id={id}) ,\n\n🤖 I'm [Film District Bot 2.0](t.me/{temp.U_NAME})\n\n👨‍💻 My Creator : [HeartBeat](t.me/helloheartbeat)\n\n💯 Here You Can Download Any Movies Or Web Series\n\nDo You Want To Join Group ⁉️\n\nClick Down Below Button 👇""",
+            caption=START_DEV_TEXT.format(
+                first_name = message.from_user.first_name,
+                id = message.from_user.id,
+                bot_username = temp.U_NAME,
+                Get = Get
+            ),
             parse_mode="Markdown",
             reply_markup=InlineKeyboardMarkup([[
                 InlineKeyboardButton("🔗 Film District 2.0", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
