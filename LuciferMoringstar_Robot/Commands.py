@@ -9,7 +9,18 @@ from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT
 from pyrogram.errors import UserNotParticipant
 logger = logging.getLogger(__name__)
 from Database.broadcast import database
+import pytz, datetime
+m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
+time = m.hour
 
+if time < 12:
+    Get="Good Morning"
+elif time < 16:
+    Get="Good Afternoon"
+elif time < 20:
+    Get="Good Evening"
+else:
+    Get="Good Night"
 
 db = database()
 
@@ -81,7 +92,7 @@ async def start(bot, message):
         if message.from_user.id not in ADMINS:
             await message.reply_photo(
                 photo=BOT_PHOTO,
-                caption=f"""🙋‍♂️ Hi [{first_name}](tg://user?id={id}),\n\n🤖 I'm [Film District Bot 2.0](t.me/{temp.U_NAME})\n\n👨‍💻 My Creator : [HeartBeat](t.me/helloheartbeat)\n\n💯 Here You Can Download Any Movies Or Web Series\n\nDo You Want To Join Group ⁉️\n\nClick Down Below Button 👇""",
+                caption=f"""🙋‍♂️ Hello {Get} [{first_name}](tg://user?id={id}),\n\n🤖 I'm [Film District Bot 2.0](t.me/{temp.U_NAME})\n\n👨‍💻 My Creator : [HeartBeat](t.me/helloheartbeat)\n\n💯 Here You Can Download Any Movies Or Web Series\n\nDo You Want To Join Group ⁉️\n\nClick Down Below Button 👇""",
                 parse_mode="Markdown",
                 reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton("🔗 Film District 2.0", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
@@ -94,7 +105,7 @@ async def start(bot, message):
             return
         await message.reply_photo(
             photo=BOT_PHOTO,
-            caption=f"""🙋‍♂️ Hi [{first_name}](tg://user?id={id}) ,\n\n🤖 I'm [Film District Bot 2.0](t.me/{temp.U_NAME})\n\n👨‍💻 My Creator : [HeartBeat](t.me/helloheartbeat)\n\n💯 Here You Can Download Any Movies Or Web Series\n\nDo You Want To Join Group ⁉️\n\nClick Down Below Button 👇""",
+            caption=f"""🙋‍♂️ Hello {Get} [{first_name}](tg://user?id={id}) ,\n\n🤖 I'm [Film District Bot 2.0](t.me/{temp.U_NAME})\n\n👨‍💻 My Creator : [HeartBeat](t.me/helloheartbeat)\n\n💯 Here You Can Download Any Movies Or Web Series\n\nDo You Want To Join Group ⁉️\n\nClick Down Below Button 👇""",
             parse_mode="Markdown",
             reply_markup=InlineKeyboardMarkup([[
                 InlineKeyboardButton("🔗 Film District 2.0", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
