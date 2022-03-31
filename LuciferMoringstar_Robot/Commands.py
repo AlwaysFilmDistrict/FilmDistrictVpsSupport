@@ -99,10 +99,10 @@ async def start(bot, message):
                     Get = Get
                 ),
                 reply_markup=InlineKeyboardMarkup([[
-                    InlineKeyboardButton("🔗 Film District 2.0", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
+                    InlineKeyboardButton("🔗 Film District", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
                     ],[
                     InlineKeyboardButton("ℹ️ Help", callback_data="help_user"),
-                    InlineKeyboardButton("🙂 About", callback_data="about")
+                    InlineKeyboardButton("😎 About", callback_data="about")
                     ]]
                 )
             )
@@ -116,10 +116,10 @@ async def start(bot, message):
                 Get = Get
             ),
             reply_markup=InlineKeyboardMarkup([[
-                InlineKeyboardButton("🔗 Film District 2.0", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
+                InlineKeyboardButton("🔗 Film District", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
                 ],[
                 InlineKeyboardButton("ℹ️ Help", callback_data="help"),
-                InlineKeyboardButton("🙂 About", callback_data="about")
+                InlineKeyboardButton("😎 About", callback_data="about")
                 ]]
             )
         )
