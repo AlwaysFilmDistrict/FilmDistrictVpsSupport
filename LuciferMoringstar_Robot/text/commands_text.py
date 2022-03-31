@@ -1,5 +1,5 @@
 START_USER_TEXT = """
-<b><i>{Get} 👋 [{first_name}](tg://user?id={id}),
+<b><i>Hello 👋 [{first_name}](tg://user?id={id}) {Get},
 
 I Am Not Only [Film District Bot](t.me/{bot_username}) To Assist You But Also Employed At Film District Group By [HeartBeat](t.me/helloheartbeat) So You Can't Get My Service By Adding Me To Your Group So Don't Waste Your Time & Data 😉
 
@@ -9,7 +9,7 @@ For More Information Click ℹ️ Help</i></b>"""
 
 
 START_DEV_TEXT = """
-<b><i>{Get} 👋 [{first_name}](tg://user?id={id}),
+<b><i>Hello 👋 [{first_name}](tg://user?id={id}) {Get},
 
 I Am Not Only [Film District Bot](t.me/{bot_username}) To Assist You But Also Employed At Film District Group By [HeartBeat](t.me/helloheartbeat) So You Can't Get My Service By Adding Me To Your Group So Don't Waste Your Time & Data 😉
 
