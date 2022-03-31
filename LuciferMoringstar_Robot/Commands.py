@@ -98,7 +98,6 @@ async def start(bot, message):
                     bot_username = temp.U_NAME,
                     Get = Get
                 ),
-                parse_mode="Markdown",
                 reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton("🔗 Film District 2.0", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
                     ],[
@@ -116,7 +115,6 @@ async def start(bot, message):
                 bot_username = temp.U_NAME,
                 Get = Get
             ),
-            parse_mode="Markdown",
             reply_markup=InlineKeyboardMarkup([[
                 InlineKeyboardButton("🔗 Film District 2.0", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
                 ],[
