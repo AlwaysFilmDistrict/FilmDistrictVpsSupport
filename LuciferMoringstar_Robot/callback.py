@@ -314,8 +314,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             size = get_size(size)
             free = get_size(free)
             
-            update = int(time.strftime("%Hh %Mm %Ss", time.gmtime(time.time() - BOT_START_TIME)))
-            
             cpu = psutil.cpu_percent()
             ram = psutil.virtual_memory().percent
             stats_texts = f"""
@@ -324,7 +322,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 ⌛ Used Storage: {size} MiB
 ⏳ Free Storage: {free} MiB
 📼 Cpu: {cpu} | 💾 Ram: {ram}
-⏱ Last Update: {update}
+
 """
             await query.answer(stats_texts, show_alert=True)
 
