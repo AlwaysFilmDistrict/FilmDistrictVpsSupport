@@ -265,7 +265,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()
 
                 
