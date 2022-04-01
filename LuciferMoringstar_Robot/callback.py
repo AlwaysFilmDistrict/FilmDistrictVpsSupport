@@ -295,8 +295,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "about":
             await query.message.reply_chat_action("typing")
 
-            await query.answer(ALL_ALERT_TEXT_BOT_PM)
-
+            
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -359,8 +358,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "status_button":
             await query.message.reply_chat_action("typing")
 
-            await query.answer(ALL_ALERT_TEXT_BOT_PM)
-
+            
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
