@@ -12,9 +12,9 @@ from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text
 from Database.users_chats_db import db as mt
 from Database.broadcast import db
 
-EDIT_1 = "◾️••"
-EDIT_2 = "◾️◾️•"
-EDIT_3 = "◾️◾️◾️"
+EDIT_1 = "◔◑◕"
+EDIT_2 = "◔◑◕"
+EDIT_3 = "◔◑◕"
 
 ALL_ALERT_TEXT_BOT_PM = "Connecting Film Lovers"
 
