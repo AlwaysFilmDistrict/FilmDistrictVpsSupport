@@ -14,13 +14,13 @@ from Database.broadcast import db
 
 import pytz, datetime
 m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
-time = m.hour
+times = m.hour
 
-if time < 12:
+if times < 12:
     Get="Good Morning"
-elif time < 16:
+elif times < 16:
     Get="Good Afternoon"
-elif time < 20:
+elif times < 20:
     Get="Good Evening"
 else:
     Get="Good Night"
@@ -313,7 +313,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             free = 536870912 - size
             size = get_size(size)
             free = get_size(free)
-            updates = int(time.strftime("%Hh %Mm %Ss", time.gmtime(time.time() - BOT_START_TIME)))
+            updates = time.strftime("%Hh %Mm %Ss", time.gmtime(time.time() - BOT_START_TIME))
               
             cpu = psutil.cpu_percent()
             ram = psutil.virtual_memory().percent
