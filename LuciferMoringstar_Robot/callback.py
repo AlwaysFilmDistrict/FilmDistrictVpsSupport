@@ -12,6 +12,10 @@ from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text
 from Database.users_chats_db import db as mt
 from Database.broadcast import db
 
+EDIT_1 = "◾️••"
+EDIT_2 = "◾️◾️•"
+EDIT_3 = "◾️◾️◾️"
+
 import pytz, datetime
 m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
 times = m.hour
@@ -255,7 +259,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
             else:
                 await query.message.edit(caption, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=False)
    
-        elif query.data == "start":                
+        elif query.data == "start":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()
+
+                
             if query.from_user.id not in ADMINS: 
                 buttons = [[
                  InlineKeyboardButton("🔗 Film District", url="https://telegram.me/joinchat/BOMKAM_4u0ozNWU1")
@@ -273,10 +285,23 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 ]]               
             await query.message.edit(text=START_DEV_TEXT.format(first_name=query.from_user.first_name, id=query.from_user.id, bot_username=temp.U_NAME, Get=Get), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
-        elif query.data == "about":                
+        elif query.data == "about":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()               
             await query.answer(ABOUT_TEXT, show_alert=True)
 
         elif query.data == "help":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()
+
             buttons = [[
               InlineKeyboardButton('🚨 Alive', callback_data='alive'),
               InlineKeyboardButton('🔗 Link', callback_data='link_create'),
@@ -303,10 +328,24 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
 
         elif query.data == "broadcast":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()
+
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await query.message.edit(Broadcast_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "status_button":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()
+
             total_users = await db.total_users_count()    
             files = await Media.count_documents()
             size = await mt.get_db_size()
@@ -328,39 +367,102 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(stats_texts, show_alert=True)
 
         elif query.data == "database":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()
+
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await query.message.edit(database_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "logs":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()
+
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await query.message.edit(logs_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "ban_pm_user":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()
+
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await query.message.edit(ban_pm_user_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "dyno":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()
+
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await query.message.edit(dyno_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "alive":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()
+
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await query.message.edit(alive_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "key_imdbtext":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()
+
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await query.message.edit(imdb_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "inline_button":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()
+
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help'),
                          InlineKeyboardButton("Search Here 🔎", switch_inline_query_current_chat='') ]]
             await query.message.edit(inline_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "ids":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()
+
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await query.message.edit(id_texts, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "faq_button":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()
+
             buttons = [[ InlineKeyboardButton("বাংলা", url="https://telegra.ph/FAQ-BEN-FILMDISTRICT-12-03"),
                          InlineKeyboardButton("हिंदी", url="https://telegra.ph/FAQ-HIN-FILMDISTRICT-12-03") ],
                        [ InlineKeyboardButton("English", url="https://telegra.ph/FAQ-ENG-FILMDISTRICT-12-03") ],
@@ -368,12 +470,26 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(faq_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "link_create":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()
+
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await query.message.edit(Invite_link, reply_markup=InlineKeyboardMarkup(buttons))
 
 # User
 
         elif query.data == "help_user":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()
+
             buttons = [[
               InlineKeyboardButton('🚨 Alive', callback_data='alive_u'),
               InlineKeyboardButton('🔍 IMDB', callback_data='key_imdbtext_u'),
@@ -390,22 +506,57 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
 
         elif query.data == "link_create_u":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()
+
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help_user') ]]                          
             await query.message.edit(Invite_link, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "alive_u":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()
+
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help_user') ]]                          
             await query.message.edit(alive_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "key_imdbtext_u":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()
+
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help_user') ]]                          
             await query.message.edit(imdb_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "ids_u":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()
+
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help_user') ]]                          
             await query.message.edit(id_texts, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "faq_button_u":
+            edit1=await query.message.reply_text(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit3.edit(EDIT_3)
+            await edit3.delete()
+
             buttons = [[ InlineKeyboardButton("বাংলা", url="https://telegra.ph/FAQ-BEN-FILMDISTRICT-12-03"),
                          InlineKeyboardButton("हिंदी", url="https://telegra.ph/FAQ-HIN-FILMDISTRICT-12-03") ],
                        [ InlineKeyboardButton("English", url="https://telegra.ph/FAQ-ENG-FILMDISTRICT-12-03") ],
