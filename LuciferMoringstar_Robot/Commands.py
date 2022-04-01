@@ -1,4 +1,4 @@
-import os, logging
+import os, logging, asyncio 
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, LOG_CHANNEL, BOT_PHOTO, ADMINS
@@ -89,6 +89,16 @@ async def start(bot, message):
         )
 
     else:
+        sts = await message.reply_sticker("CAACAgUAAxkBAAECMzFiRrEWBNAChBNNvfG_PAx6BWEZXgACkgQAAkOCMFZOKrTnrmt1Eh4E")
+        await asyncio.sleep(1)
+        await sts.delete()
+
+        st = await message.reply_sticker("CAACAgUAAxkBAAECMzNiRrE1E1YEl9_oSOH8rJ1PKnj2QgACMwUAAhpRMVY6DiDOx0vdQR4E")
+
+        await asyncio.sleep(1)
+        await st.delete()
+
+
         if message.from_user.id not in ADMINS:
             await message.reply_photo(
                 photo=BOT_PHOTO,
