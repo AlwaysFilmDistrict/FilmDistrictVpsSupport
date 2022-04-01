@@ -292,7 +292,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()               
             await query.answer(ABOUT_TEXT, show_alert=True)
 
@@ -303,7 +303,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()
 
             buttons = [[
@@ -338,7 +338,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()
 
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
@@ -352,7 +352,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()
 
             total_users = await db.total_users_count()    
@@ -383,7 +383,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()
 
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
@@ -397,7 +397,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()
 
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
@@ -411,7 +411,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()
 
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
@@ -425,7 +425,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()
 
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
@@ -439,7 +439,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()
 
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
@@ -453,7 +453,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()
 
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
@@ -467,7 +467,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()
 
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help'),
@@ -482,7 +482,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()
 
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
@@ -496,7 +496,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()
 
             buttons = [[ InlineKeyboardButton("বাংলা", url="https://telegra.ph/FAQ-BEN-FILMDISTRICT-12-03"),
@@ -513,7 +513,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()
 
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
@@ -529,7 +529,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()
 
             buttons = [[
@@ -555,7 +555,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()
 
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help_user') ]]                          
@@ -569,7 +569,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()
 
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help_user') ]]                          
@@ -583,7 +583,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()
 
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help_user') ]]                          
@@ -597,7 +597,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()
 
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help_user') ]]                          
@@ -611,7 +611,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
-            edit3=await edit3.edit(EDIT_3)
+            edit3=await edit2.edit(EDIT_3)
             await edit3.delete()
 
             buttons = [[ InlineKeyboardButton("বাংলা", url="https://telegra.ph/FAQ-BEN-FILMDISTRICT-12-03"),
