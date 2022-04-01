@@ -260,6 +260,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.message.edit(caption, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=False)
    
         elif query.data == "start":
+            await query.message.reply_chat_action("typing")
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -286,6 +287,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(text=START_DEV_TEXT.format(first_name=query.from_user.first_name, id=query.from_user.id, bot_username=temp.U_NAME, Get=Get), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data == "about":
+            await query.message.reply_chat_action("typing")
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -295,6 +297,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(ABOUT_TEXT, show_alert=True)
 
         elif query.data == "help":
+            await query.message.reply_chat_action("typing")
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -328,6 +332,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
 
         elif query.data == "broadcast":
+            await query.message.reply_chat_action("typing")
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -339,6 +345,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(Broadcast_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "status_button":
+            await query.message.reply_chat_action("typing")
+
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -367,6 +376,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(stats_texts, show_alert=True)
 
         elif query.data == "database":
+            await query.message.reply_chat_action("typing")
+
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -378,6 +390,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(database_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "logs":
+            await query.message.reply_chat_action("typing")
+
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -389,6 +404,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(logs_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "ban_pm_user":
+            await query.message.reply_chat_action("typing")
+
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -400,6 +418,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(ban_pm_user_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "dyno":
+            await query.message.reply_chat_action("typing")
+
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -411,6 +432,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(dyno_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "alive":
+            await query.message.reply_chat_action("typing")
+
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -422,6 +446,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(alive_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "key_imdbtext":
+            await query.message.reply_chat_action("typing")
+
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -433,6 +460,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(imdb_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "inline_button":
+            await query.message.reply_chat_action("typing")
+
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -445,6 +475,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(inline_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "ids":
+            await query.message.reply_chat_action("typing")
+
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -456,6 +489,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(id_texts, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "faq_button":
+            await query.message.reply_chat_action("typing")
+
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -470,6 +506,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(faq_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "link_create":
+            await query.message.reply_chat_action("typing")
+
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -483,6 +522,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
 # User
 
         elif query.data == "help_user":
+            await query.message.reply_chat_action("typing")
+
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -506,6 +548,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
 
         elif query.data == "link_create_u":
+            await query.message.reply_chat_action("typing")
+
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -517,6 +562,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(Invite_link, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "alive_u":
+            await query.message.reply_chat_action("typing")
+
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -528,6 +576,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(alive_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "key_imdbtext_u":
+            await query.message.reply_chat_action("typing")
+
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -539,6 +590,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(imdb_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "ids_u":
+            await query.message.reply_chat_action("typing")
+
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -550,6 +604,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit(id_texts, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "faq_button_u":
+            await query.message.reply_chat_action("typing")
+
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
