@@ -16,6 +16,9 @@ EDIT_1 = "◾️••"
 EDIT_2 = "◾️◾️•"
 EDIT_3 = "◾️◾️◾️"
 
+ALL_ALERT_TEXT_BOT_PM = "Connecting Film Lovers"
+
+
 import pytz, datetime
 m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
 times = m.hour
@@ -261,6 +264,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
    
         elif query.data == "start":
             await query.message.reply_chat_action("typing")
+
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -288,6 +294,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data == "about":
             await query.message.reply_chat_action("typing")
+
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
+
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -298,6 +307,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data == "help":
             await query.message.reply_chat_action("typing")
+
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
@@ -333,6 +344,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data == "broadcast":
             await query.message.reply_chat_action("typing")
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
@@ -347,6 +359,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "status_button":
             await query.message.reply_chat_action("typing")
 
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
@@ -378,6 +391,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "database":
             await query.message.reply_chat_action("typing")
 
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
@@ -392,6 +406,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "logs":
             await query.message.reply_chat_action("typing")
 
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
@@ -406,6 +421,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "ban_pm_user":
             await query.message.reply_chat_action("typing")
 
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
@@ -420,6 +436,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "dyno":
             await query.message.reply_chat_action("typing")
 
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
@@ -434,6 +451,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "alive":
             await query.message.reply_chat_action("typing")
 
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
@@ -448,6 +466,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "key_imdbtext":
             await query.message.reply_chat_action("typing")
 
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
@@ -461,6 +480,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data == "inline_button":
             await query.message.reply_chat_action("typing")
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
 
             edit1=await query.message.reply_text(EDIT_1)
@@ -476,6 +496,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data == "ids":
             await query.message.reply_chat_action("typing")
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
 
             edit1=await query.message.reply_text(EDIT_1)
@@ -491,6 +512,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "faq_button":
             await query.message.reply_chat_action("typing")
 
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
@@ -507,6 +529,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data == "link_create":
             await query.message.reply_chat_action("typing")
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
 
             edit1=await query.message.reply_text(EDIT_1)
@@ -523,6 +546,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data == "help_user":
             await query.message.reply_chat_action("typing")
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
 
             edit1=await query.message.reply_text(EDIT_1)
@@ -550,6 +574,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "link_create_u":
             await query.message.reply_chat_action("typing")
 
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
             edit1=await query.message.reply_text(EDIT_1)
             await asyncio.sleep(0.4)
@@ -563,6 +588,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data == "alive_u":
             await query.message.reply_chat_action("typing")
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
 
             edit1=await query.message.reply_text(EDIT_1)
@@ -577,6 +603,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data == "key_imdbtext_u":
             await query.message.reply_chat_action("typing")
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
 
             edit1=await query.message.reply_text(EDIT_1)
@@ -591,6 +618,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data == "ids_u":
             await query.message.reply_chat_action("typing")
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
 
             edit1=await query.message.reply_text(EDIT_1)
@@ -605,6 +633,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data == "faq_button_u":
             await query.message.reply_chat_action("typing")
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
 
             edit1=await query.message.reply_text(EDIT_1)
