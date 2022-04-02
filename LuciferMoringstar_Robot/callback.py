@@ -612,7 +612,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
-            edit1=await query.message.reply_text(EDIT_1)
+            edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
@@ -630,7 +630,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
 
-            edit1=await query.message.reply_text(EDIT_1)
+            edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
@@ -648,7 +648,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
 
-            edit1=await query.message.reply_text(EDIT_1)
+            edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
@@ -666,7 +666,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
 
-            edit1=await query.message.reply_text(EDIT_1)
+            edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
@@ -684,7 +684,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
 
-            edit1=await query.message.reply_text(EDIT_1)
+            edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
             await asyncio.sleep(0.4)
