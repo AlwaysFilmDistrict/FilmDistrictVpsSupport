@@ -300,13 +300,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "about":
             await query.message.reply_chat_action("typing")
 
-            
-            edit1=await query.message.edit(EDIT_1)
-            await asyncio.sleep(0.4)
-            edit2=await edit1.edit(EDIT_2)
-            await asyncio.sleep(0.4)
-            edit3=await edit2.edit(EDIT_3)
-            await edit3.delete()     
+                 
           
             await query.answer(ABOUT_TEXT, show_alert=True)
 
