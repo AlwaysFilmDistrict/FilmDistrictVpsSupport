@@ -13,7 +13,7 @@ async def groupfilters(client, message):
 async def pm_filters(client, message):
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id, message.from_user.first_name)
-        await bot.send_message(chat_id=LOG_CHANNEL, text="• `{}`\n• **{}**".format(message.from_user.id, message.from_user.mention))
+        await client.send_message(chat_id=LOG_CHANNEL, text="• `{}`\n• **{}**".format(message.from_user.id, message.from_user.mention))
 
     if message.from_user.id not in ADMINS:
         await client.send_sticker(chat_id=message.from_user.id, sticker='CAACAgUAAxkBAAEBoPBh0wHhhDxOtO6oGj4Gy5jpKWF-NwACFAQAAh0k-FXoemcDdMDyJx4E')
