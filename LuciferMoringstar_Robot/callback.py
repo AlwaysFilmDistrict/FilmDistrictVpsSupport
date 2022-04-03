@@ -137,11 +137,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await LuciferMoringstar.delete()
 
         elif query.data == "close":
-            try:
-                await query.message.reply_to_message.delete()
-                await query.message.delete()
-            except:
-                await query.message.delete()
+            await query.message.delete()
+
 
         elif query.data == "google_alert":
             await query.answer("""✅ DO\n👉 Type Only In English \n\n❌ DON'T\n👉 Avoid Symbols (/.,:;"'-)\n👉 Avoid Requesting Same Movie/Series Repeatedly \n👉 Avoid Requesting Unreleased Movie/Series""", show_alert=True)
