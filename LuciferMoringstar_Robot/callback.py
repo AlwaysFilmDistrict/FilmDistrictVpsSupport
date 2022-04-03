@@ -510,7 +510,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help'),
                          InlineKeyboardButton("Search Here 🔎", switch_inline_query_current_chat='') ]]
-            await qedit5.edit(inline_text, reply_markup=InlineKeyboardMarkup(buttons))
+            await edit5.edit(inline_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "ids":
             await query.message.reply_chat_action("typing")
