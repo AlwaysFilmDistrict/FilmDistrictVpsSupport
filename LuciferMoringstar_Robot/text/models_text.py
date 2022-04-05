@@ -18,7 +18,7 @@ Module :- All Status
 
 ★ /stats - User Status
 
-[<b>Maintained By ✔️ HeartBeat](t.me/helloheartbeat</b>)"""
+<b>[Maintained By ✔️ HeartBeat](t.me/helloheartbeat)</b>"""
 
 database_text = """
 Module :- File Database
@@ -30,7 +30,7 @@ Module :- File Database
 ★ /delete - Delete File From Database
 ★ /total - How Many Files Added In Database
 
-[<b>Maintained By ✔️ HeartBeat](t.me/helloheartbeat</b>)"""
+<b>[Maintained By ✔️ HeartBeat](t.me/helloheartbeat)</b>"""
 
 logs_text = """
 Module :- Get Logs
@@ -41,7 +41,7 @@ Module :- Get Logs
 
 ★ /logger - Get Logs
 
-[<b>Maintained By ✔️ HeartBeat](t.me/helloheartbeat</b>)"""
+<b>[Maintained By ✔️ HeartBeat](t.me/helloheartbeat)</b>"""
 
 ban_pm_user_text = """
 Module :- Ban & Unban User
@@ -53,7 +53,7 @@ Module :- Ban & Unban User
 ★ /ban - Userid / Username
 ★ /unban - Userid / Username
 
-[<b>Maintained By ✔️ HeartBeat](t.me/helloheartbeat</b>)"""
+<b>[Maintained By ✔️ HeartBeat](t.me/helloheartbeat)</b>"""
 
 dyno_text = """
 Module :- Check Bot Dyno
@@ -64,7 +64,7 @@ Module :- Check Bot Dyno
 
 ★ /dyno Check Bot Dyno
 
-[<b>Maintained By ✔️ HeartBeat](t.me/helloheartbeat</b>)"""
+<b>[Maintained By ✔️ HeartBeat](t.me/helloheartbeat)</b>"""
 
 ### 🗯️ ~~~~ Alive ~~~~ ###
 alive_text = """
@@ -76,7 +76,7 @@ Module :- Alive
 
 ★ /alive - Look
 
-[<b>Maintained By ✔️ HeartBeat](t.me/helloheartbeat</b>)"""
+<b>[Maintained By ✔️ HeartBeat](t.me/helloheartbeat)</b>"""
 
 ### 🗯️ ~~~~ imdb ~~~~ ###
 imdb_text = """
@@ -88,7 +88,7 @@ Module :- Imdb Info
 
 ★ /imdb - Get The Film Information From IMDB Source
 
-[<b>Maintained By ✔️ HeartBeat](t.me/helloheartbeat</b>)"""
+<b>[Maintained By ✔️ HeartBeat](t.me/helloheartbeat)</b>"""
 
 ### 🗯️ ~~~~ inline ~~~~ ###
 inline_text = """
@@ -97,7 +97,7 @@ Models :- Inline (Via)
 ★ Can Search Movies & Series Via Inline
 ★ Search Button Below
 
-[<b>Maintained By ✔️ HeartBeat](t.me/helloheartbeat</b>)"""
+<b>[Maintained By ✔️ HeartBeat](t.me/helloheartbeat)</b>"""
 
 ### 🗯️ ~~~~ inline ~~~~ ###
 id_texts = """
@@ -112,7 +112,7 @@ Module :- IDs
 ★ /json - To Get All Info
 ★ /stickerid - To Get TG Sticker ID
 
-[<b>Maintained By ✔️ HeartBeat](t.me/helloheartbeat</b>)"""
+<b>[Maintained By ✔️ HeartBeat](t.me/helloheartbeat)</b>"""
 
 ### 🗯️ ~~~~ Faq ~~~~ ###
 faq_text = """
@@ -121,7 +121,7 @@ faq_text = """
 👉 Here Are Answers To Frequently Asked Questions About FilmDistrict 
 👉 If You Did Not Find The Answer To Your Question, Please Ask ✔️ [HeartBeat](t.me/helloheartbeat)
 
-[<b>Maintained By ✔️ HeartBeat](t.me/helloheartbeat</b>)"""
+<b>[Maintained By ✔️ HeartBeat](t.me/helloheartbeat)</b>"""
 
 ### 🗯️ ~~~~ Invite Link ~~~~ ###
 Invite_link = """
@@ -133,4 +133,4 @@ Module :- Invite Link
 
 ★ /link - To Get Film District Group Link
 
-[<b>Maintained By ✔️ HeartBeat](t.me/helloheartbeat</b>)"""
+<b>[Maintained By ✔️ HeartBeat](t.me/helloheartbeat)</b>"""
