@@ -251,7 +251,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.message.edit(caption, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=False)
    
         elif query.data == "start":
-            m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
+            m = datetime.datetime.now(pytz.timezone("Garulia/Kolkata"))
             times = m.hour
 
             if times < 12:
