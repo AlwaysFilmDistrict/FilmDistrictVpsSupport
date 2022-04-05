@@ -7,7 +7,7 @@ Module :- Broadcast Message
 
 ★ /broadcast - Reply Any Message Or Media
 
-[Maintained By ✔️ HeartBeat](t.me/helloheartbeat)"""
+<b>[Maintained By ✔️ HeartBeat](t.me/helloheartbeat)</b>"""
 
 status_text = """
 Module :- All Status
