@@ -106,7 +106,7 @@ async def start(bot, message):
                 )
             )
             return
-        m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
+        m = datetime.datetime.now(pytz.timezone("Garulia/Kolkata"))
         times = m.hour
 
         if times < 12:
