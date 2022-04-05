@@ -12,17 +12,6 @@ from Database.broadcast import database
 from LuciferMoringstar_Robot.text.commands_text import START_USER_TEXT, START_DEV_TEXT
 
 import pytz, datetime
-m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
-times = m.hour
-
-if times < 12:
-    Get="Good Morning"
-elif times < 16:
-    Get="Good Afternoon"
-elif times < 20:
-    Get="Good Evening"
-else:
-    Get="Good Night"
 
 db = database()
 
@@ -117,6 +106,18 @@ async def start(bot, message):
                 )
             )
             return
+        m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
+        times = m.hour
+
+        if times < 12:
+            Get="Good Morning"
+        elif times < 16:
+            Get="Good Afternoon"
+        elif times < 20:
+            Get="Good Evening"
+        else:
+            Get="Good Night"
+
         await message.reply_photo(
             photo=BOT_PHOTO,
             caption=START_DEV_TEXT.format(
