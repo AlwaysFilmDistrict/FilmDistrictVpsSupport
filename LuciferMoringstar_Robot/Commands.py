@@ -78,6 +78,20 @@ async def start(bot, message):
         )
 
     else:
+
+
+        m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
+        times = m.hour
+
+        if times < 12:
+            Get="Good Morning"
+        elif times < 16:
+            Get="Good Afternoon"
+        elif times < 20:
+            Get="Good Evening"
+        else:
+            Get="Good Night"
+
         sts = await message.reply_sticker("CAACAgUAAxkBAAECMzFiRrEWBNAChBNNvfG_PAx6BWEZXgACkgQAAkOCMFZOKrTnrmt1Eh4E")
         await asyncio.sleep(1)
         await sts.delete()
@@ -106,17 +120,7 @@ async def start(bot, message):
                 )
             )
             return
-        m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
-        times = m.hour
 
-        if times < 12:
-            Get="Good Morning"
-        elif times < 16:
-            Get="Good Afternoon"
-        elif times < 20:
-            Get="Good Evening"
-        else:
-            Get="Good Night"
 
         await message.reply_photo(
             photo=BOT_PHOTO,
