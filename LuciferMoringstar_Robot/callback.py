@@ -8,7 +8,7 @@ from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerId
 from Database._utils import get_poster, is_subscribed, get_size, temp
 from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER, START_USER_TEXT, START_DEV_TEXT
 from LuciferMoringstar_Robot.text.auto_filter_text import FIRST_BUTTON
-from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text, database_text, logs_text, ban_pm_user_text, dyno_text, alive_text, imdb_text, inline_text, id_texts, faq_text, Invite_link
+from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text, database_text, logs_text, ban_pm_user_text, dyno_text, alive_text, imdb_text, inline_text, id_texts, faq_text, Invite_link, song_text
 from Database.users_chats_db import db as mt
 from Database.broadcast import db
 
@@ -149,7 +149,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             files = files_[0]
             title = files.file_name
             size=get_size(files.file_size)
-            f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=files.caption)
+            f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=files.caption, mention=query.from_user.mention)
             try:
                 if AUTH_CHANNEL and not await is_subscribed(client, query):
                     await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
@@ -183,7 +183,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             for files in filedetails:
                 title = files.file_name
                 size=files.file_size
-                f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=files.caption)               
+                f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=files.caption, mention=query.from_user.mention)               
                 await query.answer()
                 await client.send_cached_media(
                     chat_id=query.from_user.id,
@@ -335,14 +335,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
               InlineKeyboardButton('👥 Status', callback_data='status_button')
               ],[
               InlineKeyboardButton('🔍 IMDB', callback_data='key_imdbtext'),
-              InlineKeyboardButton('📝 Logs', callback_data='logs')
+              InlineKeyboardButton('📝 Logs', callback_data='logs'),
+              InlineKeyboardButton('🎼 Song', callback_data='song_d')
               ],[
               InlineKeyboardButton('😎 About', callback_data='about'),
               InlineKeyboardButton('🏠 Home', callback_data='start'),
               InlineKeyboardButton('❎️ Close', callback_data='close')
               ]]
             await edit5.edit(HELP_TEXT_DEV.format(query.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
-
 
         elif query.data == "broadcast":
             await query.message.reply_chat_action("typing")
@@ -568,6 +568,24 @@ async def cb_handler(client: Client, query: CallbackQuery):
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await edit5.edit(Invite_link, reply_markup=InlineKeyboardMarkup(buttons))
 
+        elif query.data == "song_d":
+            await query.message.reply_chat_action("typing")
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
+
+
+            edit1=await query.message.edit(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit2.edit(EDIT_3)
+            await asyncio.sleep(0.4)
+            edit4=await edit3.edit(EDIT_4)
+            await asyncio.sleep(0.4)
+            edit5=await edit4.edit(EDIT_5)
+
+            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
+            await edit5.edit(song_text, reply_markup=InlineKeyboardMarkup(buttons))
+
 # User
 
         elif query.data == "help_user":
@@ -591,7 +609,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
               InlineKeyboardButton('🔗 Link', callback_data='link_create_u')
               ],[
               InlineKeyboardButton('⚠️ Faq', callback_data='faq_button_u'),
-              InlineKeyboardButton('🆔 Ids', callback_data='ids_u')
+              InlineKeyboardButton('🆔 Ids', callback_data='ids_u'),
+              InlineKeyboardButton('🎼 Song', callback_data='song_u')
               ],[
               InlineKeyboardButton('😎 About', callback_data='about'),
               InlineKeyboardButton('🏠 Home', callback_data='start'),
@@ -693,7 +712,27 @@ async def cb_handler(client: Client, query: CallbackQuery):
                        [ InlineKeyboardButton('🔙 Back', callback_data='help_user') ]]                          
             await edit5.edit(faq_text, reply_markup=InlineKeyboardMarkup(buttons))
 
-               
+   
+        elif query.data == "song_u":
+            await query.message.reply_chat_action("typing")
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
+
+
+            edit1=await query.message.edit(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit2.edit(EDIT_3)
+            await asyncio.sleep(0.4)
+            edit4=await edit3.edit(EDIT_4)
+            await asyncio.sleep(0.4)
+            edit5=await edit4.edit(EDIT_5)
+
+            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help_user') ]]                          
+            await edit5.edit(song_text, reply_markup=InlineKeyboardMarkup(buttons))
+
+
+           
     else:
         await query.answer("Ask For Your Own Movie Or Series 🤭",show_alert=True)
 
