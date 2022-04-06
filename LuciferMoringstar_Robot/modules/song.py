@@ -51,7 +51,7 @@ def a(client, message):
 
         except Exception as e:
             print(e)
-            m.edit('**Iam Not Found Result In Your Request 💔. Please Try Another Song Or Use Correct Spelling..!**')
+            m.edit('**The Requested Song Was Not Found 😔, Please Try Another Song Or Use Correct Format..!**')
             return
     except Exception as e:
         m.edit(
