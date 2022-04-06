@@ -143,4 +143,6 @@ Module :- Song
 
 📚 AVAILABLE COMMANDS :-
 
-★ /Song [YouTube Link] - To Download Music"""
+★ /Song [YouTube Link] - To Download Music
+
+[Maintained By ✔️ HeartBeat](t.me/helloheartbeat)</b>"""
