@@ -12,3 +12,5 @@ heroku3
 aiofiles
 psutil # Status
 pytz
+youtube-dl # YouTube 
+youtube_search # YouTube
