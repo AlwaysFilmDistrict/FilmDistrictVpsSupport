@@ -134,3 +134,13 @@ Module :- Invite Link
 ★ /link - To Get Film District Group Link
 
 <b>[Maintained By ✔️ HeartBeat](t.me/helloheartbeat)</b>"""
+
+
+song_text = """
+Module :- Song
+
+- Download Music Via Link, For Those Who Love Music
+
+📚 AVAILABLE COMMANDS :-
+
+★ /Song [YouTube Link] - To Download Music"""
