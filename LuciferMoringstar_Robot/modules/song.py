@@ -23,7 +23,7 @@ def a(client, message):
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    m = message.reply('`Finding Your Song..🎵`')
+    m = message.reply('`💞 Finding Your Song..🎸`')
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = []
@@ -44,14 +44,14 @@ def a(client, message):
 
 
 
-            performer = f"[24x7 Music By HeartBeat]" 
+            performer = f"[LuciferMoringstar Music]" 
             thumb_name = f'thumb{message.message_id}.jpg'
             thumb = requests.get(thumbnail, allow_redirects=True)
             open(thumb_name, 'wb').write(thumb.content)
 
         except Exception as e:
             print(e)
-            m.edit('**The Requested Song Was Not Found 😔, Please Try Another Song Or Use Correct Format..!**')
+            m.edit('**Iam Not Fount Result in Your Request 💔. Please Try Another Song Or Use Correct Spelling..!**')
             return
     except Exception as e:
         m.edit(
@@ -59,22 +59,22 @@ def a(client, message):
         )
         print(str(e))
         return
-    m.edit("`Uploading..⬆️ Please Wait...⏳`")
+    m.edit("`Uploading..🎸 Please Wait...❤️‍🔥`")
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f'''🎶 <b>Title:</b> <a href="{link}">{title}</a>\n⌚️ <b>Duration:</b> <code>{duration}</code>\n👀 <b>Views:</b> <code>{views}</code>\n👤 <b>Requested By:</b> {message.from_user.mention()} \n⬆️ <b>Uploaded By: [HeartBeat](t.me/helloheartbeat)</b>'''
+        rep = f'🎹 <b>Title:</b> <a href="{link}">{title}</a>\n🎙️ <b>Duration:</b> <code>{duration}</code>\n🎵 <b>Views:</b> <code>{views}</code>\n🎸 <b>Requested By:</b> {message.from_user.mention()} \n🎶 <b>Uploaded By: @Mo_Tech_Group</b> 👑'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
-        message.reply_audio(audio_file, caption=rep, quote=False, title=title, duration=dur, performer=performer, thumb=thumb_name)
+        message.reply_audio(audio_file, caption=rep, parse_mode='HTML',quote=False, title=title, duration=dur, performer=performer, thumb=thumb_name)
         m.delete()
         message.delete()
     except Exception as e:
-        m.edit('**𝐀𝐧 𝐄𝐫𝐫𝐨𝐫 𝐎𝐜𝐜𝐮𝐫𝐞𝐝. 𝐏𝐥𝐞𝐚𝐬𝐞 𝐑𝐞𝐩𝐨𝐫𝐭 𝐓𝐡𝐢𝐬 𝐓𝐨 ✔️ [HeartBeat](t.me/helloheartbeat)</b>**', disable_web_page_preview=True)
+        m.edit('**𝐀𝐧 𝐄𝐫𝐫𝐨𝐫 𝐎𝐜𝐜𝐮𝐫𝐞𝐝. 𝐏𝐥𝐞𝐚𝐬𝐞 𝐑𝐞𝐩𝐨𝐫𝐭 𝐓𝐡𝐢𝐬 𝐓𝐨 @Mo_Tech_YT...!!**')
         print(e)
     try:
         os.remove(audio_file)
