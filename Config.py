@@ -28,6 +28,9 @@ IMDB_POSTER_ON_OFF = is_enabled((environ.get('IMDB_POSTER_ON_OFF', "False")), Fa
 API_ID = int(environ['API_ID'])
 API_HASH = environ['API_HASH']
 BOT_TOKEN = environ['BOT_TOKEN']
+USERSESSION = os.environ.get("USERSESSION")
+
+
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
