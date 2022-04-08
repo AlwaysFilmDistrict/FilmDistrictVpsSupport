@@ -28,7 +28,7 @@ ydl_opts = {
 @Client.on_message(filters.command(['song']))
 def song(_, message):
     query = " ".join(message.command[1:])
-    m = message.reply("🔎 Sᴇᴀʀᴄʜɪɴɢ Sᴏɴɢ ᴏɴ Yᴏᴜᴛᴜʙᴇ..!\n **Upload Getting Slowed due to Heavy Traffic** [Learn More](https://en.m.wikipedia.org/wiki/Network_traffic)")
+    m = message.reply("🔎 Sᴇᴀʀᴄʜɪɴɢ Sᴏɴɢ ᴏɴ Yᴏᴜᴛᴜʙᴇ..!\n **Upload Getting Slowed due to Heavy Traffic** [Learn More](https://en.m.wikipedia.org/wiki/Network_traffic)", disable_web_page_preview=True)
     ydl_ops = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -66,7 +66,7 @@ def song(_, message):
         )
         m.delete()
     except Exception as e:
-        m.edit("❌ Error Contact [ƈɾҽαƚσɾ](t.me/helloheartbeat)")
+        m.edit("❌ Error Contact [ƈɾҽαƚσɾ](t.me/helloheartbeat)", disable_web_page_preview=True)
         print(e)
 
     try:
