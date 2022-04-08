@@ -41,7 +41,7 @@ def song(_, message):
         duration = results[0]["duration"]
 
     except Exception as e:
-        m.edit("❌ Sorry I can't Find Your Requested Song 🙁.\n\nTry Another Song Name Or Follow Format..!\n\nIf You Facing Same Issues For Second Time Report It On ✔️ [HeartBeat](t.me/helloheartbeat)", disable_web_page_preview=True)
+        m.edit("🙁 Sorry, I can't Find Your Requested Song..\n\nTry Another Song Name Or Follow Format..!\n\nIf You Facing Same Issues For Second Time Report It On ✔️ [HeartBeat](t.me/helloheartbeat)", disable_web_page_preview=True)
         print(str(e))
         return
     m.edit("📥 Downloading Song To My Database...Please Wait..!")
