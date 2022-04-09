@@ -2,6 +2,7 @@ from pyrogram import Client, filters
 
 import pytgcalls
 from user import pr0fess0r
+from Config import ADMINS
 
 calls = pytgcalls.GroupCallFactory(pr0fess0r).get_group_call()
 
