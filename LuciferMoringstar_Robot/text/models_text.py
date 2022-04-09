@@ -146,3 +146,19 @@ Module :- Song
 ★ /Song [YouTube Link] - To Download Music
 
 [Maintained By ✔️ HeartBeat](t.me/helloheartbeat)</b>"""
+
+
+player_text = """
+▶️ Play Commands :
+
+Available Commands = /play & /pause 
+
+/play stands for Audio play 🎶
+
+/play - Bot will start playing your given audio on voice chat 💬
+
+/pause stands for Audio pause ⏸
+
+/pause - Bot will pause playing your given audio on voice chat 💬
+"""
+
