@@ -37,7 +37,7 @@ async def vplay(_, message):
     reply = message.reply_to_message
 
     if not reply:
-        text = """*Give me a Audio to Play**\n\n» Use the /play command by replying to the Audio File**"""
+        text = """*Give me a File to Play**\n\n» Use the /vplay command by replying to the Audio File**"""
         await message.reply_text(text)
 
     if reply:
