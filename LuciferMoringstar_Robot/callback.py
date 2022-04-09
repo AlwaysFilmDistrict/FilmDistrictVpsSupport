@@ -8,7 +8,7 @@ from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerId
 from Database._utils import get_poster, is_subscribed, get_size, temp
 from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER, START_USER_TEXT, START_DEV_TEXT
 from LuciferMoringstar_Robot.text.auto_filter_text import FIRST_BUTTON
-from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text, database_text, logs_text, ban_pm_user_text, dyno_text, alive_text, imdb_text, inline_text, id_texts, faq_text, Invite_link, song_text
+from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text, database_text, logs_text, ban_pm_user_text, dyno_text, alive_text, imdb_text, inline_text, id_texts, faq_text, Invite_link, song_text, player_text
 from Database.users_chats_db import db as mt
 from Database.broadcast import db
 
@@ -338,6 +338,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
               InlineKeyboardButton('📝 Logs', callback_data='logs'),
               InlineKeyboardButton('🎼 Song', callback_data='song_d')
               ],[
+              InlineKeyboardButton('Player', callback_data='player')
+              ],[
               InlineKeyboardButton('😎 About', callback_data='about'),
               InlineKeyboardButton('🏠 Home', callback_data='start'),
               InlineKeyboardButton('❎️ Close', callback_data='close')
@@ -586,6 +588,26 @@ async def cb_handler(client: Client, query: CallbackQuery):
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await edit5.edit(song_text, reply_markup=InlineKeyboardMarkup(buttons))
 
+
+        elif query.data == "player":
+            await query.message.reply_chat_action("typing")
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
+
+
+            edit1=await query.message.edit(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit2.edit(EDIT_3)
+            await asyncio.sleep(0.4)
+            edit4=await edit3.edit(EDIT_4)
+            await asyncio.sleep(0.4)
+            edit5=await edit4.edit(EDIT_5)
+
+            buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
+            await edit5.edit(player_text, reply_markup=InlineKeyboardMarkup(buttons))
+
+
 # User
 
         elif query.data == "help_user":
@@ -690,6 +712,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help_user') ]]                          
             await edit5.edit(id_texts, reply_markup=InlineKeyboardMarkup(buttons))
+
+
 
         elif query.data == "faq_button_u":
             await query.message.reply_chat_action("typing")
