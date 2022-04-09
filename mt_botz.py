@@ -16,6 +16,8 @@ from Config import API_ID, API_HASH, BOT_TOKEN
 from user import pr0fess0r
 from pyrogram import idle
 
+
+
 class Bot(Client):
 
     def __init__(self):
@@ -24,7 +26,7 @@ class Bot(Client):
             api_id=API_ID,
             api_hash=API_HASH,
             bot_token=BOT_TOKEN,
-            workers=50,
+            workers=400,
             plugins={"root": "LuciferMoringstar_Robot"},
             sleep_threshold=60,
         )
