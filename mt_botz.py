@@ -13,7 +13,7 @@ from Database.autofilter_db import Media
 from Database.users_chats_db import db
 from Database._utils import temp
 from Config import API_ID, API_HASH, BOT_TOKEN
-
+from user import pr0fess0r
 
 class Bot(Client):
 
@@ -47,4 +47,6 @@ class Bot(Client):
 
 
 app = Bot()
+pr0fess0r.start()
 app.run()
+idle()
