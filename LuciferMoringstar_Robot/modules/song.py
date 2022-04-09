@@ -50,7 +50,7 @@ def song(_, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"🎵 Song Uploaded From Youtube Music...!\n\nPowered By ✔️ [HeartBeat](t.me/helloheartbeat)<b>Title:</b> <a href="{link}">{title}</a>\n⌚️ <b>Duration:</b> <code>{duration}</code>\n👀 <b>Views:</b> <code>{views}</code>\n👤 <b>Requested By:</b> {message.from_user.mention()} \n⬆️ <b>Uploaded By: [HeartBeat](t.me/helloheartbeat)</b>"
+        rep = f"🎵 Song Uploaded From Youtube Music...!\n\nPowered By ✔️ [HeartBeat](t.me/helloheartbeat)"
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(float(dur_arr[i])) * secmul
