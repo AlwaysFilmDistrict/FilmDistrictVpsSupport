@@ -1,5 +1,5 @@
-from Config import SESSION, API_HASH, API_ID
+from Config import USERSESSION, API_HASH, API_ID
 from pyrogram import Client
  
 
-pr0fess0r = Client(SESSION, API_ID, API_HASH)
+pr0fess0r = Client(USERSESSION, API_ID, API_HASH)
