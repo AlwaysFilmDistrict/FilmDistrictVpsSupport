@@ -14,6 +14,7 @@ from Database.users_chats_db import db
 from Database._utils import temp
 from Config import API_ID, API_HASH, BOT_TOKEN
 from user import pr0fess0r
+from pyrogram import idle
 
 class Bot(Client):
 
