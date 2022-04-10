@@ -22,7 +22,7 @@ async def play(_, message):
     if reply:
         fk = await message.reply('Downloading....')
         path = await reply.download()
-        await calls.join(message.chat.id)
+        await calls.join(message.chat.id, message.user.id)
         await calls.start_audio(path, repeat=False)
         await fk.edit('**Playing...**') 
 
