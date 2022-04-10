@@ -35,6 +35,8 @@ def song(_, message):
         link = f"https://youtube.com{results[0]['url_suffix']}"
         title = results[0]["title"][:40]
         thumbnail = results[0]["thumbnails"][0]
+        views = results[0]["views"]
+        duration = results[0]["duration"]
         thumb_name = f"{title}.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, "wb").write(thumb.content)
@@ -50,7 +52,14 @@ def song(_, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"🎵 Song Uploaded From Youtube Music...!\n\nPowered By ✔️ [HeartBeat](t.me/helloheartbeat)"
+
+        rep = f"""
+🎶 Title: [{title}]({link})
+⌚️ Duration: <code>{duration}</code>
+👀 Views: <code>{views}</code>
+👤 Requested By: {message.from_user.mention()}
+⬆️ Uploaded By:  [HeartBeat](t.me/helloheartbeat)"""
+
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(float(dur_arr[i])) * secmul
