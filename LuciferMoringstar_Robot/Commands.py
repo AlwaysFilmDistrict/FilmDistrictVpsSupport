@@ -116,6 +116,8 @@ async def start(bot, message):
                     ],[
                     InlineKeyboardButton("ℹ️ Help", callback_data="help_user"),
                     InlineKeyboardButton("😎 About", callback_data="about")
+                    ],[                
+                    InlineKeyboardButton("🎭 Who Am I", callback_data="master") 
                     ]]
                 )
             )
@@ -135,6 +137,8 @@ async def start(bot, message):
                 ],[
                 InlineKeyboardButton("ℹ️ Help", callback_data="help"),
                 InlineKeyboardButton("😎 About", callback_data="about")
+                ],[                
+                InlineKeyboardButton("🎭 Who Am I", callback_data="master") 
                 ]]
             )
         )
