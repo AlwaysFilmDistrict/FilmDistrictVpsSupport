@@ -38,6 +38,7 @@ def song(_, message):
         views = results[0]["views"]
         duration = results[0]["duration"]
         thumb_name = f"{title}.jpg"
+        lucifermoringstar = f"[24x7 Music By HeartBeat]" 
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, "wb").write(thumb.content)
         duration = results[0]["duration"]
@@ -73,12 +74,7 @@ def song(_, message):
             dur += int(float(dur_arr[i])) * secmul
             secmul *= 60
         m.edit("📤 <b>Uploading Files To Telegram...</b>")
-        message.reply_audio(
-            audio_file,
-            caption=rep,
-            thumb=thumb_name,
-            title=title,
-            duration=dur,
+        message.reply_audio(audio_file, caption=rep, thumb=thumb_name, title=title, duration=dur, performer=lucifermoringstar
         )
         m.delete()
     except Exception as e:
