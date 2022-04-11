@@ -59,7 +59,7 @@ I Can't Write Everything In My Bio So I Created This...</i></b>
 ├• Relationship Status⇝ Single
 ├• Nationality⇝ Indian
 ├• Location⇝ City Of Joy
-├• Contact Bot⇝ @TalkToHeartBeatBot
+├• Contact Bot⇝ [HeartBeat 🤖](t.me/TalkToHeartBeatBot)
 ╰──────⍟───────╯
 
 ╭──[─═ ᴏᴡɴᴇʀ ᴀᴛ ═─]
