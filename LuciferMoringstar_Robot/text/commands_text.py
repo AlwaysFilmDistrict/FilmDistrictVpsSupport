@@ -46,7 +46,7 @@ I Can Guide You Through All Of [Film District Bot](http://t.me/FilmDistrict_Bot)
 
 
 about_master = """
-👋 <b><i>Hey {},
+<b><i>Hello 👋 {},
 I Can't Write Everything In My Bio So I Created This...</i></b>
 <b>
 ╭──[─═ ᴘᴇʀꜱᴏɴᴀʟ ɪɴꜰᴏ ═─]
@@ -68,4 +68,4 @@ I Can't Write Everything In My Bio So I Created This...</i></b>
 ├• FILM DISTRICT BOT
 ╰──────⍟───────╯
 </b>
-🙏 <b><i>Thank You For Reading Patiently</i></b>"""
+<b><i>Thank You For Reading Patiently 🙏</i></b>"""
