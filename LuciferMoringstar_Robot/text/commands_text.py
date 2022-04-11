@@ -48,7 +48,7 @@ I Can Guide You Through All Of [Film District Bot](http://t.me/FilmDistrict_Bot)
 about_master = """
 👋 <b><i>Hey {},
 I Can't Write Everything In My Bio So I Created This...</i></b>
-
+<b>
 ╭──[─═ ᴘᴇʀꜱᴏɴᴀʟ ɪɴꜰᴏ ═─]
 ├• Name⇝ Anjan Modak 
 ├• Gender⇝ What Do You Think
@@ -67,5 +67,5 @@ I Can't Write Everything In My Bio So I Created This...</i></b>
 ├• [FILM DISTRICT UPDATES](https://telegram.me/joinchat/EUUS8b0iEnVjZTU9)
 ├• FILM DISTRICT BOT
 ╰──────⍟───────╯
-
+</b>
 🙏 <b><i>Thank You For Reading Patiently</i></b>"""
