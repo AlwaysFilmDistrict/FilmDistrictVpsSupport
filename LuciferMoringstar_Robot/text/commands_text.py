@@ -43,3 +43,29 @@ HELP_TEXT_DEV = """
 
 I Can Guide You Through All Of [Film District Bot](http://t.me/FilmDistrict_Bot)'s Cool Features & How To Properly Use Them. Use The Buttons Below To Navigate Through All Of The Modules</i></b>
 """
+
+
+about_master = """
+👋 Hey {},
+I can't Write Everything In My Bio So I Created This...(make it bold and italic)
+
+╭──[─═ ᴘᴇʀꜱᴏɴᴀʟ ɪɴꜰᴏ ═─]
+├• Name⇝ Anjan Modak 
+├• Gender⇝ What Do You Think
+├• TG Name⇝ HeartBeat
+├• Username⇝ @helloheartbeat
+├• Birthday⇝ 25th March 1990
+├• Age⇝ Calculate It
+├• Relationship Status⇝ Single
+├• Nationality⇝ Indian
+├• Location⇝ City Of Joy
+├• Contact Bot⇝ @TalkToHeartBeatBot
+╰──────⍟───────╯
+
+╭──[─═ ᴏᴡɴᴇʀ ᴀᴛ ═─]
+├• FILM DISTRICT(link)
+├• FILM DISTRICT UPDATES(link)
+├• FILM DISTRICT BOT(link)
+╰──────⍟───────╯
+
+🙏 Thank You For Reading Patiently(make it bold and italic)"""
