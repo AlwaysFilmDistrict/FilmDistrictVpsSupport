@@ -46,13 +46,13 @@ I Can Guide You Through All Of [Film District Bot](http://t.me/FilmDistrict_Bot)
 
 
 about_master = """
-👋 Hey {},
-I can't Write Everything In My Bio So I Created This...(make it bold and italic)
+👋 <b><i>Hey {},
+I Can't Write Everything In My Bio So I Created This...</i>
 
 ╭──[─═ ᴘᴇʀꜱᴏɴᴀʟ ɪɴꜰᴏ ═─]
 ├• Name⇝ Anjan Modak 
 ├• Gender⇝ What Do You Think
-├• TG Name⇝ HeartBeat
+├• TG Name⇝ HeartBeat(t.me/helloheartbeat)
 ├• Username⇝ @helloheartbeat
 ├• Birthday⇝ 25th March 1990
 ├• Age⇝ Calculate It
@@ -63,9 +63,9 @@ I can't Write Everything In My Bio So I Created This...(make it bold and italic)
 ╰──────⍟───────╯
 
 ╭──[─═ ᴏᴡɴᴇʀ ᴀᴛ ═─]
-├• FILM DISTRICT(link)
-├• FILM DISTRICT UPDATES(link)
-├• FILM DISTRICT BOT(link)
+├• FILM DISTRICT(https://telegram.me/joinchat/BOMKAM_4u0ozNWU1)
+├• FILM DISTRICT UPDATES(https://telegram.me/joinchat/EUUS8b0iEnVjZTU9)
+├• FILM DISTRICT BOT
 ╰──────⍟───────╯
 
-🙏 Thank You For Reading Patiently(make it bold and italic)"""
+🙏 <i>Thank You For Reading Patiently</i></b>"""
