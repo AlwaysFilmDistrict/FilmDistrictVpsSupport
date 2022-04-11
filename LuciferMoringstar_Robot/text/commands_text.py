@@ -52,7 +52,7 @@ I Can't Write Everything In My Bio So I Created This...</i>
 ╭──[─═ ᴘᴇʀꜱᴏɴᴀʟ ɪɴꜰᴏ ═─]
 ├• Name⇝ Anjan Modak 
 ├• Gender⇝ What Do You Think
-├• TG Name⇝ HeartBeat(t.me/helloheartbeat)
+├• TG Name⇝ [HeartBeat](t.me/helloheartbeat)
 ├• Username⇝ @helloheartbeat
 ├• Birthday⇝ 25th March 1990
 ├• Age⇝ Calculate It
@@ -63,8 +63,8 @@ I Can't Write Everything In My Bio So I Created This...</i>
 ╰──────⍟───────╯
 
 ╭──[─═ ᴏᴡɴᴇʀ ᴀᴛ ═─]
-├• FILM DISTRICT(https://telegram.me/joinchat/BOMKAM_4u0ozNWU1)
-├• FILM DISTRICT UPDATES(https://telegram.me/joinchat/EUUS8b0iEnVjZTU9)
+├• [FILM DISTRICT](https://telegram.me/joinchat/BOMKAM_4u0ozNWU1)
+├• [FILM DISTRICT UPDATES](https://telegram.me/joinchat/EUUS8b0iEnVjZTU9)
 ├• FILM DISTRICT BOT
 ╰──────⍟───────╯
 
