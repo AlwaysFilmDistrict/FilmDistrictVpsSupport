@@ -43,7 +43,7 @@ def song(_, message):
         duration = results[0]["duration"]
 
     except Exception as e:
-        m.edit("🙁 Sorry, I can't Find Your Requested Song..\n\nTry Another Song Name Or Follow Format..!\n\nIf You Facing Same Issues For Second Time Report It On ✔️ [HeartBeat](t.me/helloheartbeat)", disable_web_page_preview=True)
+        m.edit("🙁 <b>Sorry, I Can't Find Your Requested Song..\n\nPlease Try Another Song Name Or Use Correct Format..!\n\nIf You Facing Same Issues For Second Time Report It On ✔️ [HeartBeat](t.me/helloheartbeat)</b>", disable_web_page_preview=True)
         print(str(e))
         return
     m.edit("📥 Downloading Song To My Database...Please Wait..!")
@@ -54,11 +54,11 @@ def song(_, message):
             ydl.process_info(info_dict)
 
         rep = f"""
-🎶 Title: [{title}]({link})
-⌚️ Duration: <code>{duration}</code>
-👀 Views: <code>{views}</code>
-👤 Requested By: {message.from_user.mention()}
-⬆️ Uploaded By:  [HeartBeat](t.me/helloheartbeat)"""
+🎶 <b>Title:</b> [{title}]({link})
+⌚️ <b>Duration:</b> <code>{duration}</code>
+👀 <b>Views:</b> <code>{views}</code>
+👤 <b>Requested By:</b> {message.from_user.mention()}
+⬆️ <b>Uploaded By: [HeartBeat](t.me/helloheartbeat)</b>"""
 
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
@@ -74,7 +74,7 @@ def song(_, message):
         )
         m.delete()
     except Exception as e:
-        m.edit("❌ Error Contact [HeartBeat](t.me/helloheartbeat)", disable_web_page_preview=True)
+        m.edit("<b>An Error Occured. Please Report This To ✔️ [HeartBeat](t.me/helloheartbeat)</b>", disable_web_page_preview=True)
         print(e)
 
     try:
