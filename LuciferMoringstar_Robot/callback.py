@@ -6,7 +6,7 @@ from Database.autofilter_db import get_file_details, get_search_results, Media
 from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, BUTTON_CALLBACK_OR_URL, BOT_PHOTO, IMDBOT_CAPTION, ADMINS, BOT_START_TIME       
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from Database._utils import get_poster, is_subscribed, get_size, temp
-from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER, START_USER_TEXT, START_DEV_TEXT
+from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER, START_USER_TEXT, START_DEV_TEXT, about_master
 from LuciferMoringstar_Robot.text.auto_filter_text import FIRST_BUTTON
 from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text, database_text, logs_text, ban_pm_user_text, dyno_text, alive_text, imdb_text, inline_text, id_texts, faq_text, Invite_link, song_text
 from Database.users_chats_db import db as mt
@@ -285,7 +285,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                  ],[
                  InlineKeyboardButton("ℹ️ Help", callback_data="help_user"),
                  InlineKeyboardButton("😎 About", callback_data="about") 
+                 ],[
+                 InlineKeyboardButton("🎭 Who Am I", callback_data="master") 
                  ]]
+
                 await edit5.edit(text=START_USER_TEXT.format(first_name=query.from_user.first_name, id=query.from_user.id, bot_username=temp.U_NAME, Get=Get), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
                 return
             buttons = [[
@@ -293,8 +296,35 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 ],[
                 InlineKeyboardButton("ℹ️ Help", callback_data="help"),
                 InlineKeyboardButton("😎 About", callback_data="about")
-                ]]               
-            await edit5.edit(text=START_DEV_TEXT.format(first_name=query.from_user.first_name, id=query.from_user.id, bot_username=temp.U_NAME, Get=Get), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+                ],[                
+                InlineKeyboardButton("🎭 Who Am I", callback_data="master") 
+                ]]             
+            await edit5.edit(text=START_DEV_TEXT.format(first_name=query.from_user.first_name, id=query.from_user.id, bot_username=temp.U_NAME, Get=Get, mention=message.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+
+
+
+
+
+        elif query.data == "master":
+            await query.message.reply_chat_action("typing")
+
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
+
+            edit1=await query.message.edit(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit2.edit(EDIT_3)
+            await asyncio.sleep(0.4)
+            edit4=await edit3.edit(EDIT_4)
+            await asyncio.sleep(0.4)
+            edit5=await edit4.edit(EDIT_5)
+           
+            buttons = [[
+             InlineKeyboardButton("🏠 Home", callback_data="start")
+             ]]
+            await edit5.edit(about_master.format(query.from_user.mention, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+
 
         elif query.data == "about":
             await query.message.reply_chat_action("typing")
@@ -620,7 +650,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
               ]]
             await edit5.edit(HELP_TEXT_DEV.format(query.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
-
         elif query.data == "link_create_u":
             await query.message.reply_chat_action("typing")
 
@@ -734,6 +763,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help_user') ]]                          
             await edit5.edit(song_text, reply_markup=InlineKeyboardMarkup(buttons))
+
+
+
+
 
 
            
