@@ -43,10 +43,10 @@ def song(_, message):
         duration = results[0]["duration"]
 
     except Exception as e:
-        m.edit("🙁 <b>Sorry, I Can't Find Your Requested Song..\n\nPlease Try Another Song Name Or Use Correct Format..!\n\nIf You Facing Same Issues For Second Time Report It On ✔️ [HeartBeat](t.me/helloheartbeat)</b>", disable_web_page_preview=True)
+        m.edit("🙁 <b>Sorry, I Can't Find Your Requested Song..\n\n🙏 Please Try Another Song Name Or Use Correct Format..!\n\nIf You Facing Same Issues For Second Time Report It On ✔️ [HeartBeat](t.me/helloheartbeat)</b>", disable_web_page_preview=True)
         print(str(e))
         return
-    m.edit("📥 Downloading Song To My Database...Please Wait..!")
+    m.edit("📥 Downloading Song To Film District Server...Please Wait...⏳")
     try:
         with yt_dlp.YoutubeDL(ydl_ops) as ydl:
             info_dict = ydl.extract_info(link, download=False)
@@ -54,12 +54,15 @@ def song(_, message):
             ydl.process_info(info_dict)
 
         rep = f"""
-        •✡⊹ ʏᴏᴜᴛᴜʙᴇ ᴅᴀᴛᴀ ⊹✡•
+        
+        •⊹ ʏᴏᴜᴛᴜʙᴇ ᴅᴀᴛᴀ ⊹•
+        
 🎶 <b>Title:</b> [{title}]({link})
 ⌚️ <b>Duration:</b> <code>{duration}</code>
 👀 <b>Views:</b> <code>{views}</code>
 
-        •✡⊹ ꜱᴇʀᴠᴇʀ ᴅᴀᴛᴀ ⊹✡•
+        •⊹ ꜱᴇʀᴠᴇʀ ᴅᴀᴛᴀ ⊹•
+        
 👤 <b>Requested By:</b> {message.from_user.mention()}
 ⬆️ <b>Uploaded By: [HeartBeat](t.me/helloheartbeat)</b>
 
@@ -69,7 +72,7 @@ def song(_, message):
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(float(dur_arr[i])) * secmul
             secmul *= 60
-        m.edit("📤 Uploading Files To Telegram...")
+        m.edit("📤 <b>Uploading Files To Telegram...</b>")
         message.reply_audio(
             audio_file,
             caption=rep,
