@@ -300,11 +300,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 InlineKeyboardButton("🎭 Who Am I", callback_data="master") 
                 ]]             
             await edit5.edit(text=START_DEV_TEXT.format(first_name=query.from_user.first_name, id=query.from_user.id, bot_username=temp.U_NAME, Get=Get, mention=message.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
-
-
-
-
-
         elif query.data == "master":
             await query.message.reply_chat_action("typing")
 
@@ -323,14 +318,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             buttons = [[
              InlineKeyboardButton("🏠 Home", callback_data="start")
              ]]
-            await edit5.edit(about_master.format(query.from_user.mention, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
-
-
+            await edit5.edit(about_master.format(query.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
         elif query.data == "about":
             await query.message.reply_chat_action("typing")
 
                  
-          
             await query.answer(ABOUT_TEXT, show_alert=True)
 
         elif query.data == "help":
