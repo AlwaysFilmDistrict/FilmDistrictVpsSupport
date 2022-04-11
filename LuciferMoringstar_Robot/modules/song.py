@@ -54,11 +54,16 @@ def song(_, message):
             ydl.process_info(info_dict)
 
         rep = f"""
+        •✡⊹ ʏᴏᴜᴛᴜʙᴇ ᴅᴀᴛᴀ ⊹✡•
 🎶 <b>Title:</b> [{title}]({link})
 ⌚️ <b>Duration:</b> <code>{duration}</code>
 👀 <b>Views:</b> <code>{views}</code>
+
+        •✡⊹ ꜱᴇʀᴠᴇʀ ᴅᴀᴛᴀ ⊹✡•
 👤 <b>Requested By:</b> {message.from_user.mention()}
-⬆️ <b>Uploaded By: [HeartBeat](t.me/helloheartbeat)</b>"""
+⬆️ <b>Uploaded By: [HeartBeat](t.me/helloheartbeat)</b>
+
+<b>📌 This Song Uploaded From YouTube Music</b>"""
 
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
