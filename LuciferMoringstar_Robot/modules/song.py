@@ -56,13 +56,13 @@ def song(_, message):
 
         rep = f"""
         
-        •⊹ ʏᴏᴜᴛᴜʙᴇ ᴅᴀᴛᴀ ⊹•
+•⊹ ʏᴏᴜᴛᴜʙᴇ ᴅᴀᴛᴀ ⊹•
         
 🎶 <b>Title:</b> [{title}]({link})
 ⌚️ <b>Duration:</b> <code>{duration}</code>
 👀 <b>Views:</b> <code>{views}</code>
 
-        •⊹ ꜱᴇʀᴠᴇʀ ᴅᴀᴛᴀ ⊹•
+•⊹ ꜱᴇʀᴠᴇʀ ᴅᴀᴛᴀ ⊹•
         
 👤 <b>Requested By:</b> {message.from_user.mention()}
 ⬆️ <b>Uploaded By: [HeartBeat](t.me/helloheartbeat)</b>
