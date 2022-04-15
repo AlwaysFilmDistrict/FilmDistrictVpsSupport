@@ -30,7 +30,7 @@ async def group_filters(client, message):
         for i in "dubbed".split() :
          if i in search.lower() :
             LuciferMoringstar=await client.send_message(
-                text=f"""Hello 👋 {message.from_user.mention}, Don't Type "Dubbed" ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\nExample : Titanic Or Money Heist""",
+                text=f"""Hello 👋 {message.from_user.mention}, Don't Type <b>"Dubbed"</b> ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\n<b>Example : Titanic Or Money Heist</b>""",
                 chat_id=message.chat.id,
                 reply_to_message_id=message.message_id,
                 parse_mode="html")
@@ -40,7 +40,7 @@ async def group_filters(client, message):
         for i in "available".split() :
          if i in search.lower() :
             LuciferMoringstar=await client.send_message(
-                text=f"""Hello 👋 {message.from_user.mention}, Don't Type "Available" ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\nExample : Titanic Or Money Heist""",
+                text=f"""Hello 👋 {message.from_user.mention}, Don't Type <b>"Available"</b> ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\n<b>Example : Titanic Or Money Heist</b>""",
                 chat_id=message.chat.id,
                 reply_to_message_id=message.message_id,
                 parse_mode="html")
@@ -50,7 +50,7 @@ async def group_filters(client, message):
         for i in "movie".split() :
          if i in search.lower() :
             LuciferMoringstar=await client.send_message(
-                text=f"""Hello 👋 {message.from_user.mention}, Don't Type "Movie" ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\nExample : Titanic""",
+                text=f"""Hello 👋 {message.from_user.mention}, Don't Type <b>"Movie"</b> ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\n<b>Example : Titanic</b>""",
                 chat_id=message.chat.id,
                 reply_to_message_id=message.message_id,
                 parse_mode="html")
@@ -60,7 +60,7 @@ async def group_filters(client, message):
         for i in "film filim".split() :
          if i in search.lower() :
             LuciferMoringstar=await client.send_message(
-                text=f"""Hello 👋 {message.from_user.mention}, Don't Type "Film" ❌ - Language\n\nOnly Type The Name Of The Film/Series\n\nExample : Titanic""",
+                text=f"""Hello 👋 {message.from_user.mention}, Don't Type <b>"Film"</b> ❌ - Language\n\nOnly Type The Name Of The Film/Series\n\n<b>Example : Titanic</b>""",
                 chat_id=message.chat.id,
                 reply_to_message_id=message.message_id,
                 parse_mode="html")
