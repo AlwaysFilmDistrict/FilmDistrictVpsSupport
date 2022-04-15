@@ -8,6 +8,7 @@ from Config import SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BOT_PHOTO, IMDB_
 import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
+from pyrogram.errors import MessageNotModified
 
 
 async def group_filters(client, message):
