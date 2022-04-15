@@ -190,7 +190,7 @@ async def group_filters(client, message):
 
 
 
-async def autofilter_download(client, message):
+async def autofilter_download(client, query):
 
     btn = []
     message = query 
