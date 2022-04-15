@@ -19,7 +19,7 @@ async def group_filters(client, message):
         for i in "series".split() :
          if i in search.lower() :
             LuciferMoringstar=await client.send_message(
-                text="""Hello {mention} Don't Type "Series" ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\nExample : Titanic Or Money Heist""",
+                text="""Don't Type "Series" ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\nExample : Titanic Or Money Heist""",
                 chat_id=message.chat.id,
                 reply_to_message_id=message.message_id,
                 parse_mode="html")
@@ -106,11 +106,11 @@ async def group_filters(client, message):
             return
 
         Buttons = [[
-         InlineKeyboardButton("ツ 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 ツ", callback_data="download_files_af")
+         InlineKeyboardButton("ツ DOWNLOAD ツ", callback_data="download_files_af")
          ],[
-         InlineKeyboardButton("✦ 𝗛𝗢𝗪 𝗧𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 ✦", callback_data="download_files_alert")
+         InlineKeyboardButton("✦ HOW TO DOWNLOAD ✦", callback_data="download_files_alert")
          ],[
-         InlineKeyboardButton("✘ 𝗖𝗟𝗢𝗦𝗘 ✘", callback_data="close")
+         InlineKeyboardButton("✘ CLOSE ✘", callback_data="close")
          ]]
         imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
         if imdb:
