@@ -106,11 +106,11 @@ async def group_filters(client, message):
             return
 
         Buttons = [[
-         InlineKeyboardButton("⇩ DOWNLOAD ⇩", callback_data="download_files_af")
+         InlineKeyboardButton("ツ ᴅᴏᴡɴʟᴏᴀᴅ ツ", callback_data="download_files_af")
          ],[
-         InlineKeyboardButton("✧ HOW TO DOWNLOAD ✧", callback_data="download_files_alert")
+         InlineKeyboardButton("✦ ʜᴏᴡ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ✦", callback_data="download_files_alert")
          ],[
-         InlineKeyboardButton("✘ CLOSE ✘", callback_data="close")
+         InlineKeyboardButton("✘ ᴄʟᴏꜱᴇ ✘", callback_data="close")
          ]]
         imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
         if imdb:
