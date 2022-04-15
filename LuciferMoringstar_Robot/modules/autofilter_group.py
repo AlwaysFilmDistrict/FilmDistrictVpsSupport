@@ -19,7 +19,7 @@ async def group_filters(client, message):
         for i in "series".split() :
          if i in search.lower() :
             LuciferMoringstar=await client.send_message(
-                text="""Don't Type "Series" ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\nExample : Titanic Or Money Heist""",
+                text=f"""Hello 👋 {message.from_user.mention}, Don't Type **"Series"** ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\n**Example : Titanic Or Money Heist**""",
                 chat_id=message.chat.id,
                 reply_to_message_id=message.message_id,
                 parse_mode="html")
