@@ -29,7 +29,7 @@ async def group_filters(client, message):
         for i in "dubbed".split() :
          if i in search.lower() :
             LuciferMoringstar=await client.send_message(
-                text="""Don't Type "Dubbed" ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\nExample : Titanic Or Money Heist""",
+                text="""Hello 👋 {message.from_user.mention}, Don't Type "Dubbed" ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\nExample : Titanic Or Money Heist""",
                 chat_id=message.chat.id,
                 reply_to_message_id=message.message_id,
                 parse_mode="html")
@@ -39,7 +39,7 @@ async def group_filters(client, message):
         for i in "available".split() :
          if i in search.lower() :
             LuciferMoringstar=await client.send_message(
-                text="""Don't Type "Available" ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\nExample : Titanic Or Money Heist""",
+                text="""Hello 👋 {message.from_user.mention}, Don't Type "Available" ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\nExample : Titanic Or Money Heist""",
                 chat_id=message.chat.id,
                 reply_to_message_id=message.message_id,
                 parse_mode="html")
@@ -49,7 +49,7 @@ async def group_filters(client, message):
         for i in "movie".split() :
          if i in search.lower() :
             LuciferMoringstar=await client.send_message(
-                text="""Don't Type "Movie" ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\nExample : Titanic""",
+                text="""Hello 👋 {message.from_user.mention}, Don't Type "Movie" ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\nExample : Titanic""",
                 chat_id=message.chat.id,
                 reply_to_message_id=message.message_id,
                 parse_mode="html")
@@ -59,7 +59,7 @@ async def group_filters(client, message):
         for i in "film filim".split() :
          if i in search.lower() :
             LuciferMoringstar=await client.send_message(
-                text="""Don't Type "Film" ❌ - Language\n\nOnly Type The Name Of The Film/Series\n\nExample : Titanic""",
+                text="""Hello 👋 {message.from_user.mention}, Don't Type "Film" ❌ - Language\n\nOnly Type The Name Of The Film/Series\n\nExample : Titanic""",
                 chat_id=message.chat.id,
                 reply_to_message_id=message.message_id,
                 parse_mode="html")
