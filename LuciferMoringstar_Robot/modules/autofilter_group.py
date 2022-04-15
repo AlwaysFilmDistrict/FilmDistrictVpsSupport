@@ -70,7 +70,30 @@ async def group_filters(client, message):
 
 
         files, offset, total_results = await get_search_results(search.lower(), offset=0)              
+
+
+        if not files:
+            if SEPLLING_MODE_ON_OR_OFF == "on":
+                text_replay = message.text
+                text_google = text_replay.replace(" ", '+')           
+                button = [[
+                  InlineKeyboardButton("♻️ HELP ♻️", callback_data="google_alert")
+                  ],[
+                  InlineKeyboardButton("🔍 GOOGLE", url=f"https://www.google.com/search?q={text_google}"),
+                  InlineKeyboardButton("IMDB 🔎", url=f"https://www.imdb.com/find?q={text_google}")
+                  ],[
+                  InlineKeyboardButton("🗑️ CLOSE 🗑️", callback_data="close")
+                  ]]
+                reply_markup = InlineKeyboardMarkup(button)
+                LuciferMoringstar=await message.reply_text(
+                    text=SPELLING_MODE_TEXT.format(message.from_user.mention, search),
+                    reply_markup=reply_markup                 
+                )
+                await asyncio.sleep(60) 
+                await LuciferMoringstar.delete()
+
         if files:
+
             btn.append(
                 [InlineKeyboardButton(text="ミ★ FILM DISTRICT ★彡", callback_data="first_af_alert")]
             )
