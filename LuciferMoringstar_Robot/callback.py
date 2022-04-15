@@ -8,6 +8,8 @@ from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerId
 from Database._utils import get_poster, is_subscribed, get_size, temp
 from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER, START_USER_TEXT, START_DEV_TEXT, about_master
 from LuciferMoringstar_Robot.text.auto_filter_text import FIRST_BUTTON
+from LuciferMoringstar_Robot.modules.autofilter_group import autofilter_download, alert_download_file
+
 from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text, database_text, logs_text, ban_pm_user_text, dyno_text, alive_text, imdb_text, inline_text, id_texts, faq_text, Invite_link, song_text
 from Database.users_chats_db import db as mt
 from Database.broadcast import db
@@ -757,6 +759,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await edit5.edit(song_text, reply_markup=InlineKeyboardMarkup(buttons))
 
 
+
+        # × ~~~~~~~~~~ Download Files ~~~~~~~~~~ × #
+
+        elif query.data.startswith("download_files_af"):
+            await autofilter_download(client, query)
+
+
+        # × ~~~~~~~~~~ Download Files Alert ~~~~~~~~~~ × #
+
+        elif query.data == "download_files_alert":       
+            await query.answer(alert_download_file, show_alert=True)
 
 
 
