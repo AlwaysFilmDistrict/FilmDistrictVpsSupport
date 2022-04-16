@@ -10,6 +10,18 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 from pyrogram.errors import MessageNotModified
 
+import pytz, datetime
+
+m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
+times = m.hour
+if times < 12:
+    Get = "Good Morning"
+elif times < 16:
+    Get = "Good Afternoon"
+elif times < 20:
+    Get = "Good Evening"
+else:
+    Get = "Good Night"
 
 async def group_filters(client, message):
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
@@ -130,6 +142,7 @@ async def group_filters(client, message):
             Text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
             IMDB_CAPTION = os.environ.get('WITH_POSTER_CAPTION', Text)
             cap = IMDB_CAPTION.format(
+                greeting=Get,
                 mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
                 chat_name = message.chat.title,
                 total_page = f"{round(int(total_results)/10)}",
@@ -174,6 +187,7 @@ async def group_filters(client, message):
             text += f"📌 **This Post Will Be Deleted After 10 Minutes**"
             IMDB_CAPTIONS = os.environ.get('WITHOUT_POSTER_CAPTION', text)
             cap=IMDB_CAPTIONS.format(
+                greeting=Get,
                 mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
                 chat_name = f"@{temp.U_NAME}",
                 total_page = f"{round(int(total_results)/10)}",
