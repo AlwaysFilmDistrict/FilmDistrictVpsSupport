@@ -25,6 +25,18 @@ ALL_ALERT_TEXT_BOT_PM = "Connecting Film Lovers"
 
 import pytz, datetime
 
+m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
+times = m.hour
+if times < 12:
+    Get = "Good Morning"
+elif times < 16:
+    Get = "Good Afternoon"
+elif times < 20:
+    Get = "Good Evening"
+else:
+    Get = "Good Night"
+
+
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
@@ -206,6 +218,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             message = query.message.reply_to_message or query.message
             if imdb:
                  caption = IMDBOT_CAPTION.format(
+                    Get = Get,
                     query = imdb['title'],
                     title = imdb['title'],
                     votes = imdb['votes'],
@@ -253,18 +266,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.message.edit(caption, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=False)
    
         elif query.data == "start":
-            m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
-            times = m.hour
-
-            if times < 12:
-                Get="Good Morning"
-            elif times < 16:
-                Get="Good Afternoon"
-            elif times < 20:
-                Get="Good Evening"
-            else:
-                Get="Good Night"
-
 
             await query.message.reply_chat_action("typing")
 
