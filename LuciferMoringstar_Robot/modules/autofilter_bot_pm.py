@@ -10,6 +10,21 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
+
+import pytz, datetime
+
+m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
+times = m.hour
+if times < 12:
+    Get = "Good Morning"
+elif times < 16:
+    Get = "Good Afternoon"
+elif times < 20:
+    Get = "Good Evening"
+else:
+    Get = "Good Night"
+
+
 async def pm_autofilter(client, message):
     if message.text.startswith("/"):
         return
@@ -100,6 +115,7 @@ async def pm_autofilter(client, message):
             text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
             IMDB_CAPTION = os.environ.get('WITH_POSTER_CAPTION', text)
             cap = IMDB_CAPTION.format(
+                greeting=Get,
                 mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
                 chat_name = f"@{temp.U_NAME}",
                 total_page = f"{round(int(total_results)/10)}",
@@ -144,6 +160,7 @@ async def pm_autofilter(client, message):
             text += f"📌 **This Post Will Be Deleted After 10 Minutes**"
             IMDB_CAPTIONS = os.environ.get('WITHOUT_POSTER_CAPTION', text)
             cap=IMDB_CAPTIONS.format(
+                greeting=Get,
                 mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
                 chat_name = f"@{temp.U_NAME}",
                 total_page = f"{round(int(total_results)/10)}",
