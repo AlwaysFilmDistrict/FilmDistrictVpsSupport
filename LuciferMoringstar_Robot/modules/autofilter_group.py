@@ -12,16 +12,6 @@ from pyrogram.errors import MessageNotModified
 
 import pytz, datetime
 
-m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
-times = m.hour
-if times < 12:
-    Get = "Good Morning"
-elif times < 16:
-    Get = "Good Afternoon"
-elif times < 20:
-    Get = "Good Evening"
-else:
-    Get = "Good Night"
 
 async def group_filters(client, message):
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
@@ -117,6 +107,20 @@ async def group_filters(client, message):
                 )
         if not btn:
             return
+
+
+
+        m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
+        times = m.hour
+        if times < 12:
+           Get = "Good Morning"
+        elif times < 16:
+            Get = "Good Afternoon"
+        elif times < 20:
+            Get = "Good Evening"
+        else:
+            Get = "Good Night"
+
 
         Buttons = [[
          InlineKeyboardButton("ツ DOWNLOAD ツ", callback_data="download_files_af")
