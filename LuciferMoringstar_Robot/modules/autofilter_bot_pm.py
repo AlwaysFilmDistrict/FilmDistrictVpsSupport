@@ -13,17 +13,6 @@ logger.setLevel(logging.ERROR)
 
 import pytz, datetime
 
-m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
-times = m.hour
-if times < 12:
-    Get = "Good Morning"
-elif times < 16:
-    Get = "Good Afternoon"
-elif times < 20:
-    Get = "Good Evening"
-else:
-    Get = "Good Night"
-
 
 async def pm_autofilter(client, message):
     if message.text.startswith("/"):
@@ -98,7 +87,22 @@ async def pm_autofilter(client, message):
             btn.append(
                  [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
             )
-       
+      
+
+
+
+        m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
+        times = m.hour
+        if times < 12:
+           Get = "Good Morning"
+        elif times < 16:
+            Get = "Good Afternoon"
+        elif times < 20:
+            Get = "Good Evening"
+        else:
+            Get = "Good Night"
+ 
+
         imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
         if imdb:
             text = "↪️ **Requested:** {query}\n"
