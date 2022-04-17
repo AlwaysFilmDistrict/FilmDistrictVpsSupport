@@ -9,7 +9,7 @@ from Database._utils import get_poster, is_subscribed, get_size, temp
 from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER, START_USER_TEXT, START_DEV_TEXT, about_master
 from LuciferMoringstar_Robot.text.auto_filter_text import FIRST_BUTTON
 from LuciferMoringstar_Robot.modules.autofilter_group import autofilter_download, alert_download_file
-
+import pytz, datetime
 from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text, database_text, logs_text, ban_pm_user_text, dyno_text, alive_text, imdb_text, inline_text, id_texts, faq_text, Invite_link, song_text
 from Database.users_chats_db import db as mt
 from Database.broadcast import db
@@ -21,20 +21,6 @@ EDIT_4 = "☑ ☑ ☑ ☐"
 EDIT_5 = "☑ ☑ ☑ ☑"
 
 ALL_ALERT_TEXT_BOT_PM = "Connecting Film Lovers"
-
-
-import pytz, datetime
-
-m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
-times = m.hour
-if times < 12:
-    Get = "Good Morning"
-elif times < 16:
-    Get = "Good Afternoon"
-elif times < 20:
-    Get = "Good Evening"
-else:
-    Get = "Good Night"
 
 
 
@@ -218,7 +204,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             message = query.message.reply_to_message or query.message
             if imdb:
                  caption = IMDBOT_CAPTION.format(
-                    Get = Get,
                     query = imdb['title'],
                     title = imdb['title'],
                     votes = imdb['votes'],
@@ -266,6 +251,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.message.edit(caption, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=False)
    
         elif query.data == "start":
+
+            m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
+            times = m.hour
+            if times < 12:
+                Get = "Good Morning"
+            elif times < 16:
+                Get = "Good Afternoon"
+            elif times < 20: 
+                Get = "Good Evening"
+            else:
+                Get = "Good Night"
 
             await query.message.reply_chat_action("typing")
 
