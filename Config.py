@@ -13,7 +13,7 @@ from keys import API_ID, API_HASH, BOT_TOKEN, BOT_PHOTO, AUTOFILTER_DB, ANOTHER_
 
 
 # Bot information
-API_ID = int(environ.get('API_ID', API_ID)
+API_ID = int(environ.get('API_ID', API_ID))
 API_HASH = environ.get('API_HASH', API_HASH)
 BOT_TOKEN = environ.get('BOT_TOKEN', BOT_TOKEN) 
 BOT_PHOTO = environ.get('BOT_PHOTO', BOT_PHOTO)
