@@ -19,6 +19,9 @@ LOG_CHANNEL = "-1001556133233" # Log Channel
 AUTH_USERS = "919653750" # Private Use
 ADMINS = "919653750" # Controls
 
+# Api Keys
+HEROKU_API_KEY = "ea582caa-ed6d-419d-a584-218f968322a7"
+
 # Imdb
 IMDB_POSTER_ON_OFF = "True"
 LONG_IMDB_DESCRIPTION = "False"
