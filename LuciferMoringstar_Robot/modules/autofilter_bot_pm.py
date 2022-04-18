@@ -9,7 +9,7 @@ from pyrogram.errors import UserNotParticipant
 import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
-
+from keys import WITHOUT_POSTER_CAPTION, WITH_POSTER_CAPTION
 
 import pytz, datetime
 
@@ -104,20 +104,8 @@ async def pm_autofilter(client, message):
  
 
         imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
-        if imdb:
-            text = "↪️ **Requested:** {query}\n"
-            text += "👤 **Requested By:** {mention}\n"
-            text += "🗂️ **Title:** [{title}]({url})\n"
-            text += "🎭 **Genres:** {genres}\n"
-            text += "📆 **Year:** {year}\n"
-            text += "🌟 **Rating:** {rating} / 10\n"
-            text += "🖋 **StoryLine:** <code>{plot}</code>\n"
-            text += "📑 **Total Page:** {total_page}\n"
-            text += "📥 **Updated By:** {chat_name}\n"
-            text += "🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
-            text += "📌 **Press The Down Buttons To Access The File**\n"
-            text += "📌 **This Post Will Be Deleted After 10 Minutes**"      
-            IMDB_CAPTION = os.environ.get('WITH_POSTER_CAPTION', text)
+        if imdb:      
+            IMDB_CAPTION = os.environ.get('WITH_POSTER_CAPTION', WITH_POSTER_CAPTION)
             cap = IMDB_CAPTION.format(
                 greeting=Get,
                 mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
@@ -155,14 +143,7 @@ async def pm_autofilter(client, message):
                 **locals()
             )
         else:
-            text = f"↪️ **Requested:** {search}\n"
-            text += f"👤 **Requested By:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n"
-            text += "📑 **Total Page:** {round(int(total_results)/10)}\n"
-            text += f"📥 **Updated By:** @{temp.U_NAME}\n"
-            text += f"🧑‍🔧 **Get Support ✔️** [HeartBeat](t.me/helloheartbeat)\n\n"
-            text += f"📌 **Press The Down Buttons To Access The File**\n"
-            text += f"📌 **This Post Will Be Deleted After 10 Minutes**"
-            IMDB_CAPTIONS = os.environ.get('WITHOUT_POSTER_CAPTION', text)
+            IMDB_CAPTIONS = os.environ.get('WITHOUT_POSTER_CAPTION', WITHOUT_POSTER_CAPTION)
             cap=IMDB_CAPTIONS.format(
                 greeting=Get,
                 mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
