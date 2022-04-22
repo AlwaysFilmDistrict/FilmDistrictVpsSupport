@@ -23,7 +23,7 @@ ADMINS = "919653750" # Controls
 HEROKU_API_KEY = "ea582caa-ed6d-419d-a584-218f968322a7"
 
 # Imdb
-IMDB_POSTER_ON_OFF = "True"
+IMDB_POSTER_ON_OFF = "False"
 LONG_IMDB_DESCRIPTION = "False"
 
 # Spell Check 
