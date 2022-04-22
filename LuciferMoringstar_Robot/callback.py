@@ -342,11 +342,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
             buttons = [[
-             InlineKeyboardButton("GooglePay", callback_data="google_pay"),
-             InlineKeyboardButton("Paytm", callback_data="paytm")
+             InlineKeyboardButton("💳 GooglePay", callback_data="google_pay"),
+             InlineKeyboardButton("🪙 Paytm", callback_data="paytm")
              ],[
-             InlineKeyboardButton("PhonePe", callback_data="phonepe"),
-             InlineKeyboardButton("Paypal", url="https://www.paypal.com/paypalme/AnjanModak")
+             InlineKeyboardButton("💰 PhonePe", callback_data="phonepe"),
+             InlineKeyboardButton("💲 Paypal", url="https://www.paypal.com/paypalme/AnjanModak")
              ]]
             await edit5.edit(DONATE_TEXT.format(query.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
