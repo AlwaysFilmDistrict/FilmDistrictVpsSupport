@@ -2,9 +2,9 @@ import re, asyncio, random, os
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
-from Database.autofilter_db import get_search_results, get_file_details
+from Database.autofilter_db import get_filter_results, get_search_results, get_file_details
 from Database._utils import get_size, get_poster, split_list, temp
-from Config import SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BOT_PHOTO, IMDB_POSTER_ON_OFF        
+from Config import SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BOT_PHOTO, IMDB_POSTER_ON_OFF, CUSTOM_FILE_CAPTION        
 import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
@@ -294,9 +294,43 @@ alert_download_file = """
 """
 
 
+async def all_files(client, query):
+
+    await query.answer("Uploading.. All Files", show_alert=True)
+    querys = query.message.reply_to_message.text
+    files = await get_filter_results(query=querys)
 
 
 
+    for file in files:
+        file_id = file.file_id
+
+
+        mention = query.from_user.mention
+        title = file.file_name
+        size = get_size(file.file_size)
+        type = file.file_type
+       
+        caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=files.caption, mention=query.from_user.mention)
+                                     
+        try:
+            await asyncio.sleep(0.5)             
+            await client.send_cached_media(
+                chat_id=query.from_user.id,
+                file_id=file_id,
+                caption=caption,
+                reply_markup=InlineKeyboardMarkup(button)
+            )
+        except FloodWait as e:
+            await asyncio.sleep(e.x)              
+            await client.send_cached_media(
+                chat_id=query.from_user.id,
+                file_id=file_id,
+                caption=caption,
+                reply_markup=InlineKeyboardMarkup(button)
+            )
+        except:
+            pass
 
 
 
