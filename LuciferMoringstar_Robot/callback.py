@@ -6,7 +6,7 @@ from Database.autofilter_db import get_file_details, get_search_results, Media
 from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, BUTTON_CALLBACK_OR_URL, BOT_PHOTO, IMDBOT_CAPTION, ADMINS, BOT_START_TIME       
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from Database._utils import get_poster, is_subscribed, get_size, temp
-from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER, START_USER_TEXT, START_DEV_TEXT, about_master
+from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER, START_USER_TEXT, START_DEV_TEXT, about_master, DONATE_TEXT
 from LuciferMoringstar_Robot.text.auto_filter_text import FIRST_BUTTON
 from LuciferMoringstar_Robot.modules.autofilter_group import autofilter_download, alert_download_file
 import pytz, datetime
@@ -296,7 +296,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 InlineKeyboardButton("ℹ️ Help", callback_data="help"),
                 InlineKeyboardButton("😎 About", callback_data="about")
                 ],[                
-                InlineKeyboardButton("🎭 Who Am I", callback_data="master") 
+                InlineKeyboardButton("🎭 Who Am I", callback_data="master"),
+                InlineKeyboardButton("Donate 💳", callback_data="donate") 
                 ]]             
             await edit5.edit(text=START_DEV_TEXT.format(first_name=query.from_user.first_name, id=query.from_user.id, bot_username=temp.U_NAME, Get=Get), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
         elif query.data == "master":
@@ -324,6 +325,41 @@ async def cb_handler(client: Client, query: CallbackQuery):
                  
             await query.answer(ABOUT_TEXT, show_alert=True)
 
+
+        elif query.data == "donate":
+            await query.message.reply_chat_action("typing")
+
+            await query.answer(ALL_ALERT_TEXT_BOT_PM)
+
+            edit1=await query.message.edit(EDIT_1)
+            await asyncio.sleep(0.4)
+            edit2=await edit1.edit(EDIT_2)
+            await asyncio.sleep(0.4)
+            edit3=await edit2.edit(EDIT_3)
+            await asyncio.sleep(0.4)
+            edit4=await edit3.edit(EDIT_4)
+            await asyncio.sleep(0.4)
+            edit5=await edit4.edit(EDIT_5)
+            buttons = [[
+             InlineKeyboardButton("GooglePay", callback_data="google_pay"),
+             InlineKeyboardButton("Paytm", callback_data="paytm")
+             ],[
+             InlineKeyboardButton("PhonePe", callback_data="phonepe"),
+             InlineKeyboardButton("Paypal", url="https://www.paypal.com/paypalme/AnjanModak")
+             ]]
+            await edit5.edit(DONATE_TEXT.format(query.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+
+
+
+        elif query.data == "google_pay":
+            await query.message.reply_sticker(sticker="CAACAgUAAxkBAAECTmtiYkdu0ar5c46vFCb5rIn3DFqfGwACLAQAAmvaEFevJs8WPIrghh4E")
+        elif query.data == "paytm":
+            await query.message.reply_sticker(sticker="CAACAgUAAxkBAAECTm9iYkjbpRPUyn53Lc67kEJb5TjnXAACvgUAAqS2EVd-OwY6MvoAAZ8eBA")
+        elif query.data == "phonepe":
+            await query.message.reply_sticker(sticker="CAACAgUAAxkBAAECTm1iYkfV0jwAAdT2s5YIal2fhkbqdp0AAuMEAAI44hBXtAEpahZoMAoeBA")
+
+
+
         elif query.data == "help":
             await query.message.reply_chat_action("typing")
 
@@ -338,6 +374,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             edit4=await edit3.edit(EDIT_4)
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
+
+
+
 
 
             buttons = [[
@@ -396,14 +435,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
               
             cpu = psutil.cpu_percent()
             ram = psutil.virtual_memory().percent
-            stats_texts = f"""
-📁 Total Files: {files}
-👤 Total Users: {total_users}
-⌛ Used Storage: {size} MiB
-⏳ Free Storage: {free} MiB
-📼 Cpu: {cpu} | 💾 Ram: {ram}
-⏱️ Last Update: {updates}
-"""
+            stats_texts = f"""📁 Total Files: {files}\n👤 Total Users: {total_users}\n⌛ Used Storage: {size} MiB\n⏳ Free Storage: {free} MiB\n📼 Cpu: {cpu} | 💾 Ram: {ram}\n⏱️ Last Update: {updates}"""
             await query.answer(stats_texts, show_alert=True)
 
         elif query.data == "database":
