@@ -80,6 +80,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 btn.append(
                     [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
                 )
+                btn.append(
+                    [InlineKeyboardButton(text="Get All Files ", callback_data="all_files")]
+                )    
             elif off_set is None:
                 btn.append(
                     [InlineKeyboardButton("Next Page ➡️", callback_data=f"next_{req}_{key}_{n_offset}")]
@@ -91,6 +94,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 )
                 btn.append(
                     [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
+                )
+                btn.append(
+                    [InlineKeyboardButton(text="Get All Files ", callback_data="all_files")]
                 )
             else:
                 btn.append(
@@ -104,6 +110,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 )
                 btn.append(
                     [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
+                )
+                btn.append(
+                    [InlineKeyboardButton(text="Get All Files ", callback_data="all_files")]
                 )
             try:
                 await query.edit_message_reply_markup(
