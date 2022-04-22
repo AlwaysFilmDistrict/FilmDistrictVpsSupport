@@ -78,11 +78,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
                      InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
                 )
                 btn.append(
-                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
+                    [InlineKeyboardButton(text="📂 Get All Files 📂", callback_data="all_files")]
                 )
                 btn.append(
-                    [InlineKeyboardButton(text="Get All Files ", callback_data="all_files")]
-                )    
+                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
+                )
+    
             elif off_set is None:
                 btn.append(
                     [InlineKeyboardButton("Next Page ➡️", callback_data=f"next_{req}_{key}_{n_offset}")]
@@ -93,11 +94,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
                      InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
                 )
                 btn.append(
-                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
+                    [InlineKeyboardButton(text="📂 Get All Files 📂", callback_data="all_files")]
                 )
                 btn.append(
-                    [InlineKeyboardButton(text="Get All Files ", callback_data="all_files")]
+                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
                 )
+
             else:
                 btn.append(
                     [InlineKeyboardButton("🔙 Back Page", callback_data=f"next_{req}_{key}_{off_set}"),             
@@ -109,11 +111,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
                      InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
                 )
                 btn.append(
-                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
+                    [InlineKeyboardButton(text="📂 Get All Files 📂", callback_data="all_files")]
                 )
                 btn.append(
-                    [InlineKeyboardButton(text="Get All Files ", callback_data="all_files")]
+                    [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
                 )
+
             try:
                 await query.edit_message_reply_markup(
                     reply_markup=InlineKeyboardMarkup(btn)
