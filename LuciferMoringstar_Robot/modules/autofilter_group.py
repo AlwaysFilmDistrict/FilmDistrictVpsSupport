@@ -265,23 +265,25 @@ async def autofilter_download(client, query):
              InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
         )
         btn.append(
-            [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
+            [InlineKeyboardButton(text="📂 Get All Files 📂", callback_data="all_files")]
         )
         btn.append(
-            [InlineKeyboardButton(text="Get All Files ", callback_data="all_files")]
+            [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
         )
+
     else:
         btn.append(
             [InlineKeyboardButton(text="🗓️ 1",callback_data="pages"),
              InlineKeyboardButton(text="🗑️",callback_data="close"),
              InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
-        )        
+        ) 
+        btn.append(
+            [InlineKeyboardButton(text="📂 Get All Files 📂", callback_data="all_files")]
+        )      
         btn.append(
             [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
         )
-        btn.append(
-            [InlineKeyboardButton(text="Get All Files ", callback_data="all_files")]
-        )
+
 
     try:
         await query.edit_message_reply_markup(
