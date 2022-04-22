@@ -321,16 +321,16 @@ async def all_files(client, query):
             await client.send_cached_media(
                 chat_id=query.from_user.id,
                 file_id=file_id,
-                caption=caption,
-                reply_markup=InlineKeyboardMarkup(button)
+                caption=caption
+              
             )
         except FloodWait as e:
             await asyncio.sleep(e.x)              
             await client.send_cached_media(
                 chat_id=query.from_user.id,
                 file_id=file_id,
-                caption=caption,
-                reply_markup=InlineKeyboardMarkup(button)
+                caption=caption
+                
             )
         except:
             pass
