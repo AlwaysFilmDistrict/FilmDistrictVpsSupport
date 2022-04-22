@@ -311,14 +311,10 @@ async def all_files(client, query):
     for file in files:
         file_id = file.file_id
 
-
-        mention = query.from_user.mention
         title = file.file_name
         size = get_size(file.file_size)
-        type = file.file_type
-       
-        caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=files.caption, mention=query.from_user.mention)
-                                     
+        type = file.file_type     
+        caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, mention=query.from_user.mention)
         try:
             await asyncio.sleep(0.5)             
             await client.send_cached_media(
