@@ -78,4 +78,4 @@ Thank You For Showing Interest In My Works 🙏
 
 To Support My Works, Please Feel Free To Donate Any Amount You Like 💸
 
-There Are Multiple Ways To Donate By Clicking On The Buttons Below ⬇️</i></b>"""
+There Are Multiple Ways To Donate By Clicking On The Buttons Below</i></b>"""
