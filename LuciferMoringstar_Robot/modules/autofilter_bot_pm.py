@@ -78,7 +78,7 @@ async def pm_autofilter(client, message):
             btn.append(
                  [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
             )
-           btn.append(
+            btn.append(
                  [InlineKeyboardButton(text="Get All Files ", callback_data="all_files")]
             )
         else:
