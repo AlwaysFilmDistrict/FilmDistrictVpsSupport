@@ -78,6 +78,9 @@ async def pm_autofilter(client, message):
             btn.append(
                  [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
             )
+           btn.append(
+                 [InlineKeyboardButton(text="Get All Files ", callback_data="all_files")]
+            )
         else:
             btn.append(
                 [InlineKeyboardButton(text="🗓️ 1",callback_data="pages"),
@@ -86,6 +89,9 @@ async def pm_autofilter(client, message):
             )        
             btn.append(
                  [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
+            )
+            btn.append(
+                 [InlineKeyboardButton(text="Get All Files ", callback_data="all_files")]
             )
       
 
