@@ -305,7 +305,7 @@ alert_download_file = """
 
 async def all_files(client, query):
 
-    await query.answer("Uploading.. All Files", show_alert=True)
+    await query.answer("Check Bot PM, I Have Sent Your All Files At Once In PM 📥", show_alert=True)
 
     try:
         querys = query.message.reply_to_message.text
