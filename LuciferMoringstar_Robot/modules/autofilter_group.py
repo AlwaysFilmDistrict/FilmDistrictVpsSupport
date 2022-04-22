@@ -306,7 +306,12 @@ alert_download_file = """
 async def all_files(client, query):
 
     await query.answer("Uploading.. All Files", show_alert=True)
-    querys = query.message.reply_to_message.text
+
+    try:
+        querys = query.message.reply_to_message.text
+    except Exception:
+        querys = query.message.text
+
     files = await get_filter_results(query=querys)
 
 
