@@ -360,7 +360,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
              InlineKeyboardButton("💰 PhonePe", callback_data="phonepe"),
              InlineKeyboardButton("💲 Paypal", url="https://www.paypal.com/paypalme/AnjanModak")
              ],[
-             InlineKeyboardButton("Home", callback_data="start")
+             InlineKeyboardButton("🏠 Home", callback_data="start")
              ]]
             await edit5.edit(DONATE_TEXT.format(query.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
