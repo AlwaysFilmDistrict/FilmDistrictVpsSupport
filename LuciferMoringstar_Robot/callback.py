@@ -286,7 +286,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                  InlineKeyboardButton("😎 About", callback_data="about") 
                  ],[
                  InlineKeyboardButton("🎭 Who Am I", callback_data="master"),
-                 InlineKeyboardButton("Donate 💳", callback_data="donate") 
+                 InlineKeyboardButton("💸 Donate", callback_data="donate") 
                  ]]
 
                 await edit5.edit(text=START_USER_TEXT.format(first_name=query.from_user.first_name, id=query.from_user.id, bot_username=temp.U_NAME, Get=Get), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -298,7 +298,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 InlineKeyboardButton("😎 About", callback_data="about")
                 ],[                
                 InlineKeyboardButton("🎭 Who Am I", callback_data="master"),
-                InlineKeyboardButton("Donate 💳", callback_data="donate") 
+                InlineKeyboardButton("💸 Donate", callback_data="donate") 
                 ]]             
             await edit5.edit(text=START_DEV_TEXT.format(first_name=query.from_user.first_name, id=query.from_user.id, bot_username=temp.U_NAME, Get=Get), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
         elif query.data == "master":
