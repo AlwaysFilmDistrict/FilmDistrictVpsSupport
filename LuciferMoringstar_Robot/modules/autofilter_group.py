@@ -1,5 +1,6 @@
 import re, asyncio, random, os
 from pyrogram import Client, filters
+from pyrogram.errors import FloodWait
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Database.autofilter_db import get_filter_results, get_search_results, get_file_details
