@@ -8,7 +8,7 @@ from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerId
 from Database._utils import get_poster, is_subscribed, get_size, temp
 from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER, START_USER_TEXT, START_DEV_TEXT, about_master, DONATE_TEXT
 from LuciferMoringstar_Robot.text.auto_filter_text import FIRST_BUTTON
-from LuciferMoringstar_Robot.modules.autofilter_group import autofilter_download, alert_download_file
+from LuciferMoringstar_Robot.modules.autofilter_group import autofilter_download, alert_download_file, all_files
 import pytz, datetime
 from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text, database_text, logs_text, ban_pm_user_text, dyno_text, alive_text, imdb_text, inline_text, id_texts, faq_text, Invite_link, song_text
 from Database.users_chats_db import db as mt
@@ -347,6 +347,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
              ],[
              InlineKeyboardButton("💰 PhonePe", callback_data="phonepe"),
              InlineKeyboardButton("💲 Paypal", url="https://www.paypal.com/paypalme/AnjanModak")
+             ],[
+             InlineKeyboardButton("Home", callback_data="start")
              ]]
             await edit5.edit(DONATE_TEXT.format(query.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
@@ -794,6 +796,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data.startswith("download_files_af"):
             await autofilter_download(client, query)
+
+
+        elif query.data.startswith("all_files"):
+            await all_files(client, query)
 
 
         # × ~~~~~~~~~~ Download Files Alert ~~~~~~~~~~ × #
