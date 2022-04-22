@@ -321,14 +321,19 @@ async def all_files(client, query):
 
         title = file.file_name
         size = get_size(file.file_size)
-        type = file.file_type     
+        type = file.file_type 
+        buttons=[[
+         InlineKeyboardButton("🆘👤 Owner", url="http://t.me/helloheartbeat"),
+         InlineKeyboardButton("🆘🤖 Contact", url="http://t.me/TalkToHeartBeatBot")
+         ]]
         caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, mention=query.from_user.mention)
         try:
             await asyncio.sleep(0.5)             
             await client.send_cached_media(
                 chat_id=query.from_user.id,
                 file_id=file_id,
-                caption=caption
+                caption=caption,
+                reply_markup=InlineKeyboardMarkup(buttons)
               
             )
         except FloodWait as e:
@@ -336,7 +341,8 @@ async def all_files(client, query):
             await client.send_cached_media(
                 chat_id=query.from_user.id,
                 file_id=file_id,
-                caption=caption
+                caption=caption,
+                reply_markup=InlineKeyboardMarkup(buttons)
                 
             )
         except:
