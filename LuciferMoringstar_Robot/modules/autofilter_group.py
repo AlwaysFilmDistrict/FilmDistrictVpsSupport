@@ -219,6 +219,21 @@ async def autofilter_download(client, query):
             [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
         )
 
+
+
+
+
+        m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
+        times = m.hour
+        if times < 12:
+           Get = "Good Morning"
+        elif times < 16:
+            Get = "Good Afternoon"
+        elif times < 20:
+            Get = "Good Evening"
+        else:
+            Get = "Good Night"
+
         imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
         if imdb:
             IMDB_CAPTION = os.environ.get('WITH_POSTER_CAPTION', WITH_POSTER_CAPTION)
