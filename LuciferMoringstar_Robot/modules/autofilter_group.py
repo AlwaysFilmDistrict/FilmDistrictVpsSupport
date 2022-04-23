@@ -219,85 +219,81 @@ async def autofilter_download(client, query):
             [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
         )
 
+    
+    m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
+    times = m.hour
+    if times < 12:
+       Get = "Good Morning"
+    elif times < 16:
+        Get = "Good Afternoon"
+    elif times < 20:
+        Get = "Good Evening"
+    else:
+        Get = "Good Night"
+    imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
+    if imdb:
+        IMDB_CAPTION = os.environ.get('WITH_POSTER_CAPTION', WITH_POSTER_CAPTION)
+        cap = IMDB_CAPTION.format(
+            greeting=Get,
+            mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
+            chat_name = query.message.chat.title,
+            total_page = f"{round(int(total_results)/10)}",
+            total_files = total_results,
+            query = search,
+            title = imdb['title'],
+            votes = imdb['votes'],
+            aka = imdb["aka"],
+            seasons = imdb["seasons"],
+            box_office = imdb['box_office'],
+            localized_title = imdb['localized_title'],
+            kind = imdb['kind'],
+            imdb_id = imdb["imdb_id"],
+            cast = imdb["cast"],
+            runtime = imdb["runtime"],
+            countries = imdb["countries"],
+            certificates = imdb["certificates"],
+            languages = imdb["languages"],
+            director = imdb["director"],
+            writer = imdb["writer"],
+            producer = imdb["producer"],
+            composer = imdb["composer"],
+            cinematographer = imdb["cinematographer"],
+            music_team = imdb["music_team"],
+            distributors = imdb["distributors"],
+            release_date = imdb['release_date'],
+            year = imdb['year'],
+            genres = imdb['genres'],
+            poster = imdb['poster'],
+            plot = imdb['plot'],
+            rating = imdb['rating'],
+            url = imdb['url'],
+            **locals()
+        )
+    else:
+        IMDB_CAPTIONS = os.environ.get('WITHOUT_POSTER_CAPTION', WITHOUT_POSTER_CAPTION)
+        cap=IMDB_CAPTIONS.format(
+            greeting=Get,
+            mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
+            chat_name = f"@{temp.U_NAME}",
+            total_page = f"{round(int(total_results)/10)}",
+            total_files = total_results,
+            query = search
+        )
 
 
-
-
-        m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
-        times = m.hour
-        if times < 12:
-           Get = "Good Morning"
-        elif times < 16:
-            Get = "Good Afternoon"
-        elif times < 20:
-            Get = "Good Evening"
+    try:
+        if imdb and imdb.get('poster'):                
+            LuciferMoringstar_Delete=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(600) # in seconds
+            await LuciferMoringstar_Delete.delete()
+            await client.delete_messages(query.message.chat.id,query.message.message_id)
         else:
-            Get = "Good Night"
-
-        imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
-        if imdb:
-            IMDB_CAPTION = os.environ.get('WITH_POSTER_CAPTION', WITH_POSTER_CAPTION)
-            cap = IMDB_CAPTION.format(
-                greeting=Get,
-                mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
-                chat_name = query.message.chat.title,
-                total_page = f"{round(int(total_results)/10)}",
-                total_files = total_results,
-                query = search,
-                title = imdb['title'],
-                votes = imdb['votes'],
-                aka = imdb["aka"],
-                seasons = imdb["seasons"],
-                box_office = imdb['box_office'],
-                localized_title = imdb['localized_title'],
-                kind = imdb['kind'],
-                imdb_id = imdb["imdb_id"],
-                cast = imdb["cast"],
-                runtime = imdb["runtime"],
-                countries = imdb["countries"],
-                certificates = imdb["certificates"],
-                languages = imdb["languages"],
-                director = imdb["director"],
-                writer = imdb["writer"],
-                producer = imdb["producer"],
-                composer = imdb["composer"],
-                cinematographer = imdb["cinematographer"],
-                music_team = imdb["music_team"],
-                distributors = imdb["distributors"],
-                release_date = imdb['release_date'],
-                year = imdb['year'],
-                genres = imdb['genres'],
-                poster = imdb['poster'],
-                plot = imdb['plot'],
-                rating = imdb['rating'],
-                url = imdb['url'],
-                **locals()
-            )
-        else:
-            IMDB_CAPTIONS = os.environ.get('WITHOUT_POSTER_CAPTION', WITHOUT_POSTER_CAPTION)
-            cap=IMDB_CAPTIONS.format(
-                greeting=Get,
-                mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
-                chat_name = f"@{temp.U_NAME}",
-                total_page = f"{round(int(total_results)/10)}",
-                total_files = total_results,
-                query = search
-            )
-
-
-        try:
-            if imdb and imdb.get('poster'):                
-                LuciferMoringstar_Delete=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
-                await asyncio.sleep(600) # in seconds
-                await LuciferMoringstar_Delete.delete()
-                await client.delete_messages(query.message.chat.id,query.message.message_id)
-            else:
-                LuciferMoringstar_Delete=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
-                await asyncio.sleep(600) # in seconds
-                await LuciferMoringstar_Delete.delete()
-            await query.message.delete()      
-        except MessageNotModified:
-            pass
+            LuciferMoringstar_Delete=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(600) # in seconds
+            await LuciferMoringstar_Delete.delete()
+        await query.message.delete()      
+    except MessageNotModified:
+        pass
 
 
 
