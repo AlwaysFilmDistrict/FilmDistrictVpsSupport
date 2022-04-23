@@ -136,7 +136,7 @@ async def group_filters(client, message):
          ]]
 
         text = f"""
-Hello 👋 {message.from_user.mention} Good Morning,
+Hello 👋 {message.from_user.mention} {Get},
 🙏 Thanks For Request & This Is The Result Which You Are Looking For 🔍"""
         await message.reply_photo(photo=BOT_PHOTO, caption=text, reply_markup=InlineKeyboardMarkup(buttons))
 
