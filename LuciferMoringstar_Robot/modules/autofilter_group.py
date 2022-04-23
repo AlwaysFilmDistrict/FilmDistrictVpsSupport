@@ -123,89 +123,24 @@ async def group_filters(client, message):
         else:
             Get = "Good Night"
 
-        Buttons = [[
+
+
+
+
+        buttons = [[
          InlineKeyboardButton("ツ DOWNLOAD ツ", callback_data="download_files_af")
          ],[
          InlineKeyboardButton("✦ HOW TO DOWNLOAD ✦", callback_data="download_files_alert")
          ],[
          InlineKeyboardButton("✘ CLOSE ✘", callback_data="close")
          ]]
-        imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
-        if imdb:
-            IMDB_CAPTION = os.environ.get('WITH_POSTER_CAPTION', WITH_POSTER_CAPTION)
-            cap = IMDB_CAPTION.format(
-                greeting=Get,
-                mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
-                chat_name = message.chat.title,
-                total_page = f"{round(int(total_results)/10)}",
-                total_files = total_results,
-                query = search,
-                title = imdb['title'],
-                votes = imdb['votes'],
-                aka = imdb["aka"],
-                seasons = imdb["seasons"],
-                box_office = imdb['box_office'],
-                localized_title = imdb['localized_title'],
-                kind = imdb['kind'],
-                imdb_id = imdb["imdb_id"],
-                cast = imdb["cast"],
-                runtime = imdb["runtime"],
-                countries = imdb["countries"],
-                certificates = imdb["certificates"],
-                languages = imdb["languages"],
-                director = imdb["director"],
-                writer = imdb["writer"],
-                producer = imdb["producer"],
-                composer = imdb["composer"],
-                cinematographer = imdb["cinematographer"],
-                music_team = imdb["music_team"],
-                distributors = imdb["distributors"],
-                release_date = imdb['release_date'],
-                year = imdb['year'],
-                genres = imdb['genres'],
-                poster = imdb['poster'],
-                plot = imdb['plot'],
-                rating = imdb['rating'],
-                url = imdb['url'],
-                **locals()
-            )
-        else:
-            IMDB_CAPTIONS = os.environ.get('WITHOUT_POSTER_CAPTION', WITHOUT_POSTER_CAPTION)
-            cap=IMDB_CAPTIONS.format(
-                greeting=Get,
-                mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
-                chat_name = f"@{temp.U_NAME}",
-                total_page = f"{round(int(total_results)/10)}",
-                total_files = total_results,
-                query = search
-            )
+
+        text = f"""
+Hello 👋 {message.from_user.mention} Good Morning,
+🙏 Thanks For Request & This Is The Result Which You Are Looking For 🔍"""
+        await message.reply_photo(photo=BOT_PHOTO, caption=text, reply_markup=InlineKeyboardMarkup(buttons))
 
 
-
-        if imdb and imdb.get('poster'):
-            try:
-                LuciferMoringstar_Delete=await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(Buttons))
-                await asyncio.sleep(600) # in seconds
-                await LuciferMoringstar_Delete.delete()
-                await client.delete_messages(message.chat.id,message.message_id)
-            except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
-                pic = imdb.get('poster')
-                poster = pic.replace('.jpg', "._V1_UX360.jpg")
-                LuciferMoringstar_Delete=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(Buttons))
-                await asyncio.sleep(600) # in seconds
-                await LuciferMoringstar_Delete.delete()
-                await client.delete_messages(message.chat.id,message.message_id)
-            except Exception as e:
-                logger.exception(e)
-                LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap, reply_markup=InlineKeyboardMarkup(Buttons))
-                await asyncio.sleep(600) # in seconds
-                await LuciferMoringstar_Delete.delete()
-                await client.delete_messages(message.chat.id,message.message_id)
-        else:
-            LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap, reply_markup=InlineKeyboardMarkup(Buttons))
-            await asyncio.sleep(600) # in seconds
-            await LuciferMoringstar_Delete.delete()
-            await client.delete_messages(message.chat.id,message.message_id)
 
 
 
@@ -284,14 +219,84 @@ async def autofilter_download(client, query):
             [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
         )
 
+        imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
+        if imdb:
+            IMDB_CAPTION = os.environ.get('WITH_POSTER_CAPTION', WITH_POSTER_CAPTION)
+            cap = IMDB_CAPTION.format(
+                greeting=Get,
+                mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
+                chat_name = message.chat.title,
+                total_page = f"{round(int(total_results)/10)}",
+                total_files = total_results,
+                query = search,
+                title = imdb['title'],
+                votes = imdb['votes'],
+                aka = imdb["aka"],
+                seasons = imdb["seasons"],
+                box_office = imdb['box_office'],
+                localized_title = imdb['localized_title'],
+                kind = imdb['kind'],
+                imdb_id = imdb["imdb_id"],
+                cast = imdb["cast"],
+                runtime = imdb["runtime"],
+                countries = imdb["countries"],
+                certificates = imdb["certificates"],
+                languages = imdb["languages"],
+                director = imdb["director"],
+                writer = imdb["writer"],
+                producer = imdb["producer"],
+                composer = imdb["composer"],
+                cinematographer = imdb["cinematographer"],
+                music_team = imdb["music_team"],
+                distributors = imdb["distributors"],
+                release_date = imdb['release_date'],
+                year = imdb['year'],
+                genres = imdb['genres'],
+                poster = imdb['poster'],
+                plot = imdb['plot'],
+                rating = imdb['rating'],
+                url = imdb['url'],
+                **locals()
+            )
+        else:
+            IMDB_CAPTIONS = os.environ.get('WITHOUT_POSTER_CAPTION', WITHOUT_POSTER_CAPTION)
+            cap=IMDB_CAPTIONS.format(
+                greeting=Get,
+                mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
+                chat_name = f"@{temp.U_NAME}",
+                total_page = f"{round(int(total_results)/10)}",
+                total_files = total_results,
+                query = search
+            )
 
-    try:
-        await query.edit_message_reply_markup(
-            reply_markup=InlineKeyboardMarkup(btn)
-        )
-    except MessageNotModified:
-        pass
-    await query.answer()
+
+ 
+        if imdb and imdb.get('poster'):
+            try:
+                LuciferMoringstar_Delete=await query.message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+                await asyncio.sleep(600) # in seconds
+                await LuciferMoringstar_Delete.delete()
+                await client.delete_messages(query.message.chat.id,query.message.message_id)
+            except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
+                pic = imdb.get('poster')
+                poster = pic.replace('.jpg', "._V1_UX360.jpg")
+                LuciferMoringstar_Delete=await query.message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+                await asyncio.sleep(600) # in seconds
+                await LuciferMoringstar_Delete.delete()
+                await client.delete_messages(query.message.chat.id,query.message.message_id)
+            except Exception as e:
+                logger.exception(e)
+                LuciferMoringstar_Delete=await query.message.reply_photo(photo=BOT_PHOTO, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+                await asyncio.sleep(600) # in seconds
+                await LuciferMoringstar_Delete.delete()
+                await client.delete_messages(query.message.chat.id,query.message.message_id)
+        else:
+            LuciferMoringstar_Delete=await query.message.reply_photo(photo=BOT_PHOTO, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(600) # in seconds
+            await LuciferMoringstar_Delete.delete()
+            await client.delete_messages(query.message.chat.id,query.message.message_id)
+
+
 
 
 
