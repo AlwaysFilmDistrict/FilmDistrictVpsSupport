@@ -287,7 +287,7 @@ async def autofilter_download(client, query):
 
         try:
             if imdb and imdb.get('poster'):                
-                LuciferMoringstar_Delete=await query.message.edit(text=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+                LuciferMoringstar_Delete=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
                 await asyncio.sleep(600) # in seconds
                 await LuciferMoringstar_Delete.delete()
                 await client.delete_messages(query.message.chat.id,query.message.message_id)
