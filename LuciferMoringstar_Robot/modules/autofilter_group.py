@@ -285,32 +285,19 @@ async def autofilter_download(client, query):
             )
 
 
- 
-        if imdb and imdb.get('poster'):
-            try:
+        try:
+            if imdb and imdb.get('poster'):                
                 LuciferMoringstar_Delete=await query.message.edit(text=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
                 await asyncio.sleep(600) # in seconds
                 await LuciferMoringstar_Delete.delete()
                 await client.delete_messages(query.message.chat.id,query.message.message_id)
-            except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
-                pic = imdb.get('poster')
-                poster = pic.replace('.jpg', "._V1_UX360.jpg")
-                LuciferMoringstar_Delete=await query.message.edit(text=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-                await asyncio.sleep(600) # in seconds
-                await LuciferMoringstar_Delete.delete()
-                await client.delete_messages(query.message.chat.id,query.message.message_id)
-            except Exception as e:
-                logger.exception(e)
+            else:
                 LuciferMoringstar_Delete=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
                 await asyncio.sleep(600) # in seconds
                 await LuciferMoringstar_Delete.delete()
-                await query.message.delete()
-        else:
-            LuciferMoringstar_Delete=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(600) # in seconds
-            await LuciferMoringstar_Delete.delete()
-            await query.message.delete()
-
+            await query.message.delete()      
+        except MessageNotModified:
+            pass
 
 
 
