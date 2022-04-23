@@ -137,10 +137,8 @@ async def group_filters(client, message):
 
         text = f"""
 <b>Hello 👋 {message.from_user.mention} {Get},
-🙏 Thanks For Request & This Is The Results You Looking For 🔍
 
-
-Click The Download Button To Download It</b>"""
+🙏 Thanks For Request & This Is The Results You Looking For 🔍</b>"""
         await message.reply_photo(photo=BOT_PHOTO, caption=text, reply_markup=InlineKeyboardMarkup(buttons))
 
 
