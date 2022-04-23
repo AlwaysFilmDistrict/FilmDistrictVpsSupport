@@ -118,7 +118,7 @@ async def start(bot, message):
                     InlineKeyboardButton("😎 About", callback_data="about")
                     ],[                
                     InlineKeyboardButton("🎭 Who Am I", callback_data="master"),
-                    InlineKeyboardButton("Donate 💳", callback_data="donate") 
+                    InlineKeyboardButton("💸 Donate", callback_data="donate") 
                     ]]
                 )
             )
@@ -140,7 +140,7 @@ async def start(bot, message):
                 InlineKeyboardButton("😎 About", callback_data="about")
                 ],[                
                 InlineKeyboardButton("🎭 Who Am I", callback_data="master"),
-                InlineKeyboardButton("Donate 💳", callback_data="donate") 
+                InlineKeyboardButton("💸 Donate", callback_data="donate") 
                 ]]
             )
         )
