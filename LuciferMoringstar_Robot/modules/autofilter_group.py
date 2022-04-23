@@ -1,7 +1,7 @@
 import re, asyncio, random, os
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Database.autofilter_db import get_filter_results, get_search_results, get_file_details
 from Database._utils import get_size, get_poster, split_list, temp
@@ -288,14 +288,14 @@ async def autofilter_download(client, query):
  
         if imdb and imdb.get('poster'):
             try:
-                LuciferMoringstar_Delete=await query.message.edit_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+                LuciferMoringstar_Delete=await query.message.edit_media(media=InputMediaPhoto(imdb.get('poster')), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
                 await asyncio.sleep(600) # in seconds
                 await LuciferMoringstar_Delete.delete()
                 await client.delete_messages(query.message.chat.id,query.message.message_id)
             except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
                 pic = imdb.get('poster')
                 poster = pic.replace('.jpg', "._V1_UX360.jpg")
-                LuciferMoringstar_Delete=await query.message.edit_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+                LuciferMoringstar_Delete=await query.message.edit_media(media=InputMediaPhoto(imdb.get('poster')), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
                 await asyncio.sleep(600) # in seconds
                 await LuciferMoringstar_Delete.delete()
                 await client.delete_messages(query.message.chat.id,query.message.message_id)
@@ -304,13 +304,12 @@ async def autofilter_download(client, query):
                 LuciferMoringstar_Delete=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
                 await asyncio.sleep(600) # in seconds
                 await LuciferMoringstar_Delete.delete()
-                await client.delete_messages(query.message.chat.id,query.message.message_id)
+                await query.message.delete()
         else:
             LuciferMoringstar_Delete=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(600) # in seconds
             await LuciferMoringstar_Delete.delete()
-            await client.delete_messages(query.message.chat.id,query.message.message_id)
-
+            await query.message.delete()
 
 
 
