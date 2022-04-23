@@ -181,7 +181,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥',show_alert = True)
             except Exception:
                 text = "Your Are Not Started\nStart And Try Again"
-                await query.message.reply_text(text=text, reply_markup=InlineKeyboardMarkup( [[ InlineKeyboardButton("🤖 START ME 🤖", url="t.me/{temp.U_NAME}?start") ]] ))
+                await query.message.reply_text(text=text, reply_markup=InlineKeyboardMarkup( [[ InlineKeyboardButton("🤖 START ME 🤖", url=f"t.me/{temp.U_NAME}?start") ]] ))
 
             except UserIsBlocked:
                 await query.answer('Unblock the bot mahn !',show_alert = True)
