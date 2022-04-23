@@ -153,7 +153,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
 
         elif query.data.startswith("pr0fess0r_99"):
-
+            
             ident, file_id = query.data.split("#")
             files_ = await get_file_details(file_id)
             if not files_:
@@ -161,23 +161,28 @@ async def cb_handler(client: Client, query: CallbackQuery):
             files = files_[0]
             title = files.file_name
             size=get_size(files.file_size)
-            f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=files.caption, mention=query.from_user.mention)
             try:
-                if AUTH_CHANNEL and not await is_subscribed(client, query):
-                    await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
-                    return
-                else:
-                    buttons=[[
-                      InlineKeyboardButton("🆘👤 Owner", url="http://t.me/helloheartbeat"),
-                      InlineKeyboardButton("🆘🤖 Contact", url="http://t.me/TalkToHeartBeatBot")
-                      ]]
-                    await client.send_cached_media(
-                        chat_id=query.from_user.id,
-                        file_id=file_id,
-                        caption=f_caption,
-                        reply_markup=InlineKeyboardMarkup(buttons)
-                        )
-                    await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥',show_alert = True)
+                f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=files.caption, mention=query.from_user.mention)
+                try:
+                    if AUTH_CHANNEL and not await is_subscribed(client, query):
+                        await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
+                        return
+                    else:
+                        buttons=[[
+                          InlineKeyboardButton("🆘👤 Owner", url="http://t.me/helloheartbeat"),
+                          InlineKeyboardButton("🆘🤖 Contact", url="http://t.me/TalkToHeartBeatBot")
+                          ]]
+                        await client.send_cached_media(
+                            chat_id=query.from_user.id,
+                            file_id=file_id,
+                            caption=f_caption,
+                            reply_markup=InlineKeyboardMarkup(buttons)
+                            )
+                        await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥',show_alert = True)
+            except Exception:
+                text = "Your Are Not Started\nStart And Try Again"
+                await query.message.reply_text(text=text, reply_markup=InlineKeyboardMarkup( [[ InlineKeyboardButton("🤖 START ME 🤖", url="t.me/{temp.U_NAME}?start") ]] ))
+
             except UserIsBlocked:
                 await query.answer('Unblock the bot mahn !',show_alert = True)
             except PeerIdInvalid:
