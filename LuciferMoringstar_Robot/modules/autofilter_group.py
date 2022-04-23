@@ -225,7 +225,7 @@ async def autofilter_download(client, query):
             cap = IMDB_CAPTION.format(
                 greeting=Get,
                 mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
-                chat_name = message.chat.title,
+                chat_name = query.message.chat.title,
                 total_page = f"{round(int(total_results)/10)}",
                 total_files = total_results,
                 query = search,
