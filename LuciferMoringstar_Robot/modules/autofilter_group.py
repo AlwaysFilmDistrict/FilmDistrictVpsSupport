@@ -143,14 +143,6 @@ async def group_filters(client, message):
         await asyncio.sleep(1000)
         await Del.delete()
 
-        await client.delete_messages(message.chat.id,message.message_id)
-
-
-
-
-
-
-
 
 async def autofilter_download(client, query):
 
