@@ -142,7 +142,7 @@ async def group_filters(client, message):
         Del=await message.reply_photo(photo=BOT_PHOTO, caption=text, reply_markup=InlineKeyboardMarkup(buttons))
         await asyncio.sleep(1000)
         await Del.delete()
-
+        await message.delete()
 
 
 
@@ -293,7 +293,7 @@ async def autofilter_download(client, query):
             LuciferMoringstar_Delete=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(600) # in seconds
             await LuciferMoringstar_Delete.delete()
-        await query.message.delete()      
+            await query.message.delete()      
     except MessageNotModified:
         pass
 
