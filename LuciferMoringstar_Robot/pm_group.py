@@ -9,7 +9,7 @@ from Database.broadcast import db
 async def groupfilters(client, message):
     await group_filters(client, message)
 
-    await asyncio.sleep(1000)
+    await asyncio.sleep(5)
     try:
         await message.reply_to_message.delete()
         await message.delete()
