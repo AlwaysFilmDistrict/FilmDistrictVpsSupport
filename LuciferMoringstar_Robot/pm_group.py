@@ -7,14 +7,8 @@ from Database.broadcast import db
 
 @LuciferMoringstar_Robot.on_message(Worker.text & Worker.group & Worker.incoming & Worker.chat(AUTH_GROUPS) if AUTH_GROUPS else Worker.text & Worker.group & Worker.incoming)
 async def groupfilters(client, message):
-    await group_filters(client, message)
-
-    await asyncio.sleep(5)
-    try:
-        await message.reply_to_message.delete()
-        await message.delete()
-    except:
-        await message.delete()
+    await message.delete()
+    await group_filters(client, message)  
 
 
 
