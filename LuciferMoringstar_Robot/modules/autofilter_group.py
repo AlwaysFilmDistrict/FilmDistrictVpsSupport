@@ -277,17 +277,15 @@ async def autofilter_download(client, query):
         )
 
 
-    try:
-        if imdb and imdb.get('poster'):                
-            Del=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(600) # in seconds
-            await Del.delete()
-        else:
-            Del=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(600) # in seconds
-            await Del.delete()      
-    except MessageNotModified:
-        pass
+    try:                
+        Del=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
+        await asyncio.sleep(600) # in seconds
+        await Del.delete()
+    except:
+        Del=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
+        await asyncio.sleep(600) # in seconds
+        await Del.delete()      
+       
 
 
 
