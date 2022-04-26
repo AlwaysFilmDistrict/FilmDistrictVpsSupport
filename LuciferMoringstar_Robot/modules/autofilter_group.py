@@ -140,7 +140,7 @@ async def group_filters(client, message):
 
 <b>🙏 Thanks For Request & This Is The Results You Looking For 🔍</b>"""
         Del=await message.reply_photo(photo=BOT_PHOTO, caption=text, reply_markup=InlineKeyboardMarkup(buttons))
-        await asyncio.sleep(1000)
+        await asyncio.sleep(600)
         await Del.delete()
 
 
@@ -279,13 +279,13 @@ async def autofilter_download(client, query):
 
     try:
         if imdb and imdb.get('poster'):                
-            LuciferMoringstar_Delete=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
+            Del=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(600) # in seconds
-            await LuciferMoringstar_Delete.delete()
+            await Del.delete()
         else:
-            LuciferMoringstar_Delete=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
+            Del=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(600) # in seconds
-            await LuciferMoringstar_Delete.delete()      
+            await Del.delete()      
     except MessageNotModified:
         pass
 
