@@ -9,8 +9,30 @@ from Database.broadcast import db
 async def groupfilters(client, message):
     await group_filters(client, message)  
 
-    await asyncio.sleep(3)
-    await message.delete()
+
+
+
+    chatid = message.chat.id
+    if message.text:
+        admins_list = await client.get_chat_members(chat_id=chatid, filter="administrators")
+        admins = []
+        for admin in admins_list:
+            id = admin.user.id
+            admins.append(id)
+        userid = message.from_user.id
+        if userid in admins:
+            print("✅️")
+        else:
+            await asyncio.sleep(3)
+            await message.delete()
+            return
+    else:
+        return
+
+
+
+
+    
 
 @LuciferMoringstar_Robot.on_message(Worker.text & Worker.private & Worker.incoming)
 async def pm_filters(client, message):
