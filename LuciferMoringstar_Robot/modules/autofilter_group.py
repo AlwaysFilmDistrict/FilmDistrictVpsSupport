@@ -165,7 +165,7 @@ async def autofilter_download(client, query):
               ]]
             reply_markup = InlineKeyboardMarkup(button)
             LuciferMoringstar=await query.message.reply_text(
-                text=SPELLING_MODE_TEXT.format(message.from_user.mention, search),
+                text=SPELLING_MODE_TEXT.format(query.from_user.mention, search),
                 reply_markup=reply_markup                 
             )
             await asyncio.sleep(60) 
@@ -231,7 +231,7 @@ async def autofilter_download(client, query):
         IMDB_CAPTION = os.environ.get('WITH_POSTER_CAPTION', WITH_POSTER_CAPTION)
         cap = IMDB_CAPTION.format(
             greeting=Get,
-            mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
+            mention = f"[{query.from_user.first_name}](tg://user?id={query.from_user.id})",
             chat_name = query.message.chat.title,
             total_page = f"{round(int(total_results)/10)}",
             total_files = total_results,
@@ -269,7 +269,7 @@ async def autofilter_download(client, query):
         IMDB_CAPTIONS = os.environ.get('WITHOUT_POSTER_CAPTION', WITHOUT_POSTER_CAPTION)
         cap=IMDB_CAPTIONS.format(
             greeting=Get,
-            mention = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})",
+            mention = f"[{query.from_user.first_name}](tg://user?id={query.from_user.id})",
             chat_name = f"@{temp.U_NAME}",
             total_page = f"{round(int(total_results)/10)}",
             total_files = total_results,
