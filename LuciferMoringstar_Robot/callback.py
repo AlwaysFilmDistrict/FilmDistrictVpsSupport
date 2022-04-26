@@ -121,7 +121,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 Del=await query.edit_message_reply_markup(
                     reply_markup=InlineKeyboardMarkup(btn)
                 )
-                asyncio.sleep(600)
+                await asyncio.sleep(600)
                 await Del.delete()
             except MessageNotModified:
                 pass
