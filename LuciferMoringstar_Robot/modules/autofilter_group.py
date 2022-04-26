@@ -147,7 +147,7 @@ async def group_filters(client, message):
 async def autofilter_download(client, query):
 
     btn = []
-    message = query 
+
     search = query.message.reply_to_message.text
 
     files, offset, total_results = await get_search_results(search.lower(), offset=0)
@@ -164,7 +164,7 @@ async def autofilter_download(client, query):
               InlineKeyboardButton("🗑️ CLOSE 🗑️", callback_data="close")
               ]]
             reply_markup = InlineKeyboardMarkup(button)
-            LuciferMoringstar=await message.reply_text(
+            LuciferMoringstar=await query.message.reply_text(
                 text=SPELLING_MODE_TEXT.format(message.from_user.mention, search),
                 reply_markup=reply_markup                 
             )
@@ -184,9 +184,9 @@ async def autofilter_download(client, query):
 
  
     if offset != "":
-        key = f"{query.message.chat.id}-{query.message.message_id}"
+        key = f"{query.message.chat.id}-{query.message.reply_to_message.message_id}"
         temp.BUTTONS[key] = search
-        req = message.from_user.id or 0
+        req = query.from_user.id or 0
         btn.append(
             [InlineKeyboardButton(text="Next Page ➡️", callback_data=f"next_{req}_{key}_{offset}")]
         )    
