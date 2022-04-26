@@ -7,10 +7,10 @@ from Database.broadcast import db
 
 @LuciferMoringstar_Robot.on_message(Worker.text & Worker.group & Worker.incoming & Worker.chat(AUTH_GROUPS) if AUTH_GROUPS else Worker.text & Worker.group & Worker.incoming)
 async def groupfilters(client, message):
-    await message.delete()
     await group_filters(client, message)  
 
-
+    await asyncio.sleep(3)
+    await message.delete()
 
 @LuciferMoringstar_Robot.on_message(Worker.text & Worker.private & Worker.incoming)
 async def pm_filters(client, message):
