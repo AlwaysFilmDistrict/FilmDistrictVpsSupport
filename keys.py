@@ -29,9 +29,9 @@ LONG_IMDB_DESCRIPTION = "False"
 # Spell Check 
 SEPLLING_MODE_ON_OR_OFF = "on"
 SPELLING_MODE_TEXT = """
-<b><i>Hello 👋 {},
+<b><i>Hello 👋 {},</i>
 
-I Couldn't 🔍 Find <code>{}</code> You Asked For 🤷</i>
+<i>I Couldn't 🔍 Find <code>{}</code> You Asked For 🤷</i>
 
 Click [GOOGLE] [IMDB] On Any Button And Find The Correct Movie/Series Name And Enter It Here ⤵️
 
