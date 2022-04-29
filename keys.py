@@ -31,11 +31,11 @@ SEPLLING_MODE_ON_OR_OFF = "on"
 SPELLING_MODE_TEXT = """
 <b><i>Hello 👋 {},
 
-I Couldn't 🔍 Find <code>{}</code> You Asked For 🤷
+I Couldn't 🔍 Find <code>{}</code> You Asked For 🤷</i>
 
 Click [GOOGLE] [IMDB] On Any Button And Find The Correct Movie/Series Name And Enter It Here ⤵️
 
-If You Do Not Receive The Movie/Series Even After Entering The Correct Name Then Your Requested Movie/Series Does Not Exit In My Database 🗄</i></b>"""
+If You Do Not Receive The Movie/Series Even After Entering The Correct Name Then Your Requested Movie/Series Does Not Exit In My Database 🗄</b>"""
 
 # Customize
 CUSTOM_FILE_CAPTION = """
