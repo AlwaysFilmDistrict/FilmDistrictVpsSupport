@@ -29,7 +29,7 @@ LONG_IMDB_DESCRIPTION = "False"
 # Spell Check 
 SEPLLING_MODE_ON_OR_OFF = "on"
 SPELLING_MODE_TEXT = """
-<b><i>Hello 👋 {},</i>
+<b>Hello 👋 {},
 
 I Couldn't 🔍 Find <code>{}</code> You Asked For 🤷
 
