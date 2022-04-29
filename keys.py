@@ -31,7 +31,7 @@ SEPLLING_MODE_ON_OR_OFF = "on"
 SPELLING_MODE_TEXT = """
 <b><i>Hello 👋 {},</i>
 
-<i>I Couldn't 🔍 Find <code>{}</code> You Asked For 🤷</i>
+I Couldn't 🔍 Find <code>{}</code> You Asked For 🤷
 
 Click [GOOGLE] [IMDB] On Any Button And Find The Correct Movie/Series Name And Enter It Here ⤵️
 
