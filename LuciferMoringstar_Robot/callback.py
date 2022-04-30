@@ -3,7 +3,7 @@ from pyrogram import Client, filters
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from Database.autofilter_db import get_file_details, get_search_results, Media
-from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, BUTTON_CALLBACK_OR_URL, BOT_PHOTO, IMDBOT_CAPTION, ADMINS, BOT_START_TIME       
+from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, BUTTON_CALLBACK_OR_URL, BOT_PHOTO, IMDBOT_CAPTION, ADMINS, BOT_START_TIME, FORWARD_PERMISSION     
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from Database._utils import get_poster, is_subscribed, get_size, temp
 from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER, START_USER_TEXT, START_DEV_TEXT, about_master, DONATE_TEXT
@@ -175,12 +175,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
                           InlineKeyboardButton("🆘👤 Owner", url="http://t.me/helloheartbeat"),
                           InlineKeyboardButton("🆘🤖 Contact", url="http://t.me/TalkToHeartBeatBot")
                           ]]
+                        if query.from_user.id not in FORWARD_PERMISSION: 
+                            await client.send_cached_media(
+                                chat_id=query.from_user.id,
+                                file_id=file_id,
+                                caption=f_caption,
+                                reply_markup=InlineKeyboardMarkup(buttons)
+                             )
+                             await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥',show_alert = True)
+                             return
                         await client.send_cached_media(
                             chat_id=query.from_user.id,
                             file_id=file_id,
                             caption=f_caption,
                             reply_markup=InlineKeyboardMarkup(buttons)
-                            )
+                        )
                         await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥',show_alert = True)
                 except UserIsBlocked:
                     await query.answer('Unblock the bot mahn !',show_alert = True)
