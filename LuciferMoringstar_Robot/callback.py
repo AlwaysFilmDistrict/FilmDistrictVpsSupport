@@ -180,6 +180,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                                 chat_id=query.from_user.id,
                                 file_id=file_id,
                                 caption=f_caption,
+                                protect_content=True,
                                 reply_markup=InlineKeyboardMarkup(buttons)
                              )
                              await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥',show_alert = True)
