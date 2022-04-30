@@ -32,7 +32,8 @@ LOG_CHANNEL = int(environ.get('LOG_CHANNEL', LOG_CHANNEL))
 # Admins
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', ADMINS).split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
-FORWARD_PERMISSION = int(environ.get("FORWARD_PERMISSION", FORWARD_PERMISSION)).split()
+
+FORWARD_PERMISSION = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', FORWARD_PERMISSION).split()]
 
 # SpellCheck
 SPELLING_MODE_TEXT = environ.get('SPELLING_MODE_TEXT', SPELLING_MODE_TEXT)
