@@ -182,9 +182,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                                 caption=f_caption,
                                 protect_content=True,
                                 reply_markup=InlineKeyboardMarkup(buttons)
-                             )
-                            
-                             return
+                            )
+                            await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥',show_alert = True)                                                 
+                            return
                         await client.send_cached_media(
                             chat_id=query.from_user.id,
                             file_id=file_id,
