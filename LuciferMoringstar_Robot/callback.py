@@ -198,8 +198,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
                 except Exception as e:
                     await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
-           
-            except Exception:
+            except:
                 await query.message.reply_text("Click Here :- https://t.me/{temp.U_NAME}?start")
       
 
