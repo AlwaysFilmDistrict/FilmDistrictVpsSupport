@@ -50,6 +50,6 @@ class Bot(Client):
 
 
 app = Bot()
-UserBot.start()
+UserBot.run()
 app.run()
 idle()
