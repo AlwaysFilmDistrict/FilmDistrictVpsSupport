@@ -13,10 +13,6 @@ from Database.autofilter_db import Media
 from Database.users_chats_db import db
 from Database._utils import temp
 from Config import API_ID, API_HASH, BOT_TOKEN
-from pyrogram import idle
-from userbot import UserBot
-
-
 
 class Bot(Client):
 
@@ -50,6 +46,5 @@ class Bot(Client):
 
 
 app = Bot()
-UserBot.run()
 app.run()
-idle()
+
