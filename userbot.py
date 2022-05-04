@@ -1,4 +1,4 @@
-from pyrogram import Client
+from pyrogram import Client, filters
 from Config import API_ID, API_HASH, USER_SESSION
 UserBot = Client(USER_SESSION, API_ID, API_HASH)
 
