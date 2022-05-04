@@ -4,7 +4,7 @@ API_HASH = "fd115c34d9a04c6bffd2a00f982afcd7"
 BOT_TOKEN = "5014982831:AAG2CsdZDIB8ew5vI9LFBGh9m6wde8DcpL0"
 BOT_PHOTO = "https://telegra.ph/file/af67ef63cc20842295bf6.jpg"
 BOT_USERNAME = "FilmDistrict_Bot"
-USER_SESSION = "BQBUOaQtHFCGptEbYRo-6b4eBmGwTBrKsKetZwahPhs_AZfwTBoO3n97aaoMnVEy5wxJjnhtGIfbMxGp0zopE5meDjNq7FxDd1EyMXNNOUKlbaPRL_AQlstziznv53jzVndPUsgSFP_N7Sx7ZPjEXVenQC8aGT5fumVdxAMw5Hgpgtdpt92LWLwTYlSxXwUqStFOFf4fr-bRLXxSmzjGUCNOwzbFSjPNNGjUeoOgliPN1W8bBZ-aFG7a96x0qRXlAzHBoCi3oSZuDjhgsh9zQaSrJfloj0UQbQdz2435utE1rn7A4fa4Il4qDiV7W_ILtkbA45z59sBl_LPlPlfgAAAAADbQzXYA"
+USER_SESSION = "None"
 
 # Database
 AUTOFILTER_DB = "mongodb+srv://erichdaniken:erichdaniken@cluster0.ozsc0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" # Only AutoFilter 
