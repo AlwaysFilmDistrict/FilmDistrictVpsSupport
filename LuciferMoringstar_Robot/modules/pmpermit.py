@@ -1,4 +1,4 @@
-from pyrogram import Client
+from pyrogram import filters
 from userbot import UserBot
 
 @UserBot.on_message(filters.text & filters.private & ~filters.me & ~filters.bot)
