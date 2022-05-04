@@ -4,6 +4,7 @@ API_HASH = "fd115c34d9a04c6bffd2a00f982afcd7"
 BOT_TOKEN = "5014982831:AAG2CsdZDIB8ew5vI9LFBGh9m6wde8DcpL0"
 BOT_PHOTO = "https://telegra.ph/file/af67ef63cc20842295bf6.jpg"
 BOT_USERNAME = "FilmDistrict_Bot"
+USER_SESSION = "None"
 
 # Database
 AUTOFILTER_DB = "mongodb+srv://erichdaniken:erichdaniken@cluster0.ozsc0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" # Only AutoFilter 
