@@ -1,6 +1,6 @@
 import re, asyncio, random, os
 from pyrogram import Client, filters
-from pyrogram.errors import FloodWait
+from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Database.autofilter_db import get_filter_results, get_search_results, get_file_details
@@ -281,11 +281,9 @@ async def autofilter_download(client, query):
         Del=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
         await asyncio.sleep(600) # in seconds
         await Del.delete()
-    except:
-        Del=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
-        await asyncio.sleep(600) # in seconds
-        await Del.delete()      
-       
+    except MessageNotModified:
+        pass  
+     
 
 
 
