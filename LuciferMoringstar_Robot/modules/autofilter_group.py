@@ -185,8 +185,9 @@ async def autofilter_download(client, query):
  
     if offset != "":
         key = f"{query.message.chat.id}-{query.message.message_id}"
-        temp.BUTTONS[key] = search
-        req = query.from_user.id or 0
+        BUTTONS[key] = search
+        req = query.from_user.id if query.from_user else 0
+
         btn.append(
             [InlineKeyboardButton(text="Next Page ➡️", callback_data=f"next_{req}_{key}_{offset}")]
         )    
