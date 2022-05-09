@@ -185,7 +185,7 @@ async def autofilter_download(client, query):
  
     if offset != "":
         key = f"{query.message.chat.id}-{query.message.message_id}"
-        BUTTONS[key] = search
+        temp.BUTTONS[key] = search
         req = query.from_user.id if query.from_user else 0
 
         btn.append(
