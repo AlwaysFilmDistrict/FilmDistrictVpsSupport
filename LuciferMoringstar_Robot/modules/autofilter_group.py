@@ -150,7 +150,7 @@ async def autofilter_download(client, query):
 
     search = query.message.reply_to_message.text
 
-    files, offset, total_results = await get_search_results(search.lower(), offset=0)
+    files, offset, total_results = await get_search_results(search, offset=0)
     if not files:
         if SEPLLING_MODE_ON_OR_OFF == "on":
             text_replay = message.text
