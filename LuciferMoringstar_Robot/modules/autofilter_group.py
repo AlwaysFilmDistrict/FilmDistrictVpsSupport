@@ -61,10 +61,30 @@ async def group_filters(client, message):
             await asyncio.sleep(60) # in seconds
             await LuciferMoringstar.delete()
             return
-        for i in "film filim".split() :
+        for i in "film".split() :
          if i in search.lower() :
             LuciferMoringstar=await client.send_message(
                 text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nDon't Type <b>"Film"</b> ❌ - Language\n\nOnly Type The Name Of The Film/Series\n\n<b>Example : Titanic</b>""",
+                chat_id=message.chat.id,
+                reply_to_message_id=message.message_id,
+                parse_mode="html")
+            await asyncio.sleep(60) # in seconds
+            await LuciferMoringstar.delete()
+            return
+        for i in "kishmish".split() :
+         if i in search.lower() :
+            LuciferMoringstar=await client.send_message(
+                text=f"""<b>Hello 👋 {message.from_user.mention},\n╭────────╮\n├• Request : Ignored ❌\n├• Reason : Available In Hall\n├• OTT : Not Available\n├• Date : Not Out\n├• Time: After OTT Released\n╰─────────────╯</b>""",
+                chat_id=message.chat.id,
+                reply_to_message_id=message.message_id,
+                parse_mode="html")
+            await asyncio.sleep(60) # in seconds
+            await LuciferMoringstar.delete()
+            return
+        for i in "raavan 2022".split() :
+         if i in search.lower() :
+            LuciferMoringstar=await client.send_message(
+                text=f"""<b>Hello 👋 {message.from_user.mention},</b>""",
                 chat_id=message.chat.id,
                 reply_to_message_id=message.message_id,
                 parse_mode="html")
