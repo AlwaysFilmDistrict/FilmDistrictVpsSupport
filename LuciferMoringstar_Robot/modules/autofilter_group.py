@@ -5,7 +5,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQ
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Database.autofilter_db import get_filter_results, get_search_results, get_file_details
 from Database._utils import get_size, get_poster, split_list, temp
-from Config import SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BOT_PHOTO, IMDB_POSTER_ON_OFF, CUSTOM_FILE_CAPTION        
+from Config import SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BOT_PHOTO, IMDB_POSTER_ON_OFF, CUSTOM_FILE_CAPTION, FORWARD_PERMISSION       
 import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
@@ -350,6 +350,31 @@ async def all_files(client, query):
          InlineKeyboardButton("🆘🤖 Contact", url="http://t.me/TalkToHeartBeatBot")
          ]]
         caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, mention=query.from_user.mention)
+
+
+        if query.from_user.id not in FORWARD_PERMISSION: 
+            try:
+                await asyncio.sleep(0.5)             
+                await client.send_cached_media(
+                    chat_id=query.from_user.id,
+                    file_id=file_id,
+                    caption=caption,
+                    protect_content=True,
+                    reply_markup=InlineKeyboardMarkup(buttons)
+              
+                )
+            except FloodWait as e:
+                await asyncio.sleep(e.x)              
+                await client.send_cached_media(
+                    chat_id=query.from_user.id,
+                    file_id=file_id,
+                    caption=caption,
+                    protect_content=True,
+                    reply_markup=InlineKeyboardMarkup(buttons)
+                )
+            except:
+                pass
+            return
         try:
             await asyncio.sleep(0.5)             
             await client.send_cached_media(
