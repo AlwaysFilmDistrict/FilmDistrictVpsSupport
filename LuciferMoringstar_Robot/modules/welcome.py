@@ -13,9 +13,7 @@ Just Type The Actual Name Of The Movie/Series.
 You Will Get The Movie/Series If You Write Correct Spelling.
 If You Don't Get The Movie/Series It Is Sure That You Have Written Incorrect Spelling Or Your Requested Movie/Series Does Not Exit In My Database. 😐"""
 
-
-
-    Auto_Delete=await client.send_message(chat_id=message.chat.id, text=text)
+    Auto_Delete=await bot.send_message(chat_id=message.chat.id, text=text)
     await asyncio.sleep(60) # in seconds
     await Auto_Delete.delete()
 
