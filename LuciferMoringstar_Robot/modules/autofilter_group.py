@@ -351,30 +351,10 @@ async def all_files(client, query):
          ]]
         caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, mention=query.from_user.mention)
 
-        if query.from_user.id not in FORWARD_PERMISSION:
-
-            try:
-                await asyncio.sleep(0.5)             
-                await client.send_cached_media(
-                    chat_id=query.from_user.id,
-                    file_id=file_ids,
-                    caption=caption,
-                    protect_content=True,
-                    reply_markup=InlineKeyboardMarkup(buttons)
-              
-                )
-            except FloodWait as e:
-                await asyncio.sleep(e.x)              
-                await client.send_cached_media(
-                    chat_id=query.from_user.id,
-                    file_id=file_ids,
-                    caption=caption,
-                    protect_content=True,
-                    reply_markup=InlineKeyboardMarkup(buttons)
-                )
-            except:
-                pass
-            return
+        if query.from_user.id not in FORWARD_PERMISSION:        
+            protect_content=True
+        else:
+            protect_content=True
 
         try:
             await asyncio.sleep(0.5)             
@@ -382,6 +362,7 @@ async def all_files(client, query):
                 chat_id=query.from_user.id,
                 file_id=file_ids,
                 caption=caption,
+                protect_content=protect_content,
                 reply_markup=InlineKeyboardMarkup(buttons)
               
             )
@@ -391,8 +372,8 @@ async def all_files(client, query):
                 chat_id=query.from_user.id,
                 file_id=file_ids,
                 caption=caption,
-                reply_markup=InlineKeyboardMarkup(buttons)
-                
+                protect_content=protect_content,
+                reply_markup=InlineKeyboardMarkup(buttons)      
             )
         except:
             pass
