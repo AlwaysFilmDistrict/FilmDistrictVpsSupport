@@ -340,7 +340,7 @@ async def all_files(client, query):
 
 
     for file in files:
-        file_id = file.file_id
+        file_ids = file.file_id
 
         title = file.file_name
         size = get_size(file.file_size)
@@ -351,13 +351,13 @@ async def all_files(client, query):
          ]]
         caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, mention=query.from_user.mention)
 
+        if query.from_user.id not in FORWARD_PERMISSION:
 
-        if query.from_user.id not in FORWARD_PERMISSION: 
             try:
                 await asyncio.sleep(0.5)             
                 await client.send_cached_media(
                     chat_id=query.from_user.id,
-                    file_id=file_id,
+                    file_id=file_ids,
                     caption=caption,
                     protect_content=True,
                     reply_markup=InlineKeyboardMarkup(buttons)
@@ -367,7 +367,7 @@ async def all_files(client, query):
                 await asyncio.sleep(e.x)              
                 await client.send_cached_media(
                     chat_id=query.from_user.id,
-                    file_id=file_id,
+                    file_id=file_ids,
                     caption=caption,
                     protect_content=True,
                     reply_markup=InlineKeyboardMarkup(buttons)
@@ -375,11 +375,12 @@ async def all_files(client, query):
             except:
                 pass
             return
+
         try:
             await asyncio.sleep(0.5)             
             await client.send_cached_media(
                 chat_id=query.from_user.id,
-                file_id=file_id,
+                file_id=file_ids,
                 caption=caption,
                 reply_markup=InlineKeyboardMarkup(buttons)
               
@@ -388,7 +389,7 @@ async def all_files(client, query):
             await asyncio.sleep(e.x)              
             await client.send_cached_media(
                 chat_id=query.from_user.id,
-                file_id=file_id,
+                file_id=file_ids,
                 caption=caption,
                 reply_markup=InlineKeyboardMarkup(buttons)
                 
