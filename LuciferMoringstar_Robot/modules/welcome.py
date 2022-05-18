@@ -2,7 +2,7 @@ import asyncio, os
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-@Client.on_message(filters.new_chat_members)
+@Client.on_message(filters.new_chat_members & filters.group)
 async def auto_welcome(bot, message):
     username = message.from_user.mention
     groupname = message.chat.title
@@ -17,7 +17,7 @@ If You Don't Get The Movie/Series It Is Sure That You Have Written Incorrect Spe
     await asyncio.sleep(60) # in seconds
     await Auto_Delete.delete()
 
-@Client.on_message(filters.left_chat_member)
+@Client.on_message(filters.left_chat_member & filters.group)
 async def goodbye(bot,message):
     chatid= message.chat.id
     Auto_Delete=await bot.send_message(text=f"Bye ,  {message.from_user.mention} , Have a Nice Day",chat_id=chatid) 
