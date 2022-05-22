@@ -199,7 +199,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 except Exception as e:
                     await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
             except:
-                await query.message.reply_text("Click Here :- https://t.me/{temp.U_NAME}?start")
+                await query.message.reply_text(f"Click Here :- https://t.me/{temp.U_NAME}?start")
       
 
         elif query.data.startswith("checksub"):
