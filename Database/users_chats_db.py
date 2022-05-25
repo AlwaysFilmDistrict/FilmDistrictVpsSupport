@@ -45,11 +45,11 @@ class Database:
         count = await self.col.count_documents({})
         return count
 
-    async def get_all_users(self):
-        return self.col.find({})
-
     async def delete_user(self, user_id):
         await self.col.delete_many({'id': int(user_id)})
+
+
+
 
 
     async def get_ban_status(self, id):
@@ -64,10 +64,7 @@ class Database:
 
 
     async def get_all_chats(self):
-        return self.grp.find({})
-
-    async def get_all_users(self):
-        return self.col.find({})
+        return self.grp.find({})   
 
     
     async def remove_ban(self, id):
@@ -120,6 +117,8 @@ class Database:
         return count
     
 
+    async def get_all_users(self):
+        return self.col.find({})
 
 
     async def get_db_size(self):
