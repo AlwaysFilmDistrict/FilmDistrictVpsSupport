@@ -348,6 +348,10 @@ async def all_files(client, query):
         buttons=[[
          InlineKeyboardButton("🆘👤 Owner", url="http://t.me/helloheartbeat"),
          InlineKeyboardButton("🆘🤖 Contact", url="http://t.me/TalkToHeartBeatBot")
+         ],[
+         InlineKeyboardButton("Save", callback_data="savefile_alert")
+         ],[
+         InlineKeyboardButton("❌ Close", callback_data="close")
          ]]
         caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, mention=query.from_user.mention)
 
