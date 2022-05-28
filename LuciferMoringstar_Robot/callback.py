@@ -173,7 +173,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                           InlineKeyboardButton("🆘👤 Owner", url="http://t.me/helloheartbeat"),
                           InlineKeyboardButton("🆘🤖 Contact", url="http://t.me/TalkToHeartBeatBot")
                           ],[
-                          InlineKeyboardButton("Delete File", callback_data="close")
+                          InlineKeyboardButton("❌ Close", callback_data="close")
                           ]]
                         if query.from_user.id not in FORWARD_PERMISSION: 
                             await client.send_cached_media(
