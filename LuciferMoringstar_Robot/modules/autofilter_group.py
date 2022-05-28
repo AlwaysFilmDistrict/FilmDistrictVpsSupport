@@ -349,7 +349,7 @@ async def all_files(client, query):
          InlineKeyboardButton("🆘👤 Owner", url="http://t.me/helloheartbeat"),
          InlineKeyboardButton("🆘🤖 Contact", url="http://t.me/TalkToHeartBeatBot")
          ],[
-         InlineKeyboardButton("⁉️ Want To Share/Save This File", callback_data="savefile_alert")
+         InlineKeyboardButton("⁉️ Want To Save/Share This File", callback_data="savefile_alert")
          ],[
          InlineKeyboardButton("❌ Close", callback_data="close")
          ]]
