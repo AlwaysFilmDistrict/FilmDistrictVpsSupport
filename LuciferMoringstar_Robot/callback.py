@@ -144,6 +144,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "google_alert":
             await query.answer("""✅ DO\n👉 Type Only In English \n\n❌ DON'T\n👉 Avoid Symbols (/.,:;"'-)\n👉 Avoid Requesting Same Movie/Series Repeatedly \n👉 Avoid Requesting Unreleased Movie/Series""", show_alert=True)
 
+        elif query.data == "savefile_alert":
+            await query.answer("""Want To Share/Save This File""", show_alert=True)
+
 
         elif query.data == "helpalert":
             await query.answer(ALERT_HELP_TEXT, show_alert=True)
@@ -172,6 +175,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         buttons=[[
                           InlineKeyboardButton("🆘👤 Owner", url="http://t.me/helloheartbeat"),
                           InlineKeyboardButton("🆘🤖 Contact", url="http://t.me/TalkToHeartBeatBot")
+                          ],[
+                          InlineKeyboardButton("Save", callback_data="savefile_alert")
                           ],[
                           InlineKeyboardButton("❌ Close", callback_data="close")
                           ]]
