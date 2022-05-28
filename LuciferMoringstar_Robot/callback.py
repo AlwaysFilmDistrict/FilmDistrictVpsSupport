@@ -126,8 +126,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             except MessageNotModified:
                 pass
             
-
-
         elif query.data == "rulesbot":
             buttons = [[
                 InlineKeyboardButton('বাংলা', url='https://telegra.ph/FAQ-BEN-FILMDISTRICT-12-03'),
@@ -174,6 +172,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         buttons=[[
                           InlineKeyboardButton("🆘👤 Owner", url="http://t.me/helloheartbeat"),
                           InlineKeyboardButton("🆘🤖 Contact", url="http://t.me/TalkToHeartBeatBot")
+                          ],[
+                          InlineKeyboardButton("Delete File", callback_data="close")
                           ]]
                         if query.from_user.id not in FORWARD_PERMISSION: 
                             await client.send_cached_media(
@@ -199,7 +199,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 except Exception as e:
                     await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
             except:
-                await query.message.reply_text(f"Click Here :- https://t.me/{temp.U_NAME}?start")
+                await query.answer("Your Banned Try Another Time", show_alert=True)
       
 
         elif query.data.startswith("checksub"):
