@@ -358,7 +358,7 @@ async def all_files(client, query):
         if query.from_user.id not in FORWARD_PERMISSION:        
             protect_content=True
         else:
-            protect_content=True
+            protect_content=False
 
         try:
             await asyncio.sleep(0.5)             
