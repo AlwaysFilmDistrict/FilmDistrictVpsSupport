@@ -145,7 +145,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer("""✅ DO\n👉 Type Only In English \n\n❌ DON'T\n👉 Avoid Symbols (/.,:;"'-)\n👉 Avoid Requesting Same Movie/Series Repeatedly \n👉 Avoid Requesting Unreleased Movie/Series""", show_alert=True)
 
         elif query.data == "savefile_alert":
-            await query.answer("""✔️ Here Is The Solution\n\n🧾 Just Send Me Rs. 50/- With Payment Proof\n\nUPI 🆔 Details\n\n\nGPay 📲 chester.anjan@oksbi\nPhonePe 📲 anjanmodak@ybl""", show_alert=True)
+            await query.answer("""» ʜᴇʀᴇ ɪꜱ ᴛʜᴇ ꜱᴏʟᴜᴛɪᴏɴ «\n\n🧾 Just Send Me Rs. 50/- (For 1 Month Only) With Payment Proof\n\nUPI 🆔 Details\n\n\nGPay 📲 chester.anjan@oksbi\nPhonePe 📲 anjanmodak@ybl\n\n""", show_alert=True)
 
 
         elif query.data == "helpalert":
