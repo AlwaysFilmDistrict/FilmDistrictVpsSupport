@@ -78,8 +78,6 @@ async def list_users(bot, message):
     out = "Users Saved In DB Are:\n\n"
     async for user in users:        
         out += f"ID :- `{user['id']}`"
-        if user['ban_status']['is_banned']:
-            out += '( Banned User )'
         out += '\n'
     try:
         await raju.edit_text(out)
