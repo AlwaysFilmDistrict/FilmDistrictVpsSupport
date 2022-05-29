@@ -160,7 +160,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ident, file_id = query.data.split("#")
             files_ = await get_file_details(file_id)
             if not files_:
-                return await query.answer('No such file exist.')
+                return await query.answer('No Such File Exist.')
             files = files_[0]
             title = files.file_name
             size=get_size(files.file_size)
@@ -198,13 +198,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         )
                         await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥',show_alert = True)
                 except UserIsBlocked:
-                    await query.answer('Unblock the bot mahn !',show_alert = True)
+                    await query.answer('Unblock The BOT Man !',show_alert = True)
                 except PeerIdInvalid:
                     await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
                 except Exception as e:
                     await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
             except:
-                await query.answer("Your Banned Try Another Time", show_alert=True)
+                await query.answer("You Are Banned Try Another Time", show_alert=True)
       
 
         elif query.data.startswith("checksub"):
