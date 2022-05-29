@@ -204,7 +204,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 except Exception as e:
                     await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
             except:
-                await query.answer("You Are Banned Try Another Time", show_alert=True)
+                pass
       
 
         elif query.data.startswith("checksub"):
