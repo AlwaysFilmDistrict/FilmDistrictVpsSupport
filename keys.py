@@ -10,7 +10,7 @@ AUTOFILTER_DB = "mongodb+srv://erichdaniken:erichdaniken@cluster0.ozsc0.mongodb.
 ANOTHER_DB = "mongodb+srv://erichdaniken:erichdaniken@cluster0.ozsc0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 # Groups & Channels
-AUTH_GROUPS = "-1001647516287" # Group Id
+AUTH_GROUPS = "-1001647516287 -1001520234208" # Group Id
 CHANNELS = "-1001513217861" # File Channel Id
 FORCES_SUB = "-1001591755788" # Forces Sub
 LOG_CHANNEL = "-1001556133233" # Log Channel
