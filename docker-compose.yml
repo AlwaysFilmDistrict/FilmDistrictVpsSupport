@@ -1,5 +1,0 @@
-# lines (5 sloc)  48 Bytes
-version: "3.9"
-services:
-  worker:
-    build: .
