@@ -10,14 +10,14 @@ AUTOFILTER_DB = "mongodb+srv://erichdaniken:erichdaniken@cluster0.ozsc0.mongodb.
 ANOTHER_DB = "mongodb+srv://erichdaniken:erichdaniken@cluster0.ozsc0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 # Groups & Channels
-AUTH_GROUPS = "-1001647516287 -1001520234208" # Group Id
+AUTH_GROUPS = "-1001647516287 -1001631872054" # Group Id
 CHANNELS = "-1001513217861" # File Channel Id
 FORCES_SUB = "-1001591755788" # Forces Sub
 LOG_CHANNEL = "-1001556133233" # Log Channel
 
 # Admins
 AUTH_USERS = "919653750" # Private Use
-ADMINS = "919653750 2028425293 1637186875" # Controls
+ADMINS = "919653750" # Controls
 
 FORWARD_PERMISSION = "919653750 1267829773 2118833941 1279825209 1711153082 999998635 1572952119 1019033413 1094563374 1051550497 1280629086 5271462723 1434099308"
 
