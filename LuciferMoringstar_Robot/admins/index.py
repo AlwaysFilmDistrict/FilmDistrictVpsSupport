@@ -1,32 +1,30 @@
-import logging, asyncio, re
-from pyrogram import Client, filters, enums
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+
+import logging, asyncio, os, re
+from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, ChatAdminRequired, UsernameInvalid, UsernameNotModified
-from config import ADMINS, LOG_CHANNEL, temp
-from database.autofilter_db import save_file
-
+from Config import ADMINS, INDEX_REQ_CHANNEL as LOG_CHANNEL 
+from Database._utils import temp
+from Database.autofilter_db import save_file
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 lock = asyncio.Lock()
-
 @Client.on_callback_query(filters.regex(r'^index'))
-async def index_files(client, query):
+async def index_files(bot, query):
     if query.data.startswith('index_cancel'):
         temp.CANCEL = True
         return await query.answer("Cancelling Indexing")
-    _, muhammedrk, chat, lst_msg_id, from_user = query.data.split("#")
-    if muhammedrk == 'reject':
+    _, raju, chat, lst_msg_id, from_user = query.data.split("#")
+    if raju == 'reject':
         await query.message.delete()
         await bot.send_message(int(from_user),
                                f'Your Submission for indexing {chat} has been decliened by our moderators.',
                                reply_to_message_id=int(lst_msg_id))
         return
-
     if lock.locked():
         return await query.answer('Wait until previous process complete.', show_alert=True)
     msg = query.message
-
     await query.answer('Processing...⏳', show_alert=True)
     if int(from_user) not in ADMINS:
         await bot.send_message(int(from_user),
@@ -35,14 +33,14 @@ async def index_files(client, query):
     await msg.edit(
         "Starting Indexing",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton('Cancel', callback_data='close')]]
+            [[InlineKeyboardButton('Cancel', callback_data='index_cancel')]]
         )
     )
     try:
         chat = int(chat)
     except:
         chat = chat
-    await index_files_to_db(int(lst_msg_id), chat, msg, client)
+    await index_files_to_db(int(lst_msg_id), chat, msg, bot)
 
 
 @Client.on_message((filters.forwarded | (filters.regex("(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")) & filters.text ) & filters.private & filters.incoming)
