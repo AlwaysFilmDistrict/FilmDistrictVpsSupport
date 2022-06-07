@@ -10,6 +10,7 @@ from pyrogram.errors import UserNotParticipant
 logger = logging.getLogger(__name__)
 from Database.broadcast import database
 from LuciferMoringstar_Robot.text.commands_text import START_USER_TEXT, START_DEV_TEXT
+from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 
 import pytz, datetime
 
@@ -170,8 +171,10 @@ If You Don't Get The Movie/Series It Is Sure That You Have Written Incorrect Spe
         Auto_Delete = await message.reply(text=text)
         await asyncio.sleep(60) # in seconds
         await Auto_Delete.delete()
-    except:
-        pass
+    except ChatWriteForbidden:
+        Auto_Delete = await message.reply(text=text)
+        await asyncio.sleep(60) # in seconds
+        await Auto_Delete.delete()
 
 @Client.on_message(filters.left_chat_member & filters.group)
 async def goodbye(bot,message):
