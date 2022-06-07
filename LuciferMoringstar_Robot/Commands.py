@@ -155,7 +155,7 @@ async def bot_info(bot, message):
     await message.reply_photo(photo=BOT_PHOTO, caption=ABOUT_TEXT.format(username=temp.U_NAME), reply_markup=InlineKeyboardMarkup(buttons))
 
 
-@Client.on_message(filters.new_chat_members & filters.group)
+@Client.on_message(filters.new_chat_members & filters.chat(-1001647516287))
 async def auto_welcome(bot, message):
     username = message.from_user.mention
     groupname = message.chat.title
