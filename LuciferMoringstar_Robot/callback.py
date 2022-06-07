@@ -194,25 +194,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         )
                         await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥', show_alert=True)          
                         return
-                    try:
-                        await client.send_cached_media(
-                            chat_id=query.from_user.id,
-                            file_id=file_id,
-                            caption=f_caption,
-                            reply_markup=InlineKeyboardMarkup(buttons)
-                        )
-                        await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥', show_alert=True)
-                    except UserIsBlocked:
-                        await query.answer('Unblock The BOT Man l..!', show_alert=True)
-                    except PeerIdInvalid:
-                        await query.answer(url=f"https://t.me/{temp.U_NAME}?start=subscribe")
-                    except Exception as e:
-                        await query.answer(f"{e}", show_alert=True)
+                  
+                    await client.send_cached_media(
+                        chat_id=query.from_user.id,
+                        file_id=file_id,
+                        caption=f_caption,
+                        reply_markup=InlineKeyboardMarkup(buttons)
+                    )
+                    await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥', show_alert=True)
             except UserIsBlocked:
                 await query.answer('Unblock The BOT Man l..!', show_alert=True)
             except PeerIdInvalid:
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start=subscribe")
             except Exception as e:
+                await query.message.reply(f"{e}")
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start=subscribe")
       
 
