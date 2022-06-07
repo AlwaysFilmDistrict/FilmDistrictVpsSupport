@@ -222,7 +222,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start=subscribe")
       
 
-        elif query.data.startswith("checkreturn
+        elif query.data.startswith("checkreturn"):
         
             if AUTH_CHANNEL and not await is_subscribed(client, query):
                 await query.answer("I Like Your Smartness, But Don't Be Oversmart 😒",show_alert=True)
