@@ -165,22 +165,26 @@ async def cb_handler(client: Client, query: CallbackQuery):
             title = files.file_name
             size=get_size(files.file_size)
           
-            try:
+            try:      
                 f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=files.caption, mention=query.from_user.mention)
-                try:
-                    if AUTH_CHANNEL and not await is_subscribed(client, query):
-                        await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
-                        return
-                    else:
-                        buttons=[[
-                          InlineKeyboardButton("🆘👤 Owner", url="http://t.me/helloheartbeat"),
-                          InlineKeyboardButton("🆘🤖 Contact", url="http://t.me/TalkToHeartBeatBot")
-                          ],[
-                          InlineKeyboardButton("⁉️ Want To Save/Share This File", callback_data="savefile_alert")
-                          ],[
-                          InlineKeyboardButton("❌ Close", callback_data="close")
-                          ]]
-                        if query.from_user.id not in FORWARD_PERMISSION: 
+            except Exception as error:
+                print(f"Custom File Coption is Error : {error}")
+
+            try:            
+                if AUTH_CHANNEL and not await is_subscribed(client, query):
+                    await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
+                    return
+                else:
+                    buttons=[[
+                     lineKeyboardButton("🆘👤 Owner", url="http://t.me/helloheartbeat"),
+                     InlineKeyboardButton("🆘🤖 Contact", url="http://t.me/TalkToHeartBeatBot")
+                     ],[
+                     InlineKeyboardButton("⁉️ Want To Save/Share This File", callback_data="savefile_alert")
+                     ],[
+                     InlineKeyboardButton("❌ Close", callback_data="close")
+                     ]]
+                    if query.from_user.id not in FORWARD_PERMISSION:
+                        try: 
                             await client.send_cached_media(
                                 chat_id=query.from_user.id,
                                 file_id=file_id,
@@ -188,26 +192,38 @@ async def cb_handler(client: Client, query: CallbackQuery):
                                 protect_content=True,
                                 reply_markup=InlineKeyboardMarkup(buttons)
                             )
-                            await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥',show_alert = True)                                                 
-                            return
+                            await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥',show_alert = True)          
+                        except UserIsBlocked:
+                            await query.answer('Unblock The BOT Man l..!', show_alert=True)
+                        except PeerIdInvalid:
+                            await query.answer(url=f"https://t.me/{temp.U_NAME}?start=subscribe")
+                        except Exception as e:
+                            await query.answer(url=f"https://t.me/{temp.U_NAME}?start=subscribe")
+                        return
+                    try:
                         await client.send_cached_media(
                             chat_id=query.from_user.id,
                             file_id=file_id,
                             caption=f_caption,
                             reply_markup=InlineKeyboardMarkup(buttons)
                         )
-                        await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥',show_alert = True)
-                except UserIsBlocked:
-                    await query.answer('Unblock The BOT Man !',show_alert = True)
-                except PeerIdInvalid:
-                    await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
-                except Exception as e:
-                    await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
-            except:
-                pass
+                        await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥', show_alert=True)
+                    except UserIsBlocked:
+                        await query.answer('Unblock The BOT Man l..!', show_alert=True)
+                    except PeerIdInvalid:
+                        await query.answer(url=f"https://t.me/{temp.U_NAME}?start=subscribe")
+                    except Exception as e:
+                        await query.answer(url=f"https://t.me/{temp.U_NAME}?start=subscribe")
+            except UserIsBlocked:
+                await query.answer('Unblock The BOT Man l..!', show_alert=True)
+            except PeerIdInvalid:
+                await query.answer(url=f"https://t.me/{temp.U_NAME}?start=subscribe")
+            except Exception as e:
+                await query.answer(url=f"https://t.me/{temp.U_NAME}?start=subscribe")
       
 
-        elif query.data.startswith("checksub"):
+        elif query.data.startswith("checkreturn
+        
             if AUTH_CHANNEL and not await is_subscribed(client, query):
                 await query.answer("I Like Your Smartness, But Don't Be Oversmart 😒",show_alert=True)
                 return
