@@ -176,7 +176,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     return
                 else:
                     buttons=[[
-                     IineKeyboardButton("🆘👤 Owner", url="http://t.me/helloheartbeat"),
+                     InlineKeyboardButton("🆘👤 Owner", url="http://t.me/helloheartbeat"),
                      InlineKeyboardButton("🆘🤖 Contact", url="http://t.me/TalkToHeartBeatBot")
                      ],[
                      InlineKeyboardButton("⁉️ Want To Save/Share This File", callback_data="savefile_alert")
