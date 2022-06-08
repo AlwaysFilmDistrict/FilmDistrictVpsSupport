@@ -14,6 +14,6 @@ banned_user = filters.create(banned_users)
 @Client.on_message(filters.private & banned_user & filters.incoming)
 async def ban_reply(bot, message):
     ban = await db.get_ban_status(message.from_user.id)
-    await message.reply(f'Sorry Dude, You are Banned to use Me. \nBan Reason: {ban["ban_reason"]}')
+    await message.reply(f'Sorry Dude, You Are Banned To Use Me. \nBan Reason: {ban["ban_reason"]}')
 
 
