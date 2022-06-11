@@ -172,7 +172,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
             try:            
                 if AUTH_CHANNEL and not await is_subscribed(client, query):
-                    await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
+                    try:
+                        await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
+                    except:
+                        text = f"Hey {query.from_user.mention}\n\n**Your File Is Ready** 🥰\n\n» **File : {title}\n\n» **Size** : {size}"""
+                        button = [[ InlineKeyboardButton("🔰 Download 🔰", url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}") ]]
+                        await query.message.reply_text(text, reply_markup=InlineKeyboardMarkup(button))
                     return
                 else:
                     buttons=[[
@@ -205,10 +210,19 @@ async def cb_handler(client: Client, query: CallbackQuery):
             except UserIsBlocked:
                 await query.answer('Unblock The BOT Man l..!', show_alert=True)
             except PeerIdInvalid:
-                await query.answer(url=f"https://t.me/{temp.U_NAME}?start=subscribe")
+                try:
+                    await query.answer(url=f"https://t.me/{temp.U_NAME}?start=subscribe")
+                except:
+                    text = f"Hey {query.from_user.mention}\n\n**Your File Is Ready** 🥰\n\n» **File : {title}\n\n» **Size** : {size}"""
+                    button = [[ InlineKeyboardButton("🔰 Download 🔰", url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}") ]]
+                    await query.message.reply_text(text, reply_markup=InlineKeyboardMarkup(button))
             except Exception as e:
-                await query.message.reply(f"{e}")
-                await query.answer(url=f"https://t.me/{temp.U_NAME}?start=subscribe")
+                try:
+                    await query.answer(url=f"https://t.me/{temp.U_NAME}?start=subscribe")
+                except:
+                    text = f"Hey {query.from_user.mention}\n\n**Your File Is Ready** 🥰\n\n» **File : {title}\n\n» **Size** : {size}"""
+                    button = [[ InlineKeyboardButton("🔰 Download 🔰", url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}") ]]
+                    await query.message.reply_text(text, reply_markup=InlineKeyboardMarkup(button))
       
 
         elif query.data.startswith("checkreturn"):
