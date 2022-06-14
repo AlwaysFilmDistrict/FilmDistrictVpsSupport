@@ -343,7 +343,7 @@ async def all_files(client, query):
     try:
         querys = query.message.reply_to_message.text
     except Exception:
-        querys = query.message.text
+        await query.answer("Message Delete()")
 
     files = await get_filter_results(query=querys)
 
