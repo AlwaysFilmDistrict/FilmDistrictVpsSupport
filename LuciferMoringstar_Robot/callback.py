@@ -855,5 +855,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
            
     else:
-        await query.answer(f"Hello {query.from_user.first_name} This Is Not Your Message 🤭\n\n{query.message.reply_to_message.from_user.first_name} Only Can Use This ✔️\n\nRequest Your Own ✍️\n\n©️ FILM DISTRICT",show_alert=True)
+        try:
+            await query.answer(f"""Hello {query.from_user.first_name} This Is Not Your Message 🤭\n\n{query.message.reply_to_message.from_user.first_name} Only Can Use This ✔️\n\nRequest Your Own ✍️\n\n©️ FILM DISTRICT""",show_alert=True)
+        except:
+            await query.answer(f"""Hello {query.from_user.first_name} This Is Not Your Message 🤭""",show_alert=True)
 
