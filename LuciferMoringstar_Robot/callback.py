@@ -4,7 +4,7 @@ from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, Media
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from Database.autofilter_db import get_file_details, get_search_results, Media
 from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, BUTTON_CALLBACK_OR_URL, BOT_PHOTO, IMDBOT_CAPTION, ADMINS, BOT_START_TIME, FORWARD_PERMISSION     
-from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
+from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid, QueryIdInvalid
 from Database._utils import get_poster, is_subscribed, get_size, temp
 from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER, START_USER_TEXT, START_DEV_TEXT, about_master, DONATE_TEXT
 from LuciferMoringstar_Robot.text.auto_filter_text import FIRST_BUTTON
@@ -857,6 +857,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
     else:
         try:
             await query.answer(f"""Hello {query.from_user.first_name} This Is Not Your Message 🤭\n\n{query.message.reply_to_message.from_user.first_name} Only Can Use This ✔️\n\nRequest Your Own ✍️\n\n©️ FILM DISTRICT""",show_alert=True)
-        except:
+        except QueryIdInvalid:
+            await query.answer(f"""Hello {query.from_user.first_name} This Is Not Your Message 🤭""",show_alert=True)
+        except Exception:
             await query.answer(f"""Hello {query.from_user.first_name} This Is Not Your Message 🤭""",show_alert=True)
 
