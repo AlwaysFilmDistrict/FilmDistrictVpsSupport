@@ -174,7 +174,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 if AUTH_CHANNEL and not await is_subscribed(client, query):
                     text = f"Hey {query.from_user.mention}\n\n**Your File Is Ready** 🥰\n\n» **File : {title}\n\n» **Size** : {size}"""
                     button = [[ InlineKeyboardButton("🔰 Download 🔰", url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}") ]]
-                    await query.message.reply_text(text, reply_markup=InlineKeyboardMarkup(button))
+                    del=await query.message.reply_text(text, reply_markup=InlineKeyboardMarkup(button))
+                    await asyncio.sleep(60)
+                    await del.delete()
                     return
                 else:
                     buttons=[[
@@ -209,12 +211,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
             except PeerIdInvalid:
                 text = f"Hey {query.from_user.mention}\n\n**Your File Is Ready** 🥰\n\n» **File : {title}\n\n» **Size** : {size}"""
                 button = [[ InlineKeyboardButton("🔰 Download 🔰", url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}") ]]
-                await query.message.reply_text(text, reply_markup=InlineKeyboardMarkup(button))
+                del=await query.message.reply_text(text, reply_markup=InlineKeyboardMarkup(button))
+                await asyncio.sleep(60)
+                await del.delete()
             except Exception as e:
                 text = f"Hey {query.from_user.mention}\n\n**Your File Is Ready** 🥰\n\n» **File : {title}\n\n» **Size** : {size}"""
                 button = [[ InlineKeyboardButton("🔰 Download 🔰", url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}") ]]
-                await query.message.reply_text(text, reply_markup=InlineKeyboardMarkup(button))
-      
+                del=await query.message.reply_text(text, reply_markup=InlineKeyboardMarkup(button))
+                await asyncio.sleep(60)
+                await del.delete()      
 
         elif query.data.startswith("checkreturn"):
         
