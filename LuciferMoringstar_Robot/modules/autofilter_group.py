@@ -1,4 +1,5 @@
 import re, asyncio, random, os
+from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto
@@ -167,7 +168,12 @@ async def group_filters(client, message):
 
 
 
-        buttons = [[
+
+
+
+
+
+        btn = [[
          InlineKeyboardButton("ツ DOWNLOAD ツ", callback_data="download_files_af")
          ],[
          InlineKeyboardButton("✦ HOW TO DOWNLOAD ✦", callback_data="download_files_alert")
@@ -175,17 +181,42 @@ async def group_filters(client, message):
          InlineKeyboardButton("✘ CLOSE ✘", callback_data="close")
          ]]
 
-        text = f"""
-<b><i>Hello 👋 {message.from_user.mention} {Get},</i></b>
+        cap = f"""<b><i>Hello 👋 {message.from_user.mention} {Get},</i></b>\n\n<b>🙏 Thanks For Request & This Is The Results You Looking For 🔍</b>"""
 
-<b>🙏 Thanks For Request & This Is The Results You Looking For 🔍</b>"""
-        Del=await message.reply_photo(photo=BOT_PHOTO, caption=text, reply_markup=InlineKeyboardMarkup(buttons))
-        await asyncio.sleep(600)
-        try:
-            await message.reply_to_message.delete()
-            await Del.delete()
-        except:
-            await Del.delete()
+        imdb = await get_poster(search)
+        if imdb and imdb.get('poster'):
+            try:
+                Del=await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
+                                      reply_markup=InlineKeyboardMarkup(btn))
+                try:
+                    await message.reply_to_message.delete()
+                    await Del.delete()
+                except:
+                    await Del.delete()
+            except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
+                pic = imdb.get('poster')
+                poster = pic.replace('.jpg', "._V1_UX360.jpg")
+                Del=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+                try:
+                    await message.reply_to_message.delete()
+                    await Del.delete()
+                except:
+                    await Del.delete()
+            except Exception as e:
+                logger.exception(e)
+                Del=await message.reply_photo(photo=BOT_PHOTO, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+                try:
+                    await message.reply_to_message.delete()
+                    await Del.delete()
+                except:
+                    await Del.delete()
+        else:
+            Del=await message.reply_photo(photo=BOT_PHOTO, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            try:
+                await message.reply_to_message.delete()
+                await Del.delete()
+            except:
+                await Del.delete()
 
 async def autofilter_download(client, query):
     search = query.message.reply_to_message.text
@@ -269,7 +300,7 @@ async def autofilter_download(client, query):
     else:
         Get = "Good Night"
 
-
+        
     if IMDB_POSTER_ON_OFF:
         imdb = await get_poster(search)
         IMDB_CAPTION = os.environ.get('WITH_POSTER_CAPTION', WITH_POSTER_CAPTION)
