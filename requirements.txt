@@ -14,7 +14,7 @@ psutil # Status
 pytz
 youtube-dl # YouTube 
 youtube_search # YouTube
-pytgcalls==3.0.0.dev19
+
 yt-dlp # YouTube 
 youtube_search_python 
 ffmpeg-python
