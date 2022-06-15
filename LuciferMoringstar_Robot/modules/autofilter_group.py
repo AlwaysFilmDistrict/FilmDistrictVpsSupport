@@ -181,8 +181,11 @@ async def group_filters(client, message):
 <b>🙏 Thanks For Request & This Is The Results You Looking For 🔍</b>"""
         Del=await message.reply_photo(photo=BOT_PHOTO, caption=text, reply_markup=InlineKeyboardMarkup(buttons))
         await asyncio.sleep(600)
-        await Del.delete()
-
+        try:
+            await message.reply_to_message.delete()
+            await Del.delete()
+        except:
+            await Del.delete()
 
 async def autofilter_download(client, query):
 
