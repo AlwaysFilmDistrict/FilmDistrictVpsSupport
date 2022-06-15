@@ -188,10 +188,8 @@ async def group_filters(client, message):
             await Del.delete()
 
 async def autofilter_download(client, query):
-
-    btn = []
-
     search = query.message.reply_to_message.text
+    btn = []
 
     files, offset, total_results = await get_search_results(search, offset=0)
     if not files:
@@ -270,11 +268,13 @@ async def autofilter_download(client, query):
         Get = "Good Evening"
     else:
         Get = "Good Night"
-    imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
-    if imdb:
+
+
+    if IMDB_POSTER_ON_OFF:
+        imdb = await get_poster(search)
         IMDB_CAPTION = os.environ.get('WITH_POSTER_CAPTION', WITH_POSTER_CAPTION)
         cap = IMDB_CAPTION.format(
-            greeting=Get,
+            greeting = Get,
             mention = f"[{query.from_user.first_name}](tg://user?id={query.from_user.id})",
             chat_name = query.message.chat.title,
             total_page = f"{round(int(total_results)/10)}",
@@ -303,11 +303,9 @@ async def autofilter_download(client, query):
             release_date = imdb['release_date'],
             year = imdb['year'],
             genres = imdb['genres'],
-            poster = imdb['poster'],
             plot = imdb['plot'],
             rating = imdb['rating'],
-            url = imdb['url'],
-            **locals()
+            url = imdb['url']
         )
     else:
         IMDB_CAPTIONS = os.environ.get('WITHOUT_POSTER_CAPTION', WITHOUT_POSTER_CAPTION)
@@ -319,7 +317,6 @@ async def autofilter_download(client, query):
             total_files = total_results,
             query = search
         )
-
 
     try:                
         Del=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
