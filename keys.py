@@ -85,7 +85,7 @@ WITHOUT_POSTER_CAPTION = """
 <b>↪️ Requested:</b> {query}
 <b>👤 Requested By:</b> {mention}
 <b>📑 Total Page:</b> {total_page}
-<b> 📁 Total Files: </b> {total_files}
+<b>📁 Total Files: </b> {total_files}
 <b>📤 Uploaded To:</b> Film District Server
 <b>🧑‍🔧 Get Support ✔️</b> [HeartBeat](http://t.me/helloheartbeat)
 
@@ -110,7 +110,7 @@ WITH_POSTER_CAPTION = """
 
 <b>↪️ Requested:</b> {query}
 <b>📑 Total Page:</b> {total_page}
-<b> 📁 Total Files: </b> {total_files}
+<b>📁 Total Files: </b> {total_files}
 <b>📤 Uploaded To:</b> Film District Server 
 <b>🧑‍🔧 Get Support ✔️</b> [HeartBeat](http://t.me/helloheartbeat)
 
