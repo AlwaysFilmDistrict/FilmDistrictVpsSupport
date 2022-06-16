@@ -198,6 +198,7 @@ async def group_filters(client, message):
                 pic = imdb.get('poster')
                 poster = pic.replace('.jpg', "._V1_UX360.jpg")
                 Del=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+
                 await asyncio.sleep(600)
                 try:
                     await message.reply_to_message.delete()
@@ -207,6 +208,7 @@ async def group_filters(client, message):
             except Exception as e:
                 logger.exception(e)
                 Del=await message.reply_photo(photo=BOT_PHOTO, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+
                 await asyncio.sleep(600)
                 try:
                     await message.reply_to_message.delete()
@@ -215,6 +217,7 @@ async def group_filters(client, message):
                     await Del.delete()
         else:
             Del=await message.reply_photo(photo=BOT_PHOTO, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+
             await asyncio.sleep(600)
             try:
                 await message.reply_to_message.delete()
