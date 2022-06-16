@@ -93,7 +93,7 @@ WITHOUT_POSTER_CAPTION = """
 ~~<b>📌 This Post Will Be Deleted After 10 Minutes</b>~~"""
 
 WITH_POSTER_CAPTION = """
-<b>Hello 👋 {mention}, {greeting}</b>
+<b><i>Hello 👋 {mention} {greeting},</i></b>
 
 —(••÷[ ıllıllı ɪᴍᴅʙ ᴅᴀᴛᴀ ıllıllı ]÷••)—
 
