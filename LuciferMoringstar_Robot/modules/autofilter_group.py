@@ -188,6 +188,7 @@ async def group_filters(client, message):
             try:
                 Del=await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
                                       reply_markup=InlineKeyboardMarkup(btn))
+                await asyncio.sleep(600)
                 try:
                     await message.reply_to_message.delete()
                     await Del.delete()
