@@ -188,9 +188,11 @@ async def group_filters(client, message):
             try:
                 Del=await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
                                       reply_markup=InlineKeyboardMarkup(btn))
-                    await asyncio.sleep(600)
+                    try:
+                    await message.reply_to_message.delete()
                     await Del.delete()
-                    
+                except:
+                    await Del.delete()
             except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
                 pic = imdb.get('poster')
                 poster = pic.replace('.jpg', "._V1_UX360.jpg")
