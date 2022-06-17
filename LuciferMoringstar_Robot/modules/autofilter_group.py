@@ -143,7 +143,7 @@ async def group_filters(client, message):
 
         cap = f"""<b><i>Hello 👋 {message.from_user.mention} {Get},</i></b>\n\n<b>🙏 Thanks For Request & This Is The Results You Looking For 🔍</b>"""
 
-        imdb = await get_poster(search)
+        imdb = await get_poster(search) if IMDB_POSTER_ON_OFF else None
         if imdb and imdb.get('poster'):
             try:
                 Del=await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
