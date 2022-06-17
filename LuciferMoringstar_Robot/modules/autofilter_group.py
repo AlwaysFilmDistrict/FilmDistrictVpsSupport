@@ -150,7 +150,7 @@ async def group_filters(client, message):
                                       reply_markup=InlineKeyboardMarkup(btn))
                 await asyncio.sleep(600)
                 try:
-                    await message.reply_to_message.delete()
+                    await await message.delete()
                     await Del.delete()
                 except:
                     await Del.delete()
@@ -161,7 +161,7 @@ async def group_filters(client, message):
 
                 await asyncio.sleep(600)
                 try:
-                    await message.reply_to_message.delete()
+                    await message.delete()
                     await Del.delete()
                 except:
                     await Del.delete()
@@ -171,7 +171,7 @@ async def group_filters(client, message):
 
                 await asyncio.sleep(600)
                 try:
-                    await message.reply_to_message.delete()
+                    await message.delete()
                     await Del.delete()
                 except:
                     await Del.delete()
@@ -180,7 +180,7 @@ async def group_filters(client, message):
 
             await asyncio.sleep(600)
             try:
-                await message.reply_to_message.delete()
+                await message.delete()
                 await Del.delete()
             except:
                 await Del.delete()
@@ -319,7 +319,11 @@ async def autofilter_download(client, query):
     try:                
         Del=await query.message.edit(text=cap, reply_markup=InlineKeyboardMarkup(btn))
         await asyncio.sleep(600) # in seconds
-        await Del.delete()
+        try:
+            await Del.delete()
+            await message.delete()
+        except:
+            await Del.delete()
     except MessageNotModified:
         pass  
      
