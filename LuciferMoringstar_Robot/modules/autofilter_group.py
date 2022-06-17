@@ -150,7 +150,7 @@ async def group_filters(client, message):
                                       reply_markup=InlineKeyboardMarkup(btn))
                 await asyncio.sleep(600)
                 try:
-                    await await message.delete()
+                    await message.delete()
                     await Del.delete()
                 except:
                     await Del.delete()
