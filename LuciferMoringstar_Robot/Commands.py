@@ -58,8 +58,7 @@ async def start(bot, message):
             except Exception:
                 await bot.send_message(
                     chat_id=message.from_user.id,
-                    text="Something went Wrong.",
-                    parse_mode="markdown",
+                    text="Something went Wrong.",                   
                     disable_web_page_preview=True
                 )
                 return
@@ -70,9 +69,9 @@ async def start(bot, message):
                 title = mrk.file_name
                 size = get_size(mrk.file_size)
                 caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=mrk.caption, mention=message.from_user.mention)                           
-                await bot.send_cached_media(chat_id=update.from_user.id, file_id=file_id, caption=caption)
+                await bot.send_cached_media(chat_id=message.from_user.id, file_id=file_id, caption=caption)
         except Exception as error:
-            await update.reply_text(f"𝚂𝙾𝙼𝙴𝚃𝙷𝙸𝙽𝙶 𝚆𝙴𝙽𝚃 𝚆𝚁𝙾𝙽𝙶.!\n\n𝙴𝚁𝚁𝙾𝚁:`{error}`")
+            await message.reply_text(f"""𝚂𝙾𝙼𝙴𝚃𝙷𝙸𝙽𝙶 𝚆𝙴𝙽𝚃 𝚆𝚁𝙾𝙽𝙶.!\n\n𝙴𝚁𝚁𝙾𝚁:`{error}`""")
 
 
 
