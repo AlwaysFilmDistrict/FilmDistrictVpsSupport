@@ -63,6 +63,19 @@ async def start(bot, message):
                     disable_web_page_preview=True
                 )
                 return
+        try:
+            mrk, file_id = message.text.split("_-_-_-_")
+            filedetails = await get_file_details(file_id)
+            for mrk in filedetails:
+                title = mrk.file_name
+                size = get_size(mrk.file_size)
+                caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=mrk.caption, mention=message.from_user.mention)                           
+                await bot.send_cached_media(chat_id=update.from_user.id, file_id=file_id, caption=caption)
+        except Exception as error:
+            await update.reply_text(f"𝚂𝙾𝙼𝙴𝚃𝙷𝙸𝙽𝙶 𝚆𝙴𝙽𝚃 𝚆𝚁𝙾𝙽𝙶.!\n\n𝙴𝚁𝚁𝙾𝚁:`{error}`")
+
+
+
 
     elif len(message.command) > 1 and message.command[1] == 'subscribe':
         invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
