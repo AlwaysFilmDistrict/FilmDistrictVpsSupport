@@ -164,18 +164,30 @@ async def cb_handler(client: Client, query: CallbackQuery):
             files = files_[0]
             title = files.file_name
             size=get_size(files.file_size)
-          
-            try:      
-                f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=files.caption, mention=query.from_user.mention)
-            except Exception as error:
-                print(f"Custom File Coption is Error : {error}")
+            f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=files.caption, mention=query.from_user.mention)
 
-
-
-
-
-
-
+            if query.from_user.id not in FORWARD_PERMISSION:
+                try:
+                    if AUTH_CHANNEL and not await is_subscribed(client, query):
+                        await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
+                        return
+                    else:
+                        await client.send_cached_media(
+                            chat_id=query.from_user.id,
+                            file_id=file_id,
+                            caption=f_caption,
+                            protect_content=True,
+                            reply_markup=InlineKeyboardMarkup(buttons)
+                        )
+                        await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥', show_alert=True)          
+                except UserIsBlocked:
+                    await query.answer('Unblock The BOT Man l..!', show_alert=True)
+                except PeerIdInvalid:
+                    await query.answer(url=f"https://t.me/{temp.U_NAME}?start=subscribe")
+                except Exception as e:
+                    await query.message.reply(f"{e}")
+                    await query.answer(url=f"https://t.me/{temp.U_NAME}?start=subscribe")      
+                return
             try:            
                 if AUTH_CHANNEL and not await is_subscribed(client, query):
                     await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
