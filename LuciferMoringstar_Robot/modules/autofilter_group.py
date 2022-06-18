@@ -340,16 +340,14 @@ alert_download_file = """
 
 async def all_files(client, query):
 
-    await query.answer("Check Bot PM, I Have Sent Your All Files At Once In PM 📥", show_alert=True)
-
     try:
+        await query.answer("Check Bot PM, I Have Sent Your All Files At Once In PM 📥", show_alert=True)
         querys = query.message.reply_to_message.text
     except Exception:
-        await query.answer("Message Delete()")
+        await query.answer("Message Delete()", show_alert=True)
+        return
 
     files = await get_filter_results(query=querys)
-
-
 
     for file in files:
         file_ids = file.file_id
