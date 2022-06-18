@@ -170,6 +170,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
             except Exception as error:
                 print(f"Custom File Coption is Error : {error}")
 
+
+
+
+
+
+
             try:            
                 if AUTH_CHANNEL and not await is_subscribed(client, query):
                     await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
@@ -182,19 +188,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                      InlineKeyboardButton("⁉️ Want To Save/Share This File", callback_data="savefile_alert")
                      ],[
                      InlineKeyboardButton("❌ Close", callback_data="close")
-                     ]]
-                    if query.from_user.id not in FORWARD_PERMISSION:
-                        
-                        await client.send_cached_media(
-                            chat_id=query.from_user.id,
-                            file_id=file_id,
-                            caption=f_caption,
-                            protect_content=True,
-                            reply_markup=InlineKeyboardMarkup(buttons)
-                        )
-                        await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥', show_alert=True)          
-                        return
-                  
+                     ]]                  
                     await client.send_cached_media(
                         chat_id=query.from_user.id,
                         file_id=file_id,
