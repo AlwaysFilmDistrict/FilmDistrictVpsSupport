@@ -172,6 +172,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         await query.answer(url=f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}")
                         return
                     else:
+                        buttons=[[
+                          InlineKeyboardButton("🆘👤 Owner", url="http://t.me/helloheartbeat"),
+                          InlineKeyboardButton("🆘🤖 Contact", url="http://t.me/TalkToHeartBeatBot")
+                          ],[
+                          InlineKeyboardButton("⁉️ Want To Save/Share This File", callback_data="savefile_alert")
+                          ],[
+                          InlineKeyboardButton("❌ Close", callback_data="close")
+                          ]]
                         await client.send_cached_media(
                             chat_id=query.from_user.id,
                             file_id=file_id,
