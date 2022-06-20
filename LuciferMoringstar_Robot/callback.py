@@ -128,10 +128,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
             
         elif query.data == "rulesbot":
             buttons = [[
-                InlineKeyboardButton('বাংলা', url='https://telegra.ph/FAQ-BEN-FILMDISTRICT-12-03'),
-                InlineKeyboardButton('हिंदी', url="https://telegra.ph/FAQ-HIN-FILMDISTRICT-12-03")              
+                InlineKeyboardButton('বাংলা', url='https://telegra.ph/FAQ-BEN-FILMDISTRICT-06-19'),
+                InlineKeyboardButton('हिंदी', url="https://telegra.ph/FAQ-HIN-FILMDISTRICT-06-19")              
                 ],[
-                InlineKeyboardButton('English', url="https://telegra.ph/FAQ-ENG-FILMDISTRICT-12-03")              
+                InlineKeyboardButton('English', url="https://telegra.ph/FAQ-ENG-FILMDISTRICT-06-19")              
                 ]]
             LuciferMoringstar=await query.message.reply_text(text="Select Your Preferred Language", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
             await asyncio.sleep(60) 
