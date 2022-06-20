@@ -105,7 +105,7 @@ async def answer(bot, query):
 
 def get_reply_markup(query):
     buttons = [[
-        InlineKeyboardButton('🔗 FD 2.0', url='https://telegram.me/joinchat/BOMKAM_4u0ozNWU1'),
+        InlineKeyboardButton('🔗 FD', url='https://telegram.me/joinchat/BOMKAM_4u0ozNWU1'),
         InlineKeyboardButton('♨️ FD UPDATES', url='https://telegram.me/joinchat/EUUS8b0iEnVjZTU9')
         ],[
         InlineKeyboardButton('🔍 Search Again 🔎', switch_inline_query_current_chat=query)
