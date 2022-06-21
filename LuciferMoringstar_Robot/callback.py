@@ -650,9 +650,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
 
-            buttons = [[ InlineKeyboardButton("বাংলা", url="https://telegra.ph/FAQ-BEN-FILMDISTRICT-12-03"),
-                         InlineKeyboardButton("हिंदी", url="https://telegra.ph/FAQ-HIN-FILMDISTRICT-12-03") ],
-                       [ InlineKeyboardButton("English", url="https://telegra.ph/FAQ-ENG-FILMDISTRICT-12-03") ],
+            buttons = [[ InlineKeyboardButton("বাংলা", url="https://telegra.ph/FAQ-BEN-FILMDISTRICT-06-19"),
+                         InlineKeyboardButton("हिंदी", url="https://telegra.ph/FAQ-HIN-FILMDISTRICT-06-19") ],
+                       [ InlineKeyboardButton("English", url="https://telegra.ph/FAQ-ENG-FILMDISTRICT-06-19") ],
                        [ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await edit5.edit(faq_text, reply_markup=InlineKeyboardMarkup(buttons))
 
@@ -815,9 +815,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
 
-            buttons = [[ InlineKeyboardButton("বাংলা", url="https://telegra.ph/FAQ-BEN-FILMDISTRICT-12-03"),
-                         InlineKeyboardButton("हिंदी", url="https://telegra.ph/FAQ-HIN-FILMDISTRICT-12-03") ],
-                       [ InlineKeyboardButton("English", url="https://telegra.ph/FAQ-ENG-FILMDISTRICT-12-03") ],
+            buttons = [[ InlineKeyboardButton("বাংলা", url="https://telegra.ph/FAQ-BEN-FILMDISTRICT-06-19"),
+                         InlineKeyboardButton("हिंदी", url="https://telegra.ph/FAQ-HIN-FILMDISTRICT-06-19") ],
+                       [ InlineKeyboardButton("English", url="https://telegra.ph/FAQ-ENG-FILMDISTRICT-06-19") ],
                        [ InlineKeyboardButton('🔙 Back', callback_data='help_user') ]]                          
             await edit5.edit(faq_text, reply_markup=InlineKeyboardMarkup(buttons))
 
