@@ -1,6 +1,5 @@
 #!/bin/ba
 
-
 pprint (){
 	cred='\033[0;31m'
 	cgreen='\033[0;32m'
@@ -11,6 +10,7 @@ pprint (){
 	[ ! -z $2 ] && eval "export color=\"\$$2\""
     printf "$color $1"
 }
+
 
 color_reset(){ printf '\033[0;37m';}
 
