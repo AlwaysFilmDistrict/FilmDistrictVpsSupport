@@ -1,4 +1,6 @@
-#!/bin/ba
+#!/bin/bash
+### LuciferMoringstar Bot Installer
+
 
 pprint (){
 	cred='\033[0;31m'
