@@ -39,8 +39,7 @@ async def pm_autofilter(client, message):
                             InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
                         ]
                     ]
-                ),
-                parse_mode="markdown"
+                )
             )
             return
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
@@ -64,7 +63,7 @@ async def pm_autofilter(client, message):
             return
  
         if offset != "":
-            key = f"{message.chat.id}-{message.message_id}"
+            key = f"{message.chat.id}-{message.id}"
             temp.BUTTONS[key] = search
             req = message.from_user.id or 0
             btn.append(
