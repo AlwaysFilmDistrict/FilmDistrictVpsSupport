@@ -351,11 +351,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 InlineKeyboardButton("💸 Donate", callback_data="donate") 
                 ]]             
             await edit5.edit(text=START_DEV_TEXT.format(first_name=query.from_user.first_name, id=query.from_user.id, bot_username=temp.U_NAME, Get=Get), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+
         elif query.data == "master":
-            await query.message.reply_chat_action("typing")
-
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
-
             edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -365,23 +364,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
             edit4=await edit3.edit(EDIT_4)
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
-           
             buttons = [[
              InlineKeyboardButton("🏠 Home", callback_data="start")
              ]]
             await edit5.edit(about_master.format(query.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
-        elif query.data == "about":
-            await query.message.reply_chat_action("typing")
 
-                 
+        elif query.data == "about":
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)      
             await query.answer(ABOUT_TEXT, show_alert=True)
 
-
         elif query.data == "donate":
-            await query.message.reply_chat_action("typing")
-
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
-
             edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -402,8 +396,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
              ]]
             await edit5.edit(DONATE_TEXT.format(query.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
-
-
         elif query.data == "google_pay":
             await query.message.reply_sticker(sticker="CAACAgUAAxkBAAECTmtiYkdu0ar5c46vFCb5rIn3DFqfGwACLAQAAmvaEFevJs8WPIrghh4E")
         elif query.data == "paytm":
@@ -411,13 +403,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "phonepe":
             await query.message.reply_sticker(sticker="CAACAgUAAxkBAAECTm1iYkfV0jwAAdT2s5YIal2fhkbqdp0AAuMEAAI44hBXtAEpahZoMAoeBA")
 
-
-
         elif query.data == "help":
-            await query.message.reply_chat_action("typing")
-
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
-
             edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -427,11 +415,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             edit4=await edit3.edit(EDIT_4)
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
-
-
-
-
-
             buttons = [[
               InlineKeyboardButton('🚨 Alive', callback_data='alive'),
               InlineKeyboardButton('🔗 Link', callback_data='link_create'),
@@ -458,7 +441,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await edit5.edit(HELP_TEXT_DEV.format(query.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data == "broadcast":
-            await query.message.reply_chat_action("typing")
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
             edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
@@ -469,15 +452,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             edit4=await edit3.edit(EDIT_4)
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
-
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await edit5.edit(Broadcast_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "status_button":
-            await query.message.reply_chat_action("typing")
-
-            
-
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             total_users = await db.total_users_count()    
             files = await Media.count_documents()
             size = await mt.get_db_size()
@@ -485,17 +464,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
             size = get_size(size)
             free = get_size(free)
             updates = time.strftime("%Hh %Mm %Ss", time.gmtime(time.time() - BOT_START_TIME))
-              
             cpu = psutil.cpu_percent()
             ram = psutil.virtual_memory().percent
             stats_texts = f"""📁 Total Files: {files}\n👤 Total Users: {total_users}\n⌛ Used Storage: {size} MiB\n⏳ Free Storage: {free} MiB\n📼 Cpu: {cpu} | 💾 Ram: {ram}\n⏱️ Last Update: {updates}"""
             await query.answer(stats_texts, show_alert=True)
 
         elif query.data == "database":
-            await query.message.reply_chat_action("typing")
-
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
-
             edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -505,15 +481,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
             edit4=await edit3.edit(EDIT_4)
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
-
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await edit5.edit(database_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "logs":
-            await query.message.reply_chat_action("typing")
-
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
-
             edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -523,15 +496,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
             edit4=await edit3.edit(EDIT_4)
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
-
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await edit5.edit(logs_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "ban_pm_user":
-            await query.message.reply_chat_action("typing")
-
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
-
             edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -541,15 +511,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
             edit4=await edit3.edit(EDIT_4)
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
-
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await edit5.edit(ban_pm_user_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "dyno":
-            await query.message.reply_chat_action("typing")
-
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
-
             edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -559,15 +526,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
             edit4=await edit3.edit(EDIT_4)
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
-
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await edit5.edit(dyno_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "alive":
-            await query.message.reply_chat_action("typing")
-
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
-
             edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -577,15 +541,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
             edit4=await edit3.edit(EDIT_4)
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
-
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await edit5.edit(alive_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "key_imdbtext":
-            await query.message.reply_chat_action("typing")
-
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
-
             edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -595,14 +556,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
             edit4=await edit3.edit(EDIT_4)
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
-
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await edit5.edit(imdb_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "inline_button":
-            await query.message.reply_chat_action("typing")
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
-
             edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -612,16 +571,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
             edit4=await edit3.edit(EDIT_4)
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
-
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help'),
                          InlineKeyboardButton("Search Here 🔎", switch_inline_query_current_chat='') ]]
             await edit5.edit(inline_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "ids":
-            await query.message.reply_chat_action("typing")
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
-
-
             edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -631,15 +587,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
             edit4=await edit3.edit(EDIT_4)
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
-
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await edit5.edit(id_texts, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "faq_button":
-            await query.message.reply_chat_action("typing")
-
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
-
             edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -649,7 +602,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             edit4=await edit3.edit(EDIT_4)
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
-
             buttons = [[ InlineKeyboardButton("বাংলা", url="https://telegra.ph/FAQ-BEN-FILMDISTRICT-06-19"),
                          InlineKeyboardButton("हिंदी", url="https://telegra.ph/FAQ-HIN-FILMDISTRICT-06-19") ],
                        [ InlineKeyboardButton("English", url="https://telegra.ph/FAQ-ENG-FILMDISTRICT-06-19") ],
@@ -657,10 +609,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await edit5.edit(faq_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "link_create":
-            await query.message.reply_chat_action("typing")
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
-
-
             edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -670,15 +620,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
             edit4=await edit3.edit(EDIT_4)
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
-
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await edit5.edit(Invite_link, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "song_d":
-            await query.message.reply_chat_action("typing")
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
-
-
             edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -688,19 +635,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
             edit4=await edit3.edit(EDIT_4)
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
-
             buttons = [[ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await edit5.edit(song_text, reply_markup=InlineKeyboardMarkup(buttons))
-
-
 
 # User
 
         elif query.data == "help_user":
-            await query.message.reply_chat_action("typing")
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
-
-
             edit1=await query.message.edit(EDIT_1)
             await asyncio.sleep(0.4)
             edit2=await edit1.edit(EDIT_2)
@@ -710,7 +652,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             edit4=await edit3.edit(EDIT_4)
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
-
             buttons = [[
               InlineKeyboardButton('🚨 Alive', callback_data='alive_u'),
               InlineKeyboardButton('🔍 IMDB', callback_data='key_imdbtext_u'),
@@ -727,7 +668,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await edit5.edit(HELP_TEXT_DEV.format(query.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data == "link_create_u":
-            await query.message.reply_chat_action("typing")
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
 
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
@@ -745,7 +686,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await edit5.edit(Invite_link, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "alive_u":
-            await query.message.reply_chat_action("typing")
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
 
@@ -763,7 +704,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await edit5.edit(alive_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "key_imdbtext_u":
-            await query.message.reply_chat_action("typing")
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
 
@@ -781,7 +722,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await edit5.edit(imdb_text, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "ids_u":
-            await query.message.reply_chat_action("typing")
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
 
@@ -801,7 +742,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
 
         elif query.data == "faq_button_u":
-            await query.message.reply_chat_action("typing")
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
 
@@ -823,7 +764,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
    
         elif query.data == "song_u":
-            await query.message.reply_chat_action("typing")
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
 
@@ -856,10 +797,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data == "download_files_alert":       
             await query.answer(alert_download_file, show_alert=True)
-
-
-
-
            
     else:
         try:
