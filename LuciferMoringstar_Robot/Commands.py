@@ -1,5 +1,5 @@
 import os, logging, asyncio 
-from pyrogram import Client, filters
+from pyrogram import Client, filters, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, LOG_CHANNEL, BOT_PHOTO, ADMINS
 from Database.autofilter_db import get_file_details 
@@ -29,7 +29,7 @@ async def start(bot, message):
             invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
             try:
                 user = await bot.get_chat_member(int(AUTH_CHANNEL), message.from_user.id)
-                if user.status == "kicked":
+                if user.status == enums.ChatMemberStatus.RESTRICTED:
                     await bot.send_message(
                         chat_id=message.from_user.id,
                         text="Sorry Sir, You are Banned to use me.",
