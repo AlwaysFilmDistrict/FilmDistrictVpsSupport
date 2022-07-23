@@ -13,7 +13,7 @@ logger.setLevel(logging.ERROR)
 from pyrogram.errors import MessageNotModified
 from keys import WITHOUT_POSTER_CAPTION, WITH_POSTER_CAPTION
 
-import pytz, datetime
+import pytz, datetime, math
 
 
 async def group_filters(client, message):
@@ -275,7 +275,7 @@ async def autofilter_download(client, query):
             greeting = Get,
             mention = f"[{query.from_user.first_name}](tg://user?id={query.from_user.id})",
             chat_name = query.message.chat.title,
-            total_page = f"{round(int(total_results)/10)}",
+            total_page = f"{math.ceil(int(total_results)/10)}",
             total_files = total_results,
             query = search,
             title = imdb['title'],
