@@ -1,6 +1,6 @@
 import pyrogram
 import os
-from pyrogram import Client, filters
+from pyrogram import Client, filters, enums
 from pyrogram.types import Message, User
 
 ### ( Free Code) No Paid Okke🤐
@@ -18,7 +18,7 @@ async def report(bot, message):
         chat_id = message.chat.id
         reporter = str(message.from_user.id)
         mention = message.from_user.mention
-        admins = await bot.get_chat_members(chat_id=chat_id, filter="administrators")
+        admins = await bot.get_chat_members(chat_id=chat_id, filter=enums.ChatMemberStatus.ADMINISTRATOR)
         success = False
         report = f"Reporter : {mention} ({reporter})" + "\n"
         report += f"Message : {message.reply_to_message.link}"
