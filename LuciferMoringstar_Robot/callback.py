@@ -313,7 +313,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             else:
                 Get = "Good Night"
 
-            await query.message.reply_chat_action("typing")
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
 
             await query.answer(ALL_ALERT_TEXT_BOT_PM)
 
