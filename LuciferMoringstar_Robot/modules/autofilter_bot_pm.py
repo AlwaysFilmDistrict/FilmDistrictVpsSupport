@@ -1,4 +1,4 @@
-import re, asyncio, random, os
+import re, asyncio, random, os, pyrogram 
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
@@ -21,7 +21,7 @@ async def pm_autofilter(client, message):
         invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
         try:
             user = await client.get_chat_member(int(AUTH_CHANNEL), message.from_user.id)
-            if user.status == "kicked":
+            if user.status == pyrogram.enums.ChatMemberStatus.RESTRICTED:
                 await client.send_message(
                     chat_id=message.from_user.id,
                     text="Sorry Sir, You are Banned to use me.",
