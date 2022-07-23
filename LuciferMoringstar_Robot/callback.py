@@ -1,4 +1,4 @@
-import asyncio, imdb, time, psutil
+import asyncio, imdb, time, psutil, math
 from pyrogram import Client, filters, enums
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
@@ -73,7 +73,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     [InlineKeyboardButton("🔙 Back Page", callback_data=f"next_{req}_{key}_{off_set}")]
                 )
                 btn.append(                    
-                    [InlineKeyboardButton(f"🗓️ {round(int(offset)/10)+1}", callback_data="pages"),
+                    [InlineKeyboardButton(f"🗓️ {math.ceil(int(offset)/10)+1}", callback_data="pages"),
                      InlineKeyboardButton(text="🗑️",callback_data="close"),
                      InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
                 )
@@ -89,7 +89,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     [InlineKeyboardButton("Next Page ➡️", callback_data=f"next_{req}_{key}_{n_offset}")]
                 )
                 btn.append(                    
-                    [InlineKeyboardButton(f"🗓️ {round(int(offset)/10)+1}", callback_data="pages"),
+                    [InlineKeyboardButton(f"🗓️ {math.ceil(int(offset)/10)+1}", callback_data="pages"),
                      InlineKeyboardButton(text="🗑️",callback_data="close"),
                      InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
                 )
@@ -106,7 +106,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                      InlineKeyboardButton("Next Page ➡️", callback_data=f"next_{req}_{key}_{n_offset}")]           
                 )
                 btn.append(                    
-                    [InlineKeyboardButton(f"🗓️ {round(int(offset)/10)+1}", callback_data="pages"),
+                    [InlineKeyboardButton(f"🗓️ {math.ceil(int(offset)/10)+1}", callback_data="pages"),
                      InlineKeyboardButton(text="🗑️",callback_data="close"),
                      InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
                 )
