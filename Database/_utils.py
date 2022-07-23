@@ -3,6 +3,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 import os, re, imdb
 from pyrogram.types import Message
+from pyrogram import enums
 from typing import Union 
 from datetime import datetime
 from pyrogram.errors import InputUserDeactivated, UserIsBlocked, PeerIdInvalid, FloodWait, UserNotParticipant
@@ -18,7 +19,7 @@ async def is_subscribed(bot, query):
     except Exception as e:
         logger.exception(e)
     else:
-        if not user.status == 'kicked':
+        if not user.status == enums.ChatMemberStatus.RESTRICTED:
             return True
 
     return False
