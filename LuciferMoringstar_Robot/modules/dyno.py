@@ -3,8 +3,6 @@ import os, math, json, time, shutil, heroku3, requests
 from Config import HEROKU_API_KEY, ADMINS
 from Database._utils import humanbytes
 
-
-
 @Client.on_message(filters.command('dyno') & filters.user(ADMINS))
 async def bot_status(client,message):
 
@@ -75,7 +73,5 @@ async def bot_status(client,message):
 
     await message.reply_text(
         f"{quota_details}\n\n"
-        f"{disk}\n\n",
-        quote=True,
-        parse_mode="md"
+        f"{disk}\n\n"
     )
