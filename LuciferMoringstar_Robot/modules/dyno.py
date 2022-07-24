@@ -72,6 +72,5 @@ async def bot_status(client,message):
         disk = ""
 
     await message.reply_text(
-        f"{quota_details}\n\n"
-        f"{disk}\n\n"
+        f"""{quota_details}\n\n{disk}\n\n"""
     )
