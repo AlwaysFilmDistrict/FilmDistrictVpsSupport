@@ -24,41 +24,41 @@ async def group_filters(client, message):
         search = message.text
         for i in "series".split() :
          if i in search.lower() :
-            LuciferMoringstar=await client.send_message(
+            LuciferMoringstar=await message.reply_text(
                 text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nDon't Type <b>"Series"</b> ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\n<b>Example : Titanic Or Money Heist</b>""",
-                chat_id=message.chat.id)
+            )
             await asyncio.sleep(60) # in seconds
             await LuciferMoringstar.delete()
             return
         for i in "dubbed".split() :
          if i in search.lower() :
-            LuciferMoringstar=await client.send_message(
+            LuciferMoringstar=await message.reply_text(
                 text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nDon't Type <b>"Dubbed"</b> ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\n<b>Example : Titanic Or Money Heist</b>""",
-                chat_id=message.chat.id)
+            )
             await asyncio.sleep(60) # in seconds
             await LuciferMoringstar.delete()
             return
         for i in "available".split() :
          if i in search.lower() :
-            LuciferMoringstar=await client.send_message(
+            LuciferMoringstar=await message.reply_text(
                 text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nDon't Type <b>"Available"</b> ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\n<b>Example : Titanic Or Money Heist</b>""",
-                chat_id=message.chat.id)
+            )
             await asyncio.sleep(60) # in seconds
             await LuciferMoringstar.delete()
             return
         for i in "movie".split() :
          if i in search.lower() :
-            LuciferMoringstar=await client.send_message(
+            LuciferMoringstar=await message.reply_text(
                 text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nDon't Type <b>"Movie"</b> ❌ - Language\n\nOnly Type The Name Of The Movie/Series\n\n<b>Example : Titanic</b>""",
-                chat_id=message.chat.id)
+            )
             await asyncio.sleep(60) # in seconds
             await LuciferMoringstar.delete()
             return
         for i in "film".split() :
          if i in search.lower() :
-            LuciferMoringstar=await client.send_message(
+            LuciferMoringstar=await message.reply_text(
                 text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nDon't Type <b>"Film"</b> ❌ - Language\n\nOnly Type The Name Of The Film/Series\n\n<b>Example : Titanic</b>""",
-                chat_id=message.chat.id)
+            )
             await asyncio.sleep(60) # in seconds
             await LuciferMoringstar.delete()
             return
