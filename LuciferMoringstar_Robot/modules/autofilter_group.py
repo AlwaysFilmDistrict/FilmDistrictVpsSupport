@@ -65,7 +65,7 @@ async def group_filters(client, message):
         for i in "jaadugar".split() :
          if i in search.lower() :
             LuciferMoringstar=await message.reply_text(
-                text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nI Know You Are In Hurry Mood To Download The Movie <b>"Jaadugar"</b>\n\nBut This Movie Avilable Only In Film District Premium Group\n\n<b>For Get 💸 PREMIUM Membership,\n\n📥 Inbox To : [HeartBeat](t.me/helloheartbeat)</b>""",
+                text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nI Know You Are In Hurry Mood To ⬇️ Download The Movie <b>"Jaadugar"</b>\n\nBut This Movie Avilable Only In ✔️ Film District Premium Group\n\n<b>For 💸 PREMIUM Membership,\n\n📥 Inbox To : HeartBeat(t.me/helloheartbeat)</b>""",
             )
             await asyncio.sleep(60) # in seconds
             await LuciferMoringstar.delete()
@@ -73,7 +73,7 @@ async def group_filters(client, message):
         for i in "sampurna".split() :
          if i in search.lower() :
             LuciferMoringstar=await message.reply_text(
-                text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nI Know You Are In Hurry Mood To Download The Movie <b>"Sampurna"</b>\n\nBut This Series Avilable Only In Film District Premium Group\n\n<b>For Get 💸 PREMIUM Membership,\n\n📥 Inbox To : [HeartBeat](t.me/helloheartbeat)</b>""",
+                text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nI Know You Are In Hurry Mood To ⬇️ Download The Movie <b>"Sampurna"</b>\n\nBut This Series Avilable Only In ✔️ Film District Premium Group\n\n<b>For 💸 PREMIUM Membership,\n\n📥 Inbox To : HeartBeat(t.me/helloheartbeat)</b>""",
             )
             await asyncio.sleep(60) # in seconds
             await LuciferMoringstar.delete()
