@@ -62,30 +62,6 @@ async def group_filters(client, message):
             await asyncio.sleep(60) # in seconds
             await LuciferMoringstar.delete()
             return
-        for i in "jaadugar".split() :
-         if i in search.lower() :
-            LuciferMoringstar=await message.reply_text(
-                text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nI Know You Are In Hurry Mood To ⬇️ Download The Movie <b>"Jaadugar"</b>\n\nBut This Movie Is Avilable Only In\n✔️ Film District Premium Group\n\n<b>To Get 💸 PREMIUM Membership\n\n📥 Inbox To : [HeartBeat](t.me/helloheartbeat)</b>""",
-            disable_web_page_preview=True)
-            await asyncio.sleep(60) # in seconds
-            await LuciferMoringstar.delete()
-            return
-        for i in "sampurna".split() :
-         if i in search.lower() :
-            LuciferMoringstar=await message.reply_text(
-                text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nI Know You Are In Hurry Mood To ⬇️ Download The Series <b>"Sampurna"</b>\n\nBut This Series Is Avilable Only In\n✔️ Film District Premium Group\n\n<b>To Get 💸 PREMIUM Membership\n\n📥 Inbox To : [HeartBeat](t.me/helloheartbeat)</b>""",
-            disable_web_page_preview=True)
-            await asyncio.sleep(60) # in seconds
-            await LuciferMoringstar.delete()
-            return
-        for i in "rockerty".split() :
-         if i in search.lower() :
-            LuciferMoringstar=await message.reply_text(
-                text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nI Know You Are In Hurry Mood To ⬇️ Download The Movie <b>"Rockerty"</b>\n\nBut This Movie Is Avilable Only In\n✔️ Film District Premium Group\n\n<b>To Get 💸 PREMIUM Membership\n\n📥 Inbox To : [HeartBeat](t.me/helloheartbeat)</b>""",
-            disable_web_page_preview=True)
-            await asyncio.sleep(60) # in seconds
-            await LuciferMoringstar.delete()
-            return
         for i in "lightyear".split() :
          if i in search.lower() :
             LuciferMoringstar=await message.reply_text(
@@ -158,14 +134,6 @@ async def group_filters(client, message):
             await asyncio.sleep(60) # in seconds
             await LuciferMoringstar.delete()
             return
-        for i in "shrimati".split() :
-         if i in search.lower() :
-            LuciferMoringstar=await message.reply_text(
-                text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nI Know You Are In Hurry Mood To ⬇️ Download The Movie <b>"Shrimati"</b>\n\nBut This Movie Is Avilable Only In\n✔️ Film District Premium Group\n\n<b>To Get 💸 PREMIUM Membership\n\n📥 Inbox To : [HeartBeat](t.me/helloheartbeat)</b>""",
-            disable_web_page_preview=True)
-            await asyncio.sleep(60) # in seconds
-            await LuciferMoringstar.delete()
-            return
         for i in "shabaash".split() :
          if i in search.lower() :
             LuciferMoringstar=await message.reply_text(
@@ -186,14 +154,6 @@ async def group_filters(client, message):
          if i in search.lower() :
             LuciferMoringstar=await message.reply_text(
                 text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nI Know You Are In Hurry Mood To ⬇️ Download The Movie <b>"Raksha Bandhan"</b>\n\nBut This Movie Is Avilable Only In\n✔️ Film District Premium Group\n\n<b>To Get 💸 PREMIUM Membership\n\n📥 Inbox To : [HeartBeat](t.me/helloheartbeat)</b>""",
-            disable_web_page_preview=True)
-            await asyncio.sleep(60) # in seconds
-            await LuciferMoringstar.delete()
-            return
-        for i in "gargi".split() :
-         if i in search.lower() :
-            LuciferMoringstar=await message.reply_text(
-                text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nI Know You Are In Hurry Mood To ⬇️ Download The Movie <b>"Gargi"</b>\n\nBut This Movie Is Avilable Only In\n✔️ Film District Premium Group\n\n<b>To Get 💸 PREMIUM Membership\n\n📥 Inbox To : [HeartBeat](t.me/helloheartbeat)</b>""",
             disable_web_page_preview=True)
             await asyncio.sleep(60) # in seconds
             await LuciferMoringstar.delete()
