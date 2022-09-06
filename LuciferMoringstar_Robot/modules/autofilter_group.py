@@ -150,14 +150,6 @@ async def group_filters(client, message):
             await asyncio.sleep(60) # in seconds
             await LuciferMoringstar.delete()
             return
-        for i in "raksha".split() :
-         if i in search.lower() :
-            LuciferMoringstar=await message.reply_text(
-                text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nI Know You Are In Hurry Mood To ⬇️ Download The Movie <b>"Raksha Bandhan"</b>\n\nBut This Movie Is Avilable Only In\n✔️ Film District Premium Group\n\n<b>To Get 💸 PREMIUM Membership\n\n📥 Inbox To : [HeartBeat](t.me/helloheartbeat)</b>""",
-            disable_web_page_preview=True)
-            await asyncio.sleep(60) # in seconds
-            await LuciferMoringstar.delete()
-            return
         for i in "dobaaraa".split() :
          if i in search.lower() :
             LuciferMoringstar=await message.reply_text(
@@ -214,22 +206,6 @@ async def group_filters(client, message):
             await asyncio.sleep(60) # in seconds
             await LuciferMoringstar.delete()
             return
-        for i in "liger".split() :
-         if i in search.lower() :
-            LuciferMoringstar=await message.reply_text(
-                text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nI Know You Are In Hurry Mood To ⬇️ Download The Movie <b>"Liger"</b>\n\nBut This Movie Is Avilable Only In\n✔️ Film District Premium Group\n\n<b>To Get 💸 PREMIUM Membership\n\n📥 Inbox To : [HeartBeat](t.me/helloheartbeat)</b>""",
-            disable_web_page_preview=True)
-            await asyncio.sleep(60) # in seconds
-            await LuciferMoringstar.delete()
-            return
-        for i in "tirandaj".split() :
-         if i in search.lower() :
-            LuciferMoringstar=await message.reply_text(
-                text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nI Know You Are In Hurry Mood To ⬇️ Download The Movie <b>"Tirandaj Shabor"</b>\n\nBut This Movie Is Avilable Only In\n✔️ Film District Premium Group\n\n<b>To Get 💸 PREMIUM Membership\n\n📥 Inbox To : [HeartBeat](t.me/helloheartbeat)</b>""",
-            disable_web_page_preview=True)
-            await asyncio.sleep(60) # in seconds
-            await LuciferMoringstar.delete()
-            return
         for i in "samaritan".split() :
          if i in search.lower() :
             LuciferMoringstar=await message.reply_text(
@@ -242,14 +218,6 @@ async def group_filters(client, message):
          if i in search.lower() :
             LuciferMoringstar=await message.reply_text(
                 text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nI Know You Are In Hurry Mood To ⬇️ Download The Movie <b>"Nope"</b>\n\nBut This Movie Is Avilable Only In\n✔️ Film District Premium Group\n\n<b>To Get 💸 PREMIUM Membership\n\n📥 Inbox To : [HeartBeat](t.me/helloheartbeat)</b>""",
-            disable_web_page_preview=True)
-            await asyncio.sleep(60) # in seconds
-            await LuciferMoringstar.delete()
-            return
-        for i in "cuttputlli".split() :
-         if i in search.lower() :
-            LuciferMoringstar=await message.reply_text(
-                text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nI Know You Are In Hurry Mood To ⬇️ Download The Movie <b>"Cuttputlli"</b>\n\nBut This Movie Is Avilable Only In\n✔️ Film District Premium Group\n\n<b>To Get 💸 PREMIUM Membership\n\n📥 Inbox To : [HeartBeat](t.me/helloheartbeat)</b>""",
             disable_web_page_preview=True)
             await asyncio.sleep(60) # in seconds
             await LuciferMoringstar.delete()
