@@ -40,7 +40,7 @@ Click [GOOGLE] [IMDB] On Any Button And Find The Correct Movie/Series Name And E
 
 If You Do Not Receive The Movie/Series Even After Entering The Correct Name Then Your Requested Movie/Series Does Not Exit In My Database 🗄
 
-Or Requested Movie/Series Is 🚫 Not Available For The 🆓 User Of This Group. If Need It, Take 💸 Premium Membership. To Take Membership, Contact Clicking The Button Below ⤵️</b>"""
+Or Requested Movie/Series Is 🚫 Not Available For The 🆓 User. If Need It, Take 💸 Premium Membership. To Take It, Contact Clicking The Button Below ⤵️</b>"""
 
 # Customize
 CUSTOM_FILE_CAPTION = """
