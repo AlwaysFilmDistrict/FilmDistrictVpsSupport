@@ -305,6 +305,8 @@ async def group_filters(client, message):
                 text_replay = message.text
                 text_google = text_replay.replace(" ", '+')           
                 button = [[
+                  InlineKeyboardButton(" 👤 CONTACT PERSON 👤", url="https://t.me/helloheartbeat")
+                  ],[
                   InlineKeyboardButton("♻️ HELP ♻️", callback_data="google_alert")
                   ],[
                   InlineKeyboardButton("🔍 GOOGLE", url=f"https://www.google.com/search?q={text_google}"),
