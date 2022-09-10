@@ -36,11 +36,11 @@ SPELLING_MODE_TEXT = """
 
 I Couldn't 🔍 Find <code>{}</code> You Asked For 🤷
 
-Click [GOOGLE] [IMDB] On Any Button And Find The Correct Movie/Series Name And Enter It Here ⤵️
+Click [GOOGLE] [IMDB] On Any Button And Find The Correct Movie/Series Name And Enter It Here 💯
 
 If You Do Not Receive The Movie/Series Even After Entering The Correct Name Then Your Requested Movie/Series Does Not Exit In My Database 🗄
 
-Or Your Requested Movie/Series Is 🚫 Not Available For The 🆓 User Of This Group. If You Have Willing To 👀 Watch The Movie/Series, Join Premium Group & Have To Take 💸 Premium Membership. To 💌 Take Premium Membership, Contact Clicking The Button Below Of 👤 Contact Person</b>"""
+Or Requested Movie/Series Is 🚫 Not Available For The 🆓 User Of This Group. If Need It, Take 💸 Premium Membership. To Take Membership, Contact Clicking The Button Below ⤵️</b>"""
 
 # Customize
 CUSTOM_FILE_CAPTION = """
