@@ -307,9 +307,8 @@ async def group_filters(client, message):
                 button = [[
                   InlineKeyboardButton(" 👤 CONTACT PERSON 👤", url="https://t.me/helloheartbeat")
                   ],[
-                  InlineKeyboardButton("♻️ HELP ♻️", callback_data="google_alert")
-                  ],[
                   InlineKeyboardButton("🔍 GOOGLE", url=f"https://www.google.com/search?q={text_google}"),
+                  InlineKeyboardButton("♻️ HELP ♻️", callback_data="google_alert"),               
                   InlineKeyboardButton("IMDB 🔎", url=f"https://www.imdb.com/find?q={text_google}")
                   ],[
                   InlineKeyboardButton("🗑️ CLOSE 🗑️", callback_data="close")
