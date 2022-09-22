@@ -128,10 +128,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
             
         elif query.data == "rulesbot":
             buttons = [[
-                InlineKeyboardButton('বাংলা', url="https://graph.org/FAQ-BEN-FILMDISTRICT-09-21"),
-                InlineKeyboardButton('हिंदी', url="https://graph.org/FAQ-HIN-FILMDISTRICT-09-21")              
+                InlineKeyboardButton('বাংলা', url="https://graph.org/FAQ-BEN-FILMDISTRICT-09-22"),
+                InlineKeyboardButton('हिंदी', url="https://graph.org/FAQ-HIN-FILMDISTRICT-09-22")              
                 ],[
-                InlineKeyboardButton('English', url="https://graph.org/FAQ-ENG-FILMDISTRICT-09-21")              
+                InlineKeyboardButton('English', url="https://graph.org/FAQ-ENG-FILMDISTRICT-09-22")              
                 ]]
             LuciferMoringstar=await query.message.reply_text(text="Select Your Preferred Language", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
             await asyncio.sleep(60) 
@@ -602,9 +602,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             edit4=await edit3.edit(EDIT_4)
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
-            buttons = [[ InlineKeyboardButton("বাংলা", url="https://graph.org/FAQ-BEN-FILMDISTRICT-09-21"),
-                         InlineKeyboardButton("हिंदी", url="https://graph.org/FAQ-HIN-FILMDISTRICT-09-21") ],
-                       [ InlineKeyboardButton("English", url="https://graph.org/FAQ-ENG-FILMDISTRICT-09-21") ],
+            buttons = [[ InlineKeyboardButton("বাংলা", url="https://graph.org/FAQ-BEN-FILMDISTRICT-09-22"),
+                         InlineKeyboardButton("हिंदी", url="https://graph.org/FAQ-HIN-FILMDISTRICT-09-22") ],
+                       [ InlineKeyboardButton("English", url="https://graph.org/FAQ-ENG-FILMDISTRICT-09-22") ],
                        [ InlineKeyboardButton('🔙 Back', callback_data='help') ]]                          
             await edit5.edit(faq_text, reply_markup=InlineKeyboardMarkup(buttons))
 
@@ -756,9 +756,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(0.4)
             edit5=await edit4.edit(EDIT_5)
 
-            buttons = [[ InlineKeyboardButton("বাংলা", url="https://graph.org/FAQ-BEN-FILMDISTRICT-09-21"),
-                         InlineKeyboardButton("हिंदी", url="https://graph.org/FAQ-HIN-FILMDISTRICT-09-21") ],
-                       [ InlineKeyboardButton("English", url="https://graph.org/FAQ-ENG-FILMDISTRICT-09-21") ],
+            buttons = [[ InlineKeyboardButton("বাংলা", url="https://graph.org/FAQ-BEN-FILMDISTRICT-09-22"),
+                         InlineKeyboardButton("हिंदी", url="https://graph.org/FAQ-HIN-FILMDISTRICT-09-22") ],
+                       [ InlineKeyboardButton("English", url="https://graph.org/FAQ-ENG-FILMDISTRICT-09-22") ],
                        [ InlineKeyboardButton('🔙 Back', callback_data='help_user') ]]                          
             await edit5.edit(faq_text, reply_markup=InlineKeyboardMarkup(buttons))
 
