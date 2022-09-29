@@ -67,7 +67,6 @@ I Can't Write Everything In My Bio So I Created This...</i></b>
 ├• [FILM DISTRICT UPDATES](https://telegram.me/joinchat/EUUS8b0iEnVjZTU9)
 ├• [FILM DISTRICT BOT](t.me/FilmDistrict_Bot)
 ├• [FILM DISTRICT PREMIUM BOT](t.me/FilmDistrictPremium_Bot)
-├• [FILM DISTRICT MIRROR LEECH BOT](t.me/FilmDistrictMirrorLeech_Bot)
 ╰──────⍟───────╯
 </b>
 <b><i>Thank You For Reading Patiently 🙏</i></b>"""
