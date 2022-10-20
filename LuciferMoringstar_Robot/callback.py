@@ -145,7 +145,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer("""✅ DO\n👉 Type Only In English \n\n❌ DON'T\n👉 Avoid Symbols (/.,:;"'-)\n👉 Avoid Requesting Same Movie/Series Repeatedly \n👉 Avoid Requesting Unreleased Movie/Series""", show_alert=True)
 
         elif query.data == "savefile_alert":
-            await query.answer("""» JOIN FD PREMIUM «\n\n🧾 Rs. 30/- Per Month\n\n🗣️ Contact To @helloheartbeat\n\nUPI 🆔 Details\n\n\nGPay 📲 chester.anjan@oksbi\nPhonePe 📲 anjanmodak@ybl\n\n✅ After Payment Verification Your Id Will Be Added In The FD Premium""", show_alert=True)
+            await query.answer("""» JOIN FD PREMIUM «\n\n🧾 Rs. 30/- Per Month\n\nUPI 🆔 Details\n\n\nGPay 📲 chester.anjan@oksbi\nPhonePe 📲 anjanmodak@ybl\n\n✅ After Payment Verification Your Id Will Be Added In The FD Premium""", show_alert=True)
 
 
         elif query.data == "helpalert":
