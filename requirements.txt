@@ -17,3 +17,4 @@ youtube_search # YouTube
 yt-dlp # YouTube 
 youtube_search_python 
 ffmpeg-python
+python-dotenv
