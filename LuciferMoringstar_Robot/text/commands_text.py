@@ -25,8 +25,8 @@ ABOUT_TEXT = """
 
 ツ Creator : HeartBeat
 ❖ Language : Python3
-❖ Hosted : Okteko
-❖ Version : 9.0.1
+❖ Hosted : VPS
+❖ Version : 10.0
 ❖ Framework : Pyrogram
 ❖ Database : MongoDB
 𒀭 Bot : 🇮🇳"""
