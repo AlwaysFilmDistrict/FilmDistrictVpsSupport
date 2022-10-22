@@ -88,11 +88,12 @@ WITHOUT_POSTER_CAPTION = """
 <b>👤 Requested By:</b> {mention}
 <b>📑 Total Page:</b> {total_page}
 <b>📁 Total Files: </b> {total_files}
-<b>📤 Uploaded To:</b> Film District Server
-<b>🧑‍🔧 Get Support ✔️</b> [HeartBeat](http://t.me/helloheartbeat)
+<b>📡 Hosted Via: VPS</b>
 
 <b>📌 Press The Down Buttons To Access The File</b>
-~~<b>📌 This Post Will Be Deleted After 10 Minutes</b>~~"""
+<b>📌 This Post Will Be Deleted After 10 Minutes</b>
+
+<b>🧑‍🔧 GET SUPPORT ✔️ ||[HEARTBEAT](http://t.me/helloheartbeat)</b>||"""
 
 WITH_POSTER_CAPTION = """
 <b><i>Hello 👋 {mention} {greeting},</i></b>
