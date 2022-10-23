@@ -65,7 +65,7 @@ CUSTOM_FILE_CAPTION = """
 ╰──────[ 👑 ]───────╯"""
 
 IMDBOT_CAPTION = """ # Imdb Caption 🗯️
-🎬 𝐅𝐢𝐥𝐦 : <b>{title}</b> 
+☊ 𝐅𝐢𝐥𝐦 : <b>{title}</b> 
 📅 𝐘𝐞𝐚𝐫 : <b>{year}</b> 
 🔊 𝐋𝐚𝐧𝐠𝐮𝐚𝐠𝐞 : <b>{languages}</b> 
 💿 𝐐𝐮𝐚𝐥𝐢𝐭𝐲 : <b>HD</b> 
@@ -84,16 +84,16 @@ IMDBOT_CAPTION = """ # Imdb Caption 🗯️
 # ∞∞∞∞ AutoFilter ∞∞∞∞∞ #
 
 WITHOUT_POSTER_CAPTION = """
-<b>↪️ Requested:</b> {query}
-<b>👤 Requested By:</b> {mention}
-<b>📑 Total Page:</b> {total_page}
-<b>📁 Total Files: </b> {total_files}
-<b>📡 Hosted Via: VPS</b>
+<b>☇ 𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱:</b> {query}
+<b>☹ 𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗕𝘆:</b> {mention}
+<b>⎘ 𝗧𝗼𝘁𝗮𝗹 𝗣𝗮𝗴𝗲:</b> {total_page}
+<b>⌹ 𝗧𝗼𝘁𝗮𝗹 𝗙𝗶𝗹𝗲𝘀:</b> {total_files}
+<b>☄ 𝗛𝗼𝘀𝘁𝗲𝗱 𝗩𝗶𝗮:</b> VPS
 
-<b>📌 Press The Down Buttons To Access The File</b>
-<b>📌 This Post Will Be Deleted After 10 Minutes</b>
+<b>※ 𝙋𝙧𝙚𝙨𝙨 𝙏𝙝𝙚 𝘿𝙤𝙬𝙣 𝘽𝙪𝙩𝙩𝙤𝙣𝙨 𝙏𝙤 𝘼𝙘𝙘𝙚𝙨𝙨 𝙏𝙝𝙚 𝙁𝙞𝙡𝙚</b>
+<b>※ 𝙏𝙝𝙞𝙨 𝙋𝙤𝙨𝙩 𝙒𝙞𝙡𝙡 𝘽𝙚 𝘿𝙚𝙡𝙚𝙩𝙚𝙙 𝘼𝙛𝙩𝙚𝙧 1０ 𝙈𝙞𝙣𝙪𝙩𝙚𝙨</b>
 
-<b>🧑‍🔧 GET SUPPORT ✔️ ||[HEARTBEAT](http://t.me/helloheartbeat)</b>||"""
+<b>⦓ ɢᴇᴛ ꜱᴜᴘᴘᴏʀᴛ ♕ ||[ʜᴇᴀʀᴛʙᴇᴀᴛ](http://t.me/helloheartbeat)</b>||⦔"""
 
 WITH_POSTER_CAPTION = """
 <b><i>Hello 👋 {mention} {greeting},</i></b>
