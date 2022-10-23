@@ -84,10 +84,10 @@ IMDBOT_CAPTION = """ # Imdb Caption 🗯️
 # ∞∞∞∞ AutoFilter ∞∞∞∞∞ #
 
 WITHOUT_POSTER_CAPTION = """
-<b>⍞ 𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱:</b> <i>{query}</i>
+<b>〷 𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱:</b> <i>{query}</i>
 <b>★ 𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗕𝘆:</b> <i>{mention}</i>
 <b>⌥ 𝗧𝗼𝘁𝗮𝗹 𝗣𝗮𝗴𝗲:</b> <i>{total_page}</i>
-<b>⧎ 𝗧𝗼𝘁𝗮𝗹 𝗙𝗶𝗹𝗲𝘀:</b> <i>{total_files}</i>
+<b>ↀ 𝗧𝗼𝘁𝗮𝗹 𝗙𝗶𝗹𝗲𝘀:</b> <i>{total_files}</i>
 <b>〆 𝗛𝗼𝘀𝘁𝗲𝗱 𝗩𝗶𝗮:</b> <i>VPS</i>
 
 <b>※ 𝙋𝙧𝙚𝙨𝙨 𝙏𝙝𝙚 𝘿𝙤𝙬𝙣 𝘽𝙪𝙩𝙩𝙤𝙣𝙨 𝙏𝙤 𝘼𝙘𝙘𝙚𝙨𝙨 𝙏𝙝𝙚 𝙁𝙞𝙡𝙚</b>
