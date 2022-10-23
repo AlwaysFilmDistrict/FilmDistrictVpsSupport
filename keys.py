@@ -86,8 +86,8 @@ IMDBOT_CAPTION = """ # Imdb Caption 🗯️
 WITHOUT_POSTER_CAPTION = """
 —(••÷[ ıllıllı ꜱᴇʀᴠᴇʀ ᴅᴀᴛᴀ ıllıllı ]÷••)—
 
-⧴ 𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱: <i>{query}</i>
-★ 𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗕𝘆: <i>{mention}</i>
+㆑ 𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱: <i>{query}</i>
+☆ 𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗕𝘆: <i>{mention}</i>
 ⌥ 𝗧𝗼𝘁𝗮𝗹 𝗣𝗮𝗴𝗲: <i>{total_page}</i>
 ↀ 𝗧𝗼𝘁𝗮𝗹 𝗙𝗶𝗹𝗲𝘀: <i>{total_files}</i>
 〆 𝗛𝗼𝘀𝘁𝗲𝗱 𝗩𝗶𝗮: <i>VPS</i>
