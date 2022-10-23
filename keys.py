@@ -84,16 +84,16 @@ IMDBOT_CAPTION = """ # Imdb Caption 🗯️
 # ∞∞∞∞ AutoFilter ∞∞∞∞∞ #
 
 WITHOUT_POSTER_CAPTION = """
-<b>☇ 𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱:</b> _{query}_
-<b>★ 𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗕𝘆:</b> _{mention}_
-<b>⫓ 𝗧𝗼𝘁𝗮𝗹 𝗣𝗮𝗴𝗲:</b> _{total_page}_
-<b>⌹ 𝗧𝗼𝘁𝗮𝗹 𝗙𝗶𝗹𝗲𝘀:</b> _{total_files}_
-<b>〆 𝗛𝗼𝘀𝘁𝗲𝗱 𝗩𝗶𝗮:</b> _VPS_
+<b>☇ 𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱:</b> <i>{query}</i>
+<b>★ 𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗕𝘆:</b> <i>{mention}</i>
+<b>⧮ 𝗧𝗼𝘁𝗮𝗹 𝗣𝗮𝗴𝗲:</b> <i>{total_page}</i>
+<b>⌹ 𝗧𝗼𝘁𝗮𝗹 𝗙𝗶𝗹𝗲𝘀:</b> <i>{total_files}</i>
+<b>〆 𝗛𝗼𝘀𝘁𝗲𝗱 𝗩𝗶𝗮:</b> <i>VPS</i>
 
 <b>※ 𝙋𝙧𝙚𝙨𝙨 𝙏𝙝𝙚 𝘿𝙤𝙬𝙣 𝘽𝙪𝙩𝙩𝙤𝙣𝙨 𝙏𝙤 𝘼𝙘𝙘𝙚𝙨𝙨 𝙏𝙝𝙚 𝙁𝙞𝙡𝙚</b>
 <b>※ 𝙏𝙝𝙞𝙨 𝙋𝙤𝙨𝙩 𝙒𝙞𝙡𝙡 𝘽𝙚 𝘿𝙚𝙡𝙚𝙩𝙚𝙙 𝘼𝙛𝙩𝙚𝙧 1０ 𝙈𝙞𝙣𝙪𝙩𝙚𝙨</b>
 
-<b>ɢᴇᴛ ꜱᴜᴘᴘᴏʀᴛ ↹ ||[ʜᴇᴀʀᴛʙᴇᴀᴛ](http://t.me/helloheartbeat)</b>||"""
+<b>⨮ 𝐆𝐄𝐓 𝐒𝐔𝐏𝐏𝐎𝐑𝐓 ↹ ||[𝐇𝐄𝐀𝐑𝐓𝐁𝐄𝐀𝐓](http://t.me/helloheartbeat)</b>||"""
 
 WITH_POSTER_CAPTION = """
 <b><i>Hello 👋 {mention} {greeting},</i></b>
