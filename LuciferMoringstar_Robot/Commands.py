@@ -8,9 +8,13 @@ from Database._utils import get_size, temp
 from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT
 from pyrogram.errors import UserNotParticipant
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.ERROR)
 from Database.broadcast import database
 from LuciferMoringstar_Robot.text.commands_text import START_USER_TEXT, START_DEV_TEXT
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
+from importlib import import_module, reload
+from pathlib import Path
+from pyrogram.handlers.handler import Handler
 
 import pytz, datetime
 
@@ -212,6 +216,54 @@ async def donate(client, message):
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id)
         await bot.send_message(chat_id=LOG_CHANNEL, text="""**#NEWUSER:**\n\n**New User {} Started @FilmDistrict_Bot !! #id{}**""".format(message.from_user.mention, message.from_user.id))
+
+
+@Client.on_message(filters.command(["reboot", "install"]) & filters.user(ADMINS))
+async def load_plugin(client: Client, message: Message):
+
+    status_message = await message.reply("...")
+    try:
+        if message.reply_to_message is not None:
+            down_loaded_plugin_name = await message.reply_to_message.download(
+                file_name="./LuciferMoringstar_Robot/"
+            )
+            if down_loaded_plugin_name is not None:
+
+                relative_path_for_dlpn = os.path.relpath(
+                    down_loaded_plugin_name, os.getcwd()
+                )
+
+                lded_count = 0
+                path = Path(relative_path_for_dlpn)
+                module_path = ".".join(path.parent.parts + (path.stem,))
+              
+                module = reload(import_module(module_path))
+                
+                for name in vars(module).keys():
+                    
+                    try:
+                        handler, group = getattr(module, name).handler
+
+                        if isinstance(handler, Handler) and isinstance(group, int):
+                            client.add_handler(handler, group)
+                          
+                            logger.info(
+                                '[{}] [LOAD] {}("{}") in group {} from "{}"'.format(
+                                    client.session_name,
+                                    type(handler).__name__,
+                                    name,
+                                    group,
+                                    module_path,
+                                )
+                            )
+                            lded_count += 1
+                    except Exception:
+                        pass
+                await status_message.edit(f"installed {lded_count} commands / LuciferMoringstar")
+    except Exception as error:
+        await status_message.edit(f"ERROR: <code>{error}</code>")
+
+
 
 
 
