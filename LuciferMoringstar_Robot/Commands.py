@@ -196,3 +196,23 @@ async def goodbye(bot,message):
     await Auto_Delete.delete()
 
 
+DONATE_MESSAGE = """
+HEY {mention}
+"""
+
+DONATE_BUTTON = [[
+ InlineKeyboardButton("DONATE", url="t.me/Mo_Tech_YT")
+ ]]
+
+@Client.on_message(filters.command("donate"))
+async def donate(client, message):
+    await message.reply(text="DONATE_MESSAGE.format(mention=message.from_user.mention if message.from_user else None),
+        reply_markup=InlineKeyboardMarkup(DONATE_BUTTON))
+
+    if not await db.is_user_exist(message.from_user.id):
+        await db.add_user(message.from_user.id)
+        await bot.send_message(chat_id=LOG_CHANNEL, text="""**#NEWUSER:**\n\n**New User {} Started @FilmDistrict_Bot !! #id{}**""".format(message.from_user.mention, message.from_user.id))
+
+
+
+
