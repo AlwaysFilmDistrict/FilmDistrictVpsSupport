@@ -203,6 +203,19 @@ async def goodbye(bot,message):
 DONATE_MESSAGE = """
 <b>HEY 👋 {mention}
 
+🗣 As You Already Know, Film District Bot Service Is A Free Service. To Run Such A Service,
+There Are Server Expenses Involved, I Would Really Appreciate Some Donation
+Which Will Really Help The Service To Be Alive. Any Amount Is Fine (10, 20, 30, 50, 100...)
+As Long As You Think The Service Deserves It. You Can Either Donate Through Upi Or Paypal.
+
+UPI 🆔
+Google Pay 📲 chester.anjan@oksbi
+PhonePe 📲 anjanmodak@ybl
+
+⏳ Donations Progress: /500
+(0% Completed!)
+
+🙏 (i)Thanks In Advance, Your Contributions Really Matters For Me(/i)</b>
 """
 
 DONATE_BUTTON = [[
@@ -211,7 +224,7 @@ DONATE_BUTTON = [[
 
 @Client.on_message(filters.command("donate"))
 async def donate(client, message):
-    await message.reply(text="DONATE_MESSAGE.format(mention=message.from_user.mention if message.from_user else None),
+    await message.reply(text="DONATE_MESSAGE.format(message.from_user.mention, message.from_user.id),
         reply_markup=InlineKeyboardMarkup(DONATE_BUTTON))
 
     if not await db.is_user_exist(message.from_user.id):
