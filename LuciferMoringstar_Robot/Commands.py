@@ -243,8 +243,8 @@ async def load_plugin(client: Client, message: Message):
 
     status_message = await message.reply("...")
     try:
-        if message.reply_to_message is not None:
-            down_loaded_plugin_name = await message.reply_to_message.download(
+        if True:
+            down_loaded_plugin_name = await message.download(
                 file_name="./LuciferMoringstar_Robot/"
             )
             if down_loaded_plugin_name is not None:
