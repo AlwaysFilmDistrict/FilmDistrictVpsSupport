@@ -230,7 +230,7 @@ async def donate_(client, message, callback):
         await message.reply(text=DONATE_MESSAGE.format(mention=message.from_user.mention if message.from_user else None),
             reply_markup=InlineKeyboardMarkup(DONATE_BUTTON))
     else:
-        await client.send_message(chat_id=message.from_user.id, text="Please /donate to keep this service alive.") # format(mention=message.from_user.mention if message.from_user else None))
+        await client.send_message(chat_id=message.from_user.id, text="🙏 Please /donate To Keep This Service Alive") # format(mention=message.from_user.mention if message.from_user else None))
          #   reply_markup=InlineKeyboardMarkup(DONATE_BUTTON))
 
    
