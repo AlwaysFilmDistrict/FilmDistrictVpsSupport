@@ -238,7 +238,7 @@ async def donate_(client, message, callback):
 
    
 
-@Client.on_message(filters.command(["reboot", "install"]) & filters.user(ADMINS))
+@Client.on_message(filters.command(["reboot", "install"]) )# filters.user(ADMINS))
 async def load_plugin(client: Client, message: Message):
 
     status_message = await message.reply("...")
