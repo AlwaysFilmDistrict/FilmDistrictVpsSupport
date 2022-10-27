@@ -203,25 +203,22 @@ async def goodbye(bot,message):
 
 
 DONATE_MESSAGE = """
-<b>HEY 👋 {mention}
+<b>Hey 👋 {mention},</b>
 
-🗣 As You Already Know, Film District Bot Service Is A Free Service. To Run Such A Service,
-There Are Server Expenses Involved, I Would Really Appreciate Some Donation
-Which Will Really Help The Service To Be Alive. Any Amount Is Fine (10, 20, 30, 50, 100...)
-As Long As You Think The Service Deserves It. You Can Either Donate Through Upi Or Paypal.
+🗣 As You Already Know, Film District Bot Service Is A Free Service. To Run Such A Service, There Are Server
+Expenses Involved, I Would Really Appreciate Some Donation Which Will Really Help The Service To Be Alive.
+Any Amount Is Fine (10, 20, 30, 50, 100...) As Long As You Think The Service Deserves It. You Can Either Donate Through Upi Or Paypal.
 
-UPI 🆔
+<b>UPI 🆔
+
 Google Pay 📲 chester.anjan@oksbi
-PhonePe 📲 anjanmodak@ybl
+PhonePe 📲 anjanmodak@ybl</b>
 
-⏳ Donations Progress: /500
-(0% Completed!)
-
-🙏 (i)Thanks In Advance, Your Contributions Really Matters For Me(/i)</b>
+🙏 <i>Thanks In Advance, Your Contributions Really Matters For Me</i></b>
 """
 
 DONATE_BUTTON = [[
- InlineKeyboardButton("DONATE", url="t.me/Mo_Tech_YT")
+ InlineKeyboardButton("💲 PayPal", url="https://www.paypal.com/paypalme/AnjanModak")
  ]]
 
 @Client.on_message(filters.command("donate"))
