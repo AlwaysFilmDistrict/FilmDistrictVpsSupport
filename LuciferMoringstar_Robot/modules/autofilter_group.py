@@ -190,6 +190,38 @@ async def group_filters(client, message):
             await asyncio.sleep(60) # in seconds
             await LuciferMoringstar.delete()
             return
+        for i in "appan".split() :
+         if i in search.lower() :
+            LuciferMoringstar=await message.reply_text(
+                text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nI Know You Are In Hurry Mood To ⬇️ Download The Movie <b>"Appan"</b>\n\nBut This Movie Is Avilable Only In\n✔️ Film District Premium Group\n\n<b>To Get 💸 PREMIUM Membership\n\n📥 Inbox To : [HeartBeat](t.me/helloheartbeat)</b>""",
+            disable_web_page_preview=True)
+            await asyncio.sleep(60) # in seconds
+            await LuciferMoringstar.delete()
+            return
+        for i in "hellhole".split() :
+         if i in search.lower() :
+            LuciferMoringstar=await message.reply_text(
+                text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nI Know You Are In Hurry Mood To ⬇️ Download The Movie <b>"Hellhole"</b>\n\nBut This Movie Is Avilable Only In\n✔️ Film District Premium Group\n\n<b>To Get 💸 PREMIUM Membership\n\n📥 Inbox To : [HeartBeat](t.me/helloheartbeat)</b>""",
+            disable_web_page_preview=True)
+            await asyncio.sleep(60) # in seconds
+            await LuciferMoringstar.delete()
+            return
+        for i in "nurse".split() :
+         if i in search.lower() :
+            LuciferMoringstar=await message.reply_text(
+                text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nI Know You Are In Hurry Mood To ⬇️ Download The Movie <b>"The Good Nurse"</b>\n\nBut This Movie Is Avilable Only In\n✔️ Film District Premium Group\n\n<b>To Get 💸 PREMIUM Membership\n\n📥 Inbox To : [HeartBeat](t.me/helloheartbeat)</b>""",
+            disable_web_page_preview=True)
+            await asyncio.sleep(60) # in seconds
+            await LuciferMoringstar.delete()
+            return
+        for i in "robbing".split() :
+         if i in search.lower() :
+            LuciferMoringstar=await message.reply_text(
+                text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nI Know You Are In Hurry Mood To ⬇️ Download The Movie <b>"Robbing Mussolini"</b>\n\nBut This Movie Is Avilable Only In\n✔️ Film District Premium Group\n\n<b>To Get 💸 PREMIUM Membership\n\n📥 Inbox To : [HeartBeat](t.me/helloheartbeat)</b>""",
+            disable_web_page_preview=True)
+            await asyncio.sleep(60) # in seconds
+            await LuciferMoringstar.delete()
+            return
 
 
 
