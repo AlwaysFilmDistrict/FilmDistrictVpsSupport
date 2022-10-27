@@ -224,7 +224,7 @@ DONATE_BUTTON = [[
 
 @Client.on_message(filters.command("donate"))
 async def donate(client, message):
-    await message.reply(text="DONATE_MESSAGE.format(mention=message.from_user.mention if message.from_user else None),
+    await message.reply(text=DONATE_MESSAGE.format(mention=message.from_user.mention if message.from_user else None),
         reply_markup=InlineKeyboardMarkup(DONATE_BUTTON))
 
     if not await db.is_user_exist(message.from_user.id):
