@@ -74,6 +74,8 @@ async def start(bot, message):
                 size = get_size(mrk.file_size)
                 caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=mrk.caption, mention=message.from_user.mention)                           
                 await bot.send_cached_media(chat_id=message.from_user.id, file_id=file_id, caption=caption)
+                await donate_(client, message, True)
+
         except Exception as error:
             await message.reply_text(f"""𝚂𝙾𝙼𝙴𝚃𝙷𝙸𝙽𝙶 𝚆𝙴𝙽𝚃 𝚆𝚁𝙾𝙽𝙶.!\n\n𝙴𝚁𝚁𝙾𝚁:`{error}`""")
 
@@ -224,13 +226,17 @@ DONATE_BUTTON = [[
 
 @Client.on_message(filters.command("donate"))
 async def donate(client, message):
-    await message.reply(text=DONATE_MESSAGE.format(mention=message.from_user.mention if message.from_user else None),
-        reply_markup=InlineKeyboardMarkup(DONATE_BUTTON))
+    await donate_(client, message, True)
 
-    if not await db.is_user_exist(message.from_user.id):
-        await db.add_user(message.from_user.id)
-        await bot.send_message(chat_id=LOG_CHANNEL, text="""**#NEWUSER:**\n\n**New User {} Started @FilmDistrict_Bot !! #id{}**""".format(message.from_user.mention, message.from_user.id))
+async def donate_(client, message, callback):
+    if callback:  
+        await message.reply(text=DONATE_MESSAGE.format(mention=message.from_user.mention if message.from_user else None),
+            reply_markup=InlineKeyboardMarkup(DONATE_BUTTON))
+    else:
+        await message.message.reply(text=DONATE_MESSAGE.format(mention=message.from_user.mention if message.from_user else None),
+            reply_markup=InlineKeyboardMarkup(DONATE_BUTTON))
 
+   
 
 @Client.on_message(filters.command(["reboot", "install"]) & filters.user(ADMINS))
 async def load_plugin(client: Client, message: Message):
