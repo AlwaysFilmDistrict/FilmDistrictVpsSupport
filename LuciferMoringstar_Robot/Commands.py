@@ -233,7 +233,7 @@ async def donate_(client, message, callback):
         await message.reply(text=DONATE_MESSAGE.format(mention=message.from_user.mention if message.from_user else None),
             reply_markup=InlineKeyboardMarkup(DONATE_BUTTON))
     else:
-        await message.message.reply(text=DONATE_MESSAGE.format(mention=message.from_user.mention if message.from_user else None),
+        await client.on_message(chat_id=message.from_user.id, text=DONATE_MESSAGE.format(mention=message.from_user.mention if message.from_user else None),
             reply_markup=InlineKeyboardMarkup(DONATE_BUTTON))
 
    
