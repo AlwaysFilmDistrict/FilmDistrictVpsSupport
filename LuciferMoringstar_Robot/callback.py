@@ -13,7 +13,7 @@ import pytz, datetime
 from LuciferMoringstar_Robot.text.models_text import Broadcast_text, status_text, database_text, logs_text, ban_pm_user_text, dyno_text, alive_text, imdb_text, inline_text, id_texts, faq_text, Invite_link, song_text
 from Database.users_chats_db import db as mt
 from Database.broadcast import db
-
+from LuciferMoringstar_Robot.Commands import donate_
 EDIT_1 = "𝙒𝙖𝙞𝙩, 𝙒𝙞𝙩𝙝 𝙋𝙖𝙩𝙞𝙚𝙣𝙘𝙚..."
 EDIT_2 = "☑ ☐ ☐ ☐"
 EDIT_3 = "☑ ☑ ☐ ☐"
@@ -187,6 +187,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                             protect_content=True,
                             reply_markup=InlineKeyboardMarkup(buttons)
                         )
+                        await donate_(client, query, False)
                         await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥', show_alert=True)          
                 except UserIsBlocked:
                     await query.answer('Unblock The BOT Man l..!', show_alert=True)
@@ -214,6 +215,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         caption=f_caption,
                         reply_markup=InlineKeyboardMarkup(buttons)
                     )
+                    await donate_(client, query, False)
                     await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥', show_alert=True)
             except UserIsBlocked:
                 await query.answer('Unblock The BOT Man l..!', show_alert=True)
@@ -239,7 +241,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption
-                    )
+                )
+                await donate_(client, query, False)
+
 
         elif query.data == "pages":
             await query.answer()
