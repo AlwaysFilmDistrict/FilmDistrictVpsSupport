@@ -203,16 +203,16 @@ async def goodbye(bot,message):
 
 
 DONATE_MESSAGE = """
-<b>Hey 👋 {mention},</b>
+Hey 👋 {mention},
 
 🗣 As You Already Know, Film District Bot Service Is A Free Service. To Run Such A Service, There Are Server
 Expenses Involved, I Would Really Appreciate Some Donation Which Will Really Help The Service To Be Alive.
 Any Amount Is Fine (10, 20, 30, 50, 100...) As Long As You Think The Service Deserves It. You Can Either Donate Through UPI or PayPal.
 
-<b>UPI 🆔
+UPI 🆔
 
 Google Pay 📲 `chester.anjan@oksbi`
-PhonePe 📲 `anjanmodak@ybl`</b>
+PhonePe 📲 `anjanmodak@ybl`
 
 🙏 <b><i>Thanks In Advance, Your Contributions Really Matters For Me</i></b>
 """
