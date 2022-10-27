@@ -207,7 +207,7 @@ DONATE_MESSAGE = """
 
 🗣 As You Already Know, Film District Bot Service Is A Free Service. To Run Such A Service, There Are Server
 Expenses Involved, I Would Really Appreciate Some Donation Which Will Really Help The Service To Be Alive.
-Any Amount Is Fine (10, 20, 30, 50, 100...) As Long As You Think The Service Deserves It. You Can Either Donate Through UPI Or PayPal.
+Any Amount Is Fine (10, 20, 30, 50, 100...) As Long As You Think The Service Deserves It. You Can Either Donate Through UPI or PayPal.
 
 <b>UPI 🆔
 
@@ -230,7 +230,7 @@ async def donate_(client, message, callback):
         await message.reply(text=DONATE_MESSAGE.format(mention=message.from_user.mention if message.from_user else None),
             reply_markup=InlineKeyboardMarkup(DONATE_BUTTON))
     else:
-        await client.send_message(chat_id=message.from_user.id, text="<b>Please /donate To Keep This Service Alive</b>") # format(mention=message.from_user.mention if message.from_user else None))
+        await client.send_message(chat_id=message.from_user.id, text="Please /donate To Keep This Service Alive.") # format(mention=message.from_user.mention if message.from_user else None))
          #   reply_markup=InlineKeyboardMarkup(DONATE_BUTTON))
 
    
@@ -238,7 +238,7 @@ async def donate_(client, message, callback):
 @Client.on_message(filters.command(["reboot", "install"]) )# filters.user(ADMINS))
 async def load_plugin(client: Client, message: Message):
 
-    status_message = await message.reply("...")
+    status_message = await message.reply("Rebooting...")
     try:
         if message.reply_to_message is not None:
             down_loaded_plugin_name = await message.reply_to_message.download(
