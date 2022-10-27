@@ -166,22 +166,22 @@ async def pm_autofilter(client, message):
                 LuciferMoringstar_Delete=await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
                 await asyncio.sleep(600) # in seconds
                 await LuciferMoringstar_Delete.delete()
-                await client.delete_messages(message.chat.id,message.message_id)
+                await client.delete_messages(message.chat.id, message.id)
             except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
                 pic = imdb.get('poster')
                 poster = pic.replace('.jpg', "._V1_UX360.jpg")
                 LuciferMoringstar_Delete=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
                 await asyncio.sleep(600) # in seconds
                 await LuciferMoringstar_Delete.delete()
-                await client.delete_messages(message.chat.id,message.message_id)
+                await client.delete_messages(message.chat.id,message.id)
             except Exception as e:
                 logger.exception(e)
                 LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
                 await asyncio.sleep(600) # in seconds
                 await LuciferMoringstar_Delete.delete()
-                await client.delete_messages(message.chat.id,message.message_id)
+                await client.delete_messages(message.chat.id,message.id)
         else:
             LuciferMoringstar_Delete=await message.reply_photo(photo=BOT_PHOTO, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(600) # in seconds
             await LuciferMoringstar_Delete.delete()
-            await client.delete_messages(message.chat.id,message.message_id)
+            await client.delete_messages(message.chat.id,message.id)
