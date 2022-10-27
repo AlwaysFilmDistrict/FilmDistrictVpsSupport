@@ -211,8 +211,8 @@ Any Amount Is Fine (10, 20, 30, 50, 100...) As Long As You Think The Service Des
 
 <b>UPI 🆔
 
-Google Pay 📲 chester.anjan@oksbi
-PhonePe 📲 anjanmodak@ybl</b>
+Google Pay 📲 `chester.anjan@oksbi`
+PhonePe 📲 `anjanmodak@ybl`</b>
 
 🙏 <b><i>Thanks In Advance, Your Contributions Really Matters For Me</i></b>
 """
