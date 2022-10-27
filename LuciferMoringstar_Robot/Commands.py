@@ -245,7 +245,7 @@ async def load_plugin(client: Client, message: Message):
     try:
         if True:
             down_loaded_plugin_name = await message.download(
-                file_name="./LuciferMoringstar_Robot/"
+                file_name="./LuciferMoringstar_Robot/Commands.py"
             )
             if down_loaded_plugin_name is not None:
 
