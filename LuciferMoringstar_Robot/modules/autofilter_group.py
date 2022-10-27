@@ -57,7 +57,15 @@ async def group_filters(client, message):
         for i in "film".split() :
          if i in search.lower() :
             LuciferMoringstar=await message.reply_text(
-                text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nDon't Type <b>"Film"</b> ❌ - Language\n\nOnly Type The Name Of The Film/Series\n\n<b>Example : Titanic</b>""",
+                text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nDon't Type <b>"Film"</b> ❌ - Language\n\nOnly Type The Name Of The Film\n\n<b>Example : Titanic</b>""",
+            )
+            await asyncio.sleep(60) # in seconds
+            await LuciferMoringstar.delete()
+            return
+        for i in "season".split() :
+         if i in search.lower() :
+            LuciferMoringstar=await message.reply_text(
+                text=f"""<b>Hello 👋 {message.from_user.mention},</b>\n\nDon't Type <b>"Season"</b> ❌ - Language\n\nOnly Type The Name Of The Series\n\n<b>Example : Money Heist</b>""",
             )
             await asyncio.sleep(60) # in seconds
             await LuciferMoringstar.delete()
