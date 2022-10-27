@@ -187,8 +187,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                             protect_content=True,
                             reply_markup=InlineKeyboardMarkup(buttons)
                         )
+                        await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥', show_alert=True)  
                         await donate_(client, query, False)
-                        await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥', show_alert=True)          
+       
                 except UserIsBlocked:
                     await query.answer('Unblock The BOT Man l..!', show_alert=True)
                 except PeerIdInvalid:
@@ -215,8 +216,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         caption=f_caption,
                         reply_markup=InlineKeyboardMarkup(buttons)
                     )
-                    await donate_(client, query, False)
                     await query.answer('Check Bot PM, I Have Sent Your Files In PM 📥', show_alert=True)
+                    await donate_(client, query, False)
+
             except UserIsBlocked:
                 await query.answer('Unblock The BOT Man l..!', show_alert=True)
             except PeerIdInvalid:
