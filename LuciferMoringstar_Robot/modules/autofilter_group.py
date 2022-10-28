@@ -321,17 +321,21 @@ async def group_filters(client, message):
                 )
                 await asyncio.sleep(60) 
                 await LuciferMoringstar.delete()
-    if files:
-        btn.append(
-            [InlineKeyboardButton(text="ミ★ FILM DISTRICT ★彡", callback_data="first_af_alert")]
-        )
-        for file in files:
-            file_id = file.file_id
+        if files:
+
             btn.append(
-                [InlineKeyboardButton(text=f"| {get_size(file.file_size)} | {file.file_name}", callback_data=f'pr0fess0r_99#{file_id}')]
+                [InlineKeyboardButton(text="ミ★ FILM DISTRICT ★彡", callback_data="first_af_alert")]
             )
-    if not btn:
-        return
+            total_no_ = 0
+            for file in files:
+                file_id = file.file_id
+                btn.append(
+                    [InlineKeyboardButton(text=f"{total_no_+1} | {get_size(file.file_size)} | {file.file_name}", callback_data=f'pr0fess0r_99#{file_id}')]
+                )
+                total_no_ = total_no_ + 1
+
+        if not btn:
+            return
 
 
         m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
