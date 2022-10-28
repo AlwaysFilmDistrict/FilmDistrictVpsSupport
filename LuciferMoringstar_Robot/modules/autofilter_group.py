@@ -331,7 +331,7 @@ async def group_filters(client, message):
             for file in files:
                 file_id = file.file_id
                 btn.append(
-                    [InlineKeyboardButton(text=f"{total_no_ + 1} ➠ {get_size(file.file_size)} ➠ {file.file_name}", callback_data=f'pr0fess0r_99#{file_id}')]
+                    [InlineKeyboardButton(text=f"{total_no_+1} | {get_size(file.file_size)} ➠ {file.file_name}", callback_data=f'pr0fess0r_99#{file_id}')]
                 )
                 total_no_ = total_no_ + 1
 
