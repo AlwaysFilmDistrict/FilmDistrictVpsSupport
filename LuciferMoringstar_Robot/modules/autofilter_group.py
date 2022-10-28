@@ -12,6 +12,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 from pyrogram.errors import MessageNotModified
 from keys import WITHOUT_POSTER_CAPTION, WITH_POSTER_CAPTION
+from LuciferMoringstar_Robot.Commands import donate_
 
 import pytz, datetime, math
 
@@ -606,6 +607,7 @@ async def all_files(client, query):
                 reply_markup=InlineKeyboardMarkup(buttons)
               
             )
+       
         except FloodWait as e:
             await asyncio.sleep(e.x)              
             await client.send_cached_media(
@@ -617,6 +619,10 @@ async def all_files(client, query):
             )
         except:
             pass
+
+      
+    await donate_(client, query, False)
+
 
 
 
