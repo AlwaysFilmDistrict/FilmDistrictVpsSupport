@@ -338,7 +338,6 @@ async def group_filters(client, message):
         return
 
 
-
         m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
         times = m.hour
         if times < 12:
