@@ -1,12 +1,14 @@
 import re, asyncio, random, os
-from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
+
+from LuciferMoringstar_Robot.functions.ads_controls import get_shortlink
+
 from Database.autofilter_db import get_filter_results, get_search_results, get_file_details
 from Database._utils import get_size, get_poster, split_list, temp
-from Config import SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BOT_PHOTO, IMDB_POSTER_ON_OFF, CUSTOM_FILE_CAPTION, FORWARD_PERMISSION       
+from Config import SPELLING_MODE_TEXT, SEPLLING_MODE_ON_OR_OFF, BOT_PHOTO, IMDB_POSTER_ON_OFF, CUSTOM_FILE_CAPTION, FORWARD_PERMISSION, ADS_WEB_API
 import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
@@ -454,14 +456,6 @@ async def group_filters(client, message):
             Get = "Good Night"
 
 
-
-
-
-
-
-
-
-
         btn = [[
          InlineKeyboardButton("ツ DOWNLOAD ツ", callback_data="download_files_af")
          ],[
@@ -546,9 +540,14 @@ async def autofilter_download(client, query):
         total_no_s = 0
         for file in files:
             file_id = file.file_id
-            btn.append(
-                [InlineKeyboardButton(text=f"{total_no_s+1} | {get_size(file.file_size)} | {file.file_name}", callback_data=f'pr0fess0r_99#{file_id}')]
-            )
+            if ADS_WEB_API:
+                btn.append(
+                    [InlineKeyboardButton(text=f"{total_no_s+1} | {get_size(file.file_size)} | {file.file_name}", url=await get_shortlink(f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}"))]
+                )
+            else:
+                btn.append(
+                    [InlineKeyboardButton(text=f"{total_no_s+1} | {get_size(file.file_size)} | {file.file_name}", callback_data=f'pr0fess0r_99#{file_id}')]
+                )
             total_no_s = total_no_s + 1
 
     if not btn:
@@ -728,7 +727,3 @@ async def all_files(client, query):
 
       
     await donate_(client, query, False)
-
-
-
-
