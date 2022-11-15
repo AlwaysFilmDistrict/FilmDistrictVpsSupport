@@ -1,5 +1,5 @@
 import aiohttp
-from configs import ADS_WEB_API, ADS_WEB_URI
+from configs import ADS_WEB_API, ADS_WEB_URL
 
 async def get_shortlink(link):
     https = link.split(":")[0]
