@@ -1,10 +1,14 @@
 import asyncio, imdb, time, psutil, math
 from pyrogram import Client, filters, enums
-from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid, QueryIdInvalid
+from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
+
+from LuciferMoringstar_Robot.functions.ads_controls import get_shortlink
+from configs import ADS_WEB_API
+
 from Database.autofilter_db import get_file_details, get_search_results, Media
 from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, BUTTON_CALLBACK_OR_URL, BOT_PHOTO, IMDBOT_CAPTION, ADMINS, BOT_START_TIME, FORWARD_PERMISSION     
-from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid, QueryIdInvalid
 from Database._utils import get_poster, is_subscribed, get_size, temp
 from LuciferMoringstar_Robot.text.commands_text import ABOUT_TEXT, HELP_TEXT_DEV, HELP_TEXT_USER, START_USER_TEXT, START_DEV_TEXT, about_master, DONATE_TEXT
 from LuciferMoringstar_Robot.text.auto_filter_text import FIRST_BUTTON
@@ -60,9 +64,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 total_no_s = 0
                 for file in files:
                     file_id = file.file_id
-                    btn.append(
-                        [InlineKeyboardButton(text=f"{total_no_s + 1} | {get_size(file.file_size)} | {file.file_name}", callback_data=f'pr0fess0r_99#{file_id}')]
-                    )
+                    if ADS_WEB_API:
+                        btn.append(
+                            [InlineKeyboardButton(text=f"{total_no_s + 1} | {get_size(file.file_size)} | {file.file_name}", url=await get_shortlink(f"https://t.me/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}"))]
+                        )
+                    else:
+                        btn.append(
+                            [InlineKeyboardButton(text=f"{total_no_s+1} | {get_size(file.file_size)} | {file.file_name}", callback_data=f'pr0fess0r_99#{file_id}')]
+                        )
                     total_no_s = total_no_s + 1
             if 0 < offset <= 10:
                 off_set = 0
