@@ -1,5 +1,8 @@
-import aiohttp
+import aiohttp, logging
 from configs import ADS_WEB_API, ADS_WEB_URL
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.ERROR)
 
 async def get_shortlink(link):
     https = link.split(":")[0]
