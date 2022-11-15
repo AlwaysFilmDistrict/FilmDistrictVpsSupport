@@ -85,6 +85,16 @@ COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 START_MSG = environ.get('START_MSG')
 
 
+
+# Ads Control
+ADS_WEB_API = environ.get('WEB_API')
+ADS_WEB_URL = environ.get('WEB_URL')
+
+
+
+
+
+
 # Other
 
 BOT_START_TIME = time.time() # Time
