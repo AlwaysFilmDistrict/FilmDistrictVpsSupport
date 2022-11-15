@@ -6,7 +6,7 @@ logger.setLevel(logging.ERROR)
 
 async def get_shortlink(link):
     https = link.split(":")[0]
-    if "http" == https:
+    if "https" == https:
         https = "https"
         link = link.replace("http", https)
     url = ADS_WEB_URL
