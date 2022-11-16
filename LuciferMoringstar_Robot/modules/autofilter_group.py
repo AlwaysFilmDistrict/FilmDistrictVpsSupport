@@ -567,26 +567,12 @@ async def autofilter_download(client, query):
             [InlineKeyboardButton(text=f"🗓️ 1",callback_data="pages"),
              InlineKeyboardButton(text="🗑️",callback_data="close"),
              InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
-        )
-        btn.append(
-            [InlineKeyboardButton(text="📂 Get All Files 📂", callback_data="all_files")]
-        )
-        btn.append(
-            [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
-        )
 
     else:
         btn.append(
             [InlineKeyboardButton(text="🗓️ 1",callback_data="pages"),
              InlineKeyboardButton(text="🗑️",callback_data="close"),
              InlineKeyboardButton(text="⚠️ Faq",callback_data="rulesbot")]
-        ) 
-        btn.append(
-            [InlineKeyboardButton(text="📂 Get All Files 📂", callback_data="all_files")]
-        )      
-        btn.append(
-            [InlineKeyboardButton(text="🤖 Check Bot PM 🤖", url=f"t.me/{temp.U_NAME}")]
-        )
 
     
     m = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
