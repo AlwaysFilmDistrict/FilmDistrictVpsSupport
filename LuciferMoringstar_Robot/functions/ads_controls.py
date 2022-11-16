@@ -5,9 +5,9 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
 async def get_shortlink(link):
-    url = f"{URL_SHORTNER_WEBSITE}/api"
+    url = f"{ADS_WEB_URL}/api"
     params = {
-     'api': URL_SHORTNER_WEBSITE_API,
+     'api': ADS_WEB_API,
      'url': link,
     }
     async with aiohttp.ClientSession() as session:
