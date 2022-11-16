@@ -7,8 +7,8 @@ logger.setLevel(logging.ERROR)
 async def get_shortlink(link):
     url = f"{ADS_WEB_URL}"
     params = {
-     'api': ADS_WEB_API,
-     'url': link,
+     'token': ADS_WEB_API,
+     'link': link,
      'format': 'json'
     }
 
