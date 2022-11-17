@@ -42,7 +42,7 @@ async def start(bot, message):
                     )
                     return
             except UserNotParticipant:
-                ident, file_id, grp_id = message.text.split("_-_-_-_")
+                ident, file_id = message.text.split("_-_-_-_")
                 await bot.send_photo(
                     photo="https://graph.org/file/306aa2d9d0676008d4ac2.jpg",
                     chat_id=message.from_user.id,
@@ -67,7 +67,7 @@ async def start(bot, message):
                 )
                 return
         try:
-            mrk, file_id, grp_id = message.text.split("_-_-_-_")
+            mrk, file_id = message.text.split("_-_-_-_")
             filedetails = await get_file_details(file_id)
             for mrk in filedetails:
                 title = mrk.file_name
@@ -75,7 +75,7 @@ async def start(bot, message):
                 caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=mrk.caption, mention=message.from_user.mention)                           
                 await bot.send_cached_media(chat_id=message.from_user.id, file_id=file_id, caption=caption)
                 await donate_(bot, message, True)
-                await message.reply(grp_id)
+                
         except Exception as error:
             await message.reply_text(f"""𝚂𝙾𝙼𝙴𝚃𝙷𝙸𝙽𝙶 𝚆𝙴𝙽𝚃 𝚆𝚁𝙾𝙽𝙶.!\n\n𝙴𝚁𝚁𝙾𝚁:`{error}`""")
 
