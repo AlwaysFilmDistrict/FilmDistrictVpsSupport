@@ -1,4 +1,4 @@
-import os
+import os, math
 from pyrogram.errors import MessageNotModified
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from LuciferMoringstar_Robot.modules.auto_filters_group.spell_check import spell_check_mode
