@@ -1,7 +1,7 @@
 import os, logging, asyncio 
 from pyrogram import Client, filters, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, LOG_CHANNEL, BOT_PHOTO, ADMINS
+from Config import AUTH_CHANNEL, CUSTOM_FILE_CAPTION, LOG_CHANNEL, BOT_PHOTO, ADMINS, FORWARD_PERMISSION
 from Database.autofilter_db import get_file_details 
 from Database.users_chats_db import db
 from Database._utils import get_size, temp
@@ -69,18 +69,24 @@ async def start(bot, message):
         try:
             mrk, file_id = message.text.split("_-_-_-_")
             filedetails = await get_file_details(file_id)
+
+            if message.from_user.id not in FORWARD_PERMISSION:        
+                protect_content=True
+            else:
+                protect_content=False
+
             for mrk in filedetails:
                 title = mrk.file_name
                 size = get_size(mrk.file_size)
                 caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=mrk.caption, mention=message.from_user.mention)                           
-                await bot.send_cached_media(chat_id=message.from_user.id, file_id=file_id, caption=caption)
+                await bot.send_cached_media(chat_id=message.from_user.id, file_id=file_id, caption=caption, protect_content=protect_content)
                 await donate_(bot, message, True)
                 
         except Exception as error:
             await message.reply_text(f"""𝚂𝙾𝙼𝙴𝚃𝙷𝙸𝙽𝙶 𝚆𝙴𝙽𝚃 𝚆𝚁𝙾𝙽𝙶.!\n\n𝙴𝚁𝚁𝙾𝚁:`{error}`""")
 
 
-
+ 
 
     elif len(message.command) > 1 and message.command[1] == 'subscribe':
         invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
