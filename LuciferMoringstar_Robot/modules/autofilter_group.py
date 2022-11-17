@@ -538,6 +538,13 @@ async def autofilter_download(client, query):
         btn.append(
             [InlineKeyboardButton(text="ミ★ FILM DISTRICT ★彡", callback_data="first_af_alert")]
         )
+
+        kb2 = [
+         InlineKeyboardButton("Channel", url="t.me/mo_tech_yt"),
+         InlineKeyboardButton("Process", url="LuciferMoringstar_Robot/functions/video.mp4")       
+        ]
+        btn.append(kb2)
+        
         total_no_s = 0
         for file in files:
             file_id = file.file_id
