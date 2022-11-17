@@ -156,7 +156,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data.startswith("pr0fess0r_99"):
             
-            ident, file_id, grp_id = query.data.split("#")
+            ident, file_id = query.data.split("#")
             files_ = await get_file_details(file_id)
             if not files_:
                 return await query.answer('No Such File Exist.')
