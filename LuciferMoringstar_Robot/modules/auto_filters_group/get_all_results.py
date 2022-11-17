@@ -32,10 +32,10 @@ async def get_all_results(client, query):
             file_id = file.file_id
             if ADS_WEB_API:
                 if settings["buttons"]:
-                    btn.append( [ InlineKeyboardButton(text=f"{total_no_s+1} | {get_size(file.file_size)} | {file.file_name}", url=await get_shortlink(f"http://telegram.dog/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}") ) ]
+                    btn.append( [ InlineKeyboardButton(text=f"{total_no_s+1} | {get_size(file.file_size)} | {file.file_name}", url=await get_shortlink(f"http://telegram.dog/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}") ] )
                 else:
-                    btn.append( [ InlineKeyboardButton(text=f"{get_size(file.file_size)}", url=await get_shortlink(f"http://telegram.dog/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}") ) ]
-                    btn.append( [ InlineKeyboardButton(text=f"{file.file_name}", url=await get_shortlink(f"http://telegram.dog/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}") ) ]                   
+                    btn.append( [ InlineKeyboardButton(text=f"{get_size(file.file_size)}", url=await get_shortlink(f"http://telegram.dog/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}") ] )
+                    btn.append( [ InlineKeyboardButton(text=f"{file.file_name}", url=await get_shortlink(f"http://telegram.dog/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}") ] )                  
             else:
                 if settings["buttons"]:
                     btn.append( [ InlineKeyboardButton(text=f"{total_no_s+1} | {get_size(file.file_size)} | {file.file_name}", callback_data=f'pr0fess0r_99#{file_id}') ] )
