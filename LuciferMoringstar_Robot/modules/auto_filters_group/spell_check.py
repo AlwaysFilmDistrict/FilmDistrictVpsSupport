@@ -17,6 +17,6 @@ async def spell_check_mode(client, query):
       InlineKeyboardButton("🗑️ CLOSE 🗑️", callback_data="close")
       ]]
         
-    remove = await query.message.reply_text(text=SPELLING_MODE_TEXT.format(mention=mention, query=search), reply_markup=reply_markup=InlineKeyboardMarkup(button))                             
+    remove = await query.message.reply_text(text=SPELLING_MODE_TEXT.format(mention=mention, query=search), reply_markup=InlineKeyboardMarkup(button))                             
     await sleep(60) 
     await remove.delete()
