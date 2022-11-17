@@ -1,7 +1,7 @@
 import pytz, datetime
 from configs import TIME_ZONE
 
-async def user_greetings()
+async def user_greetings():
     m = datetime.datetime.now(pytz.timezone(TIME_ZONE))
     
     if m.hour < 12:
