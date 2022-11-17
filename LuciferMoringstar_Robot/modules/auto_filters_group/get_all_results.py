@@ -72,7 +72,7 @@ async def get_all_results(client, query):
            
     if settings["imdb_photo"]:
         imdb = await get_poster(search)
-        IMDB_CAPTION = os.environ.get('WITH_POSTER_CAPTION', "")
+        IMDB_CAPTION = os.environ.get('WITH_POSTER_CAPTION', None)
         cap = IMDB_CAPTION.format(
             greeting = await user_greetings(),
             mention = f"[{query.from_user.first_name}](tg://user?id={query.from_user.id})",
@@ -108,7 +108,7 @@ async def get_all_results(client, query):
             url = imdb['url']
         )
     else:
-        IMDB_CAPTIONS = os.environ.get('WITHOUT_POSTER_CAPTION', "")
+        IMDB_CAPTIONS = os.environ.get('WITHOUT_POSTER_CAPTION', None)
         cap=IMDB_CAPTIONS.format(
             greeting=await user_greetings(),
             mention = f"[{query.from_user.first_name}](tg://user?id={query.from_user.id})",
