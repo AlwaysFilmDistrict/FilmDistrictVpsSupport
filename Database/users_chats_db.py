@@ -48,10 +48,6 @@ class Database:
     async def delete_user(self, user_id):
         await self.col.delete_many({'id': int(user_id)})
 
-
-
-
-
     async def get_ban_status(self, id):
         default = dict(
             is_banned=False,
@@ -125,4 +121,21 @@ class Database:
         return (await self.db.command("dbstats"))['dataSize']
 
 
+    async def update_settings(self, id, settings):
+        await self.grp.update_one({'id': int(id)}, {'$set': {'settings': settings}})
+           
+    async def get_settings(self, id):
+        default = {
+            'file_secure': True,
+            'imdb_photo': True,
+            'buttons': True,
+            'spellmode': True
+        }
+        chat = await self.grp.find_one({'id':int(id)})
+        if chat:
+            return chat.get('settings', default)
+        return default
+
+
 db = Database(DB_URL, DATABASE_NAME)
+Inv
