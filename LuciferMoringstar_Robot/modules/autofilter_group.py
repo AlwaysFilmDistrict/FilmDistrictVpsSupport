@@ -541,7 +541,7 @@ async def autofilter_download(client, query):
 
         kb2 = [
          InlineKeyboardButton("Channel", url="https://telegram.me/joinchat/EUUS8b0iEnVjZTU9"),
-         InlineKeyboardButton("Process", url="LuciferMoringstar_Robot/functions/video.mp4")       
+         InlineKeyboardButton("Process", url="https://telegram.me/joinchat/EUUS8b0iEnVjZTU9")       
         ]
         btn.append(kb2)
         
