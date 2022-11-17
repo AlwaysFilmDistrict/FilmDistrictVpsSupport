@@ -138,4 +138,3 @@ class Database:
 
 
 db = Database(DB_URL, DATABASE_NAME)
-Inv
