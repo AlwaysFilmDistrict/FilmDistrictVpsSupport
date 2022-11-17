@@ -16,6 +16,9 @@ CUSTOM_FILE_CAPTION = environ.get('SPELLING_MODE_TEXT', CUSTOM_FILE_CAPTION)
 # users & admins
 FORWARD_PERMISSION = [int(admin) if search.search(admin) else admin for admin in environ.get('FORWARD_PERMISSION', "919653750").split()]
 
+# imdb
+LONG_IMDB_DESCRIPTION = False 
+MAX_LIST_ELM = environ.get("MAX_LIST_ELM", None)
 
 # other
 TIME_ZONE = "Asia/Kolkata"
