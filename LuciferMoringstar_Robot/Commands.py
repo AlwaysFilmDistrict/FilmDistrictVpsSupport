@@ -75,11 +75,20 @@ async def start(bot, message):
             else:
                 protect_content=False
 
+            
+            buttons=[[
+             InlineKeyboardButton("🆘👤 Owner", url="http://t.me/helloheartbeat"),
+             InlineKeyboardButton("🆘🤖 Contact", url="http://t.me/TalkToHeartBeatBot")
+             ],[
+             InlineKeyboardButton("⁉️ Want To Save/Share This File", callback_data="savefile_alert")
+             ],[
+             InlineKeyboardButton("❌ Close", callback_data="close")
+             ]]
             for mrk in filedetails:
                 title = mrk.file_name
                 size = get_size(mrk.file_size)
                 caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=mrk.caption, mention=message.from_user.mention)                           
-                await bot.send_cached_media(chat_id=message.from_user.id, file_id=file_id, caption=caption, protect_content=protect_content)
+                await bot.send_cached_media(chat_id=message.from_user.id, file_id=file_id, caption=caption, protect_content=protect_content, reply_markup=InlineKeyboardMarkup(buttons))
                 await message.reply("Please /donate to keep this service alive.")
                 
         except Exception as error:
