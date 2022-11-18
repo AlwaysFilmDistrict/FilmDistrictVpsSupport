@@ -370,8 +370,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await edit5.edit(about_master.format(query.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data == "about":
-            await query.message.reply_chat_action(enums.ChatAction.TYPING)      
-            await query.answer(ABOUT_TEXT, show_alert=True)
+            await query.message.reply_chat_action(enums.ChatAction.TYPING)
+            try:    
+                await query.answer(ABOUT_TEXT, show_alert=True)
+            except QueryIdInvalid:
+                pass
 
         elif query.data == "donate":
             await query.message.reply_chat_action(enums.ChatAction.TYPING)
