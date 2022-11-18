@@ -550,7 +550,7 @@ async def autofilter_download(client, query):
             file_id = file.file_id
             if ADS_WEB_API:
                 btn.append(
-                    [InlineKeyboardButton(text=f"{total_no_s+1} | {get_size(file.file_size)} | {file.file_name}", url=await get_shortlink(f"http://telegram.dog/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}_-_-_-_{query.message.chat.id}"))]
+                    [InlineKeyboardButton(text=f"{total_no_s+1} | {get_size(file.file_size)} | {file.file_name}", url=await get_shortlink(f"http://telegram.dog/{temp.U_NAME}?start=pr0fess0r_99_-_-_-_{file_id}"))]
                 )
             else:
                 btn.append(
