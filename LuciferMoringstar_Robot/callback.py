@@ -63,7 +63,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 )
                 kb2 = [
                   InlineKeyboardButton("Channel", url="https://telegram.me/joinchat/EUUS8b0iEnVjZTU9"),
-                  InlineKeyboardButton("Process", url="https://telegram.me/joinchat/EUUS8b0iEnVjZTU9")       
+                  InlineKeyboardButton("Process", url="https://graph.org/PROCESS-FILMDISTRICT-11-18")       
                 ]
                 btn.append(kb2)
 
