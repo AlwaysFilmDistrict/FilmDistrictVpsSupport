@@ -80,7 +80,7 @@ async def start(bot, message):
                 size = get_size(mrk.file_size)
                 caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=mrk.caption, mention=message.from_user.mention)                           
                 await bot.send_cached_media(chat_id=message.from_user.id, file_id=file_id, caption=caption, protect_content=protect_content)
-                await donate_(bot, message, True)
+                await message.reply("Please /donate to keep this service alive.")
                 
         except Exception as error:
             await message.reply_text(f"""𝚂𝙾𝙼𝙴𝚃𝙷𝙸𝙽𝙶 𝚆𝙴𝙽𝚃 𝚆𝚁𝙾𝙽𝙶.!\n\n𝙴𝚁𝚁𝙾𝚁:`{error}`""")
