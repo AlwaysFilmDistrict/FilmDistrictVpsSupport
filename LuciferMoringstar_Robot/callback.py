@@ -61,6 +61,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 btn.append(
                     [InlineKeyboardButton(text="ミ★ FILM DISTRICT ★彡", callback_data="first_af_alert")]
                 )
+                kb2 = [
+                  InlineKeyboardButton("Channel", url="https://telegram.me/joinchat/EUUS8b0iEnVjZTU9"),
+                  InlineKeyboardButton("Process", url="https://telegram.me/joinchat/EUUS8b0iEnVjZTU9")       
+                ]
+                btn.append(kb2)
+
                 total_no_s = 0
                 for file in files:
                     file_id = file.file_id
